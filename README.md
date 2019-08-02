@@ -1,0 +1,86 @@
+SQL Support for EasePHP Framework using FluentPDO
+=================================================
+
+
+
+Installation
+============
+
+Download https://github.com/VitexSoftware/php-ease-fluentpdo/archive/master.zip or use
+
+Composer:
+---------
+    composer require vitexsoftware/ease-fluentpdo
+
+Linux
+-----
+
+For Debian, Ubuntu & friends please use repo:
+
+```
+echo "deb http://repo.vitexsoftware.cz $(lsb_release -sc) main" | sudo tee /etc/apt/sources.list.d/vitexsoftware.list
+sudo wget -O /etc/apt/trusted.gpg.d/vitexsoftware.gpg http://repo.vitexsoftware.cz/keyring.gpg
+sudo apt update
+sudo apt install php-ease-fluentpdo
+```
+
+In this case please add this to your app composer.json:
+
+```json
+    "require": {
+        "deb/ease-fluentpdo": "*"
+    },
+    "repositories": [
+        {
+            "type": "path",
+            "url": "/usr/share/php/EaseSQL",
+            "options": {
+                "symlink": true
+            }
+        }
+    ]
+```
+
+
+Framework Constants
+===================
+
+  * DB_TYPE      - pgsql|mysql|sqlite|...
+  * DB_HOST      - localhost is default 
+  * DB_PORT      - database port 
+  * DB_DATABASE  - database schema name
+  * DB_USERNAME  - database user login name
+  * DB_PASSWORD  - database user password
+  * DB_SETUP     - database setup command (executed directly after connect)
+
+
+Testing
+-------
+
+At first you need initialise create sql user & database with login and password 
+from testing/phinx.yml and initialise testing database by **phinx migrate** 
+command:
+
+```
+composer update
+cd tests
+mysqladmin -u root -p create easetest
+mysql -u root -p -e "GRANT ALL PRIVILEGES ON easetest.* TO easetest@localhost IDENTIFIED BY 'easetest'"
+sudo -u postgres bash -c "psql -c \"CREATE USER easetest WITH PASSWORD 'easetest';\""
+sudo -u postgres bash -c "psql -c \"create database easetest with owner easetest encoding='utf8' template template0;\""
+../vendor/bin/phinx migrate -e development 
+../vendor/bin/phinx migrate -e testing  
+```
+
+Building
+--------
+
+Simply run **make deb**
+
+Links
+=====
+
+Homepage: https://www.vitexsoftware.cz/ease.php
+
+GitHub: https://github.com/VitexSoftware/php-ease-fluentpdo
+

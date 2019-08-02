@@ -1,0 +1,29 @@
+{
+    "name": "vitexsoftware/ease-fluentpdo",
+    "description": "Description of project ease-fluentpdo.",
+    "authors": [
+        {
+            "name": "Vitex",
+            "email": "info@vitexsoftware.cz"
+        }
+    ],
+    "require": {
+        "vitexsoftware/ease-core": "dev-master",
+        "fpdo/fluentpdo": "dev-master"
+    },
+    "autoload": {
+        "psr-4": {
+            "Ease\\SQL\\": "src/Ease/SQL"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Test\\Ease\\Local\\": "tests",
+            "Test\\Ease\\SQL\\": "tests/src/Ease/SQL"
+        }
+    },
+    "conflict": {
+        "vitexsoftware/ease-framework": "*"
+    }
+
+}
