@@ -20,7 +20,7 @@ class PDO extends SQL
      *
      * @var DBO
      */
-    public $sqlLink = null;
+    public $pdo = null;
 
     /**
      * SQLLink result.
@@ -56,13 +56,6 @@ class PDO extends SQL
      * @var bool
      */
     public $explainMode = false;
-
-    /**
-     * Nastavení vlastností přípojení.
-     *
-     * @var array
-     */
-    public $connectionSettings = [];
 
     /**
      * Saves obejct instace (singleton...).
@@ -125,62 +118,14 @@ class PDO extends SQL
      */
     public function addSlashes($text)
     {
-        if (isset($this->sqlLink) && method_exists($this->sqlLink,
+        if (isset($this->pdo) && method_exists($this->pdo,
                 'real_escape_string')) {
-            $slashed = $this->sqlLink->real_escape_string($text);
+            $slashed = $this->pdo->real_escape_string($text);
         } else {
             $slashed = addslashes($text);
         }
 
         return $slashed;
-    }
-
-    /**
-     * Perform connect to database.
-     *
-     * @return false|null connecting result true: connected, false: error, null: no SQL configured
-     */
-    public function connect()
-    {
-        if (is_null($this->dbType)) {
-            $result = null;
-        } else {
-            switch ($this->dbType) {
-                case 'mysql':
-                    $this->sqlLink = new \PDO($this->dbType.':dbname='.$this->database.';host='.$this->server.';port='.$this->port.';charset=utf8',
-                        $this->username, $this->password,
-                        [\PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES \'utf8\'']);
-                    break;
-                case 'pgsql':
-                    $this->sqlLink = new \PDO($this->dbType.':dbname='.$this->database.';host='.$this->server.';port='.$this->port,
-                        $this->username, $this->password);
-                    if (is_object($this->sqlLink)) {
-                        $this->sqlLink->query("SET NAMES 'UTF-8'");
-                    }
-                    break;
-
-                default:
-                    throw new \Ease\Exception(_('Unimplemented Database type').': '.$this->dbType);
-                    break;
-            }
-
-            if (is_object($this->sqlLink)) {
-                $this->errorNumber = $this->sqlLink->errorCode();
-                $this->errorText   = $this->sqlLink->errorInfo();
-            } else {
-                $result = false;
-            }
-            if ($this->errorNumber != '00000') {
-                $this->addStatusMessage('Connect: error #'.$this->errorNumer.' '.$this->errorText,
-                    'error');
-
-                $result = false;
-            } else {
-                $result = parent::connect();
-            }
-        }
-
-        return $result;
     }
 
     /**
@@ -193,12 +138,12 @@ class PDO extends SQL
     public function selectDB($dbName = null)
     {
         parent::selectDB($dbName);
-        $change = $this->sqlLink->select_db($dbName);
+        $change = $this->pdo->select_db($dbName);
         if ($change) {
             $this->Database = $dbName;
         } else {
-            $this->errorText   = $this->sqlLink->error;
-            $this->errorNumber = $this->sqlLink->errno;
+            $this->errorText   = $this->pdo->error;
+            $this->errorNumber = $this->pdo->errno;
             $this->addStatusMessage('Connect: error #'.$this->errorNumber.' '.$this->errorText,
                 'error');
             $this->logError();
@@ -217,7 +162,7 @@ class PDO extends SQL
      */
     public function exeQuery($queryRaw, $ignoreErrors = false)
     {
-        if (!isset($this->sqlLink) || is_null($this->sqlLink)) {
+        if (!isset($this->pdo) || is_null($this->pdo)) {
             $this->connect();
         }
 
@@ -232,9 +177,9 @@ class PDO extends SQL
             case 'select':
             case 'truncate':
             case 'show':
-                $this->result      = $this->sqlLink->query($queryRaw);
-                $this->errorNumber = $this->sqlLink->errorCode();
-                $errorText         = $this->sqlLink->errorInfo();
+                $this->result      = $this->pdo->query($queryRaw);
+                $this->errorNumber = $this->pdo->errorCode();
+                $errorText         = $this->pdo->errorInfo();
                 if ($this->errorNumber) {
                     $this->errorText = $errorText[2];
                 }
@@ -251,10 +196,10 @@ class PDO extends SQL
                 }
             case 'replace':
             case 'delete':
-                $stmt              = $this->sqlLink->prepare($queryRaw);
+                $stmt              = $this->pdo->prepare($queryRaw);
                 $stmt->execute();
-                $this->errorNumber = $this->sqlLink->errorCode();
-                $this->errorText   = $this->sqlLink->errorInfo();
+                $this->errorNumber = $this->pdo->errorCode();
+                $this->errorText   = $this->pdo->errorInfo();
 
                 if (isset($this->errorText[2])) {
                     $this->addStatusMessage($this->errorText[2].': '.$queryRaw,
@@ -276,10 +221,10 @@ class PDO extends SQL
                 }
                 break;
             case 'update':
-                $stmt              = $this->sqlLink->prepare($queryRaw);
+                $stmt              = $this->pdo->prepare($queryRaw);
                 $stmt->execute();
-                $this->errorNumber = $this->sqlLink->errorCode();
-                $errorText         = $this->sqlLink->errorInfo();
+                $this->errorNumber = $this->pdo->errorCode();
+                $errorText         = $this->pdo->errorInfo();
                 if ($this->errorNumber) {
                     $this->errorText = $errorText[2];
                 }
@@ -318,7 +263,7 @@ class PDO extends SQL
                 break;
         }
 
-        return $this->sqlLink->lastInsertId($column);
+        return $this->pdo->lastInsertId($column);
     }
 
     /**
@@ -640,7 +585,7 @@ class PDO extends SQL
      */
     public function close()
     {
-        return $this->sqlLink = null;
+        return $this->pdo = null;
     }
 
     /**
@@ -658,7 +603,7 @@ class PDO extends SQL
      */
     public function __sleep()
     {
-        unset($this->sqlLink);
+        unset($this->pdo);
         unset($this->result);
 
         return parent::__sleep();

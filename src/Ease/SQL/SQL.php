@@ -31,40 +31,6 @@ abstract class SQL extends \Ease\Molecule
      */
     public $sqlLink = null;
 
-    /**
-     * IP serveru.
-     *
-     * @var string
-     */
-    public $server = null;
-
-    /**
-     * DB Login.
-     *
-     * @var string
-     */
-    public $username = null;
-
-    /**
-     * DB heslo.
-     *
-     * @var string
-     */
-    public $password = null;
-
-    /**
-     * Database to connect by default.
-     *
-     * @var string
-     */
-    public $database = null;
-
-    /**
-     * Database port.
-     *
-     * @var string
-     */
-    public $port = null;
 
     /**
      * Status připojení.
@@ -122,19 +88,6 @@ abstract class SQL extends \Ease\Molecule
      */
     public $tableStructure = [];
 
-    /**
-     * Poslední Chybová zpráva obdržená od SQL serveru.
-     *
-     * @var string
-     */
-    public $errorText = null;
-
-    /**
-     * Kod SQL chyby.
-     *
-     * @var int
-     */
-    public $errorNumber = null;
 
     /**
      * Pole obsahující výsledky posledního SQL příkazu.
@@ -170,13 +123,6 @@ abstract class SQL extends \Ease\Molecule
      * @var bool
      */
     protected $connectAllreadyUP = false;
-
-    /**
-     * Type of used database.
-     *
-     * @var string mysql|pgsql|..
-     */
-    public $dbType;
 
     /**
      * Hack WHERE to make Sensio Labs checks happy.
