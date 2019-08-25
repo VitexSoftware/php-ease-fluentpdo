@@ -339,35 +339,8 @@ class Engine extends \Ease\Brick
      */
     public function insertToSQL($data = null)
     {
-        if (is_null($data)) {
-            $data        = $this->getData();
-            $useInObject = true;
-        } else {
-            $useInObject = false;
-        }
-
-        if (!count($data)) {
-            $this->addStatusMessage('NO data for Insert to SQL: '.$this->myTable,
-                'error');
-
-            return;
-        }
-
-        if ($this->createColumn && !isset($data[$this->createColumn])) {
-            $data[$this->createColumn] = 'NOW()';
-        }
-        $queryRaw = 'INSERT INTO '.$this->dblink->getColumnComma().$this->myTable.$this->dblink->getColumnComma().' '.$this->dblink->arrayToInsertQuery($data,
-                false);
-        $this->dblink->useObject($this);
-        if ($this->dblink->exeQuery($queryRaw)) {
-            if ($useInObject) {
-                $this->setMyKey($this->dblink->lastInsertID);
-            }
-
-            return $this->dblink->lastInsertID;
-        }
-
-        return;
+        $query = $this->getFluentPDO()->insertInto($this->getMyTable(), is_null($data) ? $this->getData() : $data  )->execute(); 
+        return $this->getPdo()->lastInsertId();
     }
 
     /**
