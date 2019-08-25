@@ -29,6 +29,11 @@ class Engine extends \Ease\Brick
      */
     public $createColumn = null;
 
+    /**
+     * 
+     * @param mixed $identifier
+     * @param array $options
+     */
     public function __construct($identifier = null, $options = [])
     {
         $this->setUp($options);
@@ -52,6 +57,7 @@ class Engine extends \Ease\Brick
         $this->setupProperty($options, 'database', 'DB_DATABASE');
         $this->setupProperty($options, 'port', 'DB_PORT');
         $this->setupProperty($options, 'connectionSettings', 'DB_SETUP');
+        $this->setupProperty($options, 'myTable');
     }
 
     /**
@@ -61,8 +67,8 @@ class Engine extends \Ease\Brick
     public function listingQuery()
     {
         return $this->getFluentPDO()->from($this->getMyTable());
-    }    
-    
+    }
+
     /**
      * Vrací z databáze sloupečky podle podmínek.
      *
@@ -79,63 +85,28 @@ class Engine extends \Ease\Brick
                                       $orderBy = null, $indexBy = null,
                                       $limit = null)
     {
-        $cc = $this->dblink->getColumnComma();
-        if (($columnsList != '*') && !count($columnsList)) {
-            throw new \Ease\Exception('getColumnsFromSQL: Missing ColumnList');
-        }
-
-        if (is_int($conditions)) {
-            $conditions = [$this->getKeyColumn() => $conditions];
-        }
-
-        $where = '';
-        if (is_array($conditions) && count($conditions)) {
-            $where = SQL::$whr.$this->dblink->prepSelect($conditions);
-        } else {
-            if (!is_null($conditions)) {
-                $where = SQL::$whr.$conditions;
-            }
-        }
-
-        if (is_array($indexBy)) {
-            $indexBy = implode(',', $indexBy);
-        }
+        $result = [];
+        $fluent = $this->listingQuery();
 
         if ($orderBy) {
-            if (is_array($orderBy) && count($indexBy)) {
-                foreach ($orderBy as $oid => $oname) {
-                    $orderBy[$oid] = "`$oname`";
+            $fluent->orderBy($orderBy);
+        }
+
+        if ($limit) {
+            $fluent->limit($limit);
+        }
+
+        $valuesRaw = $fluent->fetchAll();
+
+        foreach ($valuesRaw as $rowId => $rowData) {
+            foreach ( $rowData as $colName => $colValue){
+                if(in_array($colName, $columnsList) ){
+                    $result[$rowId][$colName] = $colValue;
                 }
-                $orderByCond = SQL::$ord.implode(',', $orderBy);
-            } else {
-                $orderByCond = SQL::$ord.$orderBy;
             }
-        } else {
-            $orderByCond = '';
         }
 
-        if (intval($limit)) {
-            $limitCond = SQL::$lmt.$limit;
-        } else {
-            $limitCond = '';
-        }
-
-        if (is_array($columnsList)) {
-            foreach ($columnsList as $id => $column) {
-                $columnsList[$id] = $cc.$column.$cc;
-            }
-
-            return $this->dblink->queryToArray(SQL::$sel.implode(',',
-                        $columnsList).SQL::$frm.$cc.$this->myTable.$cc.' '.$where.$orderByCond.$limitCond,
-                    $indexBy);
-        } else {
-            if (!strstr($columnsList, '*')) {
-                $columnsList = $cc.$columnsList.$cc;
-            }
-
-            return $this->dblink->queryToArray(SQL::$sel.$columnsList.' FROM '.$cc.$this->myTable.$cc.' '.$where.$orderByCond.$limitCond,
-                    $indexBy);
-        }
+        return $indexBy ? \Ease\Functions::reindexArrayBy($result) : $result;
     }
 
     /**
@@ -222,7 +193,8 @@ class Engine extends \Ease\Brick
         if (is_null($itemID)) {
             $itemID = $this->getMyKey();
         }
-        $sqlResult              = $this->listingQuery()->where( $this->getMyKey(), $id);
+        $sqlResult              = $this->listingQuery()->where($this->getMyKey(),
+            $id);
         $this->multipleteResult = (count($sqlResult) > 1);
 
         if ($this->multipleteResult && is_array($sqlResult)) {
@@ -480,21 +452,6 @@ class Engine extends \Ease\Brick
         $cc        = $this->dblink->getColumnComma();
         $listQuery = SQL::$sel.$cc.$keyColumn.$cc.SQL::$frm.$tableName;
         return $this->dblink->queryToArray($listQuery);
-    }
-
-    /**
-     * Provede přiřazení SQL tabulky objektu.
-     *
-     * @param string $myTable
-     */
-    public function takemyTable($myTable)
-    {
-        $this->myTable = $myTable;
-        if (!isset($this->dblink) || !is_object($this->dblink)) {
-            $this->dblink = \Ease\Shared::db();
-        }
-        $this->dblink->setTableName($myTable);
-        $this->dblink->setKeyColumn($this->keyColumn);
     }
 
     /**

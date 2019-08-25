@@ -349,8 +349,6 @@ abstract class SQL extends \Ease\Molecule
     public function __sleep()
     {
         $this->lastQuery = null;
-
-        return parent::__sleep();
     }
 
     /**
