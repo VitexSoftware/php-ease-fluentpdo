@@ -43,24 +43,6 @@ class Engine extends \Ease\Brick
     }
 
     /**
-     * SetUp Object to be ready for connect
-     *
-     * @param array $options Object Options (company,url,user,password,evidence,
-     *                                       prefix,defaultUrlParams,debug)
-     */
-    public function setUp($options = [])
-    {
-        $this->setupProperty($options, 'dbType', 'DB_TYPE');
-        $this->setupProperty($options, 'server', 'DB_HOST');
-        $this->setupProperty($options, 'username', 'DB_USERNAME');
-        $this->setupProperty($options, 'password', 'DB_PASSWORD');
-        $this->setupProperty($options, 'database', 'DB_DATABASE');
-        $this->setupProperty($options, 'port', 'DB_PORT');
-        $this->setupProperty($options, 'connectionSettings', 'DB_SETUP');
-        $this->setupProperty($options, 'myTable');
-    }
-
-    /**
      * 
      * @return \Envms\FluentPDO
      */
