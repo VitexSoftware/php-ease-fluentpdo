@@ -1,4 +1,5 @@
 <?php
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -12,10 +13,10 @@ namespace Ease\SQL;
  *
  * @author Vítězslav Dvořák <info@vitexsoftware.cz>
  */
-class Engine extends \Ease\Brick
-{
+class Engine extends \Ease\Brick {
 
     use Orm;
+
     /**
      * Předvolená tabulka v SQL (součást identity).
      *
@@ -34,8 +35,7 @@ class Engine extends \Ease\Brick
      * @param mixed $identifier
      * @param array $options
      */
-    public function __construct($identifier = null, $options = [])
-    {
+    public function __construct($identifier = null, $options = []) {
         $this->setUp($options);
         if (!is_null($identifier)) {
             $this->loadFromSQL($id);
@@ -46,8 +46,7 @@ class Engine extends \Ease\Brick
      * 
      * @return \Envms\FluentPDO
      */
-    public function listingQuery()
-    {
+    public function listingQuery() {
         return $this->getFluentPDO()->from($this->getMyTable());
     }
 
@@ -64,9 +63,8 @@ class Engine extends \Ease\Brick
      * @return array
      */
     public function getColumnsFromSQL($columnsList, $conditions = null,
-                                      $orderBy = null, $indexBy = null,
-                                      $limit = null)
-    {
+            $orderBy = null, $indexBy = null,
+            $limit = null) {
         $result = [];
         $fluent = $this->listingQuery();
 
@@ -81,14 +79,14 @@ class Engine extends \Ease\Brick
         $valuesRaw = $fluent->fetchAll();
 
         foreach ($valuesRaw as $rowId => $rowData) {
-            foreach ( $rowData as $colName => $colValue){
-                if(($columnsList == '*') || in_array($colName, $columnsList) ){
+            foreach ($rowData as $colName => $colValue) {
+                if (($columnsList == '*') || in_array($colName, $columnsList)) {
                     $result[$rowId][$colName] = $colValue;
                 }
             }
         }
 
-        return $indexBy ? \Ease\Functions::reindexArrayBy($result) : $result;
+        return $indexBy ? \Ease\Functions::reindexArrayBy($result, $indexBy) : $result;
     }
 
     /**
@@ -98,20 +96,19 @@ class Engine extends \Ease\Brick
      *
      * @return array Results
      */
-    public function getDataFromSQL($itemID = null)
-    {
+    public function getDataFromSQL($itemID = null) {
         if (is_null($itemID)) {
             $itemID = $this->getMyKey();
         }
         if (is_string($itemID)) {
-            $itemID = "'".$this->dblink->addSlashes($itemID)."'";
+            $itemID = "'" . $this->dblink->addSlashes($itemID) . "'";
         } else {
             $itemID = $this->dblink->addSlashes($itemID);
         } if (is_null($itemID)) {
             throw new \Ease\Exception('loadFromSQL: Unknown Key');
         }
-        $cc       = $this->dblink->getColumnComma();
-        $queryRaw = SQL::$sel.' * FROM '.$cc.$this->myTable.$cc.SQL::$whr.$cc.$this->getKeyColumn().$cc.' = '.$itemID;
+        $cc = $this->dblink->getColumnComma();
+        $queryRaw = SQL::$sel . ' * FROM ' . $cc . $this->myTable . $cc . SQL::$whr . $cc . $this->getKeyColumn() . $cc . ' = ' . $itemID;
 
         return $this->dblink->queryToArray($queryRaw);
     }
@@ -128,9 +125,8 @@ class Engine extends \Ease\Brick
      * @return array
      */
     public function getAllFromSQL($tableName = null, $columnsList = null,
-                                  $limit = null, $orderByColumn = null,
-                                  $columnToIndex = null)
-    {
+            $limit = null, $orderByColumn = null,
+            $columnToIndex = null) {
         if (is_null($tableName)) {
             $tableName = $this->myTable;
         }
@@ -138,25 +134,25 @@ class Engine extends \Ease\Brick
         if (is_null($limit)) {
             $limitCond = '';
         } else {
-            $limitCond = SQL::$lmt.$limit;
+            $limitCond = SQL::$lmt . $limit;
         }
         if (is_null($orderByColumn)) {
             $orderByCond = '';
         } else {
             if (is_array($orderByColumn)) {
-                $orderByCond = SQL::$ord.implode(',', $orderByColumn);
+                $orderByCond = SQL::$ord . implode(',', $orderByColumn);
             } else {
-                $orderByCond = SQL::$ord.$orderByColumn;
+                $orderByCond = SQL::$ord . $orderByColumn;
             }
         }
         if (is_null($columnsList)) {
-            $cc      = $this->dblink->getColumnComma();
-            $records = $this->dblink->queryToArray(SQL::$sel.'* FROM '.$cc.$tableName.$cc.' '.$limitCond.$orderByCond,
-                $columnToIndex);
+            $cc = $this->dblink->getColumnComma();
+            $records = $this->dblink->queryToArray(SQL::$sel . '* FROM ' . $cc . $tableName . $cc . ' ' . $limitCond . $orderByCond,
+                    $columnToIndex);
         } else {
-            $records = $this->dblink->queryToArray(SQL::$sel.implode(',',
-                    $columnsList).' FROM '.$tableName.$orderByCond.$limitCond,
-                $columnToIndex);
+            $records = $this->dblink->queryToArray(SQL::$sel . implode(',',
+                            $columnsList) . ' FROM ' . $tableName . $orderByCond . $limitCond,
+                    $columnToIndex);
         }
 
         return $records;
@@ -169,14 +165,12 @@ class Engine extends \Ease\Brick
      *
      * @return array Results
      */
-    public function loadFromSQL($itemID = null)
-    {
+    public function loadFromSQL($itemID = null) {
         $rowsLoaded = null;
         if (is_null($itemID)) {
             $itemID = $this->getMyKey();
         }
-        $sqlResult              = $this->listingQuery()->where($this->getMyKey(),
-            $id);
+        $sqlResult = $this->listingQuery()->where($this->getMyKey(), $id);
         $this->multipleteResult = (count($sqlResult) > 1);
 
         if ($this->multipleteResult && is_array($sqlResult)) {
@@ -187,8 +181,8 @@ class Engine extends \Ease\Brick
             }
             $this->data = $results;
         } else {
-            if (isset($sqlResult[0])) {
-                $this->takeData($sqlResult[0]);
+            if (count($sqlResult)) {
+                $this->takeData($sqlResult->fetchAll());
             }
         }
         if (!empty($this->data)) {
@@ -206,14 +200,13 @@ class Engine extends \Ease\Brick
      *
      * @return int Id záznamu nebo null v případě chyby
      */
-    public function updateToSQL($data = null)
-    {
+    public function updateToSQL($data = null) {
         if (is_null($this->myTable)) {
             return;
         }
 
         if (is_null($data)) {
-            $data        = $this->getData();
+            $data = $this->getData();
             $useInObject = true;
         } else {
             $useInObject = false;
@@ -228,8 +221,8 @@ class Engine extends \Ease\Brick
         if (!isset($data[$this->keyColumn])) {
             $key = $this->getMyKey();
             if (is_null($key)) {
-                $this->addStatusMessage(get_class($this).':UpdateToSQL: Unknown keyColumn:'.$this->keyColumn.' '.
-                    json_encode($data), 'error');
+                $this->addStatusMessage(get_class($this) . ':UpdateToSQL: Unknown keyColumn:' . $this->keyColumn . ' ' .
+                        json_encode($data), 'error');
 
                 return;
             }
@@ -239,20 +232,10 @@ class Engine extends \Ease\Brick
         }
 
         if (isset($this->myLastModifiedColumn) && !isset($data[$this->myLastModifiedColumn])) {
-            $data[$this->myLastModifiedColumn] = 'NOW()';
+            $data[$this->myLastModifiedColumn] = new FluentLiteral('NOW()');
         }
 
-        $cc       = $this->dblink->getColumnComma();
-        $queryRaw = SQL::$upd.$cc.$this->myTable.$cc.' SET '.$this->dblink->arrayToSetQuery($data).SQL::$whr.$cc.$this->keyColumn.$cc." = '".$this->dblink->addSlashes($key)."'";
-        if ($this->dblink->exeQuery($queryRaw)) {
-            if ($useInObject) {
-                return $this->data[$this->keyColumn];
-            } else {
-                return $key;
-            }
-        }
-
-        return;
+        return $this->getFluentPDO()->update($this->getMyTable())->set($data)->where($this->getKeyColumn(), $key)->execute();
     }
 
     /**
@@ -263,8 +246,7 @@ class Engine extends \Ease\Brick
      *
      * @return int ID záznamu nebo null v případě neůspěchu
      */
-    public function saveToSQL($data = null, $searchForID = false)
-    {
+    public function saveToSQL($data = null, $searchForID = false) {
         $result = null;
         if (is_null($data)) {
             $data = $this->getData();
@@ -276,10 +258,10 @@ class Engine extends \Ease\Brick
             if ($searchForID) {
                 if ($this->getMyKey($data)) {
                     $rowsFound = $this->getColumnsFromSQL($this->getKeyColumn(),
-                        [$this->getKeyColumn() => $this->getMyKey($data)]);
+                            [$this->getKeyColumn() => $this->getMyKey($data)]);
                 } else {
                     $rowsFound = $this->getColumnsFromSQL([$this->getKeyColumn()],
-                        $data);
+                            $data);
                     if (count($rowsFound)) {
                         if (is_numeric($rowsFound[0][$this->getKeyColumn()])) {
                             $data[$this->getKeyColumn()] = (int) $rowsFound[0][$this->getKeyColumn()];
@@ -295,8 +277,7 @@ class Engine extends \Ease\Brick
                     $result = $this->insertToSQL($data);
                 }
             } else {
-                if (isset($data[$this->keyColumn]) && !is_null($data[$this->keyColumn])
-                    && strlen($data[$this->keyColumn])) {
+                if (isset($data[$this->keyColumn]) && !is_null($data[$this->keyColumn]) && strlen($data[$this->keyColumn])) {
                     $result = $this->updateToSQL($data);
                 } else {
                     $result = $this->insertToSQL($data);
@@ -319,9 +300,8 @@ class Engine extends \Ease\Brick
      *
      * @return int id of new row in database
      */
-    public function insertToSQL($data = null)
-    {
-        $query = $this->getFluentPDO()->insertInto($this->getMyTable(), is_null($data) ? $this->getData() : $data  )->execute(); 
+    public function insertToSQL($data = null) {
+        $query = $this->getFluentPDO()->insertInto($this->getMyTable(), is_null($data) ? $this->getData() : $data)->execute();
         return $this->getPdo()->lastInsertId();
     }
 
@@ -332,8 +312,7 @@ class Engine extends \Ease\Brick
      *
      * @return bool
      */
-    public function deleteFromSQL($data = null)
-    {
+    public function deleteFromSQL($data = null) {
         if (is_int($data)) {
             $data = [$this->getKeyColumn() => intval($data)];
         } else {
@@ -344,7 +323,7 @@ class Engine extends \Ease\Brick
 
         if (count($data)) {
             $cc = $this->dblink->getColumnComma();
-            $this->dblink->exeQuery(SQL::$dlt.$cc.$this->myTable.$cc.SQL::$whr.$this->dblink->prepSelect($data));
+            $this->dblink->exeQuery(SQL::$dlt . $cc . $this->myTable . $cc . SQL::$whr . $this->dblink->prepSelect($data));
             if ($this->dblink->getNumRows()) {
                 return true;
             } else {
@@ -369,8 +348,7 @@ class Engine extends \Ease\Brick
      * @return mixed převzatá do pole
      */
     public function takeToData($data, $column, $mayBeNull = false,
-                               $renameAs = null)
-    {
+            $renameAs = null) {
         if (isset($data[$column])) {
             if (!is_null($renameAs)) {
                 $this->setDataValue($renameAs, $data[$column]);
@@ -396,16 +374,15 @@ class Engine extends \Ease\Brick
      *
      * @return array list of IDs
      */
-    public function getSQLList($tableName = null, $keyColumn = null)
-    {
+    public function getSQLList($tableName = null, $keyColumn = null) {
         if (is_null($tableName)) {
             $tableName = $this->myTable;
         }
         if (is_null($keyColumn)) {
             $keyColumn = $this->keyColumn;
         }
-        $cc        = $this->dblink->getColumnComma();
-        $listQuery = SQL::$sel.$cc.$keyColumn.$cc.SQL::$frm.$tableName;
+        $cc = $this->dblink->getColumnComma();
+        $listQuery = SQL::$sel . $cc . $keyColumn . $cc . SQL::$frm . $tableName;
         return $this->dblink->queryToArray($listQuery);
     }
 
@@ -414,8 +391,7 @@ class Engine extends \Ease\Brick
      *
      * @return string
      */
-    public function getMyTable()
-    {
+    public function getMyTable() {
         return $this->myTable;
     }
 
@@ -424,8 +400,7 @@ class Engine extends \Ease\Brick
      *
      * @param string $myTable
      */
-    public function setmyTable($myTable)
-    {
+    public function setmyTable($myTable) {
         $this->myTable = $myTable;
         $this->setObjectIdentity(['myTable' => $myTable]);
     }
@@ -437,13 +412,12 @@ class Engine extends \Ease\Brick
      *
      * @return int
      */
-    public function getSQLItemsCount($tableName = null)
-    {
+    public function getSQLItemsCount($tableName = null) {
         if (is_null($tableName)) {
             $tableName = $this->myTable;
         }
 
-        return $this->dblink->queryToValue(SQL::$sel.'COUNT('.$this->keyColumn.') FROM '.$tableName);
+        return $this->dblink->queryToValue(SQL::$sel . 'COUNT(' . $this->keyColumn . ') FROM ' . $tableName);
     }
 
     /**
@@ -452,15 +426,15 @@ class Engine extends \Ease\Brick
      * @param string $searchTerm
      * @param array  $columns
      */
-    public function searchColumns($searchTerm, $columns)
-    {
-        $sTerm     = $this->dblink->addSlashes($searchTerm);
+    public function searchColumns($searchTerm, $columns) {
+        $sTerm = $this->dblink->addSlashes($searchTerm);
         $conditons = [];
         foreach ($columns as $column) {
-            $conditons[] = '`'.$column.'` LIKE \'%'.$sTerm.'%\'';
+            $conditons[] = '`' . $column . '` LIKE \'%' . $sTerm . '%\'';
         }
 
-        return $this->dblink->queryToArray(SQL::$sel.'* FROM '.$this->myTable.SQL::$whr.implode(' OR ',
-                    $conditons));
+        return $this->dblink->queryToArray(SQL::$sel . '* FROM ' . $this->myTable . SQL::$whr . implode(' OR ',
+                                $conditons));
     }
+
 }
