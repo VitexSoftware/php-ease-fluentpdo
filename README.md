@@ -1,6 +1,12 @@
 SQL Support for EasePHP Framework using FluentPDO
 =================================================
 
+[![Latest Stable Version](https://poser.pugx.org/vitexsoftware/ease-fluentpdo/version)](https://packagist.org/packages/vitexsoftware/ease-fluentpdo)
+[![Total Downloads](https://poser.pugx.org/vitexsoftware/ease-fluentpdo/downloads)](https://packagist.org/packages/vitexsoftware/ease-fluentpdo)
+[![Latest Unstable Version](https://poser.pugx.org/vitexsoftware/ease-fluentpdo/v/unstable)](//packagist.org/packages/vitexsoftware/ease-fluentpdo)
+[![License](https://poser.pugx.org/vitexsoftware/ease-fluentpdo/license)](https://packagist.org/packages/vitexsoftware/ease-fluentpdo)
+[![Monthly Downloads](https://poser.pugx.org/vitexsoftware/ease-fluentpdo/d/monthly)](https://packagist.org/packages/vitexsoftware/ease-fluentpdo)
+[![Daily Downloads](https://poser.pugx.org/vitexsoftware/ease-fluentpdo/d/daily)](https://packagist.org/packages/vitexsoftware/ease-fluentpdo)
 
 
 Installation
