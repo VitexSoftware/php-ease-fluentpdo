@@ -82,7 +82,7 @@ class Engine extends \Ease\Brick
 
         foreach ($valuesRaw as $rowId => $rowData) {
             foreach ( $rowData as $colName => $colValue){
-                if(in_array($colName, $columnsList) ){
+                if(($columnsList == '*') || in_array($colName, $columnsList) ){
                     $result[$rowId][$colName] = $colValue;
                 }
             }
