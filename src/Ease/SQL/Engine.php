@@ -38,7 +38,7 @@ class Engine extends \Ease\Brick {
     public function __construct($identifier = null, $options = []) {
         $this->setUp($options);
         if (!is_null($identifier)) {
-            $this->loadFromSQL($id);
+            $this->loadFromSQL($identifier);
         }
     }
 
@@ -170,7 +170,7 @@ class Engine extends \Ease\Brick {
         if (is_null($itemID)) {
             $itemID = $this->getMyKey();
         }
-        $sqlResult = $this->listingQuery()->where($this->getMyKey(), $id);
+        $sqlResult = $this->listingQuery()->where($this->getKeyColumn(), $itemID);
         $this->multipleteResult = (count($sqlResult) > 1);
 
         if ($this->multipleteResult && is_array($sqlResult)) {
