@@ -170,7 +170,7 @@ class Engine extends \Ease\Brick {
         if (is_null($itemID)) {
             $itemID = $this->getMyKey();
         }
-        $sqlResult = $this->listingQuery()->where($this->getKeyColumn(), $itemID);
+        $sqlResult = $this->listingQuery()->where($this->getKeyColumn(), $itemID)->fetchAll();
         $this->multipleteResult = (count($sqlResult) > 1);
 
         if ($this->multipleteResult && is_array($sqlResult)) {
@@ -181,8 +181,8 @@ class Engine extends \Ease\Brick {
             }
             $this->data = $results;
         } else {
-            if (count($sqlResult)) {
-                $this->takeData($sqlResult->fetchAll());
+            if (!empty($sqlResult)) {
+                $this->takeData(current($sqlResult));
             }
         }
         if (!empty($this->data)) {
