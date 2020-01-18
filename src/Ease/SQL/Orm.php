@@ -1,5 +1,4 @@
 <?php
-
 /**
  * Object Relation Model Trait
  *
@@ -13,8 +12,8 @@ namespace Ease\SQL;
  *
  * @author Vítězslav Dvořák <info@vitexsoftware.cz>
  */
-trait Orm {
-
+trait Orm
+{
     /**
      * IP serveru.
      *
@@ -80,9 +79,9 @@ trait Orm {
     /**
      * Poslední Chybová zpráva obdržená od SQL serveru.
      *
-     * @var string
+     * @var array
      */
-    public $errorText = null;
+    public $errorInfo = [];
 
     /**
      * Kod SQL chyby.
@@ -97,7 +96,8 @@ trait Orm {
      * @param array $options Object Options (company,url,user,password,evidence,
      *                                       prefix,defaultUrlParams,debug)
      */
-    public function setUp($options = []) {
+    public function setUp($options = [])
+    {
         $this->setupProperty($options, 'dbType', 'DB_TYPE');
         $this->setupProperty($options, 'server', 'DB_HOST');
         $this->setupProperty($options, 'username', 'DB_USERNAME');
@@ -113,42 +113,47 @@ trait Orm {
      *
      * @return \PDO SQL connector
      */
-    public function pdoConnect() {
+    public function pdoConnect()
+    {
         $result = false;
         if (is_null($this->dbType)) {
             $result = null;
         } else {
             switch ($this->dbType) {
                 case 'mysql':
-                    $result = new \PDO($this->dbType . ':dbname=' . $this->database . ';host=' . $this->server . ';port=' . $this->port . ';charset=utf8',
-                            $this->username, $this->password,
-                            [\PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES \'utf8\'']);
+                    $result = new \PDO($this->dbType.':dbname='.$this->database.';host='.$this->server.';port='.$this->port.';charset=utf8',
+                        $this->username, $this->password,
+                        [\PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES \'utf8\'']);
                     break;
                 case 'pgsql':
-                    $result = new \PDO($this->dbType . ':dbname=' . $this->database . ';host=' . $this->server . ';port=' . $this->port,
-                            $this->username, $this->password);
+                    $result = new \PDO($this->dbType.':dbname='.$this->database.';host='.$this->server.';port='.$this->port,
+                        $this->username, $this->password);
                     if (is_object($result)) {
                         $result->exec("SET NAMES 'UTF-8'");
                     }
                     break;
+                case 'sqlsrv': // https://www.php.net/manual/en/ref.pdo-sqlsrv.connection.php
+                    $result = new \PDO($this->dbType.':Server='.$this->server.';Database='.$this->database,
+                        $this->username, $this->password);
+                    break;
 
                 default:
-                    throw new \Ease\Exception(_('Unimplemented Database type') . ': ' . $this->dbType);
+                    throw new \Ease\Exception(_('Unimplemented Database type').': '.$this->dbType);
                     break;
             }
 
             if ($result instanceof \PDO) {
                 $this->errorNumber = $result->errorCode();
-                $this->errorText = $result->errorInfo();
+                $this->errorInfo   = $result->errorInfo();
 
-                if ($this->errorNumber != '00000') {
-                    $this->addStatusMessage('Connect: error #' . $this->errorNumer . ' ' . $this->errorText,
-                            'error');
+                if (($this->errorNumber != '00000') && ($this->errorNumber != '01000')) { // SQL_SUCCESS_WITH_INFO
+                    $this->addStatusMessage('Connect: error #'.$this->errorNumer.' '.$this->errorInfo,
+                        'error');
 
                     $result = false;
                 } else {
                     if (!empty($this->connectionSettings))
-                        foreach ($this->connectionSettings as $setName => $SetValue) {
+                            foreach ($this->connectionSettings as $setName => $SetValue) {
                             if (strlen($setName)) {
                                 $this->getPdo->exec("SET $setName $SetValue");
                             }
@@ -165,7 +170,8 @@ trait Orm {
      * 
      * @return \PDO
      */
-    public function getPdo() {
+    public function getPdo()
+    {
         if (!$this->pdo instanceof \PDO) {
             $this->pdo = $this->pdoConnect();
         }
@@ -177,7 +183,8 @@ trait Orm {
      * 
      * @return \Envms\FluentPDO
      */
-    public function getFluentPDO() {
+    public function getFluentPDO()
+    {
         if (!$this->fluent instanceof \Envms\FluentPDO) {
             $this->fluent = new \Envms\FluentPDO\Query($this->getPdo());
         }
@@ -188,7 +195,8 @@ trait Orm {
      * 
      * @return string
      */
-    public function getMyTable() {
+    public function getMyTable()
+    {
         return $this->myTable;
     }
 
@@ -196,8 +204,8 @@ trait Orm {
      * 
      * @param string $tablename
      */
-    public function setMyTable($tablename) {
+    public function setMyTable($tablename)
+    {
         $this->myTable = $tablename;
     }
-
 }

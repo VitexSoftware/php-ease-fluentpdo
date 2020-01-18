@@ -51,7 +51,7 @@ In this case please add this to your app composer.json:
 Framework Constants
 ===================
 
-  * DB_TYPE      - pgsql|mysql|sqlite|...
+  * DB_TYPE      - pgsql|mysql|sqlsrv
   * DB_HOST      - localhost is default 
   * DB_PORT      - database port 
   * DB_DATABASE  - database schema name
@@ -89,4 +89,3 @@ Links
 Homepage: https://www.vitexsoftware.cz/ease.php
 
 GitHub: https://github.com/VitexSoftware/php-ease-fluentpdo
-
