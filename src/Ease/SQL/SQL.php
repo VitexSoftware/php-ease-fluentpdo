@@ -31,7 +31,6 @@ abstract class SQL extends \Ease\Molecule
      */
     public $sqlLink = null;
 
-
     /**
      * Status připojení.
      *
@@ -87,7 +86,6 @@ abstract class SQL extends \Ease\Molecule
      * @var array
      */
     public $tableStructure = [];
-
 
     /**
      * Pole obsahující výsledky posledního SQL příkazu.
@@ -392,11 +390,8 @@ abstract class SQL extends \Ease\Molecule
      */
     public function queryToValue($queryRaw)
     {
-        $result = $this->queryToArray($queryRaw);
-        if (!empty($result)) {
-            $result = current(current($result));
-        }
-        return $result;
+        $sth = $this->getPdo()->prepare($queryRaw);
+        return $sth->execute() ? $sth->fetchColumn() : null;
     }
 
     /**

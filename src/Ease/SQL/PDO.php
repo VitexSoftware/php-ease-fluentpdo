@@ -118,8 +118,7 @@ class PDO extends SQL
      */
     public function addSlashes($text)
     {
-        if (isset($this->pdo) && method_exists($this->pdo,
-                'real_escape_string')) {
+        if (isset($this->pdo) && method_exists($this->pdo, 'real_escape_string')) {
             $slashed = $this->pdo->real_escape_string($text);
         } else {
             $slashed = addslashes($text);
@@ -612,5 +611,5 @@ class PDO extends SQL
     public function __wakeup()
     {
         $this->setUp();
-}
+    }
 }

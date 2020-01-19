@@ -133,7 +133,7 @@ trait Orm
                     }
                     break;
                 case 'sqlsrv': // https://www.php.net/manual/en/ref.pdo-sqlsrv.connection.php
-                    $result = new \PDO($this->dbType.':Server='.$this->server.';Database='.$this->database,
+                    $result = new \PDO($this->dbType.':Server='.$this->server. (isset($this->port) ? ','.$this->port : '') .  ';Database='.$this->database,
                         $this->username, $this->password);
                     break;
 
