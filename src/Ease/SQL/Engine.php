@@ -232,7 +232,7 @@ class Engine extends \Ease\Brick {
         }
 
         if (isset($this->myLastModifiedColumn) && !isset($data[$this->myLastModifiedColumn])) {
-            $data[$this->myLastModifiedColumn] = new FluentLiteral('NOW()');
+            $data[$this->myLastModifiedColumn] = new  \Envms\FluentPDO\Literal('NOW()');
         }
 
         return $this->getFluentPDO()->update($this->getMyTable())->set($data)->where($this->getKeyColumn(), $key)->execute();
