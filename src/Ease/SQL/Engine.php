@@ -298,11 +298,11 @@ class Engine extends \Ease\Brick {
      *
      * @param array $data
      *
-     * @return int id of new row in database
+     * @return int|null id of new row in database
      */
     public function insertToSQL($data = null) {
         $query = $this->getFluentPDO()->insertInto($this->getMyTable(), is_null($data) ? $this->getData() : $data)->execute();
-        return $this->getPdo()->lastInsertId();
+        return is_null($this->getPdo()->lastInsertId()) ? null : intval($this->getPdo()->lastInsertId());
     }
 
     /**
