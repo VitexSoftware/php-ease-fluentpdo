@@ -1,6 +1,6 @@
 {
     "name": "vitexsoftware/ease-fluentpdo",
-    "description": "Description of project ease-fluentpdo.",
+    "description": "SQL/PDO support for Ease Framework based on FluentPDO",
     "authors": [
         {
             "name": "Vitex",
