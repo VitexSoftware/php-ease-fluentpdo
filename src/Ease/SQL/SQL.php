@@ -186,17 +186,17 @@ abstract class SQL extends \Ease\Molecule
      * @param array $options Object Options (company,url,user,password,evidence,
      *                                       prefix,defaultUrlParams,debug)
      */
-    public function setUp($options = [])
-    {
-        $this->setupProperty($options, 'dbType', 'DB_TYPE');
+    public function setUp($options = []) {
+        $this->setupProperty($options, 'dbType', 'DB_CONNECTION'); //Laralvel 
+        $this->setupProperty($options, 'dbType', 'DB_TYPE');       //Ease
         $this->setupProperty($options, 'server', 'DB_HOST');
         $this->setupProperty($options, 'username', 'DB_USERNAME');
         $this->setupProperty($options, 'password', 'DB_PASSWORD');
         $this->setupProperty($options, 'database', 'DB_DATABASE');
         $this->setupProperty($options, 'port', 'DB_PORT');
         $this->setupProperty($options, 'connectionSettings', 'DB_SETUP');
+        $this->setupProperty($options, 'myTable');
     }
-
     /**
      * Připojení k databázi.
      */

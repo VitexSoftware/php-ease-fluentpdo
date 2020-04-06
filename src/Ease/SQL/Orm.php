@@ -148,11 +148,10 @@ trait Orm {
             }
 
             if ($result instanceof \PDO) {
-                $this->errorNumber = $result->errorCode();
-                $this->errorInfo = $result->errorInfo();
+                $errorNumber = $result->errorCode();
 
-                if (($this->errorNumber != '00000') && ($this->errorNumber != '01000')) { // SQL_SUCCESS_WITH_INFO
-                    $this->addStatusMessage('Connect: error #' . $this->errorNumer . ' ' . json_encode($this->errorInfo) ,
+                if (!is_null($errorNumber) && ($errorNumber != '00000') && ($errorNumber != '01000')) { // SQL_SUCCESS_WITH_INFO
+                    $this->addStatusMessage('Connect: error #' . $errorNumber . ' ' . json_encode($result->errorInfo()),
                             'error');
                 } else {
                     if (!empty($this->connectionSettings))

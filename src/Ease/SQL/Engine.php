@@ -32,6 +32,12 @@ class Engine extends \Ease\Brick {
     public $createColumn = null;
 
     /**
+     * Rown name column
+     * @var string
+     */
+    public $nameColumn = null;
+
+    /**
      * 
      * @param mixed $identifier
      * @param array $options
@@ -41,6 +47,14 @@ class Engine extends \Ease\Brick {
         if (!is_null($identifier)) {
             $this->loadFromSQL($identifier);
         }
+    }
+
+    /**
+     * Obtain record name id $this->nameColumn is set
+     * @return string
+     */
+    public function getRecordName() {
+        return empty($this->nameColumn) ? $this->getDataValue($this->nameColumn) : null;
     }
 
     /**
