@@ -185,8 +185,10 @@ trait Orm {
      * @return \Envms\FluentPDO
      */
     public function getFluentPDO() {
-        if (!$this->fluent instanceof \Envms\FluentPDO) {
+        if (!$this->fluent instanceof \Envms\FluentPDO\Query) {
             $this->fluent = new \Envms\FluentPDO\Query($this->getPdo());
+            $this->fluent->exceptionOnError = true;
+            $this->fluent->debug = $this->debug;
         }
         return $this->fluent;
     }
@@ -401,7 +403,7 @@ trait Orm {
             $data = $this->getData();
         }
 
-        if (count($data) < 1) {
+        if (empty($data)) {
             $this->addStatusMessage('SaveToSQL: Missing data', 'error');
         } else {
             if ($searchForID) {
@@ -450,8 +452,12 @@ trait Orm {
      * @return int|null id of new row in database
      */
     public function insertToSQL($data = null) {
-        $query = $this->getFluentPDO()->insertInto($this->getMyTable(), is_null($data) ? $this->getData() : $data)->execute();
-        return is_null($this->getPdo()->lastInsertId()) ? null : intval($this->getPdo()->lastInsertId());
+        try {
+            $this->getFluentPDO()->insertInto($this->getMyTable(), is_null($data) ? $this->getData() : $data)->execute();
+            return is_null($this->getPdo()->lastInsertId()) ? null : intval($this->getPdo()->lastInsertId());
+        } catch (\Envms\FluentPDO\Exception $exc) {
+            $this->addStatusMessage($exc->getMessage(), 'error');
+        }
     }
 
     /**
