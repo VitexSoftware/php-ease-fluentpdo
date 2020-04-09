@@ -38,6 +38,7 @@ class Engine extends \Ease\Brick {
     public $nameColumn = null;
 
     /**
+     * Database object
      * 
      * @param mixed $identifier
      * @param array $options
@@ -126,6 +127,15 @@ class Engine extends \Ease\Brick {
 
         return $this->dblink->queryToArray(SQL::$sel . '* FROM ' . $this->myTable . SQL::$whr . implode(' OR ',
                                 $conditons));
+    }
+
+    /**
+     * Get All records
+     * 
+     * @return array
+     */
+    public function getAll() {
+        return $this->listingQuery()->fetchAll();
     }
 
 }

@@ -213,11 +213,16 @@ trait Orm {
      *
      * @return array
      */
-    public function getColumnsFromSQL($columnsList, $conditions = null,
+    public function getColumnsFromSQL(array $columnsList, $conditions = null,
             $orderBy = null, $indexBy = null,
             $limit = null) {
         $result = [];
-        $fluent = $this->listingQuery();
+
+        if (empty($conditions)) {
+            $fluent = $this->listingQuery();
+        } else {
+            $fluent = $this->listingQuery()->where($conditions);
+        }
 
         if ($orderBy) {
             $fluent->orderBy($orderBy);
@@ -228,11 +233,12 @@ trait Orm {
         }
 
         $valuesRaw = $fluent->fetchAll();
+
         if (!empty($valuesRaw)) {
             foreach ($valuesRaw as $rowId => $rowData) {
                 foreach ($rowData as $colName => $colValue) {
-                    if (($columnsList == '*') || in_array($colName, $columnsList)) {
-                        $result[$rowId][$colName] = $colValue;
+                    if (($columnsList == ['*']) || in_array($colName, $columnsList)) {
+                        \Ease\Functions::divDataArray($valuesRaw[$rowId], $result[$rowId], $colName);
                     }
                 }
             }
@@ -312,16 +318,13 @@ trait Orm {
     /**
      * Načte z SQL data k aktuálnímu $ItemID a použije je v objektu.
      *
-     * @param int   $itemID     klíč záznamu
+     * @param int|array   $itemID     klíč záznamu
      *
      * @return array Results
      */
-    public function loadFromSQL($itemID = null) {
+    public function loadFromSQL($itemID) {
         $rowsLoaded = null;
-        if (is_null($itemID)) {
-            $itemID = $this->getMyKey();
-        }
-        $sqlResult = $this->listingQuery()->where($this->getKeyColumn(), $itemID)->fetchAll();
+        $sqlResult = $this->listingQuery()->where(is_array($itemID) ? $itemID : [$this->getKeyColumn() => $itemID])->fetchAll();
         $this->multipleteResult = (count($sqlResult) > 1);
 
         if ($this->multipleteResult && is_array($sqlResult)) {
@@ -341,6 +344,27 @@ trait Orm {
         }
 
         return $rowsLoaded;
+    }
+
+    /**
+     * Reload current record from Database
+     * 
+     * @return boolean 
+     */
+    public function dbreload() {
+        return $this->loadFromSQL($this->getMyKey());
+    }
+    
+    /**
+     * Insert current data into Database and load actual record data back
+     *
+     * @param array $data Initial data to save
+     * 
+     * @return boolean Operation success
+     */
+    public function dbsync($data = null)
+    {
+        return $this->saveToSQL( is_null($data) ? $this->getData() : $data) && $this->dbreload();
     }
 
     /**
@@ -383,7 +407,7 @@ trait Orm {
         }
 
         if (isset($this->myLastModifiedColumn) && !isset($data[$this->myLastModifiedColumn])) {
-            $data[$this->myLastModifiedColumn] = new \Envms\FluentPDO\Literal('NOW()'); //Todo Add support for MSSQL
+            $data[$this->myLastModifiedColumn] = date("Y-m-d H:i:s");
         }
 
         return $this->getFluentPDO()->update($this->getMyTable())->set($data)->where($this->getKeyColumn(), $key)->execute();
@@ -434,10 +458,6 @@ trait Orm {
                     $result = $this->insertToSQL($data);
                 }
             }
-        }
-
-        if (!is_null($result)) {
-            $this->setMyKey($result);
         }
 
         return $result;
