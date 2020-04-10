@@ -472,6 +472,9 @@ trait Orm {
      * @return int|null id of new row in database
      */
     public function insertToSQL($data = null) {
+        if ($this->createColumn && !isset($data[$this->createColumn])) {
+            $data[$this->createColumn] = date("Y-m-d H:i:s");
+        }
         try {
             $this->getFluentPDO()->insertInto($this->getMyTable(), is_null($data) ? $this->getData() : $data)->execute();
             return is_null($this->getPdo()->lastInsertId()) ? null : intval($this->getPdo()->lastInsertId());
