@@ -354,7 +354,7 @@ trait Orm {
     public function dbreload() {
         return $this->loadFromSQL($this->getMyKey());
     }
-    
+
     /**
      * Insert current data into Database and load actual record data back
      *
@@ -362,9 +362,8 @@ trait Orm {
      * 
      * @return boolean Operation success
      */
-    public function dbsync($data = null)
-    {
-        return $this->saveToSQL( is_null($data) ? $this->getData() : $data) && $this->dbreload();
+    public function dbsync($data = null) {
+        return $this->saveToSQL(is_null($data) ? $this->getData() : $data) && $this->dbreload();
     }
 
     /**
@@ -406,8 +405,8 @@ trait Orm {
             unset($data[$this->keyColumn]);
         }
 
-        if (isset($this->myLastModifiedColumn) && !isset($data[$this->myLastModifiedColumn])) {
-            $data[$this->myLastModifiedColumn] = date("Y-m-d H:i:s");
+        if (isset($this->lastModifiedColumn) && !isset($data[$this->lastModifiedColumn])) {
+            $data[$this->lastModifiedColumn] = date("Y-m-d H:i:s");
         }
 
         return $this->getFluentPDO()->update($this->getMyTable())->set($data)->where($this->getKeyColumn(), $key)->execute();
@@ -472,12 +471,17 @@ trait Orm {
      * @return int|null id of new row in database
      */
     public function insertToSQL($data = null) {
+        if (is_null($data)) {
+            $data = $this->getData();
+        }
         if ($this->createColumn && !isset($data[$this->createColumn])) {
             $data[$this->createColumn] = date("Y-m-d H:i:s");
         }
         try {
-            $this->getFluentPDO()->insertInto($this->getMyTable(), is_null($data) ? $this->getData() : $data)->execute();
-            return is_null($this->getPdo()->lastInsertId()) ? null : intval($this->getPdo()->lastInsertId());
+            $this->getFluentPDO()->insertInto($this->getMyTable(), $data)->execute();
+            $insertId = $this->getPdo()->lastInsertId();
+            $this->setMyKey(intval($insertId));
+            return is_null($insertId) ? null : intval($insertId);
         } catch (\Envms\FluentPDO\Exception $exc) {
             $this->addStatusMessage($exc->getMessage(), 'error');
         }
@@ -491,26 +495,18 @@ trait Orm {
      * @return bool
      */
     public function deleteFromSQL($data = null) {
-        if (is_int($data)) {
-            $data = [$this->getKeyColumn() => intval($data)];
-        } else {
-            if (is_null($data)) {
-                $data = $this->getData();
-            }
+        if (is_null($data)) {
+            $data = $this->getData();
         }
-
-        if (count($data)) {
-            $cc = $this->dblink->getColumnComma();
-            $this->dblink->exeQuery(SQL::$dlt . $cc . $this->myTable . $cc . SQL::$whr . $this->dblink->prepSelect($data));
-            if ($this->dblink->getNumRows()) {
-                return true;
+        try {
+            if (is_array($data)) {
+                $result = $this->getFluentPDO()->deleteFrom($this->getMyTable())->where($data)->execute();
             } else {
-                return false;
+                $result = $this->getFluentPDO()->deleteFrom($this->getMyTable(), $data)->execute();
             }
-        } else {
-            $this->addStatusMessage('DeleteFromSQL: Unknown key.', 'error');
-
-            return false;
+            return $result;
+        } catch (\Envms\FluentPDO\Exception $exc) {
+            $this->addStatusMessage($exc->getMessage(), 'error');
         }
     }
 
