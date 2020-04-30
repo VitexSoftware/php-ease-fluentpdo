@@ -1,0 +1,3 @@
+src/Ease/SQL/*		usr/share/php/EaseFluentPDO/
+debian/composer.json	usr/share/php/EaseFluentPDO/
+

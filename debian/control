@@ -1,0 +1,17 @@
+Source: php-ease-fluentpdo
+Build-Depends: debhelper (>= 7.0.50~)
+Section: web
+Standards-Version: 3.9.8
+Maintainer: Vítězslav Dvořák <info@vitexsoftware.cz>
+Uploaders: Vitex <vitex@hippy.cz>
+Priority: optional
+Homepage: https://github.com/VitexSoftware/php-ease-fluentpdo
+
+Package: php-ease-fluentpdo
+Depends: ${misc:Depends},php-ease-core,php-pdo-mysql|php-pdo-pgsql|php-pdo-sqlite
+Architecture: all
+Conflicts: ease-framework
+Section: web
+Priority: optional
+Description: Database support for EasePHP Framework
+ FluentPDO adapter for ease framework with ORM and Enginge classes

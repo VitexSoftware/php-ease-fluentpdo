@@ -139,6 +139,8 @@ trait Orm {
                     $result = new \PDO($this->dbType . ':Server=' . $this->server . (isset($this->port) ? ',' . $this->port : '') . ';Database=' . $this->database,
                             $this->username, $this->password);
                     break;
+                case 'sqlite3':
+                    $this->dbType = 'sqlite';
                 case 'sqlite':
                     $result = new \PDO($this->dbType . ':' . $this->database);
                     break;
