@@ -178,14 +178,18 @@ trait Orm {
     /**
      * SQL Builder
      * 
+     * @param bool $read    convert mode for select
+     * @param bool $write   convert mode for insert
+     * 
      * @return \Envms\FluentPDO
      */
-    public function getFluentPDO() {
+    public function getFluentPDO(bool $read = false, bool $write = false) {
         if (!$this->fluent instanceof \Envms\FluentPDO\Query) {
             $this->fluent = new \Envms\FluentPDO\Query($this->getPdo());
             $this->fluent->exceptionOnError = true;
             $this->fluent->debug = $this->debug;
         }
+        $this->fluent->convertTypes($read,$write);
         return $this->fluent;
     }
 
@@ -403,12 +407,14 @@ trait Orm {
             $data[$this->createColumn] = date("Y-m-d H:i:s");
         }
         try {
-            $this->getFluentPDO()->insertInto($this->getMyTable(), $data)->execute();
+            $this->getFluentPDO(false,true)->insertInto($this->getMyTable(), $data)->execute();
             $insertId = $this->getPdo()->lastInsertId();
             $this->setMyKey(intval($insertId));
             return is_null($insertId) ? null : intval($insertId);
         } catch (\Envms\FluentPDO\Exception $exc) {
             $this->addStatusMessage($exc->getMessage(), 'error');
+            $this->addStatusMessage(json_encode($data)  , 'debug');
+            throw $exc;
         }
     }
 
@@ -432,6 +438,7 @@ trait Orm {
             return $result;
         } catch (\Envms\FluentPDO\Exception $exc) {
             $this->addStatusMessage($exc->getMessage(), 'error');
+            throw $exc;
         }
     }
 
