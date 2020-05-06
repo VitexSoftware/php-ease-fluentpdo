@@ -4,7 +4,7 @@
  * Object Relation Model Trait
  *
  * @author Vítězslav Dvořák <info@vitexsoftware.cz>
- * @copyright  2018 Vitex@hippy.cz (G)
+ * @copyright  2018-2020 Vitex@hippy.cz (G)
  */
 
 namespace Ease\SQL;
@@ -166,11 +166,13 @@ trait Orm {
     /**
      * (init &) Get PDO instance
      * 
+     * @param array $properties $name Connection Properties
+     * 
      * @return \PDO
      */
-    public function getPdo() {
+    public function getPdo($propeties = []) {
         if (!$this->pdo instanceof \PDO) {
-            $this->pdo = $this->pdoConnect();
+            $this->pdo = $this->pdoConnect($propeties);
         }
         return $this->pdo;
     }
@@ -189,7 +191,7 @@ trait Orm {
             $this->fluent->exceptionOnError = true;
             $this->fluent->debug = $this->debug;
         }
-        $this->fluent->convertTypes($read,$write);
+        $this->fluent->convertTypes($read, $write);
         return $this->fluent;
     }
 
@@ -407,13 +409,13 @@ trait Orm {
             $data[$this->createColumn] = date("Y-m-d H:i:s");
         }
         try {
-            $this->getFluentPDO(false,true)->insertInto($this->getMyTable(), $data)->execute();
+            $this->getFluentPDO(false, true)->insertInto($this->getMyTable(), $data)->execute();
             $insertId = $this->getPdo()->lastInsertId();
             $this->setMyKey(intval($insertId));
             return is_null($insertId) ? null : intval($insertId);
         } catch (\Envms\FluentPDO\Exception $exc) {
             $this->addStatusMessage($exc->getMessage(), 'error');
-            $this->addStatusMessage(json_encode($data)  , 'debug');
+            $this->addStatusMessage(json_encode($data), 'debug');
             throw $exc;
         }
     }
