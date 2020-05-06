@@ -4,7 +4,7 @@
  * Object Relation Model Trait
  *
  * @author Vítězslav Dvořák <info@vitexsoftware.cz>
- * @copyright  2018 Vitex@hippy.cz (G)
+ * @copyright  2018-2020 Vitex@hippy.cz (G)
  */
 
 namespace Ease\SQL;
@@ -116,53 +116,47 @@ trait Orm {
      */
     public function pdoConnect($options = []) {
         $result = false;
-        if (is_null($this->dbType)) {
-            $this->setUp($options);
-        }
-        if (is_null($this->dbType)) {
-            $result = null;
-        } else {
-            switch ($this->dbType) {
-                case 'mysql':
-                    $result = new \PDO($this->dbType . ':dbname=' . $this->database . ';host=' . $this->server . ';port=' . $this->port . ';charset=utf8',
-                            $this->username, $this->password,
-                            [\PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES \'utf8\'']);
-                    break;
-                case 'pgsql':
-                    $result = new \PDO($this->dbType . ':dbname=' . $this->database . ';host=' . $this->server . ';port=' . $this->port,
-                            $this->username, $this->password);
-                    if (is_object($result)) {
-                        $result->exec("SET NAMES 'UTF-8'");
-                    }
-                    break;
-                case 'sqlsrv': // https://www.php.net/manual/en/ref.pdo-sqlsrv.connection.php
-                    $result = new \PDO($this->dbType . ':Server=' . $this->server . (isset($this->port) ? ',' . $this->port : '') . ';Database=' . $this->database,
-                            $this->username, $this->password);
-                    break;
-                case 'sqlite3':
-                    $this->dbType = 'sqlite';
-                case 'sqlite':
-                    $result = new \PDO($this->dbType . ':' . $this->database);
-                    break;
-                default:
-                    throw new \Ease\Exception(_('Unimplemented Database type') . ': ' . $this->dbType);
-                    break;
-            }
-
-            if ($result instanceof \PDO) {
-                $errorNumber = $result->errorCode();
-
-                if (!is_null($errorNumber) && ($errorNumber != '00000') && ($errorNumber != '01000')) { // SQL_SUCCESS_WITH_INFO
-                    $this->addStatusMessage('Connect: error #' . $errorNumber . ' ' . json_encode($result->errorInfo()),
-                            'error');
-                } else {
-                    if (!empty($this->connectionSettings))
-                        foreach ($this->connectionSettings as $setName => $SetValue) {
-                            if (strlen($setName)) {
-                                $this->getPdo->exec("SET $setName $SetValue");
-                            }
-                        }
+        $this->setUp($options);
+        switch ($this->dbType) {
+            case 'mysql':
+                $result = new \PDO($this->dbType . ':dbname=' . $this->database . ';host=' . $this->server . ';port=' . $this->port . ';charset=utf8',
+                        $this->username, $this->password,
+                        [\PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES \'utf8\'']);
+                break;
+            case 'pgsql':
+                $result = new \PDO($this->dbType . ':dbname=' . $this->database . ';host=' . $this->server . ';port=' . $this->port,
+                        $this->username, $this->password);
+                if (is_object($result)) {
+                    $result->exec("SET NAMES 'UTF-8'");
                 }
+                break;
+            case 'sqlsrv': // https://www.php.net/manual/en/ref.pdo-sqlsrv.connection.php
+                $result = new \PDO($this->dbType . ':Server=' . $this->server . (isset($this->port) ? ',' . $this->port : '') . ';Database=' . $this->database,
+                        $this->username, $this->password);
+                break;
+            case 'sqlite3':
+                $this->dbType = 'sqlite';
+            case 'sqlite':
+                $result = new \PDO($this->dbType . ':' . $this->database);
+                break;
+            default:
+                throw new \Ease\Exception(_('Unimplemented Database type') . ': ' . $this->dbType);
+                break;
+        }
+
+        if ($result instanceof \PDO) {
+            $errorNumber = $result->errorCode();
+
+            if (!is_null($errorNumber) && ($errorNumber != '00000') && ($errorNumber != '01000')) { // SQL_SUCCESS_WITH_INFO
+                $this->addStatusMessage('Connect: error #' . $errorNumber . ' ' . json_encode($result->errorInfo()),
+                        'error');
+            } else {
+                if (!empty($this->connectionSettings))
+                    foreach ($this->connectionSettings as $setName => $SetValue) {
+                        if (strlen($setName)) {
+                            $this->getPdo->exec("SET $setName $SetValue");
+                        }
+                    }
             }
         }
 
@@ -172,11 +166,13 @@ trait Orm {
     /**
      * (init &) Get PDO instance
      * 
+     * @param array $properties $name Connection Properties
+     * 
      * @return \PDO
      */
-    public function getPdo() {
+    public function getPdo($propeties = []) {
         if (!$this->pdo instanceof \PDO) {
-            $this->pdo = $this->pdoConnect();
+            $this->pdo = $this->pdoConnect($propeties);
         }
         return $this->pdo;
     }
@@ -184,14 +180,18 @@ trait Orm {
     /**
      * SQL Builder
      * 
+     * @param bool $read    convert mode for select
+     * @param bool $write   convert mode for insert
+     * 
      * @return \Envms\FluentPDO
      */
-    public function getFluentPDO() {
+    public function getFluentPDO(bool $read = false, bool $write = false) {
         if (!$this->fluent instanceof \Envms\FluentPDO\Query) {
             $this->fluent = new \Envms\FluentPDO\Query($this->getPdo());
             $this->fluent->exceptionOnError = true;
             $this->fluent->debug = $this->debug;
         }
+        $this->fluent->convertTypes($read, $write);
         return $this->fluent;
     }
 
@@ -273,51 +273,6 @@ trait Orm {
     }
 
     /**
-     * Vrátí z SQL všechny záznamy.
-     *
-     * @param string $tableName     jméno tabulky
-     * @param array  $columnsList   získat pouze vyjmenované sloupečky
-     * @param int    $limit         SQL Limit na vracene radky
-     * @param string $orderByColumn jméno sloupečku pro třídění
-     * @param string $columnToIndex jméno sloupečku pro indexaci
-     *
-     * @return array
-     */
-    public function getAllFromSQL($tableName = null, $columnsList = null,
-            $limit = null, $orderByColumn = null,
-            $columnToIndex = null) {
-        if (is_null($tableName)) {
-            $tableName = $this->myTable;
-        }
-
-        if (is_null($limit)) {
-            $limitCond = '';
-        } else {
-            $limitCond = SQL::$lmt . $limit;
-        }
-        if (is_null($orderByColumn)) {
-            $orderByCond = '';
-        } else {
-            if (is_array($orderByColumn)) {
-                $orderByCond = SQL::$ord . implode(',', $orderByColumn);
-            } else {
-                $orderByCond = SQL::$ord . $orderByColumn;
-            }
-        }
-        if (is_null($columnsList)) {
-            $cc = $this->dblink->getColumnComma();
-            $records = $this->dblink->queryToArray(SQL::$sel . '* FROM ' . $cc . $tableName . $cc . ' ' . $limitCond . $orderByCond,
-                    $columnToIndex);
-        } else {
-            $records = $this->dblink->queryToArray(SQL::$sel . implode(',',
-                            $columnsList) . ' FROM ' . $tableName . $orderByCond . $limitCond,
-                    $columnToIndex);
-        }
-
-        return $records;
-    }
-
-    /**
      * Načte z SQL data k aktuálnímu $ItemID a použije je v objektu.
      *
      * @param int|array   $itemID     klíč záznamu
@@ -377,34 +332,19 @@ trait Orm {
      * @return int Id záznamu nebo null v případě chyby
      */
     public function updateToSQL($data = null) {
-        if (is_null($this->myTable)) {
-            return;
-        }
-
         if (is_null($data)) {
             $data = $this->getData();
-            $useInObject = true;
-        } else {
-            $useInObject = false;
         }
 
-        if (!count($data)) {
-            $this->addStatusMessage(_('UpdateToSQL: Missing data'), 'error');
-
-            return;
-        }
-
-        if (!isset($data[$this->keyColumn])) {
+        $keyColumn = $this->getKeyColumn();
+        if (!isset($data[$keyColumn])) {
             $key = $this->getMyKey();
             if (is_null($key)) {
-                $this->addStatusMessage(get_class($this) . ':UpdateToSQL: Unknown keyColumn:' . $this->keyColumn . ' ' .
-                        json_encode($data), 'error');
-
-                return;
+                throw new Exception(':UpdateToSQL: Unknown keyColumn:' . $this->keyColumn . ' ' . json_encode($data), 'error');
             }
         } else {
-            $key = $data[$this->keyColumn];
-            unset($data[$this->keyColumn]);
+            $key = $data[$keyColumn];
+            unset($data[$keyColumn]);
         }
 
         if (isset($this->lastModifiedColumn) && !isset($data[$this->lastModifiedColumn])) {
@@ -427,37 +367,27 @@ trait Orm {
         if (is_null($data)) {
             $data = $this->getData();
         }
-
-        if (empty($data)) {
-            $this->addStatusMessage('SaveToSQL: Missing data', 'error');
-        } else {
-            if ($searchForID) {
-                if ($this->getMyKey($data)) {
-                    $rowsFound = $this->getColumnsFromSQL($this->getKeyColumn(),
-                            [$this->getKeyColumn() => $this->getMyKey($data)]);
-                } else {
-                    $rowsFound = $this->getColumnsFromSQL([$this->getKeyColumn()],
-                            $data);
-                    if (count($rowsFound)) {
-                        if (is_numeric($rowsFound[0][$this->getKeyColumn()])) {
-                            $data[$this->getKeyColumn()] = (int) $rowsFound[0][$this->getKeyColumn()];
-                        } else {
-                            $data[$this->getKeyColumn()] = $rowsFound[0][$this->getKeyColumn()];
-                        }
+        $keyColumn = $this->getKeyColumn();
+        if ($searchForID) {
+            if ($this->getMyKey($data)) {
+                $rowsFound = $this->getColumnsFromSQL([$keyColumn], [$keyColumn => $this->getMyKey($data)]);
+            } else {
+                $rowsFound = $this->getColumnsFromSQL([$keyColumn], $data);
+                if (count($rowsFound)) {
+                    if (is_numeric($rowsFound[0][$keyColumn])) {
+                        $data[$keyColumn] = (int) $rowsFound[0][$keyColumn];
+                    } else {
+                        $data[$keyColumn] = $rowsFound[0][$keyColumn];
                     }
                 }
+            }
 
-                if (count($rowsFound)) {
-                    $result = $this->updateToSQL($data);
-                } else {
-                    $result = $this->insertToSQL($data);
-                }
+            $result = count($rowsFound) ? $this->updateToSQL($data) : $this->insertToSQL($data);
+        } else {
+            if (isset($data[$keyColumn]) && !is_null($data[$keyColumn]) && strlen($data[$keyColumn])) {
+                $result = $this->updateToSQL($data);
             } else {
-                if (isset($data[$this->keyColumn]) && !is_null($data[$this->keyColumn]) && strlen($data[$this->keyColumn])) {
-                    $result = $this->updateToSQL($data);
-                } else {
-                    $result = $this->insertToSQL($data);
-                }
+                $result = $this->insertToSQL($data);
             }
         }
 
@@ -466,7 +396,6 @@ trait Orm {
 
     /**
      * Insert record to SQL database.
-     * Vloží záznam do SQL databáze.
      *
      * @param array $data
      *
@@ -480,12 +409,14 @@ trait Orm {
             $data[$this->createColumn] = date("Y-m-d H:i:s");
         }
         try {
-            $this->getFluentPDO()->insertInto($this->getMyTable(), $data)->execute();
+            $this->getFluentPDO(false, true)->insertInto($this->getMyTable(), $data)->execute();
             $insertId = $this->getPdo()->lastInsertId();
             $this->setMyKey(intval($insertId));
             return is_null($insertId) ? null : intval($insertId);
         } catch (\Envms\FluentPDO\Exception $exc) {
             $this->addStatusMessage($exc->getMessage(), 'error');
+            $this->addStatusMessage(json_encode($data), 'debug');
+            throw $exc;
         }
     }
 
@@ -509,12 +440,12 @@ trait Orm {
             return $result;
         } catch (\Envms\FluentPDO\Exception $exc) {
             $this->addStatusMessage($exc->getMessage(), 'error');
+            throw $exc;
         }
     }
 
     /**
      * Assign data from field to data array.
-     * Přiřadí data z políčka do pole dat.
      *
      * @param array  $data      asociativní pole dat
      * @param string $column    název položky k převzetí
