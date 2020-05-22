@@ -40,11 +40,17 @@ class Engine extends \Ease\Brick
      * Database object
      * 
      * @param mixed $identifier
-     * @param array $options  'autoload'=>false prevent inial autoloading
+     * @param array $options  'autoload'=>false prevent inial autoloading, keyColumn,myTable,createColumn,lastModifiedColumn,nameColumn
      */
     public function __construct($identifier = null, $options = [])
     {
+        $this->setupProperty($options, 'myTable');
+        $this->setupProperty($options, 'keyColumn');
+        $this->setupProperty($options, 'nameColumn');
+        $this->setupProperty($options, 'createColumn');
+        $this->setupProperty($options, 'lastModifiedColumn');
         $this->setUp($options);
+
         if (!is_null($identifier)) {
             if (array_key_exists('autoload', $options) && ($options['autoload'] != false)) {
                 if (is_array($identifier)) {
@@ -56,21 +62,6 @@ class Engine extends \Ease\Brick
                 $this->loadFromSQL($identifier);
             }
         }
-    }
-
-    /**
-     * Set Custom object properties
-     * 
-     * @param array $options keyColumn,myTable,createColumn,lastModifiedColumn,nameColumn
-     */
-    public function setUp($options = [])
-    {
-        $this->setupProperty($options, 'myTable');
-        $this->setupProperty($options, 'keyColumn');
-        $this->setupProperty($options, 'nameColumn');
-        $this->setupProperty($options, 'createColumn');
-        $this->setupProperty($options, 'lastModifiedColumn');
-        parent::setUp($options);
     }
 
     /**
