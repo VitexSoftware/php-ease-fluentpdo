@@ -52,7 +52,7 @@ class Engine extends \Ease\Brick
         $this->setUp($options);
 
         if (!is_null($identifier)) {
-            if (array_key_exists('autoload', $options) && ($options['autoload'] != false)) {
+            if (array_key_exists('autoload', $options) && ($options['autoload'] === false)) {
                 if (is_array($identifier)) {
                     $this->takeData($identifier);
                 } else {
