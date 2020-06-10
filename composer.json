@@ -11,6 +11,10 @@
         "vitexsoftware/ease-core": "dev-master",
         "fpdo/fluentpdo": "dev-master"
     },
+    "require-dev": {
+        "robmorgan/phinx": "*",
+        "phpunit/phpunit": "^9"
+    },
     "autoload": {
         "psr-4": {
             "Ease\\SQL\\": "src/Ease/SQL"
@@ -25,5 +29,4 @@
     "conflict": {
         "vitexsoftware/ease-framework": "*"
     }
-
 }
