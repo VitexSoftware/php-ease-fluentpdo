@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Abstraktní databázová třída.
  *
@@ -15,8 +16,8 @@ namespace Ease\SQL;
  *
  * @author Vitex <vitex@hippy.cz>
  */
-abstract class SQL extends \Ease\Molecule
-{
+abstract class SQL extends \Ease\Molecule {
+
     /**
      * SQL operation result handle.
      *
@@ -174,8 +175,7 @@ abstract class SQL extends \Ease\Molecule
     /**
      * Obecný objekt databáze.
      */
-    public function __construct($options = [])
-    {
+    public function __construct($options = []) {
         $this->setUp($options);
         $this->connect();
     }
@@ -197,14 +197,13 @@ abstract class SQL extends \Ease\Molecule
         $this->setupProperty($options, 'connectionSettings', 'DB_SETUP');
         $this->setupProperty($options, 'myTable');
     }
+
     /**
      * Připojení k databázi.
      */
-    public function connect()
-    {
+    public function connect() {
         if (!$this->connectAllreadyUP) {
-            if (isset($this->connectionSettings) && is_array($this->connectionSettings)
-                && count($this->connectionSettings)) {
+            if (isset($this->connectionSettings) && is_array($this->connectionSettings) && count($this->connectionSettings)) {
                 foreach ($this->connectionSettings as $setName => $SetValue) {
                     if (strlen($setName)) {
                         $this->exeQuery("SET $setName $SetValue");
@@ -223,8 +222,7 @@ abstract class SQL extends \Ease\Molecule
      *
      * @return bool
      */
-    public function selectDB($dbName = null)
-    {
+    public function selectDB($dbName = null) {
         if (!is_null($dbName)) {
             $this->database = $dbName;
         }
@@ -237,8 +235,7 @@ abstract class SQL extends \Ease\Molecule
      *
      * @return int
      */
-    public function getInsertID()
-    {
+    public function getInsertID() {
         return $this->lastInsertID;
     }
 
@@ -249,18 +246,8 @@ abstract class SQL extends \Ease\Molecule
      *
      * @return $Success
      */
-    public function ping($succes = null)
-    {
+    public function ping($succes = null) {
         return $succes;
-    }
-
-    /**
-     * Po deserializaci se znovu připojí.
-     */
-    public function __wakeup()
-    {
-        parent::__wakeup();
-        $this->connect();
     }
 
     /**
@@ -270,24 +257,17 @@ abstract class SQL extends \Ease\Molecule
      *
      * @return string SQL Query
      */
-    public function sanitizeQuery($queryRaw)
-    {
+    public function sanitizeQuery($queryRaw) {
         $sanitizedQuery = trim($queryRaw);
 
         return $sanitizedQuery;
     }
 
-    public function makeReport()
-    {
-        $this->report['LastMessage'] = $this->lastMessage;
-        $this->report['ErrorText']   = $this->errorText;
-        $this->report['Database']    = $this->database;
-        $this->report['Username']    = $this->username;
-        $this->report['Server']      = $this->server;
-    }
-
-    public function setTable($tableName)
-    {
+    /**
+     * 
+     * @param string $tableName
+     */
+    public function setTable($tableName) {
         $this->tableName = $tableName;
     }
 
@@ -296,8 +276,7 @@ abstract class SQL extends \Ease\Molecule
      *
      * @return int počet řádků
      */
-    public function getNumRows()
-    {
+    public function getNumRows() {
         return $this->numRows;
     }
 
@@ -306,8 +285,7 @@ abstract class SQL extends \Ease\Molecule
      *
      * @return int počet řádků
      */
-    public function getLastQuery()
-    {
+    public function getLastQuery() {
         return $this->lastQuery;
     }
 
@@ -316,8 +294,7 @@ abstract class SQL extends \Ease\Molecule
      *
      * @return int ID
      */
-    public function getlastInsertID()
-    {
+    public function getlastInsertID() {
         return $this->lastInsertID;
     }
 
@@ -326,11 +303,10 @@ abstract class SQL extends \Ease\Molecule
      *
      * @return string
      */
-    public function getLastError()
-    {
+    public function getLastError() {
         if ($this->errorText) {
             if (isset($this->errorNumber)) {
-                return '#'.$this->errorNumber.': '.$this->errorText;
+                return '#' . $this->errorNumber . ': ' . $this->errorText;
             } else {
                 return $this->errorText;
             }
@@ -344,16 +320,14 @@ abstract class SQL extends \Ease\Molecule
      *
      * @return bool
      */
-    public function __sleep()
-    {
+    public function __sleep() {
         $this->lastQuery = null;
     }
 
     /**
      * Zavře databázové spojení.
      */
-    public function __destruct()
-    {
+    public function __destruct() {
         if (method_exists($this, 'close')) {
             $this->close();
         }
@@ -366,8 +340,7 @@ abstract class SQL extends \Ease\Molecule
      *
      * @return array|null
      */
-    public function queryTo2DArray($queryRaw)
-    {
+    public function queryTo2DArray($queryRaw) {
         $result = $this->queryToArray($queryRaw);
         if (count($result)) {
             $values = [];
@@ -388,8 +361,7 @@ abstract class SQL extends \Ease\Molecule
      *
      * @return string|null
      */
-    public function queryToValue($queryRaw)
-    {
+    public function queryToValue($queryRaw) {
         $sth = $this->getPdo()->prepare($queryRaw);
         return $sth->execute() ? $sth->fetchColumn() : null;
     }
@@ -401,8 +373,7 @@ abstract class SQL extends \Ease\Molecule
      *
      * @return int
      */
-    public function queryToCount($queryRaw)
-    {
+    public function queryToCount($queryRaw) {
         $resp = $this->queryToArray($queryRaw);
         return empty($resp) ? 0 : count($resp);
     }
@@ -410,10 +381,11 @@ abstract class SQL extends \Ease\Molecule
     /**
      * Vrací uvozovky pro označení sloupečků.
      *
+     * @deprecated since version 1.2
+     * 
      * @return string
      */
-    public function getColumnComma()
-    {
+    public function getColumnComma() {
         return '';
     }
 
@@ -422,8 +394,7 @@ abstract class SQL extends \Ease\Molecule
      *
      * @return bool
      */
-    public function isConnected()
-    {
+    public function isConnected() {
         return $this->status;
     }
 
@@ -436,8 +407,7 @@ abstract class SQL extends \Ease\Molecule
      *
      * @return string
      */
-    public function arrayToSetQuery($data, $key = true)
-    {
+    public function arrayToSetQuery($data, $key = true) {
         $updates = '';
         foreach ($data as $column => $value) {
             if (!strlen($column)) {
@@ -452,7 +422,7 @@ abstract class SQL extends \Ease\Molecule
                     break;
                 case 'float':
                 case 'double':
-                    $value = ' '.str_replace(',', '.', $value).' ';
+                    $value = ' ' . str_replace(',', '.', $value) . ' ';
                     break;
                 case 'boolean':
                     if ($value) {
@@ -467,7 +437,7 @@ abstract class SQL extends \Ease\Molecule
                 case 'string':
                     if ($value != 'NOW()') {
                         if (!strstr($value, "\'")) {
-                            $value = " '".str_replace("'", "\'", $value)."' ";
+                            $value = " '" . str_replace("'", "\'", $value) . "' ";
                         } else {
                             $value = " '$value' ";
                         }
@@ -477,7 +447,7 @@ abstract class SQL extends \Ease\Molecule
                     $value = " '$value' ";
             }
 
-            $updates .= ' '.$this->getColumnComma().$column.$this->getColumnComma()." = $value,";
+            $updates .= ' ' . $this->getColumnComma() . $column . $this->getColumnComma() . " = $value,";
         }
 
         return substr($updates, 0, -1);
@@ -488,21 +458,20 @@ abstract class SQL extends \Ease\Molecule
      *
      * @param bool $ignoreErrors
      */
-    public function logSqlError($ignoreErrors = false)
-    {
+    public function logSqlError($ignoreErrors = false) {
         if (!$this->result && !$ignoreErrors) {
-            $queryRaw        = $this->lastQuery;
+            $queryRaw = $this->lastQuery;
             $callerBackTrace = debug_backtrace();
             $callerBackTrace = $callerBackTrace[2];
-            $caller          = $callerBackTrace['function'].'()';
+            $caller = $callerBackTrace['function'] . '()';
             if (isset($callerBackTrace['class'])) {
-                $caller .= ' in '.$callerBackTrace['class'];
+                $caller .= ' in ' . $callerBackTrace['class'];
             }
             if (isset($callerBackTrace['object'])) {
-                $caller .= ' ('.get_class($callerBackTrace['object']).')';
+                $caller .= ' (' . get_class($callerBackTrace['object']) . ')';
             }
-            \Ease\Shared::logger()->addStatusMessage(new \Ease\Logger\Message('ExeQuery: #'.$this->errorNumber.': '.$this->errorText."\n".$queryRaw,
-                    'error', $caller));
+            \Ease\Shared::logger()->addStatusMessage(new \Ease\Logger\Message('ExeQuery: #' . $this->errorNumber . ': ' . $this->errorText . "\n" . $queryRaw,
+                            'error', $caller));
         }
     }
 
@@ -510,11 +479,13 @@ abstract class SQL extends \Ease\Molecule
      * Funkce pro defaultní slashování v celém frameworku.
      *
      * @param string $text
+     * 
+     * @deprecated since version 1
      *
      * @return string
      */
-    public function easeAddSlashes($text)
-    {
+    public function easeAddSlashes($text) {
         return addslashes($text);
     }
+
 }
