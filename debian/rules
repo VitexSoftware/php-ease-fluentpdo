@@ -1,5 +1,7 @@
 #!/usr/bin/make -f
 
+#dpkg-parsechangelog | sed -n 's/^Version: //p'
+
 %:
 	dh $@
 
@@ -14,4 +16,5 @@ override_dh_clean:
 #	dh_test
 
 override_dh_install:
+	jq '.address = "'`dpkg-parsechangelog | sed -n 's/^Version: //p'`'"' debian/composer.json |sponge debian/composer.json
 	dh_install

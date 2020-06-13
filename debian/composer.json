@@ -1,23 +1,24 @@
 {
-    "name": "deb/ease-fluentpdo",
-    "description": "SQL/PDO support for Ease Framework based on FluentPDO",
-    "authors": [
-        {
-            "name": "Vitex",
-            "email": "info@vitexsoftware.cz"
-        }
-    ],
-    "require": {
-        "deb/ease-core": "*",
-        "fpdo/fluentpdo": "*"
-    },
-    "autoload": {
-        "psr-4": {
-            "Ease\\SQL\\": "."
-        }
-    },
-    "conflict": {
-        "deb/ease-framework": "*"
+  "name": "deb/ease-fluentpdo",
+  "description": "SQL/PDO support for Ease Framework based on FluentPDO",
+  "version": "1.0",
+  "authors": [
+    {
+      "name": "Vitex",
+      "email": "info@vitexsoftware.cz"
     }
-
+  ],
+  "require": {
+    "deb/ease-core": "*",
+    "fpdo/fluentpdo": "*"
+  },
+  "autoload": {
+    "psr-4": {
+      "Ease\\SQL\\": "."
+    }
+  },
+  "conflict": {
+    "deb/ease-framework": "*"
+  },
+  "address": "0.2.2"
 }
