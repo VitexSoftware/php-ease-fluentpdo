@@ -1,7 +1,7 @@
 SQL Support for EasePHP Framework using FluentPDO
 =================================================
 
-![Project logo](php-ease-fluneetpdo.svg?raw=true)
+![Project logo](php-ease-fluentpdo.svg?raw=true)
 
 [![Latest Stable Version](https://poser.pugx.org/vitexsoftware/ease-fluentpdo/version)](https://packagist.org/packages/vitexsoftware/ease-fluentpdo)
 [![Total Downloads](https://poser.pugx.org/vitexsoftware/ease-fluentpdo/downloads)](https://packagist.org/packages/vitexsoftware/ease-fluentpdo)

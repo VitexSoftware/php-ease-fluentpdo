@@ -94,8 +94,8 @@ trait Orm {
     /**
      * SetUp Object to be ready for connect
      *
-     * @param array $options Object Options (company,url,user,password,evidence,
-     *                                       prefix,defaultUrlParams,debug)
+     * @param array $options Object Options (dbType,server,username,password,database,
+     *                                       port,connectionSettings,myTable,debug)
      */
     public function setUp($options = []) {
         $this->setupProperty($options, 'dbType', 'DB_CONNECTION'); //Laralvel 
@@ -107,6 +107,7 @@ trait Orm {
         $this->setupProperty($options, 'port', 'DB_PORT');
         $this->setupProperty($options, 'connectionSettings', 'DB_SETUP');
         $this->setupProperty($options, 'myTable');
+        $this->setupProperty($options, 'debug','DEBUG');
     }
 
     /**
