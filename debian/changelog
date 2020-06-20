@@ -1,4 +1,4 @@
-php-ease-fluentpdo (0.2.3) UNRELEASED; urgency=medium
+php-ease-fluentpdo (0.2.4) UNRELEASED; urgency=medium
 
   * Initial release. (Closes: #XXXXXX)
   * twbootstrap renamed to bootstrap
@@ -11,5 +11,6 @@ php-ease-fluentpdo (0.2.3) UNRELEASED; urgency=medium
   * Release v0.2.3
   * Release v0.2.3
   * Release v0.2.3
+  * Release v0.2.3
 
- -- CyberVitexus <vitex@exiv.jinonice.czf>  Sat, 20 Jun 2020 13:20:02 +0200
+ -- CyberVitexus <vitex@exiv.jinonice.czf>  Sat, 20 Jun 2020 14:18:51 +0200
