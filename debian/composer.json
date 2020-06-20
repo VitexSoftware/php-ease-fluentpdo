@@ -20,5 +20,5 @@
   "conflict": {
     "deb/ease-framework": "*"
   },
-  "address": "0.2.2"
+  "address": "0.2.3"
 }

@@ -155,28 +155,28 @@ class EngineTest extends \PHPUnit\Framework\TestCase {
      * @covers Ease\SQL\Engine::updateToSQL
      */
     public function testUpdateToSQL() {
-        $this->assertEquals('', $this->object->UpdateToSQL());
+        $this->assertEquals('', $this->object->updateToSQL());
     }
 
     /**
      * @covers Ease\SQL\Engine::saveToSQL
      */
     public function testSaveToSQL() {
-        $this->assertEquals('', $this->object->SaveToSQL());
+        $this->assertEquals('', $this->object->saveToSQL());
     }
 
     /**
      * @covers Ease\SQL\Engine::insertToSQL
      */
     public function testInsertToSQL() {
-        $this->assertEquals('', $this->object->InsertToSQL());
+        $this->assertEquals('', $this->object->insertToSQL());
     }
 
     /**
      * @covers Ease\SQL\Engine::deleteFromSQL
      */
     public function testDeleteFromSQL() {
-        $this->assertEquals('', $this->object->DeleteFromSQL());
+        $this->assertEquals('', $this->object->deleteFromSQL());
     }
 
     /**

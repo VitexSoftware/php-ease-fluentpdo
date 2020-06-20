@@ -5,8 +5,9 @@ namespace Test\Ease\SQL;
 use Ease\SQL\SQL;
 
 class SQLTester extends SQL {
+
     public $myTable = 'test';
-    
+
 }
 
 /**
@@ -25,7 +26,7 @@ class SQLTest extends \PHPUnit\Framework\TestCase {
      */
     protected function setUp(): void {
 
-        $this->object = new SQLTester(['myTable'=>'test']);
+        $this->object = new SQLTester(['myTable' => 'test']);
     }
 
     /**
@@ -79,24 +80,17 @@ class SQLTest extends \PHPUnit\Framework\TestCase {
     }
 
     /**
-     * @covers Ease\SQL\SQL::makeReport
-     */
-    public function testMakeReport() {
-        $this->assertEquals('', $this->object->MakeReport());
-    }
-
-    /**
      * @covers Ease\SQL\SQL::setTable
      */
     public function testSetTable() {
-        $this->assertEquals('', $this->object->SetTable());
+        $this->assertEquals($this->object->tableName, $this->object->setTable('test'));
     }
 
     /**
      * @covers Ease\SQL\SQL::getNumRows
      */
     public function testGetNumRows() {
-        $this->assertEquals('', $this->object->GetNumRows());
+        $this->assertEquals(0, $this->object->GetNumRows());
     }
 
     /**
@@ -166,7 +160,7 @@ class SQLTest extends \PHPUnit\Framework\TestCase {
      * @covers Ease\SQL\SQL::isConnected
      */
     public function testIsConnected() {
-        $this->assertTrue( $this->object->IsConnected());
+        $this->assertTrue($this->object->IsConnected());
     }
 
     /**
