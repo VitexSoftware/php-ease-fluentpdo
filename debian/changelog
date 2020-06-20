@@ -9,5 +9,6 @@ php-ease-fluentpdo (0.2.3) UNRELEASED; urgency=medium
   * Merge branch 'master' of github.com:VitexSoftware/php-ease-fluentpdo
   * Unit Tests updated
   * Release v0.2.3
+  * Release v0.2.3
 
- -- CyberVitexus <vitex@exiv.jinonice.czf>  Sat, 20 Jun 2020 13:14:32 +0200
+ -- CyberVitexus <vitex@exiv.jinonice.czf>  Sat, 20 Jun 2020 13:16:05 +0200
