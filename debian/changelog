@@ -8,5 +8,6 @@ php-ease-fluentpdo (0.2.3) UNRELEASED; urgency=medium
   * twbootstrap renamed to bootstrap
   * Merge branch 'master' of github.com:VitexSoftware/php-ease-fluentpdo
   * Unit Tests updated
+  * Release v0.2.3
 
- -- CyberVitexus <vitex@exiv.jinonice.czf>  Sat, 20 Jun 2020 12:55:27 +0200
+ -- CyberVitexus <vitex@exiv.jinonice.czf>  Sat, 20 Jun 2020 13:14:32 +0200
