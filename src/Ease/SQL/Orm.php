@@ -138,7 +138,11 @@ trait Orm {
             case 'sqlite3':
                 $this->dbType = 'sqlite';
             case 'sqlite':
-                $result = new \PDO($this->dbType . ':' . $this->database);
+                if(file_exists($this->database)){
+                    $result = new \PDO($this->dbType . ':' . $this->database);
+                } else {    
+                    throw  new \PDOException( sprintf(_('unable to open database file %s'), $this->database));
+                }
                 break;
             default:
                 throw new \Ease\Exception(_('Unimplemented Database type') . ': ' . $this->dbType);
