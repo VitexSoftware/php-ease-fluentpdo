@@ -37,19 +37,6 @@ class EngineTest extends \PHPUnit\Framework\TestCase {
         $this->assertEquals('', $this->object->GetRecordName());
     }
 
-    /**
-     * @covers Ease\SQL\Engine::getSQLList
-     */
-    public function testGetSQLList() {
-        $this->assertEquals('', $this->object->GetSQLList());
-    }
-
-    /**
-     * @covers Ease\SQL\Engine::getMyTable
-     */
-    public function testGetMyTable() {
-        $this->assertEquals('test', $this->object->getMyTable());
-    }
 
     /**
      * @covers Ease\SQL\Engine::setmyTable
@@ -59,12 +46,14 @@ class EngineTest extends \PHPUnit\Framework\TestCase {
     }
 
     /**
-     * @covers Ease\SQL\Engine::getSQLItemsCount
+     * @covers Ease\SQL\Engine::getMyTable
      */
-    public function testGetSQLItemsCount() {
-        $this->assertEquals('', $this->object->GetSQLItemsCount());
+    public function testGetMyTable() {
+        $this->object->setmyTable('test');
+        $this->assertEquals('test', $this->object->getMyTable());
     }
-
+    
+    
     /**
      * @covers Ease\SQL\Engine::searchColumns
      */

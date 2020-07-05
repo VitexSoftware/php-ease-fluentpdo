@@ -75,27 +75,6 @@ class Engine extends \Ease\Brick
     }
 
     /**
-     * Načte IDčeka z tabulky.
-     *
-     * @param string $tableName   jméno tabulky
-     * @param string $keyColumn klíčovací sloupeček
-     *
-     * @return array list of IDs
-     */
-    public function getSQLList($tableName = null, $keyColumn = null)
-    {
-        if (is_null($tableName)) {
-            $tableName = $this->myTable;
-        }
-        if (is_null($keyColumn)) {
-            $keyColumn = $this->keyColumn;
-        }
-        $cc        = $this->dblink->getColumnComma();
-        $listQuery = SQL::$sel.$cc.$keyColumn.$cc.SQL::$frm.$tableName;
-        return $this->dblink->queryToArray($listQuery);
-    }
-
-    /**
      * Vrací název aktuálně použivané SQL tabulky.
      *
      * @return string
@@ -116,37 +95,19 @@ class Engine extends \Ease\Brick
     }
 
     /**
-     * Vrátí počet položek tabulky v SQL.
-     *
-     * @param string $tableName pokud není zadáno, použije se $this->myTable
-     *
-     * @return int
-     */
-    public function getSQLItemsCount($tableName = null)
-    {
-        if (is_null($tableName)) {
-            $tableName = $this->myTable;
-        }
-
-        return $this->dblink->queryToValue(SQL::$sel.'COUNT('.$this->keyColumn.') FROM '.$tableName);
-    }
-
-    /**
-     * Prohledá zadané slupečky.
+     * Search columns for given value.
      *
      * @param string $searchTerm
      * @param array  $columns
      */
     public function searchColumns($searchTerm, $columns)
     {
-        $sTerm     = $this->dblink->addSlashes($searchTerm);
         $conditons = [];
         foreach ($columns as $column) {
-            $conditons[] = '`'.$column.'` LIKE \'%'.$sTerm.'%\'';
+            $conditons[] = '`'.$column.'` LIKE \'%'. addslashes($sTerm).'%\'';
         }
 
-        return $this->dblink->queryToArray(SQL::$sel.'* FROM '.$this->myTable.SQL::$whr.implode(' OR ',
-                    $conditons));
+        return $this->listingQuery()->where($conditons);
     }
 
     /**

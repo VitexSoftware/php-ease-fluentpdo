@@ -3,6 +3,13 @@ nextversion=$(shell echo $(repoversion) | perl -ne 'chomp; print join(".", splic
 
 all:
 
+deb:
+	debuild -us -uc
+
+phpunit:
+	phpunit tests
+
+
 release:
 	echo Release v$(nextversion)
 	dch -v $(nextversion) `git log -1 --pretty=%B | head -n 1`
