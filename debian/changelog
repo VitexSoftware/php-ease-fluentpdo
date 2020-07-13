@@ -1,4 +1,4 @@
-php-ease-fluentpdo (0.2.5) UNRELEASED; urgency=medium
+php-ease-fluentpdo (0.2.6) UNRELEASED; urgency=medium
 
   * Initial release. (Closes: #XXXXXX)
   * twbootstrap renamed to bootstrap
@@ -14,5 +14,6 @@ php-ease-fluentpdo (0.2.5) UNRELEASED; urgency=medium
   * Release v0.2.3
   * Release v0.2.4
   * Merge origin/master
+  * Update with null columns fixed
 
- -- CyberVitexus <vitex@exiv.jinonice.czf>  Sun, 05 Jul 2020 09:14:34 +0200
+ -- CyberVitexus <vitex@exiv.jinonice.czf>  Mon, 13 Jul 2020 15:22:21 +0200
