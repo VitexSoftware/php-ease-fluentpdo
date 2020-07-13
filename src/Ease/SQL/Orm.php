@@ -356,7 +356,7 @@ trait Orm {
             $data[$this->lastModifiedColumn] = date("Y-m-d H:i:s");
         }
 
-        return $this->getFluentPDO()->update($this->getMyTable())->set($data)->where($this->getKeyColumn(), $key)->execute();
+        return $this->getFluentPDO(false,true)->update($this->getMyTable())->set($data)->where($this->getKeyColumn(), $key)->execute();
     }
 
     /**
