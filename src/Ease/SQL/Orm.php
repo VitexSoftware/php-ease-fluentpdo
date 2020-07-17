@@ -107,7 +107,7 @@ trait Orm {
         $this->setupProperty($options, 'port', 'DB_PORT');
         $this->setupProperty($options, 'connectionSettings', 'DB_SETUP');
         $this->setupProperty($options, 'myTable');
-        $this->setupProperty($options, 'debug','DEBUG');
+        $this->setupProperty($options, 'debug', 'DEBUG');
     }
 
     /**
@@ -138,10 +138,10 @@ trait Orm {
             case 'sqlite3':
                 $this->dbType = 'sqlite';
             case 'sqlite':
-                if(file_exists($this->database)){
+                if (file_exists($this->database)) {
                     $result = new \PDO($this->dbType . ':' . $this->database);
-                } else {    
-                    throw  new \PDOException( sprintf(_('unable to open database file %s'), $this->database));
+                } else {
+                    throw new \PDOException(sprintf(_('unable to open database file %s'), $this->database));
                 }
                 break;
             default:
@@ -356,46 +356,30 @@ trait Orm {
             $data[$this->lastModifiedColumn] = date("Y-m-d H:i:s");
         }
 
-        return $this->getFluentPDO(false,true)->update($this->getMyTable())->set($data)->where($this->getKeyColumn(), $key)->execute();
+        return $this->getFluentPDO(false, true)->update($this->getMyTable())->set($data)->where($this->getKeyColumn(), $key)->execute();
     }
 
     /**
-     * Uloží pole dat do SQL. Pokud je $SearchForID 0 updatuje pokud ze nastaven  keyColumn.
+     * Uloží pole dat do SQL.
      *
      * @param array $data        asociativní pole dat
-     * @param bool  $searchForID Zjistit zdali updatovat nebo insertovat
      *
      * @return int ID záznamu nebo null v případě neůspěchu
      */
-    public function saveToSQL($data = null, $searchForID = false) {
+    public function saveToSQL($data = null) {
         $result = null;
         if (is_null($data)) {
             $data = $this->getData();
         }
         $keyColumn = $this->getKeyColumn();
-        if ($searchForID) {
-            if ($this->getMyKey($data)) {
-                $rowsFound = $this->getColumnsFromSQL([$keyColumn], [$keyColumn => $this->getMyKey($data)]);
-            } else {
-                $rowsFound = $this->getColumnsFromSQL([$keyColumn], $data);
-                if (count($rowsFound)) {
-                    if (is_numeric($rowsFound[0][$keyColumn])) {
-                        $data[$keyColumn] = (int) $rowsFound[0][$keyColumn];
-                    } else {
-                        $data[$keyColumn] = $rowsFound[0][$keyColumn];
-                    }
-                }
-            }
-
-            $result = count($rowsFound) ? $this->updateToSQL($data) : $this->insertToSQL($data);
-        } else {
-            if (isset($data[$keyColumn]) && !is_null($data[$keyColumn]) && strlen($data[$keyColumn])) {
-                $result = $this->updateToSQL($data);
-            } else {
-                $result = $this->insertToSQL($data);
-            }
+        if (!$this->getMyKey($data) && $this->getMyKey()) {
+            $data[$keyColumn] = $this->getMyKey();
         }
-
+        if (isset($data[$keyColumn]) && !is_null($data[$keyColumn]) && strlen($data[$keyColumn])) {
+            $result = $this->updateToSQL($data);
+        } else {
+            $result = $this->insertToSQL($data);
+        }
         return $result;
     }
 
