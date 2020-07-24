@@ -374,7 +374,7 @@ trait Orm {
      * Insert record to SQL database.
      *
      * @param array $data
-     *
+     *`
      * @return int|null id of new row in database
      */
     public function insertToSQL($data = null) {
@@ -423,12 +423,14 @@ trait Orm {
     /**
      * Assign data from field to data array.
      *
+     * @deprecated since version 0.1
+     * 
      * @param array  $data      asociativní pole dat
      * @param string $column    název položky k převzetí
      * @param bool   $mayBeNull nahrazovat chybejici hodnotu nullem ?
      * @param string $renameAs  název cílového políčka
      *
-     * @return mixed převzatá do pole
+     * @return null|array array taken or not
      */
     public function takeToData($data, $column, $mayBeNull = false,
             $renameAs = null) {
@@ -444,7 +446,7 @@ trait Orm {
             if (!is_null($mayBeNull)) {
                 $this->setDataValue($column, null);
 
-                return;
+                return null;
             }
         }
     }

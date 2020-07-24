@@ -196,7 +196,7 @@ class EngineTest extends \PHPUnit\Framework\TestCase {
      * @covers Ease\SQL\Engine::takeToData
      */
     public function testTakeToData() {
-        $this->assertEquals('', $this->object->TakeToData());
+        $this->assertEquals('', $this->object->takeToData(['a'=>'b'],'2ndLevel'));
     }
 
 }

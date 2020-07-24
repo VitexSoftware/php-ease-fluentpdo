@@ -89,10 +89,13 @@ class PDO extends SQL {
      * Set KeyColumn used for PGSQL indertid.
      *
      * @param string $column
+     * 
+     * @return boolean Operation success
      */
     public function setKeyColumn($column = null) {
         if (!is_null($column)) {
             $this->keyColumn = $column;
+            return true;
         }
     }
 
@@ -133,7 +136,7 @@ class PDO extends SQL {
      */
     public function selectDB($dbName = null) {
         parent::selectDB($dbName);
-        $change = $this->pdo->select_db($dbName);
+        $change = $this->select_db($dbName);
         if ($change) {
             $this->Database = $dbName;
         } else {
@@ -295,6 +298,8 @@ class PDO extends SQL {
 
     /**
      * Insert array values as new database row
+     * 
+     * @deprecated since version 0.1
      *
      * @param string $data
      *
@@ -312,6 +317,8 @@ class PDO extends SQL {
     /**
      * upravi obsah zaznamu v predvolene tabulce $this->myTable, kde klicovy sloupec
      * $this->keyColumn je hodnota v klicovem sloupci hodnotami z pole $data.
+     * 
+     * @deprecated since version 0.1
      *
      * @param array $data  asociativní pole dat
      * @param int   $KeyID id záznamu. Není li uveden použije se aktuální

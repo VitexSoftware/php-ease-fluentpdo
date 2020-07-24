@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Database Engine class
  *
@@ -13,10 +14,10 @@ namespace Ease\SQL;
  *
  * @author Vítězslav Dvořák <info@vitexsoftware.cz>
  */
-class Engine extends \Ease\Brick
-{
+class Engine extends \Ease\Brick {
 
     use Orm;
+
     /**
      * Předvolená tabulka v SQL (součást identity).
      *
@@ -42,8 +43,7 @@ class Engine extends \Ease\Brick
      * @param mixed $identifier
      * @param array $options  'autoload'=>false prevent inial autoloading, keyColumn,myTable,createColumn,lastModifiedColumn,nameColumn
      */
-    public function __construct($identifier = null, $options = [])
-    {
+    public function __construct($identifier = null, $options = []) {
         $this->setupProperty($options, 'myTable');
         $this->setupProperty($options, 'keyColumn');
         $this->setupProperty($options, 'nameColumn');
@@ -68,10 +68,8 @@ class Engine extends \Ease\Brick
      * Obtain record name id $this->nameColumn is set
      * @return string
      */
-    public function getRecordName()
-    {
-        return empty($this->nameColumn) ? $this->getDataValue($this->nameColumn)
-                : null;
+    public function getRecordName() {
+        return empty($this->nameColumn) ? $this->getDataValue($this->nameColumn) : null;
     }
 
     /**
@@ -79,8 +77,7 @@ class Engine extends \Ease\Brick
      *
      * @return string
      */
-    public function getMyTable()
-    {
+    public function getMyTable() {
         return $this->myTable;
     }
 
@@ -89,8 +86,7 @@ class Engine extends \Ease\Brick
      *
      * @param string $myTable
      */
-    public function setmyTable($myTable)
-    {
+    public function setmyTable($myTable) {
         $this->myTable = $myTable;
     }
 
@@ -100,11 +96,10 @@ class Engine extends \Ease\Brick
      * @param string $searchTerm
      * @param array  $columns
      */
-    public function searchColumns($searchTerm, $columns)
-    {
+    public function searchColumns($searchTerm, $columns) {
         $conditons = [];
         foreach ($columns as $column) {
-            $conditons[] = '`'.$column.'` LIKE \'%'. addslashes($searchTerm).'%\'';
+            $conditons[] = '`' . $column . '` LIKE \'%' . addslashes($searchTerm) . '%\'';
         }
 
         return $this->listingQuery()->where($conditons);
@@ -115,8 +110,8 @@ class Engine extends \Ease\Brick
      * 
      * @return array
      */
-    public function getAll()
-    {
+    public function getAll() {
         return $this->listingQuery()->fetchAll();
     }
+
 }
