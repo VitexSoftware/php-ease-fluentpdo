@@ -16,14 +16,14 @@ if (file_exists('./vendor/autoload.php')) {
 $dotenv = \Dotenv\Dotenv::create(__DIR__);
 $dotenv->load();
 
-$prefix = file_exists('./db/') ? './db/' : '../db/';
+$prefix = file_exists('./tests/') ? './tests/' : '../tests/';
 
 $sqlOptions = [];
 
 if (strstr(getenv('DB_CONNECTION'), 'sqlite')) {
     $sqlOptions['database'] = $prefix . basename(getenv('DB_DATABASE'));
 }
-$engine = new \Ease\SQL\Engine(null,$sqlOptions);
+$engine = new \Ease\SQL\Engine(null, $sqlOptions);
 $cfg = [
     'paths' => [
         'migrations' => [$prefix . 'migrations'],

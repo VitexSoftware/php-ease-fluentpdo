@@ -3,11 +3,15 @@ nextversion=$(shell echo $(repoversion) | perl -ne 'chomp; print join(".", splic
 
 all:
 
+prepare:
+	vendor/bin/phinx migrate -c Examples/phinx-adapter.php
+
+
 deb:
 	debuild -us -uc
 
 phpunit:
-	phpunit tests
+	vendor/bin/phpunit --bootstrap tests/bootstrap.php --configuration phpunit.xml
 
 
 release:

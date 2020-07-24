@@ -9,11 +9,12 @@
     ],
     "require": {
         "vitexsoftware/ease-core": "dev-master",
-        "fpdo/fluentpdo": "dev-master"
+        "fpdo/fluentpdo": "dev-master",
+        "robmorgan/phinx": "^0.12.3"
     },
     "require-dev": {
-        "robmorgan/phinx": "*",
-        "phpunit/phpunit": "^9"
+        "phpunit/phpunit": "^9",
+        "vlucas/phpdotenv": "^3"
     },
     "autoload": {
         "psr-4": {

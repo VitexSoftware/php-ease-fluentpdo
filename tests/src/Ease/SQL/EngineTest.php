@@ -19,7 +19,7 @@ class EngineTest extends \PHPUnit\Framework\TestCase {
      * This method is called before a test is executed.
      */
     protected function setUp(): void {
-        $this->object = new Engine();
+        $this->object = new Engine(null,['myTable'=>'test']);
     }
 
     /**
@@ -65,7 +65,7 @@ class EngineTest extends \PHPUnit\Framework\TestCase {
      * @covers Ease\SQL\Engine::getAll
      */
     public function testGetAll() {
-        $this->assertEquals('', $this->object->getAll());
+        $this->assertEquals([], $this->object->getAll());
     }
 
     /**
