@@ -261,20 +261,7 @@ trait Orm {
      * @return array Results
      */
     public function getDataFromSQL($itemID = null) {
-        if (is_null($itemID)) {
-            $itemID = $this->getMyKey();
-        }
-        if (is_string($itemID)) {
-            $itemID = "'" . $this->dblink->addSlashes($itemID) . "'";
-        } else {
-            $itemID = $this->dblink->addSlashes($itemID);
-        } if (is_null($itemID)) {
-            throw new \Ease\Exception('loadFromSQL: Unknown Key');
-        }
-        $cc = $this->dblink->getColumnComma();
-        $queryRaw = SQL::$sel . ' * FROM ' . $cc . $this->myTable . $cc . SQL::$whr . $cc . $this->getKeyColumn() . $cc . ' = ' . $itemID;
-
-        return $this->dblink->queryToArray($queryRaw);
+        
     }
 
     /**
@@ -345,7 +332,7 @@ trait Orm {
         if (!isset($data[$keyColumn])) {
             $key = $this->getMyKey();
             if (is_null($key)) {
-                throw new Exception(':UpdateToSQL: Unknown keyColumn:' . $this->keyColumn . ' ' . json_encode($data), 'error');
+                throw new \Ease\Exception(':UpdateToSQL: Unknown keyColumn:' . $this->keyColumn . ' ' . json_encode($data), 'error');
             }
         } else {
             $key = $data[$keyColumn];

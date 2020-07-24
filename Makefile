@@ -4,7 +4,10 @@ nextversion=$(shell echo $(repoversion) | perl -ne 'chomp; print join(".", splic
 all:
 
 prepare:
+	rm -rf ./tests/test.sqlite
+	touch ./tests/test.sqlite
 	vendor/bin/phinx migrate -c Examples/phinx-adapter.php
+	vendor/bin/phinx seed:run -c Examples/phinx-adapter.php
 
 
 deb:

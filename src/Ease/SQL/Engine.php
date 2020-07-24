@@ -104,7 +104,7 @@ class Engine extends \Ease\Brick
     {
         $conditons = [];
         foreach ($columns as $column) {
-            $conditons[] = '`'.$column.'` LIKE \'%'. addslashes($sTerm).'%\'';
+            $conditons[] = '`'.$column.'` LIKE \'%'. addslashes($searchTerm).'%\'';
         }
 
         return $this->listingQuery()->where($conditons);

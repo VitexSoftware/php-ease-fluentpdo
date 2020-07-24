@@ -19,7 +19,7 @@ class EngineTest extends \PHPUnit\Framework\TestCase {
      * This method is called before a test is executed.
      */
     protected function setUp(): void {
-        $this->object = new Engine(null,['myTable'=>'test']);
+        $this->object = new Engine(null, ['myTable' => 'test', 'createColumn' => 'created']);
     }
 
     /**
@@ -31,12 +31,32 @@ class EngineTest extends \PHPUnit\Framework\TestCase {
     }
 
     /**
+     * Test Constructor
+     *
+     * @covers Ease\SQL\Engine::__construct
+     */
+    public function testConstructor() {
+        $classname = get_class($this->object);
+
+        // Get mock, without the constructor being called
+        $mock = $this->getMockBuilder($classname)
+                ->disableOriginalConstructor()
+                ->getMockForAbstractClass();
+        $mock->__construct(null, ['debug' => false]);
+        $mock->__construct(1, ['autoload' => true, 'myTable' => 'test']);
+        $this->assertEquals('a', $mock->getDataValue('value'));
+        $mock->__construct(['key' => 'bar'], ['autoload' => true, 'myTable' => 'test']);
+        $this->assertEquals('b', $mock->getDataValue('value'));
+        $mock->__construct('b', ['autoload' => true, 'myTable' => 'test', 'keyColumn' => 'value']);
+        $this->assertEquals(2, $mock->getDataValue('id'));
+    }
+
+    /**
      * @covers Ease\SQL\Engine::getRecordName
      */
     public function testGetRecordName() {
         $this->assertEquals('', $this->object->GetRecordName());
     }
-
 
     /**
      * @covers Ease\SQL\Engine::setmyTable
@@ -52,20 +72,19 @@ class EngineTest extends \PHPUnit\Framework\TestCase {
         $this->object->setmyTable('test');
         $this->assertEquals('test', $this->object->getMyTable());
     }
-    
-    
+
     /**
      * @covers Ease\SQL\Engine::searchColumns
      */
     public function testSearchColumns() {
-        $this->assertEquals('', $this->object->searchColumns(['id'], 1));
+        $this->assertNotEmpty( $this->object->searchColumns('bar', ['key'], 1)->fetch());
     }
 
     /**
      * @covers Ease\SQL\Engine::getAll
      */
     public function testGetAll() {
-        $this->assertEquals([], $this->object->getAll());
+        $this->assertArrayHasKey(2, $this->object->getAll());
     }
 
     /**
@@ -100,7 +119,7 @@ class EngineTest extends \PHPUnit\Framework\TestCase {
      * @covers Ease\SQL\Engine::listingQuery
      */
     public function testListingQuery() {
-        $this->assertEquals('Query', get_class($this->object->ListingQuery()) );
+        $this->assertEquals('Envms\FluentPDO\Queries\Select', get_class($this->object->ListingQuery()));
     }
 
     /**
@@ -123,7 +142,7 @@ class EngineTest extends \PHPUnit\Framework\TestCase {
      * @covers Ease\SQL\Engine::loadFromSQL
      */
     public function testLoadFromSQL() {
-        $this->assertEquals('', $this->object->LoadFromSQL());
+        $this->assertEquals(5, $this->object->loadFromSQL(2));
     }
 
     /**
@@ -158,7 +177,12 @@ class EngineTest extends \PHPUnit\Framework\TestCase {
      * @covers Ease\SQL\Engine::insertToSQL
      */
     public function testInsertToSQL() {
-        $this->assertEquals('', $this->object->insertToSQL());
+        $this->object->setData(['key' => 'xyz', 'value' => 'xxx']);
+        $this->assertEquals(3, $this->object->insertToSQL());
+        $this->assertEquals(4, $this->object->insertToSQL(['key' => 'cfg', 'value' => 'c']));
+
+        $this->expectException('Envms\FluentPDO\Exception');
+        $this->object->insertToSQL(['z' => 'e']);
     }
 
     /**
