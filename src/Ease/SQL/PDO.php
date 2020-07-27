@@ -4,7 +4,7 @@
  * Obsluha SQL PDO.
  *
  * @author    Vitex <vitex@hippy.cz>
- * @copyright 2015 Vitex@hippy.cz (G)
+ * @copyright 2015-2020 Vitex@hippy.cz (G)
  */
 
 namespace Ease\SQL;
@@ -114,6 +114,8 @@ class PDO extends SQL {
      * Escapes special characters in a string for use in an SQL statement.
      *
      * @param string $text
+     * 
+     * @deprecated since version 0.1
      *
      * @return string
      */

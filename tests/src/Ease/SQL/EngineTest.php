@@ -77,7 +77,7 @@ class EngineTest extends \PHPUnit\Framework\TestCase {
      * @covers Ease\SQL\Engine::searchColumns
      */
     public function testSearchColumns() {
-        $this->assertNotEmpty( $this->object->searchColumns('bar', ['key'], 1)->fetch());
+        $this->assertNotEmpty($this->object->searchColumns('bar', ['key'], 1)->fetch());
     }
 
     /**
@@ -98,7 +98,12 @@ class EngineTest extends \PHPUnit\Framework\TestCase {
      * @covers Ease\SQL\Engine::pdoConnect
      */
     public function testPdoConnect() {
-        $this->assertEquals('', $this->object->pdoConnect());
+        $this->expectException('\Ease\Exception');
+        $this->assertInstanceOf('\PDO', $this->object->pdoConnect(['DB_TYPE' => 'sqlite', 'DB_NAME' => 'nonexist']));
+        $this->assertInstanceOf('\PDO', $this->object->pdoConnect(['DB_TYPE' => 'sqlite']));
+        $this->expectException('\PDOException');
+        $this->assertInstanceOf('\PDO', $this->object->pdoConnect(['DB_TYPE' => 'mysql', 'DB_NAME' => 'localhost']));
+        $this->assertInstanceOf('\PDO', $this->object->pdoConnect(['DB_TYPE' => 'postgresql']));
     }
 
     /**
@@ -112,14 +117,14 @@ class EngineTest extends \PHPUnit\Framework\TestCase {
      * @covers Ease\SQL\Engine::getFluentPDO
      */
     public function testGetFluentPDO() {
-        $this->assertEquals('', $this->object->GetFluentPDO());
+        $this->assertEquals('Envms\FluentPDO\Query', $this->object->getFluentPDO());
     }
 
     /**
      * @covers Ease\SQL\Engine::listingQuery
      */
     public function testListingQuery() {
-        $this->assertEquals('Envms\FluentPDO\Queries\Select', get_class($this->object->ListingQuery()));
+        $this->assertEquals('Envms\FluentPDO\Queries\Select', get_class($this->object->listingQuery()));
     }
 
     /**
@@ -196,7 +201,7 @@ class EngineTest extends \PHPUnit\Framework\TestCase {
      * @covers Ease\SQL\Engine::takeToData
      */
     public function testTakeToData() {
-        $this->assertEquals('', $this->object->takeToData(['a'=>'b'],'2ndLevel'));
+        $this->assertEquals('', $this->object->takeToData(['a' => 'b'], '2ndLevel'));
     }
 
 }
