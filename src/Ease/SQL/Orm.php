@@ -140,6 +140,7 @@ trait Orm {
             case 'sqlite':
                 if (file_exists($this->database)) {
                     $result = new \PDO($this->dbType . ':' . $this->database);
+                    $result->exec('PRAGMA journal_mode = wal;');
                 } else {
                     throw new \PDOException(sprintf(_('unable to open database file %s'), $this->database));
                 }

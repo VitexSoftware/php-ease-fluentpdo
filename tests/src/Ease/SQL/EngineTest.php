@@ -91,7 +91,8 @@ class EngineTest extends \PHPUnit\Framework\TestCase {
      * @covers Ease\SQL\Engine::setUp
      */
     public function testSetUp() {
-        $this->assertEquals('', $this->object->setUp());
+        $this->object->setUp();
+        $this->assertNotNull($this->object->dbType);
     }
 
     /**
@@ -110,7 +111,7 @@ class EngineTest extends \PHPUnit\Framework\TestCase {
      * @covers Ease\SQL\Engine::getPdo
      */
     public function testGetPdo() {
-        $this->assertEquals('PDO', get_class($this->object->GetPdo()));
+        $this->assertInstanceOf('PDO', $this->object->GetPdo());
     }
 
     /**
@@ -138,9 +139,7 @@ class EngineTest extends \PHPUnit\Framework\TestCase {
      * @covers Ease\SQL\Engine::getDataFromSQL
      */
     public function testGetDataFromSQL() {
-        $this->assertEquals('', $this->object->GetDataFromSQL());
-        // Remove the following lines when you implement this test.
-        $this->markTestIncomplete('This test has not been implemented yet.');
+        $this->assertEquals('', $this->object->getDataFromSQL(1));
     }
 
     /**
@@ -154,21 +153,22 @@ class EngineTest extends \PHPUnit\Framework\TestCase {
      * @covers Ease\SQL\Engine::dbreload
      */
     public function testDbreload() {
-        $this->assertEquals('', $this->object->Dbreload());
+        $this->assertEquals('', $this->object->dbreload());
     }
 
     /**
      * @covers Ease\SQL\Engine::dbsync
      */
     public function testDbsync() {
-        $this->assertEquals('', $this->object->Dbsync());
+        $this->object->setData(['id'=>3,'key'=>'thrid','value'=>'newone']);
+        $this->assertEquals('', $this->object->dbsync());
     }
 
     /**
      * @covers Ease\SQL\Engine::updateToSQL
      */
     public function testUpdateToSQL() {
-        $this->assertEquals('', $this->object->updateToSQL());
+        $this->assertEquals(1, $this->object->updateToSQL(['id'=>1,'key'=>'foo','value'=>'updated']));
     }
 
     /**

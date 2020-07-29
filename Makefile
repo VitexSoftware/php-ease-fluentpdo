@@ -13,7 +13,7 @@ prepare:
 deb:
 	debuild -us -uc
 
-phpunit:
+phpunit: prepare
 	vendor/bin/phpunit --bootstrap tests/bootstrap.php --configuration phpunit.xml
 
 
