@@ -29,7 +29,7 @@ For Debian, Ubuntu & friends please use repo:
 echo "deb http://repo.vitexsoftware.cz $(lsb_release -sc) main" | sudo tee /etc/apt/sources.list.d/vitexsoftware.list
 sudo wget -O /etc/apt/trusted.gpg.d/vitexsoftware.gpg http://repo.vitexsoftware.cz/keyring.gpg
 sudo apt update
-sudo apt install php-ease-fluentpdo
+sudo apt install php-vitexsoftware-ease-fluentpdo
 ```
 
 In this case please add this to your app composer.json:
@@ -69,6 +69,12 @@ At first you need initialise create sql user & database with login and password
 from testing/phinx.yml and initialise testing database by **phinx migrate** 
 command:
 
+```shell
+make phpunit
+```
+
+Or initalize another database and update .env file
+
 ```
 composer update
 cd tests
@@ -76,8 +82,7 @@ mysqladmin -u root -p create easetest
 mysql -u root -p -e "GRANT ALL PRIVILEGES ON easetest.* TO easetest@localhost IDENTIFIED BY 'easetest'"
 sudo -u postgres bash -c "psql -c \"CREATE USER easetest WITH PASSWORD 'easetest';\""
 sudo -u postgres bash -c "psql -c \"create database easetest with owner easetest encoding='utf8' template template0;\""
-../vendor/bin/phinx migrate -e development 
-../vendor/bin/phinx migrate -e testing  
+make prepare
 ```
 
 Building
