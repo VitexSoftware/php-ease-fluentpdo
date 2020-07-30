@@ -13,13 +13,15 @@ class EngineTest extends \PHPUnit\Framework\TestCase {
      * @var Engine
      */
     protected $object;
+    protected $lastId = null;
 
     /**
      * Sets up the fixture, for example, opens a network connection.
      * This method is called before a test is executed.
      */
     protected function setUp(): void {
-        $this->object = new Engine(null, ['myTable' => 'test', 'createColumn' => 'created']);
+        $this->object = new Engine(null, ['myTable' => 'test', 'createColumn' => 'created', 'lastModifiedColumn' => 'updated']);
+        $this->lastId = $this->object->listingQuery()->orderBy('id DESC')->limit(1)->fetchColumn(0);
     }
 
     /**
@@ -160,7 +162,7 @@ class EngineTest extends \PHPUnit\Framework\TestCase {
      * @covers Ease\SQL\Engine::dbsync
      */
     public function testDbsync() {
-        $this->object->setData(['id'=>3,'key'=>'thrid','value'=>'newone']);
+        $this->object->setData(['id' => 3, 'key' => 'thrid', 'value' => 'newone']);
         $this->assertEquals('', $this->object->dbsync());
     }
 
@@ -168,14 +170,21 @@ class EngineTest extends \PHPUnit\Framework\TestCase {
      * @covers Ease\SQL\Engine::updateToSQL
      */
     public function testUpdateToSQL() {
-        $this->assertEquals(1, $this->object->updateToSQL(['id'=>1,'key'=>'foo','value'=>'updated']));
+        $this->assertEquals(1, $this->object->updateToSQL(['id' => 1, 'key' => 'foo', 'value' => 'updated']));
+        $this->object->setData(['id' => 1, 'key' => 'foo', 'value' => 'a']);
+        $this->assertEquals(1, $this->object->updateToSQL()); //Reset to Inital value for further testing
+        $this->expectException('\Ease\Exception');
+        $this->object->updateToSQL(['foo' => 'bar']);
     }
 
     /**
      * @covers Ease\SQL\Engine::saveToSQL
      */
     public function testSaveToSQL() {
-        $this->assertEquals('', $this->object->saveToSQL());
+        $this->object->setData(['key' => 'saved', 'value' => 'sure']);
+        $this->assertEquals($this->lastId + 1, $this->object->saveToSQL());
+        $this->object->setData(['id' => 3, 'key' => 'saved', 'value' => 'sure']);
+        $this->assertEquals(3, $this->object->saveToSQL());
     }
 
     /**
@@ -194,7 +203,8 @@ class EngineTest extends \PHPUnit\Framework\TestCase {
      * @covers Ease\SQL\Engine::deleteFromSQL
      */
     public function testDeleteFromSQL() {
-        $this->assertEquals('', $this->object->deleteFromSQL());
+        $this->object->setData(['id' => $this->lastId]);
+        $this->assertEquals(1, $this->object->deleteFromSQL());
     }
 
     /**
