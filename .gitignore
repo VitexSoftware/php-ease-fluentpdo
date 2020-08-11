@@ -2,7 +2,7 @@
 /composer.lock
 /nbproject/private/
 /debian/.debhelper/
-/debian/php-ease-fluentpdo/
+/debian/php-vitexsoftware-ease-fluentpdo/
 /debian/debhelper-build-stamp
-/debian/php-ease-fluentpdo.debhelper.log
-/debian/php-ease-fluentpdo.substvars
+/debian/php-vitexsoftware-ease-fluentpdo.debhelper.log
+/debian/php-vitexsoftware-ease-fluentpdo.substvars
