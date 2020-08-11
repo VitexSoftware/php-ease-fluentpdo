@@ -15,13 +15,22 @@ class EngineTest extends \PHPUnit\Framework\TestCase {
     protected $object;
     protected $lastId = null;
 
+    private function updateLastId() {
+        $this->lastId = $this->object->listingQuery()->orderBy('id DESC')->limit(1)->fetchColumn(0);
+    }
+
     /**
      * Sets up the fixture, for example, opens a network connection.
      * This method is called before a test is executed.
      */
     protected function setUp(): void {
-        $this->object = new Engine(null, ['myTable' => 'test', 'createColumn' => 'created', 'lastModifiedColumn' => 'updated']);
-        $this->lastId = $this->object->listingQuery()->orderBy('id DESC')->limit(1)->fetchColumn(0);
+        $this->object = new Engine(null, [
+            'myTable' => 'test',
+            'createColumn' => 'created',
+            'lastModifiedColumn' => 'updated',
+            'nameColumn' => 'key'
+        ]);
+        $this->updateLastId();
     }
 
     /**
@@ -57,7 +66,8 @@ class EngineTest extends \PHPUnit\Framework\TestCase {
      * @covers Ease\SQL\Engine::getRecordName
      */
     public function testGetRecordName() {
-        $this->assertEquals('', $this->object->GetRecordName());
+        $this->object->loadFromSQL(1);
+        $this->assertEquals('', $this->object->getRecordName());
     }
 
     /**
@@ -120,21 +130,21 @@ class EngineTest extends \PHPUnit\Framework\TestCase {
      * @covers Ease\SQL\Engine::getFluentPDO
      */
     public function testGetFluentPDO() {
-        $this->assertEquals('Envms\FluentPDO\Query', $this->object->getFluentPDO());
+        $this->assertInstanceOf('Envms\FluentPDO\Query', $this->object->getFluentPDO());
     }
 
     /**
      * @covers Ease\SQL\Engine::listingQuery
      */
     public function testListingQuery() {
-        $this->assertEquals('Envms\FluentPDO\Queries\Select', get_class($this->object->listingQuery()));
+        $this->assertInstanceOf('Envms\FluentPDO\Queries\Select', $this->object->listingQuery());
     }
 
     /**
      * @covers Ease\SQL\Engine::getColumnsFromSQL
      */
     public function testGetColumnsFromSQL() {
-        $this->assertEquals('', $this->object->GetColumnsFromSQL(['id']));
+        $this->assertEquals([2 => ['id' => 2]], $this->object->getColumnsFromSQL(['id'], ['id' => 2], 'id', 'id'));
     }
 
     /**
@@ -163,7 +173,7 @@ class EngineTest extends \PHPUnit\Framework\TestCase {
      */
     public function testDbsync() {
         $this->object->setData(['id' => 3, 'key' => 'thrid', 'value' => 'newone']);
-        $this->assertEquals('', $this->object->dbsync());
+        $this->assertTrue($this->object->dbsync());
     }
 
     /**

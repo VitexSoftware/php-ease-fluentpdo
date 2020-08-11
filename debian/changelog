@@ -1,4 +1,4 @@
-php-ease-fluentpdo (0.2.6) UNRELEASED; urgency=medium
+php-vitexsoftware-ease-fluentpdo (1.0) main; urgency=medium
 
   * Initial release. (Closes: #XXXXXX)
   * twbootstrap renamed to bootstrap
@@ -15,5 +15,8 @@ php-ease-fluentpdo (0.2.6) UNRELEASED; urgency=medium
   * Release v0.2.4
   * Merge origin/master
   * Update with null columns fixed
+  * Engine Unit Tests
+  * Engine Unit Tests
+  * 
 
- -- CyberVitexus <vitex@exiv.jinonice.czf>  Mon, 13 Jul 2020 15:22:21 +0200
+ -- CyberVitexus <vitex@exiv.jinonice.czf>  Tue, 11 Aug 2020 12:48:59 +0200
