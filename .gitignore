@@ -6,3 +6,5 @@
 /debian/debhelper-build-stamp
 /debian/php-vitexsoftware-ease-fluentpdo.debhelper.log
 /debian/php-vitexsoftware-ease-fluentpdo.substvars
+debian/php-vitexsoftware-ease-fluentpdo.substvars
+docs

@@ -1,0 +1,5 @@
+docs/*				usr/share/doc/ease-fluentpdo/html
+docs/resources/*		usr/share/doc/ease-fluentpdo/html/resources
+debian/php-vitexsoftware-ease-fluentpdo-doc.conf	usr/share/doc/ease-fluentpdo/apache
+README.md			usr/share/doc/ease-fluentpdo
+
