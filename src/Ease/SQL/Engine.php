@@ -106,6 +106,19 @@ class Engine extends \Ease\Brick {
     }
 
     /**
+     * Always return array
+     * 
+     * @param \Envms\FluentPDO\Queries\Select $query
+     * 
+     * @return array
+     */
+    public static function fixIterator($query)
+    {
+        $data = $query->execute();
+        return $data ? $data : [];
+    }    
+    
+    /**
      * Get All records
      * 
      * @return array

@@ -343,8 +343,7 @@ trait Orm {
         if (isset($this->lastModifiedColumn) && !isset($data[$this->lastModifiedColumn])) {
             $data[$this->lastModifiedColumn] = date("Y-m-d H:i:s");
         }
-
-        return $this->getFluentPDO(false, true)->update($this->getMyTable())->set($data)->where($this->getKeyColumn(), $key)->execute();
+        return $this->getFluentPDO(false, true)->update($this->getMyTable())->set($data)->where($this->getKeyColumn(), $key)->execute() ? $key : null;
     }
 
     /**

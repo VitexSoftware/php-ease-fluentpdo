@@ -12,3 +12,6 @@ define('DB_USERNAME', 'phpunit');
 define('DB_PASSWORD', 'phpunit');
 
 
+
+
+new \Phinx\Db\Action\DropTable(new \Phinx\Db\Table\Table('test'));
