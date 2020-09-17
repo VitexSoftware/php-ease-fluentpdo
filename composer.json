@@ -7,9 +7,10 @@
             "email": "info@vitexsoftware.cz"
         }
     ],
+    "minimum-stability": "dev",
     "require": {
-        "vitexsoftware/ease-core": "^1.1",
-        "fpdo/fluentpdo": "^2.1"
+        "vitexsoftware/ease-core": "dev-main",
+        "fpdo/fluentpdo": "dev-master"
     },
     "require-dev": {
         "phpunit/phpunit": "^9",
