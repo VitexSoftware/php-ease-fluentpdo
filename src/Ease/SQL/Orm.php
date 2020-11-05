@@ -58,14 +58,14 @@ trait Orm {
     public $dbType;
 
     /**
-     * Nastavení vlastností přípojení.
+     * Default connection settings.
      *
      * @var array
      */
     public $connectionSettings = [];
 
     /**
-     * Objekt pro práci s SQL.
+     * PDO Driver object
      *
      * @var PDO
      */
@@ -302,7 +302,7 @@ trait Orm {
      * @return boolean 
      */
     public function dbreload() {
-        return $this->loadFromSQL($this->getMyKey());
+        return $this->loadFromSQL([$this->getMyTable() . '.' . $this->getKeyColumn() => $this->getMyKey()]);
     }
 
     /**
@@ -343,8 +343,7 @@ trait Orm {
         if (isset($this->lastModifiedColumn) && !isset($data[$this->lastModifiedColumn])) {
             $data[$this->lastModifiedColumn] = date("Y-m-d H:i:s");
         }
-
-        return $this->getFluentPDO(false, true)->update($this->getMyTable())->set($data)->where($this->getKeyColumn(), $key)->execute();
+        return $this->getFluentPDO(false, true)->update($this->getMyTable())->set($data)->where($this->getKeyColumn(), $key)->execute() ? $key : null;
     }
 
     /**
@@ -375,7 +374,7 @@ trait Orm {
      * Insert record to SQL database.
      *
      * @param array $data
-     *`
+     * `
      * @return int|null id of new row in database
      */
     public function insertToSQL($data = null) {
