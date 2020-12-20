@@ -53,7 +53,7 @@ In this case please add this to your app composer.json:
 Framework Constants
 ===================
 
-  * DB_TYPE      - pgsql|mysql|sqlsrv
+  * DB_TYPE      - pgsql|mysql|sqlsrv|sqlite
   * DB_HOST      - localhost is default 
   * DB_PORT      - database port 
   * DB_DATABASE  - database schema name
