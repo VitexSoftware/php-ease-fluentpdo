@@ -51,17 +51,105 @@ class Engine extends \Ease\Brick {
         $this->setupProperty($options, 'lastModifiedColumn');
         $this->setUp($options);
 
-        if (!is_null($identifier)) {
-            if (array_key_exists('autoload', $options) && ($options['autoload'] === false)) {
-                if (is_array($identifier)) {
-                    $this->takeData($identifier);
-                } else {
-                    $this->setMyKey($identifier);
-                }
-            } else {
-                $this->loadFromSQL($identifier);
-            }
+        if (array_key_exists('autoload', $options) && ($options['autoload'] === true)) {
+            $this->loadIdentifier($identifier);
+        } else {
+            $this->useIdentifier($identifier);
         }
+    }
+
+    /**
+     * Use Given value as identifier
+     * 
+     * @param mixed $identifier
+     */
+    public function useIdentifier($identifier) {
+        switch ($this->howToProcess($identifier)) {
+            case 'values':
+                $this->takeData($identifier);
+                break;
+            case 'reuse':
+                $this->takeData($identifier->getData());
+                break;
+            case 'name':
+                $this->setDataValue($this->nameColumn, $identifier);
+                break;
+            case 'id':
+                $this->setMyKey($identifier);
+                break;
+            default:
+                break;
+        }
+    }
+
+    /**
+     * Load record usinf identifier
+     * 
+     * @param mixed $identifier
+     */
+    public function loadIdentifier($identifier) {
+        switch ($this->howToProcess($identifier)) {
+            case 'values':
+                $this->loadFromSQL($identifier);
+                break;
+            case 'reuse':
+                $this->takeData($identifier->getData());
+                break;
+            case 'name':
+                $this->loadFromSQL([$this->nameColumn, $identifier]);
+                break;
+            case 'id':
+                $this->loadFromSQL($identifier);
+                break;
+            default:
+                break;
+        }
+    }
+
+    /**
+     * 
+     * @param \Ease\SQL\Engine $identifer
+     * 
+     * @return string id|name|values|reuse|unknown
+     */
+    public function howToProcess($identifer) {
+        switch (gettype($identifer)) {
+            case "integer":
+            case "double":
+                if ($this->getKeyColumn()) {
+                    $recognizedAs = 'id';
+                }
+                break;
+            case "string":
+                if (!empty($this->nameColumn)) {
+                    $recognizedAs = 'name';
+                }
+                break;
+            case "array":
+                $recognizedAs = 'values';
+                break;
+            case "object":
+                if ($identifer instanceof \Ease\SQL\Engine) {
+                    $recognizedAs = 'reuse';
+                }
+                break;
+            default :
+            case "boolean":
+            case "NULL":
+                $recognizedAs = 'unknown';
+                break;
+        }
+        return $recognizedAs;
+    }
+
+    /**
+     * 
+     * @param string|int|array $param
+     * 
+     * @return boolean Record was found ?
+     */
+    public function recordExist($identifier = null) {
+        return $this->listingQuery()->where(is_null($identifier) ? [$this->getKeyColumn =>$this->getMyKey()] : $identifier)->count() != 0;
     }
 
     /**
@@ -103,6 +191,18 @@ class Engine extends \Ease\Brick {
         }
 
         return $this->listingQuery()->where($conditons);
+    }
+
+    /**
+     * Always return array
+     * 
+     * @param \Envms\FluentPDO\Queries\Select $query
+     * 
+     * @return array
+     */
+    public static function fixIterator($query) {
+        $data = $query->execute();
+        return $data ? $data : [];
     }
 
     /**

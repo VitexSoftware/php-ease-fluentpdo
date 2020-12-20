@@ -8,3 +8,11 @@
 /debian/php-vitexsoftware-ease-fluentpdo.substvars
 debian/php-vitexsoftware-ease-fluentpdo.substvars
 docs
+/debian/php-vitexsoftware-ease-fluentpdo-doc/
+/debian/php-vitexsofware-ease-fluentpdo/
+/debian/php-vitexsoftware-ease-fluentpdo-doc.debhelper.log
+/debian/php-vitexsoftware-ease-fluentpdo-doc.substvars
+/debian/php-vitexsofware-ease-fluentpdo.debhelper.log
+/debian/php-vitexsofware-ease-fluentpdo.substvars
+/debian/files
+/.phpunit.result.cache
