@@ -8,7 +8,7 @@ Priority: optional
 Homepage: https://github.com/VitexSoftware/php-ease-fluentpdo
 
 Package: php-vitexsofware-ease-fluentpdo
-Depends: ${misc:Depends},php-ease-core,php-pdo-mysql|php-pdo-pgsql|php-pdo-sqlite|php-pdo-sqlserver
+Depends: ${misc:Depends},php-vitexsoftware-ease-core,php-pdo-mysql|php-pdo-pgsql|php-pdo-sqlite|php-pdo-sqlserver,php-pdo-sqlite
 Architecture: all
 Conflicts: ease-framework
 Replaces: php-ease-fluentpdo
