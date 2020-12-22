@@ -7,7 +7,7 @@ Uploaders: Vitex <vitex@hippy.cz>
 Priority: optional
 Homepage: https://github.com/VitexSoftware/php-ease-fluentpdo
 
-Package: php-vitexsofware-ease-fluentpdo
+Package: php-vitexsotfware-ease-fluentpdo
 Depends: ${misc:Depends},php-vitexsoftware-ease-core,php-pdo-mysql|php-pdo-pgsql|php-pdo-sqlite|php-pdo-sqlserver,php-pdo-sqlite
 Architecture: all
 Conflicts: ease-framework
