@@ -124,55 +124,6 @@ abstract class SQL extends \Ease\Molecule {
     protected $connectAllreadyUP = false;
 
     /**
-     * Hack WHERE to make Sensio Labs checks happy.
-     *
-     * @var string
-     */
-    public static $whr = ' WHERE ';
-
-    /**
-     * Hack SELECT to make Sensio Labs checks happy.
-     *
-     * @var string
-     */
-    public static $sel = 'SELECT ';
-
-    /**
-     * Hack ORDER BY to make Sensio Labs checks happy.
-     *
-     * @var string
-     */
-    public static $ord = ' ORDER BY ';
-
-    /**
-     * Hack LIMIT to make Sensio Labs checks happy.
-     *
-     * @var string
-     */
-    public static $lmt = ' LIMIT ';
-
-    /**
-     * Hack FROM to make Sensio Labs checks happy.
-     *
-     * @var string
-     */
-    public static $frm = ' FROM ';
-
-    /**
-     * Hack DELETE FROM to make Sensio Labs checks happy.
-     *
-     * @var string
-     */
-    public static $dlt = 'DELETE FROM ';
-
-    /**
-     * Hack UPDATE to make Sensio Labs checks happy.
-     *
-     * @var string
-     */
-    public static $upd = 'UPDATE ';
-
-    /**
      * Obecný objekt databáze.
      */
     public function __construct($options = []) {
