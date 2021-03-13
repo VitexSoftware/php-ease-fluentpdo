@@ -142,7 +142,7 @@ trait Orm {
                     $result = new \PDO($this->dbType . ':' . $this->database);
                     $result->exec('PRAGMA journal_mode = wal;');
                 } else {
-                    throw new \PDOException(sprintf(_('unable to open database file %s %s'), $this->database[0] == '/' ? $this->database : getcwd() . '/' . $this->database));
+                    throw new \PDOException(sprintf(_('unable to open database file %s'), $this->database[0] == '/' ? $this->database : getcwd() . '/' . $this->database));
                 }
                 break;
             default:
