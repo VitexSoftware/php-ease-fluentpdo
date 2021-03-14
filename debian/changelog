@@ -1,22 +1,18 @@
+php-vitexsoftware-ease-fluentpdo (1.0) UNRELEASED; urgency=medium
+
+  * stable version released
+
+ -- CyberVitexus <vitex@exiv.jinonice.czf>  Sun, 14 Mar 2021 16:20:59 +0100
+
 php-vitexsoftware-ease-fluentpdo (1.0) main; urgency=medium
 
   * Initial release. (Closes: #XXXXXX)
   * twbootstrap renamed to bootstrap
-  * twbootstrap renamed to bootstrap
-  * twbootstrap renamed to bootstrap
-  * twbootstrap renamed to bootstrap
-  * twbootstrap renamed to bootstrap
   * Merge branch 'master' of github.com:VitexSoftware/php-ease-fluentpdo
   * Unit Tests updated
-  * Release v0.2.3
-  * Release v0.2.3
-  * Release v0.2.3
-  * Release v0.2.3
   * Release v0.2.4
   * Merge origin/master
   * Update with null columns fixed
   * Engine Unit Tests
-  * Engine Unit Tests
-  * 
 
  -- CyberVitexus <vitex@exiv.jinonice.czf>  Tue, 11 Aug 2020 12:48:59 +0200
