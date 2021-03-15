@@ -10,10 +10,9 @@ override_dh_clean:
 	dh_clean
 
 override_dh_prep:
-	composer update
-	apigen generate --destination=docs -- src
+	phpdoc -d src --defaultpackagename=MainPackage
+	mv .phpdoc/build/* docs
 	dh_prep
-
 
 #override_dh_test:
 #	composer --working-dir=debian/test update

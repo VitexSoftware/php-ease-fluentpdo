@@ -14,3 +14,5 @@ docs
 /debian/php-vitexsotfware-ease-fluentpdo.substvars
 /debian/php-vitexsotfware-ease-fluentpdo.debhelper.log
 /debian/files
+.phpdoc
+
