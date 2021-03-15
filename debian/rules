@@ -10,6 +10,7 @@ override_dh_clean:
 	dh_clean
 
 override_dh_prep:
+	rm -rf docs/*
 	phpdoc -d src --defaultpackagename=MainPackage
 	mv .phpdoc/build/* docs
 	dh_prep
