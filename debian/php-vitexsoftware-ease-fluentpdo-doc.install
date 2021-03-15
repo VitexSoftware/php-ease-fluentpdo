@@ -1,5 +1,12 @@
-docs/*				usr/share/doc/ease-fluentpdo/html
-docs/resources/*		usr/share/doc/ease-fluentpdo/html/resources
+docs/index.html		usr/share/doc/php-vitexsoftware-ease-fluentpdo/html
+docs/classes/*		usr/share/doc/php-vitexsoftware-ease-fluentpdo/html/classes
+docs/css/*		usr/share/doc/php-vitexsoftware-ease-fluentpdo/html/css
+docs/files/*		usr/share/doc/php-vitexsoftware-ease-fluentpdo/html/files
+docs/graphs/*		usr/share/doc/php-vitexsoftware-ease-fluentpdo/html/graphs
+docs/indices/*		usr/share/doc/php-vitexsoftware-ease-fluentpdo/html/indices
+docs/js/*		usr/share/doc/php-vitexsoftware-ease-fluentpdo/html/js
+docs/namespaces/*	usr/share/doc/php-vitexsoftware-ease-fluentpdo/html/namespaces
+docs/packages/*		usr/share/doc/php-vitexsoftware-ease-fluentpdo/html/packages
+docs/reports/*		usr/share/doc/php-vitexsoftware-ease-fluentpdo/html/report
 debian/php-vitexsoftware-ease-fluentpdo-doc.conf	usr/share/doc/ease-fluentpdo/apache
-README.md			usr/share/doc/ease-fluentpdo
-
+README.md		usr/share/doc/php-vitexsoftware-ease-fluentpdo
