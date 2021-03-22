@@ -96,7 +96,7 @@ class Engine extends \Ease\Brick {
                 $this->takeData($identifier->getData());
                 break;
             case 'name':
-                $this->loadFromSQL([$this->nameColumn, $identifier]);
+                $this->loadFromSQL([$this->nameColumn => $identifier]);
                 break;
             case 'id':
                 $this->loadFromSQL($identifier);
