@@ -4,7 +4,7 @@
  * Object Relation Model Trait
  *
  * @author Vítězslav Dvořák <info@vitexsoftware.cz>
- * @copyright  2018-2020 Vitex@hippy.cz (G)
+ * @copyright  2018-2021 Vitex@hippy.cz (G)
  */
 
 namespace Ease\SQL;
@@ -324,7 +324,7 @@ trait Orm {
      *
      * @return int Id záznamu nebo null v případě chyby
      */
-    public function updateToSQL($data = null) {
+    public function updateToSQL($data = null, $conditons = []) {
         if (is_null($data)) {
             $data = $this->getData();
         }
@@ -343,7 +343,7 @@ trait Orm {
         if (isset($this->lastModifiedColumn) && !isset($data[$this->lastModifiedColumn])) {
             $data[$this->lastModifiedColumn] = date("Y-m-d H:i:s");
         }
-        return $this->getFluentPDO(false, true)->update($this->getMyTable())->set($data)->where($this->getKeyColumn(), $key)->execute() ? $key : null;
+        return $this->getFluentPDO(false, true)->update($this->getMyTable())->set($data)->where(empty($conditons) ? [$this->getKeyColumn() => $key] : $conditons)->execute() ? $key : null;
     }
 
     /**
@@ -452,6 +452,7 @@ trait Orm {
     }
 
     /**
+     * We work with table
      * 
      * @return string
      */
@@ -460,6 +461,7 @@ trait Orm {
     }
 
     /**
+     * Specify used table by name
      * 
      * @param string $tablename
      */
