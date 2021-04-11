@@ -195,7 +195,7 @@ trait Orm {
         if (!$this->fluent instanceof \Envms\FluentPDO\Query) {
             $this->fluent = new \Envms\FluentPDO\Query($this->getPdo());
             $this->fluent->exceptionOnError = true;
-            $this->fluent->debug = $this->debug;
+            $this->fluent->debug = $this->debug ? new Debugger() : false;
         }
         $this->fluent->convertTypes($read, $write);
         return $this->fluent;
@@ -320,8 +320,9 @@ trait Orm {
      * Perform SQL record update.
      * Provede update záznamu do SQL.
      *
-     * @param array $data
-     *
+     * @param array $data      to save
+     * @param array $conditons Update condition
+     * 
      * @return int Id záznamu nebo null v případě chyby
      */
     public function updateToSQL($data = null, $conditons = []) {

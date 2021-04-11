@@ -16,3 +16,5 @@ docs
 /debian/files
 .phpdoc
 
+/debian/php-vitexsoftware-ease-fluentpdo-doc/
+/.phpunit.result.cache

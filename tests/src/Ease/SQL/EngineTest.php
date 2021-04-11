@@ -53,7 +53,7 @@ class EngineTest extends \PHPUnit\Framework\TestCase {
         $mock = $this->getMockBuilder($classname)
                 ->disableOriginalConstructor()
                 ->getMockForAbstractClass();
-        $mock->__construct(null, ['debug' => false]);
+        $mock->__construct(null, ['debug' => true]);
         $mock->__construct(1, ['autoload' => true, 'myTable' => 'test']);
         $this->assertEquals('a', $mock->getDataValue('value'));
         $mock->__construct(['key' => 'bar'], ['autoload' => true, 'myTable' => 'test']);

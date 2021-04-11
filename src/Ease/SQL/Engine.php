@@ -113,12 +113,13 @@ class Engine extends \Ease\Brick {
      * @return string id|name|values|reuse|unknown
      */
     public function howToProcess($identifer) {
+        $recognizedAs = 'unknown';
         switch (gettype($identifer)) {
             case "integer":
             case "double":
                 if ($this->getKeyColumn()) {
                     $recognizedAs = 'id';
-    }
+                }
                 break;
             case "string":
                 if (!empty($this->nameColumn)) {
