@@ -331,12 +331,7 @@ trait Orm {
         }
 
         $keyColumn = $this->getKeyColumn();
-        if (!isset($data[$keyColumn])) {
-            $key = $this->getMyKey();
-            if (is_null($key)) {
-                throw new \Ease\Exception(':UpdateToSQL: Unknown keyColumn:' . $this->keyColumn . ' ' . json_encode($data), 'error');
-            }
-        } else {
+        if (isset($data[$keyColumn])) {
             $key = $data[$keyColumn];
             unset($data[$keyColumn]);
         }
