@@ -9,6 +9,16 @@
 
 namespace Ease\SQL;
 
+class Debugger extends \Ease\Sand {
 
-class Debugger {
+    /**
+     * 
+     * @param type $fluent
+     */
+    function __construct($fluent) {
+        $query = $fluent->getQuery();
+        $parameters = $fluent->getParameters();
+        $this->addStatusMessage($parameters ? vsprintf(str_replace('?', "'%s'", $query), $parameters) : $query, 'debug');
+    }
+
 }

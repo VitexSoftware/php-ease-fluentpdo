@@ -195,7 +195,7 @@ trait Orm {
         if (!$this->fluent instanceof \Envms\FluentPDO\Query) {
             $this->fluent = new \Envms\FluentPDO\Query($this->getPdo());
             $this->fluent->exceptionOnError = true;
-            $this->fluent->debug = $this->debug ? new Debugger() : false;
+            $this->fluent->debug = $this->debug ? function($fluent) { new Debugger($fluent); } : false;
         }
         $this->fluent->convertTypes($read, $write);
         return $this->fluent;
