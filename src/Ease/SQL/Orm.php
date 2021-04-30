@@ -227,9 +227,9 @@ trait Orm {
         $result = [];
 
         if (empty($conditions)) {
-            $fluent = $this->listingQuery();
+            $fluent = $this->listingQuery()->select($columnsList,true);
         } else {
-            $fluent = $this->listingQuery()->where($conditions);
+            $fluent = $this->listingQuery()->select($columnsList,true)->where($conditions);
         }
 
         if ($orderBy) {
@@ -240,17 +240,7 @@ trait Orm {
             $fluent->limit($limit);
         }
 
-        $valuesRaw = $fluent->fetchAll();
-
-        if (!empty($valuesRaw)) {
-            foreach ($valuesRaw as $rowId => $rowData) {
-                foreach ($rowData as $colName => $colValue) {
-                    if (($columnsList == ['*']) || in_array($colName, $columnsList)) {
-                        \Ease\Functions::divDataArray($valuesRaw[$rowId], $result[$rowId], $colName);
-                    }
-                }
-            }
-        }
+        $result = $fluent->fetchAll();
         return empty($result) ? $result : ($indexBy ? \Ease\Functions::reindexArrayBy($result, $indexBy) : $result);
     }
 
