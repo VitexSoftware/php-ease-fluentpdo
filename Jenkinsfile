@@ -144,6 +144,7 @@ def buildPackage() {
 //	    pristineTarName: ''
     sh 'dch -b -v ' + VER  + ' "' + env.BUILD_TAG  + '"'
     sh 'debuild-pbuilder  -i -us -uc -b'
+    sh 'sudo apt-get update'
     sh 'mkdir -p $WORKSPACE/dist/debian/ ; rm -rf $WORKSPACE/dist/debian/* ; mv ../' + SOURCE + '*_' + VER + '_*.deb ../' + SOURCE + '*_' + VER + '_*.changes ../' + SOURCE + '*_' + VER + '_*.build $WORKSPACE/dist/debian/'
 }
 
