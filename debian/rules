@@ -22,5 +22,5 @@ override_dh_prep:
 #	dh_test
 
 override_dh_install:
-	jq '.address = "'`dpkg-parsechangelog | sed -n 's/^Version: //p'`'"' debian/composer.json |sponge debian/composer.json
+	jq '.version = "'`dpkg-parsechangelog | sed -n 's/^Version: //p'| sed 's/~.*//' `'"'  debian/composer.json |sponge debian/composer.json
 	dh_install
