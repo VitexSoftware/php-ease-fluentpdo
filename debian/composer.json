@@ -14,7 +14,8 @@
   },
   "autoload": {
     "psr-4": {
-      "Ease\\SQL\\": "."
+      "Ease\\SQL\\": ".",
+      "Ease\\Logger\\": "./Logger"
     }
   },
   "conflict": {
