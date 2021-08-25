@@ -19,7 +19,8 @@
     },
     "autoload": {
         "psr-4": {
-            "Ease\\SQL\\": "src/Ease/SQL"
+            "Ease\\SQL\\": "src/Ease/SQL",
+            "Ease\\Logger\\": "src/Ease/Logger"
         }
     },
     "autoload-dev": {
