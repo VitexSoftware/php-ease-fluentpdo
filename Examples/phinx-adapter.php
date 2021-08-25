@@ -12,9 +12,8 @@ if (file_exists('./vendor/autoload.php')) {
     include_once '../vendor/autoload.php';
 }
 
-//$dotenv = \Dotenv\Dotenv::createImmutable(__DIR__);
-$dotenv = \Dotenv\Dotenv::create(__DIR__);
-$dotenv->load();
+
+\Ease\Shared::singleton()->loadConfig(__DIR__ . '/.env', true);
 
 $prefix = file_exists('./tests/') ? './tests/' : '../tests/';
 
