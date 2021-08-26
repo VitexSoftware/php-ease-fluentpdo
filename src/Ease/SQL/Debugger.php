@@ -15,10 +15,10 @@ class Debugger extends \Ease\Sand {
      * 
      * @param type $fluent
      */
-    function __construct($fluent) {
+    function __construct($fluent, $caller) {
         $query = $fluent->getQuery();
         $parameters = $fluent->getParameters();
-        $this->addStatusMessage($parameters ? vsprintf(str_replace('?', "'%s'", $query), $parameters) : $query, 'debug');
+        $this->addStatusMessage($parameters ? vsprintf(str_replace('?', "'%s'", $query), $parameters) : $query, 'debug', $caller);
     }
 
 }
