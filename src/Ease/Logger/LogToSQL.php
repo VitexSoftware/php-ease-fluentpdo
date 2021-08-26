@@ -30,8 +30,8 @@ class LogToSQL extends \Ease\SQL\Engine implements \Ease\Logger\Loggingable {
      * 
      */
     public function __construct() {
-//        parent::__construct();
-        $this->setUser(User::singleton()->getUserID());
+        parent::__construct();
+        $this->setUser(\Ease\Shared::user()->getUserID());
     }
 
     /**
