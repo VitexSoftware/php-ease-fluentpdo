@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Multi FlexiBee Setup - Phinx database adapter.
+ * Multi AbraFlexi Setup - Phinx database adapter.
  *
  * @author Vítězslav Dvořák <info@vitexsoftware.cz>
  * @copyright  2020 Vitex Software
