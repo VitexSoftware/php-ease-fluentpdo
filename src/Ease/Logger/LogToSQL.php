@@ -30,6 +30,11 @@ class LogToSQL extends \Ease\SQL\Engine implements \Ease\Logger\Loggingable {
      * @var String
      */
     public $applicationId = null;
+    
+    /**
+     * 
+     * @var integer
+     */
     public $userId = null;
 
     /**
@@ -38,7 +43,7 @@ class LogToSQL extends \Ease\SQL\Engine implements \Ease\Logger\Loggingable {
     public function __construct() {
         parent::__construct();
         $this->setUser(\Ease\Shared::user()->getUserID());
-        $this->applicationId = \Ease\Shared::appName();
+        $this->setApplication(\Ease\Shared::appName()) ;
     }
 
     /**
@@ -56,14 +61,6 @@ class LogToSQL extends \Ease\SQL\Engine implements \Ease\Logger\Loggingable {
         }
 
         return self::$instance;
-    }
-
-    /**
-     * ID of current company
-     * @param int $id
-     */
-    public function setCompany($id) {
-        $this->companyId = $id;
     }
 
     /**
