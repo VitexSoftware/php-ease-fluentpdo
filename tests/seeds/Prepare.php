@@ -15,10 +15,10 @@ class Prepare extends AbstractSeed {
     public function run() {
         $data = [
             [
-                'key' => 'foo',
+                'name' => 'foo',
                 'value' => 'a',
             ], [
-                'key' => 'bar',
+                'name' => 'bar',
                 'value' => 'b',
             ]
         ];

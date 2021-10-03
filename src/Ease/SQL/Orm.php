@@ -122,7 +122,7 @@ trait Orm {
             case 'mysql':
                 $result = new \PDO($this->dbType . ':dbname=' . $this->database . ';host=' . $this->server . ';port=' . $this->port . ';charset=utf8',
                         $this->username, $this->password,
-                        [\PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES \'utf8\'']);
+                        [\PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES \'utf8\'', \PDO::ATTR_PERSISTENT => true]);
                 break;
             case 'pgsql':
                 $result = new \PDO($this->dbType . ':dbname=' . $this->database . ';host=' . $this->server . ';port=' . $this->port,
@@ -195,7 +195,9 @@ trait Orm {
         if (!$this->fluent instanceof \Envms\FluentPDO\Query) {
             $this->fluent = new \Envms\FluentPDO\Query($this->getPdo());
             $this->fluent->exceptionOnError = true;
-            $this->fluent->debug = $this->debug ? function($fluent) { new Debugger($fluent,$this); } : false;
+            $this->fluent->debug = $this->debug ? function ($fluent) {
+                        new Debugger($fluent, $this);
+                    } : false;
         }
         $this->fluent->convertTypes($read, $write);
         return $this->fluent;
@@ -227,9 +229,9 @@ trait Orm {
         $result = [];
 
         if (empty($conditions)) {
-            $fluent = $this->listingQuery()->select($columnsList,true);
+            $fluent = $this->listingQuery()->select($columnsList, true);
         } else {
-            $fluent = $this->listingQuery()->select($columnsList,true)->where($conditions);
+            $fluent = $this->listingQuery()->select($columnsList, true)->where($conditions);
         }
 
         if ($orderBy) {

@@ -15,14 +15,20 @@ namespace Ease\Logger;
  * @author vitex
  */
 class LogToSQL extends \Ease\SQL\Engine implements \Ease\Logger\Loggingable {
-    
 
     /**
      * Saves obejct instace (singleton...).
      */
     private static $instance = null;
+    /**
+     * 
+     * @var String
+     */
     public $myTable = 'log';
-    public $companyId = null;
+    /**
+     * 
+     * @var String
+     */
     public $applicationId = null;
     public $userId = null;
 
@@ -32,6 +38,7 @@ class LogToSQL extends \Ease\SQL\Engine implements \Ease\Logger\Loggingable {
     public function __construct() {
         parent::__construct();
         $this->setUser(\Ease\Shared::user()->getUserID());
+        $this->applicationId = \Ease\Shared::appName();
     }
 
     /**
@@ -89,9 +96,8 @@ class LogToSQL extends \Ease\SQL\Engine implements \Ease\Logger\Loggingable {
                     'venue' => $caller,
                     'severity' => $type,
                     'message' => $message,
-                    'apps_id' => $this->applicationId,
-                    'user_id' => $this->userId,
-                    'company_id' => $this->companyId
+                    'application' => $this->applicationId,
+                    'user' => $this->userId
         ]);
     }
 

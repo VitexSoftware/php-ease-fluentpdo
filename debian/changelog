@@ -1,9 +1,13 @@
 php-vitexsoftware-ease-fluentpdo (1.1) UNRELEASED; urgency=medium
 
+  [ CyberVitexus ]
   * stable version released
   * Dependency fix
 
- -- CyberVitexus <vitex@exiv.jinonice.czf>  Tue, 18 May 2021 00:22:16 +0200
+  [ vitex ]
+  * mysql persistence
+
+ -- vitex <vitex@exiv.brevnov.czf>  Sun, 03 Oct 2021 10:37:03 +0200
 
 php-vitexsoftware-ease-fluentpdo (1.0) main; urgency=medium
 

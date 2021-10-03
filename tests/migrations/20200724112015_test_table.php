@@ -11,7 +11,7 @@ final class TestTable extends AbstractMigration {
      */
     public function change(): void {
         $this->table('test')
-                ->addColumn('key', 'string', ['limit' => 100])
+                ->addColumn('name', 'string', ['limit' => 100])
                 ->addColumn('value', 'text')
                 ->addColumn('created', 'timestamp', ['default' => 'CURRENT_TIMESTAMP'])
                 ->addColumn('updated', 'timestamp', ['null' => true])
