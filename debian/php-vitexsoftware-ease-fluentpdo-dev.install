@@ -1,5 +1,5 @@
-tests/Ease/SQL/*	usr/share/php/EaseFluentPDO/Test/
-tests/Ease/Logger/*	usr/share/php/EaseFluentPDO/Test/Logger/
+tests/src/Ease/SQL/*	usr/share/php/EaseFluentPDO/Test/
+tests/src/Ease/Logger/*	usr/share/php/EaseFluentPDO/Test/Logger/
 debian/composer.json	usr/share/php/EaseFluentPDO/Test/
 tests/bootstrap.php     usr/share/php/EaseFluentPDO/Test/
 migrations/*.php        usr/share/php/EaseFluentPDO/Test/migrations/
