@@ -1,0 +1,9 @@
+tests/Ease/SQL/*	usr/share/php/EaseFluentPDO/Test/
+tests/Ease/Logger/*	usr/share/php/EaseFluentPDO/Test/Logger/
+debian/composer.json	usr/share/php/EaseFluentPDO/Test/
+tests/bootstrap.php     usr/share/php/EaseFluentPDO/Test/
+migrations/*.php        usr/share/php/EaseFluentPDO/Test/migrations/
+seeds/*.php             usr/share/php/EaseFluentPDO/Test/seeds/
+Examples/.env           usr/lib/php-vitexsoftware-ease-fluentpdo-dev/
+Examples/phinx-adapter.php       usr/lib/php-vitexsoftware-ease-fluentpdo-dev/
+
