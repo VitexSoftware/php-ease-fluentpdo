@@ -27,14 +27,14 @@ trait Orm {
      *
      * @var string
      */
-    public $username = null;
+    public $dbLogin = null;
 
     /**
      * DB heslo.
      *
      * @var string
      */
-    public $password = null;
+    public $dbPass = null;
 
     /**
      * Database to connect by default.
@@ -101,8 +101,8 @@ trait Orm {
         $this->setupProperty($options, 'dbType', 'DB_CONNECTION'); //Laralvel 
         $this->setupProperty($options, 'dbType', 'DB_TYPE');       //Ease
         $this->setupProperty($options, 'server', 'DB_HOST');
-        $this->setupProperty($options, 'username', 'DB_USERNAME');
-        $this->setupProperty($options, 'password', 'DB_PASSWORD');
+        $this->setupProperty($options, 'dbLogin', 'DB_USERNAME');
+        $this->setupProperty($options, 'dbPass', 'DB_PASSWORD');
         $this->setupProperty($options, 'database', 'DB_DATABASE');
         $this->setupProperty($options, 'port', 'DB_PORT');
         $this->setupProperty($options, 'connectionSettings', 'DB_SETUP');
@@ -130,19 +130,19 @@ trait Orm {
         switch ($this->dbType) {
             case 'mysql':
                 $result = new \PDO($this->dbType . ':dbname=' . $this->database . ';host=' . $this->server . ';port=' . $this->port . ';charset=utf8',
-                        $this->username, $this->password,
+                        $this->dbLogin, $this->dbPass,
                         [\PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES \'utf8\'', \PDO::ATTR_PERSISTENT => true]);
                 break;
             case 'pgsql':
                 $result = new \PDO($this->dbType . ':dbname=' . $this->database . ';host=' . $this->server . ';port=' . $this->port,
-                        $this->username, $this->password);
+                        $this->dbLogin, $this->dbPass);
                 if (is_object($result)) {
                     $result->exec("SET NAMES 'UTF-8'");
                 }
                 break;
             case 'sqlsrv': // https://www.php.net/manual/en/ref.pdo-sqlsrv.connection.php
                 $result = new \PDO($this->dbType . ':Server=' . $this->server . (isset($this->port) ? ',' . $this->port : '') . ';Database=' . $this->database,
-                        $this->username, $this->password);
+                        $this->dbLogin, $this->dbPass);
                 break;
             case 'sqlite3':
                 $this->dbType = 'sqlite';
