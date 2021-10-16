@@ -97,7 +97,7 @@ trait Orm {
      * @param array $options Object Options (dbType,server,username,password,database,
      *                                       port,connectionSettings,myTable,debug)
      */
-    public function setUp($options = []) {
+    public function setUpDb($options = []) {
         $this->setupProperty($options, 'dbType', 'DB_CONNECTION'); //Laralvel 
         $this->setupProperty($options, 'dbType', 'DB_TYPE');       //Ease
         $this->setupProperty($options, 'server', 'DB_HOST');
@@ -110,6 +110,15 @@ trait Orm {
         $this->setupProperty($options, 'debug', 'DEBUG');
     }
 
+    /**
+     * SetUp database connections
+     * 
+     * @param array $options - connection options
+     */
+    public function setUp($options = []) {
+        $this->setUpDb($options);
+    }
+    
     /**
      * Perform connect to database.
      *
