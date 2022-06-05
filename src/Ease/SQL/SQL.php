@@ -68,6 +68,12 @@ abstract class SQL extends \Ease\Molecule {
     public $report = ['LastMessage' => 'Please extend'];
 
     /**
+     * Current database name 
+     * @var string
+     */
+    public $database = '';
+
+    /**
      * Klíčový sloupeček pro SQL operace.
      *
      * @var string
@@ -122,6 +128,17 @@ abstract class SQL extends \Ease\Molecule {
      * @var bool
      */
     protected $connectAllreadyUP = false;
+    
+    /**
+     * Last error message
+     * @var string
+     */
+    private $errorText;
+    /**
+     * Laste error number
+     * @var int
+     */
+    private $errorNumber;
 
     /**
      * Obecný objekt databáze.
@@ -178,7 +195,7 @@ abstract class SQL extends \Ease\Molecule {
             $this->database = $dbName;
         }
 
-        return;
+        return $this->database == $dbName;
     }
 
     /**
@@ -273,6 +290,7 @@ abstract class SQL extends \Ease\Molecule {
      */
     public function __sleep() {
         $this->lastQuery = null;
+        return [];
     }
 
     /**
@@ -282,51 +300,6 @@ abstract class SQL extends \Ease\Molecule {
         if (method_exists($this, 'close')) {
             $this->close();
         }
-    }
-
-    /**
-     * Vrací výsledek dotazu jako dvourozměrné pole.
-     *
-     * @param string $queryRaw SQL příkaz
-     *
-     * @return array|null
-     */
-    public function queryTo2DArray($queryRaw) {
-        $result = $this->queryToArray($queryRaw);
-        if (count($result)) {
-            $values = [];
-            foreach ($result as $value) {
-                $values[] = current($value);
-            }
-
-            return $values;
-        }
-
-        return $result;
-    }
-
-    /**
-     * Vrací první položku výsledku dotazu.
-     *
-     * @param string $queryRaw SQL příkaz vracející jednu hodnotu
-     *
-     * @return string|null
-     */
-    public function queryToValue($queryRaw) {
-        $sth = $this->getPdo()->prepare($queryRaw);
-        return $sth->execute() ? $sth->fetchColumn() : null;
-    }
-
-    /**
-     * Vrací počet výsledku dotazu.
-     *
-     * @param string $queryRaw SQL příkaz vracející jednu hodnotu
-     *
-     * @return int
-     */
-    public function queryToCount($queryRaw) {
-        $resp = $this->queryToArray($queryRaw);
-        return empty($resp) ? 0 : count($resp);
     }
 
     /**
@@ -439,4 +412,5 @@ abstract class SQL extends \Ease\Molecule {
         return addslashes($text);
     }
 
+    abstract function exeQuery($query);
 }

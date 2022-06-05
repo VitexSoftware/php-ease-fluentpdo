@@ -150,7 +150,7 @@ class Engine extends \Ease\Brick {
      * @return boolean Record was found ?
      */
     public function recordExist($identifier = null) {
-        return $this->listingQuery()->where(is_null($identifier) ? [$this->getKeyColumn =>$this->getMyKey()] : $identifier)->count() != 0;
+        return $this->listingQuery()->where(is_null($identifier) ? [$this->getKeyColumn() =>$this->getMyKey()] : $identifier)->count() != 0;
     }
 
     /**

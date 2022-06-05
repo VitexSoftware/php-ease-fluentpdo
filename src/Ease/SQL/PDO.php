@@ -71,6 +71,12 @@ class PDO extends SQL {
     public $dbType = null;
 
     /**
+     * 
+     * @var string
+     */
+    private $errorText;
+
+    /**
      * Pri vytvareni objektu pomoci funkce singleton (ma stejne parametry, jako konstruktor)
      * se bude v ramci behu programu pouzivat pouze jedna jeho instance (ta prvni).
      *
@@ -95,8 +101,8 @@ class PDO extends SQL {
     public function setKeyColumn($column = null) {
         if (!is_null($column)) {
             $this->keyColumn = $column;
-            return true;
         }
+        return $this->keyColumn == $column;
     }
 
     /**
@@ -138,15 +144,14 @@ class PDO extends SQL {
      */
     public function selectDB($dbName = null) {
         parent::selectDB($dbName);
-        $change = $this->select_db($dbName);
+        $change = $this->pdo->select_db($dbName);
         if ($change) {
-            $this->Database = $dbName;
+            $this->database = $dbName;
         } else {
             $this->errorText = $this->pdo->error;
             $this->errorNumber = $this->pdo->errno;
             $this->addStatusMessage('Connect: error #' . $this->errorNumber . ' ' . $this->errorText,
                     'error');
-            $this->logError();
         }
 
         return $change;
@@ -219,6 +224,7 @@ class PDO extends SQL {
                     $this->result = true;
                 }
                 break;
+            case 'alter':
             case 'update':
                 $stmt = $this->pdo->prepare($queryRaw);
                 $stmt->execute();
@@ -231,9 +237,6 @@ class PDO extends SQL {
                 if (is_null($this->result)) {
                     $this->result = true;
                 }
-                break;
-            case 'alter':
-                $this->numRows = $stmt->rowCount();
                 break;
             default:
                 $this->numRows = null;
@@ -328,12 +331,9 @@ class PDO extends SQL {
      * @return sqlresult
      */
     public function arrayToUpdate($data, $KeyID = null) {
-        if (empty($KeyID)) {
-            $IDCol = $data[$this->keyColumn];
-        }
+        $IDCol = empty($KeyID) ? $data[$this->keyColumn] : 'id';
         unset($data[$this->keyColumn]);
-
-        return $this->exeQuery(self::$upd . $this->myTable . ' SET ' . $this->arrayToQuery($data) . SQL::$whr . $this->keyColumn . '=' . $IDCol);
+        return $this->exeQuery('UPDATE ' . $this->myTable . ' SET ' . $this->arrayToQuery($data) . ' WHERE ' . $this->keyColumn . '=' . $IDCol);
     }
 
     /**
