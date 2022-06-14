@@ -4,10 +4,10 @@
  * Database Engine class
  *
  * @author Vítězslav Dvořák <info@vitexsoftware.cz>
- * @copyright  2018-2020 Vitex@hippy.cz (G)
+ * @copyright  2018-2022 Vitex@hippy.cz (G)
  */
 
-namespace Ease\Logger;
+namespace AbraFlexi\MultiSetup;
 
 /**
  * Description of LogToSQL
@@ -20,30 +20,17 @@ class LogToSQL extends \Ease\SQL\Engine implements \Ease\Logger\Loggingable {
      * Saves obejct instace (singleton...).
      */
     private static $instance = null;
-    /**
-     * 
-     * @var String
-     */
     public $myTable = 'log';
-    /**
-     * 
-     * @var String
-     */
+    public $companyId = null;
     public $applicationId = null;
-    
-    /**
-     * 
-     * @var integer
-     */
     public $userId = null;
 
     /**
      * 
      */
     public function __construct() {
-        parent::__construct();
-        $this->setUser(\Ease\Shared::user()->getUserID());
-        $this->setApplication(\Ease\Shared::appName()) ;
+//        parent::__construct();
+        $this->setUser(User::singleton()->getUserID());
     }
 
     /**
@@ -61,6 +48,14 @@ class LogToSQL extends \Ease\SQL\Engine implements \Ease\Logger\Loggingable {
         }
 
         return self::$instance;
+    }
+
+    /**
+     * ID of current company
+     * @param int $id
+     */
+    public function setCompany($id) {
+        $this->companyId = $id;
     }
 
     /**
@@ -90,12 +85,35 @@ class LogToSQL extends \Ease\SQL\Engine implements \Ease\Logger\Loggingable {
      */
     public function addToLog($caller, $message, $type = 'message') {
         return $this->insertToSQL([
-                    'venue' => $caller,
+                    'venue' => self::venuize($caller),
                     'severity' => $type,
                     'message' => $message,
-                    'application' => $this->applicationId,
-                    'user' => $this->userId
+                    'apps_id' => $this->applicationId,
+                    'user_id' => $this->userId,
+                    'company_id' => $this->companyId
         ]);
     }
 
+    /**
+     * Prepare venue able to be saved into sql column
+     * 
+     * @param mixed $caller
+     */
+    public static function venuize($caller) {
+        switch (gettype($caller)) {
+            case 'object':
+                if(method_exists($caller, 'getObjectName')){
+                    $venue = $caller->getObjectName();
+                } else {
+                    $venue = get_class($caller);
+                }
+                break;
+            case 'string':
+            default:
+                $venue = $caller;
+                break;
+        }
+        return substr($venue,254);
+    }
+    
 }
