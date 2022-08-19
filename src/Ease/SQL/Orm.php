@@ -155,8 +155,7 @@ trait Orm {
                 }
                 break;
             default:
-                throw new \Ease\Exception(_('Unimplemented Database type') . ': ' . $this->dbType);
-                break;
+                throw new \Exception(_('Unimplemented Database type') . ': ' . $this->dbType);
         }
 
         if ($result instanceof \PDO) {
