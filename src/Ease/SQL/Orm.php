@@ -4,7 +4,7 @@
  * Object Relation Model Trait
  *
  * @author Vítězslav Dvořák <info@vitexsoftware.cz>
- * @copyright  2018-2021 Vitex@hippy.cz (G)
+ * @copyright  2018-2022 Vitex@hippy.cz (G)
  */
 
 namespace Ease\SQL;
@@ -118,7 +118,7 @@ trait Orm {
     public function setUp($options = []) {
         $this->setUpDb($options);
     }
-    
+
     /**
      * Perform connect to database.
      *

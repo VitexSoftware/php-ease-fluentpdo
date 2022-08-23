@@ -7,7 +7,7 @@
  * @copyright  2018-2022 Vitex@hippy.cz (G)
  */
 
-namespace AbraFlexi\MultiSetup;
+namespace Ease\Logger;
 
 /**
  * Description of LogToSQL
