@@ -158,7 +158,7 @@ class Engine extends \Ease\Brick {
      * @return string
      */
     public function getRecordName() {
-        return empty($this->nameColumn) ? $this->getDataValue($this->nameColumn) : null;
+        return empty($this->nameColumn) ? null : $this->getDataValue($this->nameColumn);
     }
 
     /**
