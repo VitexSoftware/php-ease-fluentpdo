@@ -41,14 +41,6 @@ class LogToSQLTest extends \PHPUnit\Framework\TestCase {
     }
 
     /**
-     * @covers Ease\Logger\LogToSQL::setApplication
-     */
-    public function testsetApplication() {
-        $this->object->setApplication('test');
-        $this->assertEquals('test', $this->object->$applicationId);
-    }
-
-    /**
      * @covers Ease\Logger\LogToSQL::setUser
      */
     public function testsetUser() {

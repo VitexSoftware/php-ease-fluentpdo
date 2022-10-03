@@ -58,7 +58,7 @@ class PDOTest extends \PHPUnit\Framework\TestCase {
      * @covers Ease\SQL\PDO::addSlashes
      */
     public function testAddSlashes() {
-        $this->assertEquals('\\"', $this->object-addSlashes('"'));
+        $this->assertEquals('\\"', $this->object->addSlashes('"'));
     }
 
     /**
@@ -170,7 +170,7 @@ class PDOTest extends \PHPUnit\Framework\TestCase {
      * @covers Ease\SQL\PDO::__sleep
      */
     public function test__sleep() {
-        $this->assertEquals('', $this->object->__sleep());
+        $this->assertEquals([], $this->object->__sleep());
     }
 
     /**

@@ -7,6 +7,10 @@ use Ease\SQL\SQL;
 class SQLTester extends SQL {
 
     public $myTable = 'test';
+    
+    public function exeQuery($query) {
+        
+    }
 
 }
 
@@ -118,7 +122,7 @@ class SQLTest extends \PHPUnit\Framework\TestCase {
      * @covers Ease\SQL\SQL::__sleep
      */
     public function test__sleep() {
-        $this->assertEquals('', $this->object->__sleep());
+        $this->assertEquals([], $this->object->__sleep());
     }
 
     /**

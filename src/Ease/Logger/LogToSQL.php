@@ -21,7 +21,6 @@ class LogToSQL extends \Ease\SQL\Engine implements \Ease\Logger\Loggingable {
      */
     private static $instance = null;
     public $myTable = 'log';
-    public $companyId = null;
     public $applicationId = null;
     public $userId = null;
 
@@ -30,7 +29,7 @@ class LogToSQL extends \Ease\SQL\Engine implements \Ease\Logger\Loggingable {
      */
     public function __construct() {
 //        parent::__construct();
-        $this->setUser(User::singleton()->getUserID());
+        $this->setUser(\Ease\User::singleton()->getUserID());
     }
 
     /**
@@ -48,22 +47,6 @@ class LogToSQL extends \Ease\SQL\Engine implements \Ease\Logger\Loggingable {
         }
 
         return self::$instance;
-    }
-
-    /**
-     * ID of current company
-     * @param int $id
-     */
-    public function setCompany($id) {
-        $this->companyId = $id;
-    }
-
-    /**
-     * ID of current application
-     * @param int $id
-     */
-    public function setApplication($id) {
-        $this->applicationId = $id;
     }
 
     /**
@@ -102,7 +85,7 @@ class LogToSQL extends \Ease\SQL\Engine implements \Ease\Logger\Loggingable {
     public static function venuize($caller) {
         switch (gettype($caller)) {
             case 'object':
-                if(method_exists($caller, 'getObjectName')){
+                if (method_exists($caller, 'getObjectName')) {
                     $venue = $caller->getObjectName();
                 } else {
                     $venue = get_class($caller);
@@ -113,7 +96,7 @@ class LogToSQL extends \Ease\SQL\Engine implements \Ease\Logger\Loggingable {
                 $venue = $caller;
                 break;
         }
-        return substr($venue,254);
+        return substr($venue, 254);
     }
-    
+
 }

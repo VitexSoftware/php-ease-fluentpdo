@@ -32,13 +32,13 @@ $cfg = [
     [
         'default_database' => 'development',
         'development' => [
-            'adapter' => getenv('DB_CONNECTION'),
+            'adapter' => \Ease\Functions::cfg('DB_CONNECTION'),
             'name' => $engine->database,
             'connection' => $engine->getPdo($sqlOptions)
         ],
         'default_database' => 'production',
         'production' => [
-            'adapter' => getenv('DB_CONNECTION'),
+            'adapter' => \Ease\Functions::cfg('DB_CONNECTION'),
             'name' => $engine->database,
             'connection' => $engine->getPdo($sqlOptions)
         ],
