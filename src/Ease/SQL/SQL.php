@@ -71,7 +71,7 @@ abstract class SQL extends \Ease\Molecule {
      * Current database name 
      * @var string
      */
-    public $database = '';
+    public $database = null;
 
     /**
      * Klíčový sloupeček pro SQL operace.
@@ -128,12 +128,13 @@ abstract class SQL extends \Ease\Molecule {
      * @var bool
      */
     protected $connectAllreadyUP = false;
-    
+
     /**
      * Last error message
      * @var string
      */
     private $errorText;
+
     /**
      * Laste error number
      * @var int
@@ -394,8 +395,8 @@ abstract class SQL extends \Ease\Molecule {
             if (isset($callerBackTrace['object'])) {
                 $caller .= ' (' . get_class($callerBackTrace['object']) . ')';
             }
-            \Ease\Shared::logger()->addStatusMessage(new \Ease\Logger\Message('ExeQuery: #' . $this->errorNumber . ': ' . $this->errorText . "\n" . $queryRaw,
-                            'error', $caller));
+            return \Ease\Shared::logger()->addStatusObject(new \Ease\Logger\Message('ExeQuery: #' . $this->errorNumber . ': ' . $this->errorText . "\n" . $queryRaw,
+                                    'error', $caller));
         }
     }
 

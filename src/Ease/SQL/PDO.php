@@ -143,17 +143,19 @@ class PDO extends SQL {
      * @return bool
      */
     public function selectDB($dbName = null) {
+        $change = false;
         parent::selectDB($dbName);
-        $change = $this->pdo->select_db($dbName);
-        if ($change) {
-            $this->database = $dbName;
-        } else {
-            $this->errorText = $this->pdo->error;
-            $this->errorNumber = $this->pdo->errno;
-            $this->addStatusMessage('Connect: error #' . $this->errorNumber . ' ' . $this->errorText,
-                    'error');
+        if (method_exists($this->pdo, 'select_db')) {
+            $change = $this->pdo->select_db($dbName);
+            if ($change) {
+                $this->database = $dbName;
+            } else {
+                $this->errorText = $this->pdo->error;
+                $this->errorNumber = $this->pdo->errno;
+                $this->addStatusMessage('Connect: error #' . $this->errorNumber . ' ' . $this->errorText,
+                        'error');
+            }
         }
-
         return $change;
     }
 
@@ -339,6 +341,8 @@ class PDO extends SQL {
     /**
      * z pole $data vytvori fragment SQL dotazu za WHERE (klicovy sloupec
      * $this->keyColumn je preskocen pokud neni $key false).
+     * 
+     * @deprecated since version 1.1
      *
      * @param array $data
      * @param bool  $key

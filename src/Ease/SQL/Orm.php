@@ -168,7 +168,7 @@ trait Orm {
                 if (!empty($this->connectionSettings))
                     foreach ($this->connectionSettings as $setName => $SetValue) {
                         if (strlen($setName)) {
-                            $this->getPdo->exec("SET $setName $SetValue");
+                            $this->getPdo()->exec("SET $setName $SetValue");
                         }
                     }
             }

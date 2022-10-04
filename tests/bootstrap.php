@@ -47,3 +47,25 @@ $manager = new Manager($config, new StringInput(' '), new ConsoleOutput(OutputIn
 $manager->migrate('test');
 $manager->seed('test');
 
+class PDOTester extends \Ease\SQL\PDO {
+
+    use \Ease\SQL\Orm;
+
+    public $myTable = 'test';
+
+    public function connect() {
+        $this->getPdo();
+        parent::connect();
+    }
+
+}
+
+class SQLTester extends \Ease\SQL\SQL {
+
+    public $myTable = 'test';
+
+    public function exeQuery($query) {
+        
+    }
+
+}
