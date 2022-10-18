@@ -1,7 +1,7 @@
 all:
 
 composer:
-	composer update
+	composer install
 
 migration:
 	cd Examples ; ../vendor/bin/phinx migrate -c ./phinx-adapter.php ; cd ..

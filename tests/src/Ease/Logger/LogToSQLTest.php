@@ -32,12 +32,9 @@ class LogToSQLTest extends \PHPUnit\Framework\TestCase {
 
     /**
      * @covers Ease\Logger\LogToSQL::singleton
-     * @todo   Implement testsingleton().
      */
     public function testsingleton() {
         $this->assertEquals('', $this->object->singleton());
-        // Remove the following lines when you implement this test.
-        $this->markTestIncomplete('This test has not been implemented yet.');
     }
 
     /**
@@ -50,7 +47,6 @@ class LogToSQLTest extends \PHPUnit\Framework\TestCase {
 
     /**
      * @covers Ease\Logger\LogToSQL::addToLog
-     * @todo   Implement testaddToLog().
      */
     public function testaddToLog() {
         $this->assertEquals(1, $this->object->addToLog($this->object,'phpunit'));
