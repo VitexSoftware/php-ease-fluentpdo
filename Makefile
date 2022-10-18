@@ -18,7 +18,7 @@ newmigration:
 newseed:
 	read -p "Enter CamelCase seed name : " migname ; cd Examples ; ./vendor/bin/phinx seed:create $$migname -c ./phinx-adapter.php  ; cd ..
 
-test: composer migration seed
+phpunit: composer migration seed
 	./vendor/bin/phpunit --bootstrap ./tests/bootstrap.php --configuration ./phpunit.xml
 
 autoload:
