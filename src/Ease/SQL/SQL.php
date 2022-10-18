@@ -139,7 +139,7 @@ abstract class SQL extends \Ease\Molecule {
      * Laste error number
      * @var int
      */
-    private $errorNumber;
+    protected $errorNumber;
 
     /**
      * Obecný objekt databáze.
@@ -185,9 +185,9 @@ abstract class SQL extends \Ease\Molecule {
     }
 
     /**
-     * Přepene databázi.
+     * Default database selector
      *
-     * @param type $dbName
+     * @param string $dbName
      *
      * @return bool
      */

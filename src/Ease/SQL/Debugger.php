@@ -12,8 +12,8 @@ namespace Ease\SQL;
 class Debugger extends \Ease\Sand {
 
     /**
-     * 
-     * @param type $fluent
+     * Ease SQL Debugger
+     * @param \Envms\FluentPDO\Query $fluent
      */
     function __construct($fluent, $caller) {
         $query = $fluent->getQuery();

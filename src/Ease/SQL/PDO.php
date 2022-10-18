@@ -19,19 +19,35 @@ class PDO extends SQL {
     /**
      * DBO class instance.
      *
-     * @var DBO
+     * @var \PDO
      */
     public $pdo = null;
 
     /**
      * SQLLink result.
      *
-     * @var PDOStatement
+     * @var \PDOStatement
      */
     public $result = null;
-    public $status = false; //Pripojeno ?
+    /**
+     * Connected state ?
+     * @var bool
+     */
+    public $status = false;
+    /**
+     * Last SQL query executed
+     * @var string
+     */
     public $lastQuery = '';
+    /**
+     * Last Query result length
+     * @var int
+     */
     public $numRows = 0;
+    /**
+     * Debug mode
+     * @var boolean
+     */
     public $debug = false;
 
     /**
@@ -64,9 +80,9 @@ class PDO extends SQL {
     private static $_instance = null;
 
     /**
-     * Database Type.
+     * Database Type: mysql|sqlite|etc ...
      *
-     * @var type
+     * @var string
      */
     public $dbType = null;
 
@@ -152,8 +168,6 @@ class PDO extends SQL {
             } else {
                 $this->errorText = $this->pdo->error;
                 $this->errorNumber = $this->pdo->errno;
-                $this->addStatusMessage('Connect: error #' . $this->errorNumber . ' ' . $this->errorText,
-                        'error');
             }
         }
         return $change;
@@ -162,10 +176,12 @@ class PDO extends SQL {
     /**
      * Vykoná QueryRaw a vrátí výsledek.
      *
+     * @deprecated since version 1.0
+     * 
      * @param string $queryRaw
      * @param bool   $ignoreErrors
      *
-     * @return SQLhandle
+     * @return  \PDOStatement
      */
     public function exeQuery($queryRaw, $ignoreErrors = false) {
         if (!isset($this->pdo) || is_null($this->pdo)) {
@@ -176,7 +192,6 @@ class PDO extends SQL {
         $this->lastQuery = $queryRaw;
         $this->lastInsertID = null;
         $this->errorText = null;
-        $this->errorNumber = null;
         $sqlAction = trim(strtolower(current(explode(' ', $queryRaw))));
 
         switch ($sqlAction) {
@@ -206,11 +221,6 @@ class PDO extends SQL {
                 $stmt->execute();
                 $this->errorNumber = $this->pdo->errorCode();
                 $this->errorText = $this->pdo->errorInfo();
-
-                if (isset($this->errorText[2])) {
-                    $this->addStatusMessage($this->errorText[2] . ': ' . $queryRaw,
-                            'error');
-                }
 
                 if ($this->errorText[0] == '0000') {
                     if (($this->dbType == 'pgsql') && (strstr($queryRaw,
@@ -310,7 +320,7 @@ class PDO extends SQL {
      *
      * @param string $data
      *
-     * @return sqlresult
+     * @return  \PDOStatement
      */
     public function arrayToInsert($data) {
         $cc = $this->getColumnComma();
@@ -330,7 +340,7 @@ class PDO extends SQL {
      * @param array $data  asociativní pole dat
      * @param int   $KeyID id záznamu. Není li uveden použije se aktuální
      *
-     * @return sqlresult
+     * @return  \PDOStatement
      */
     public function arrayToUpdate($data, $KeyID = null) {
         $IDCol = empty($KeyID) ? $data[$this->keyColumn] : 'id';
@@ -366,6 +376,8 @@ class PDO extends SQL {
      * z pole $data vytvori fragment SQL dotazu pro INSERT (klicovy sloupec
      * $this->keyColumn je preskocen pokud neni $key false).
      *
+     * @deprecated since version 1.0
+     * 
      * @param array $data
      * @param bool  $key
      *
@@ -452,6 +464,8 @@ class PDO extends SQL {
     /**
      * Generuje fragment MySQL dotazu z pole data.
      *
+     * @deprecated since version 1.0
+     * 
      * @param array  $data Pokud hodnota zacina znakem ! Je tento odstranen a generovan je negovany test
      * @param string $ldiv typ generovane podminky AND/OR
      *
@@ -467,10 +481,6 @@ class PDO extends SQL {
                 continue;
             }
             if (($column == $this->keyColumn) && ($this->keyColumn == '')) {
-                continue;
-            }
-            if (is_string($value) && (($value == '!=""') || ($value == "!=''"))) {
-                $conditions[] = ' ' . $this->getColumnComa() . $column . $this->getColumnComma() . " !='' ";
                 continue;
             }
 
@@ -526,24 +536,6 @@ class PDO extends SQL {
     }
 
     /**
-     * Vrací počet řádek v tabulce.
-     *
-     * @param string $tableName
-     *
-     * @return int
-     */
-    public function getTableNumRows($tableName = null) {
-        if (empty($tableName)) {
-            $tableName = $this->myTable;
-        }
-        $tableRowsCount = $this->queryToArray(SQL::$sel .
-                'count(*) AS NumRows' . SQL::$frm . $this->getColumnComma() .
-                $this->addSlashes($tableName) . $this->getColumnComma());
-
-        return $tableRowsCount[0]['NumRows'];
-    }
-
-    /**
      * Vrací uvozovky pro označení sloupečků.
      *
      * @return string
@@ -577,7 +569,7 @@ class PDO extends SQL {
     /**
      * Ukončí připojení k databázi.
      *
-     * @return type
+     * @return null
      */
     public function close() {
         return $this->pdo = null;

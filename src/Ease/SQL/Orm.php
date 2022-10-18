@@ -72,8 +72,8 @@ trait Orm {
     public $pdo = null;
 
     /**
-     *
-     * @var Fluent 
+     * Fluent Query
+     * @var \Envms\FluentPDO\Query 
      */
     public $fluent = null;
 
@@ -90,6 +90,12 @@ trait Orm {
      * @var int
      */
     public $errorNumber = null;
+    
+    /**
+     * Only one rows returned ?
+     * @var boolean
+     */
+    private $multipleteResult;
 
     /**
      * SetUp Object to be ready for connect
@@ -107,7 +113,7 @@ trait Orm {
         $this->setupProperty($options, 'port', 'DB_PORT');
         $this->setupProperty($options, 'connectionSettings', 'DB_SETUP');
         $this->setupProperty($options, 'myTable');
-        $this->setupProperty($options, 'debug', 'DEBUG');
+        $this->setupProperty($options, 'debug', 'DB_DEBUG');
     }
 
     /**
@@ -197,7 +203,7 @@ trait Orm {
      * @param bool $read    convert mode for select
      * @param bool $write   convert mode for insert
      * 
-     * @return \Envms\FluentPDO
+     * @return \Envms\FluentPDO\Query
      */
     public function getFluentPDO(bool $read = false, bool $write = false) {
         if (!$this->fluent instanceof \Envms\FluentPDO\Query) {
@@ -212,8 +218,8 @@ trait Orm {
     }
 
     /**
-     * 
-     * @return \Envms\FluentPDO
+     * Basic Query to return all
+     * @return \Envms\FluentPDO\Query
      */
     public function listingQuery() {
         return $this->getFluentPDO()->from($this->getMyTable());
@@ -334,12 +340,14 @@ trait Orm {
         if (isset($data[$keyColumn])) {
             $key = $data[$keyColumn];
             unset($data[$keyColumn]);
+        } else {
+            $key = false;
         }
 
         if (isset($this->lastModifiedColumn) && !isset($data[$this->lastModifiedColumn])) {
             $data[$this->lastModifiedColumn] = date("Y-m-d H:i:s");
         }
-        return $this->getFluentPDO(false, true)->update($this->getMyTable())->set($data)->where(empty($conditons) ? [$this->getKeyColumn() => $key] : $conditons)->execute() ? $key : null;
+        return $this->getFluentPDO(false, true)->update($this->getMyTable())->set($data)->where(empty($conditons) && $key ? [$this->getKeyColumn() => $key] : $conditons)->execute() ? $key : null;
     }
 
     /**

@@ -60,7 +60,7 @@ Framework Constants
   * DB_USERNAME  - database user login name
   * DB_PASSWORD  - database user password
   * DB_SETUP     - database setup command (executed directly after connect)
-
+  * DB_DEBUG     - log sql queries
 
 Testing
 -------

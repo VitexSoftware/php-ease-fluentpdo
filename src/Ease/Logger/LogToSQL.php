@@ -28,7 +28,7 @@ class LogToSQL extends \Ease\SQL\Engine implements \Ease\Logger\Loggingable {
      * 
      */
     public function __construct() {
-//        parent::__construct();
+        parent::__construct();
         $this->setUser(\Ease\User::singleton()->getUserID());
     }
 
@@ -72,8 +72,7 @@ class LogToSQL extends \Ease\SQL\Engine implements \Ease\Logger\Loggingable {
                     'severity' => $type,
                     'message' => $message,
                     'apps_id' => $this->applicationId,
-                    'user_id' => $this->userId,
-                    'company_id' => $this->companyId
+                    'user_id' => $this->userId
         ]);
     }
 
