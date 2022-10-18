@@ -89,7 +89,7 @@ trait Orm {
      *
      * @var int
      */
-    public $errorNumber = null;
+    protected $errorNumber = null;
     
     /**
      * Only one rows returned ?

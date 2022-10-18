@@ -71,8 +71,7 @@ class LogToSQL extends \Ease\SQL\Engine implements \Ease\Logger\Loggingable {
                     'venue' => self::venuize($caller),
                     'severity' => $type,
                     'message' => $message,
-                    'apps_id' => $this->applicationId,
-                    'user_id' => $this->userId
+                    'user' => $this->userId
         ]);
     }
 

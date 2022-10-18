@@ -53,9 +53,7 @@ class LogToSQLTest extends \PHPUnit\Framework\TestCase {
      * @todo   Implement testaddToLog().
      */
     public function testaddToLog() {
-        $this->assertEquals('', $this->object->addToLog());
-        // Remove the following lines when you implement this test.
-        $this->markTestIncomplete('This test has not been implemented yet.');
+        $this->assertEquals(1, $this->object->addToLog($this->object,'phpunit'));
     }
 
 }

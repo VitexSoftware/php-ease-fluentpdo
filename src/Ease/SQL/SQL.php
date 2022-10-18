@@ -327,6 +327,8 @@ abstract class SQL extends \Ease\Molecule {
      * z pole $data vytvori fragment SQL dotazu za WHERE (klicovy sloupec
      * $this->keyColumn je preskocen pokud neni $key false).
      *
+     * @deprecated since version 1.0
+     *  
      * @param array $data
      * @param bool  $key
      *
@@ -400,18 +402,6 @@ abstract class SQL extends \Ease\Molecule {
         }
     }
 
-    /**
-     * Funkce pro defaultní slashování v celém frameworku.
-     *
-     * @param string $text
-     * 
-     * @deprecated since version 1
-     *
-     * @return string
-     */
-    public function easeAddSlashes($text) {
-        return addslashes($text);
-    }
 
-    abstract function exeQuery($query);
-}
+
+ }

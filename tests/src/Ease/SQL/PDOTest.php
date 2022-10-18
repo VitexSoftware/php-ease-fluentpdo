@@ -70,47 +70,11 @@ class PDOTest extends TestCase {
     }
 
     /**
-     * @covers Ease\SQL\PDO::exeQuery
-     */
-    public function testExeQuery() {
-        $this->assertObjectEquals( new \PDOStatement() , $this->object->exeQuery('SELECT * FROM TEST WHERE id=1'));
-    }
-
-    /**
      * @covers Ease\SQL\PDO::getlastInsertID
      */
     public function testGetlastInsertID() {
-        $this->assertEquals('', $this->object->GetlastInsertID());
+        $this->assertEquals('0', $this->object->GetlastInsertID());
     }
-
-    /**
-     * @covers Ease\SQL\PDO::queryToArray
-     */
-    public function testQueryToArray() {
-        $this->assertEquals('', $this->object->QueryToArray());
-    }
-
-    /**
-     * @covers Ease\SQL\PDO::arrayToInsert
-     */
-    public function testArrayToInsert() {
-        $this->assertEquals('', $this->object->arrayToInsert(['key' => 'test', 'value' => 'success']));
-    }
-
-    /**
-     * @covers Ease\SQL\PDO::arrayToUpdate
-     */
-    public function testArrayToUpdate() {
-        $this->assertEquals('', $this->object->ArrayToUpdate());
-    }
-
-    /**
-     * @covers Ease\SQL\PDO::arrayToQuery
-     */
-    public function testArrayToQuery() {
-        $this->assertEquals(' value =  \'bar\' ', $this->object->arrayToQuery(['value' => 'bar']));
-    }
-
     /**
      * @covers Ease\SQL\PDO::arrayToInsertQuery
      */
@@ -119,38 +83,10 @@ class PDOTest extends TestCase {
     }
 
     /**
-     * @covers Ease\SQL\PDO::arrayToValuesQuery
-     */
-    public function testArrayToValuesQuery() {
-        $this->assertEquals('', $this->object->ArrayToValuesQuery());
-    }
-
-    /**
-     * @covers Ease\SQL\PDO::prepSelect
-     */
-    public function testPrepSelect() {
-        $this->markTestIncomplete('This test has not been implemented yet.');
-    }
-
-    /**
-     * @covers Ease\SQL\PDO::getTableNumRows
-     */
-    public function testGetTableNumRows() {
-        $this->assertEquals('', $this->object->GetTableNumRows());
-    }
-
-    /**
      * @covers Ease\SQL\PDO::getColumnComma
      */
     public function testGetColumnComma() {
         $this->assertEquals('', $this->object->GetColumnComma());
-    }
-
-    /**
-     * @covers Ease\SQL\PDO::useObject
-     */
-    public function testUseObject() {
-        $this->assertEquals('', $this->object->UseObject());
     }
 
     /**
