@@ -214,7 +214,7 @@ trait Orm {
                     } : false;
         }
         $this->fluent->convertTypes($read, $write);
-        return $this->fluent;
+            return $this->fluent;
     }
 
     /**

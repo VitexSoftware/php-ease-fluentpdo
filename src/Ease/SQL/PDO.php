@@ -212,7 +212,8 @@ class PDO extends SQL {
      * Virtuální funkce.
      */
     public function __destruct() {
-        return;
+        unset($this->pdo);
+        unset($this->result);
     }
 
     /**
@@ -221,12 +222,12 @@ class PDO extends SQL {
      * @return array fields to serialize
      */
     public function __sleep() {
-        unset($this->pdo);
-        unset($this->result);
-
         return parent::__sleep();
     }
 
+    /**
+     * 
+     */
     public function __wakeup() {
         $this->setUp();
     }
