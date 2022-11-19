@@ -81,7 +81,7 @@ architectures.each {
                         sh 'echo "INSTALATION"'
 
                         File insinc = new File('./InstallDebs.groovy')
-                        if (file.exists()) {
+                        if (insinc.exists()) {
                             evaluate(insinc)
                             def installer = new InstallDebs()
                             installer.aptInstall('debian/files')
