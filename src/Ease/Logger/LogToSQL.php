@@ -14,7 +14,8 @@ namespace Ease\Logger;
  *
  * @author vitex
  */
-class LogToSQL extends \Ease\SQL\Engine implements \Ease\Logger\Loggingable {
+class LogToSQL extends \Ease\SQL\Engine implements \Ease\Logger\Loggingable
+{
 
     /**
      * Saves obejct instace (singleton...).
@@ -27,7 +28,8 @@ class LogToSQL extends \Ease\SQL\Engine implements \Ease\Logger\Loggingable {
     /**
      * 
      */
-    public function __construct() {
+    public function __construct()
+    {
         parent::__construct();
         $this->setUser(\Ease\User::singleton()->getUserID());
     }
@@ -40,7 +42,8 @@ class LogToSQL extends \Ease\SQL\Engine implements \Ease\Logger\Loggingable {
      * @link http://docs.php.net/en/language.oop5.patterns.html Dokumentace a
      * priklad
      */
-    public static function singleton() {
+    public static function singleton()
+    {
         if (!isset(self::$instance)) {
             $class = __CLASS__;
             self::$instance = new $class();
@@ -53,7 +56,8 @@ class LogToSQL extends \Ease\SQL\Engine implements \Ease\Logger\Loggingable {
      * ID of current user
      * @param int $id
      */
-    public function setUser($id) {
+    public function setUser($id)
+    {
         $this->userId = $id;
     }
 
@@ -64,9 +68,10 @@ class LogToSQL extends \Ease\SQL\Engine implements \Ease\Logger\Loggingable {
      * @param string $message zpráva
      * @param string $type    typ zprávy (success|info|error|warning|*)
      *
-     * @return bool byl report zapsán ?
+     * @return int|null byl report zapsán ?
      */
-    public function addToLog($caller, $message, $type = 'message') {
+    public function addToLog($caller, $message, $type = 'message')
+    {
         return $this->insertToSQL([
                     'venue' => self::venuize($caller),
                     'severity' => $type,
@@ -80,7 +85,8 @@ class LogToSQL extends \Ease\SQL\Engine implements \Ease\Logger\Loggingable {
      * 
      * @param mixed $caller
      */
-    public static function venuize($caller) {
+    public static function venuize($caller)
+    {
         switch (gettype($caller)) {
             case 'object':
                 if (method_exists($caller, 'getObjectName')) {
@@ -96,5 +102,4 @@ class LogToSQL extends \Ease\SQL\Engine implements \Ease\Logger\Loggingable {
         }
         return substr($venue, 254);
     }
-
 }

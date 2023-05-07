@@ -14,7 +14,8 @@ namespace Ease\SQL;
  *
  * @author Vítězslav Dvořák <info@vitexsoftware.cz>
  */
-class Engine extends \Ease\Brick {
+class Engine extends \Ease\Brick
+{
 
     use Orm;
 
@@ -43,14 +44,14 @@ class Engine extends \Ease\Brick {
      * @param mixed $identifier
      * @param array $options  'autoload'=>false prevent inial autoloading, keyColumn,myTable,createColumn,lastModifiedColumn,nameColumn
      */
-    public function __construct($identifier = null, $options = []) {
+    public function __construct($identifier = null, $options = [])
+    {
         $this->setupProperty($options, 'myTable');
         $this->setupProperty($options, 'keyColumn');
         $this->setupProperty($options, 'nameColumn');
         $this->setupProperty($options, 'createColumn');
         $this->setupProperty($options, 'lastModifiedColumn');
         $this->setUp($options);
-
         if (array_key_exists('autoload', $options) && ($options['autoload'] === true)) {
             $this->loadIdentifier($identifier);
         } else {
@@ -63,10 +64,11 @@ class Engine extends \Ease\Brick {
      * 
      * @param mixed $identifier
      */
-    public function useIdentifier($identifier) {
+    public function useIdentifier($identifier)
+    {
         switch ($this->howToProcess($identifier)) {
             case 'values':
-                    $this->takeData($identifier);
+                $this->takeData($identifier);
                 break;
             case 'reuse':
                 $this->takeData($identifier->getData());
@@ -75,11 +77,11 @@ class Engine extends \Ease\Brick {
                 $this->setDataValue($this->nameColumn, $identifier);
                 break;
             case 'id':
-                    $this->setMyKey($identifier);
+                $this->setMyKey($identifier);
                 break;
             default:
                 break;
-                }
+        }
     }
 
     /**
@@ -87,7 +89,8 @@ class Engine extends \Ease\Brick {
      * 
      * @param mixed $identifier
      */
-    public function loadIdentifier($identifier) {
+    public function loadIdentifier($identifier)
+    {
         switch ($this->howToProcess($identifier)) {
             case 'values':
                 $this->loadFromSQL($identifier);
@@ -103,8 +106,8 @@ class Engine extends \Ease\Brick {
                 break;
             default:
                 break;
-            }
         }
+    }
 
     /**
      * 
@@ -112,7 +115,8 @@ class Engine extends \Ease\Brick {
      * 
      * @return string id|name|values|reuse|unknown
      */
-    public function howToProcess($identifer) {
+    public function howToProcess($identifer)
+    {
         $recognizedAs = 'unknown';
         switch (gettype($identifer)) {
             case "integer":
@@ -144,20 +148,24 @@ class Engine extends \Ease\Brick {
     }
 
     /**
+     * Prove that record is present in DB
      * 
-     * @param string|int|array $param
+     * @param string|int|array $identifier
      * 
      * @return boolean Record was found ?
      */
-    public function recordExist($identifier = null) {
-        return $this->listingQuery()->where(is_null($identifier) ? [$this->getKeyColumn() =>$this->getMyKey()] : $identifier)->count() != 0;
+    public function recordExist($identifier = null)
+    {
+        return $this->listingQuery()->where(is_null($identifier) ? [$this->getKeyColumn() => $this->getMyKey()] : $identifier)->count() != 0;
     }
 
     /**
      * Obtain record name id $this->nameColumn is set
+     * 
      * @return string
      */
-    public function getRecordName() {
+    public function getRecordName()
+    {
         return empty($this->nameColumn) ? null : $this->getDataValue($this->nameColumn);
     }
 
@@ -166,7 +174,8 @@ class Engine extends \Ease\Brick {
      *
      * @return string
      */
-    public function getMyTable() {
+    public function getMyTable()
+    {
         return $this->myTable;
     }
 
@@ -175,7 +184,8 @@ class Engine extends \Ease\Brick {
      *
      * @param string $myTable
      */
-    public function setmyTable($myTable) {
+    public function setmyTable($myTable)
+    {
         $this->myTable = $myTable;
     }
 
@@ -185,7 +195,8 @@ class Engine extends \Ease\Brick {
      * @param string $searchTerm
      * @param array  $columns
      */
-    public function searchColumns($searchTerm, $columns) {
+    public function searchColumns($searchTerm, $columns)
+    {
         $conditons = [];
         foreach ($columns as $column) {
             $conditons[] = '`' . $column . '` LIKE \'%' . addslashes($searchTerm) . '%\'';
@@ -201,18 +212,19 @@ class Engine extends \Ease\Brick {
      * 
      * @return array
      */
-    public static function fixIterator($query) {
+    public static function fixIterator($query)
+    {
         $data = $query->execute();
         return $data ? $data : [];
-    }    
-    
+    }
+
     /**
      * Get All records
      * 
      * @return array
      */
-    public function getAll() {
+    public function getAll()
+    {
         return $this->listingQuery()->fetchAll();
     }
-
 }

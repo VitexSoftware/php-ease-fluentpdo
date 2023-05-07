@@ -13,7 +13,8 @@ namespace Ease\SQL;
  *
  * @author Vítězslav Dvořák <info@vitexsoftware.cz>
  */
-trait Orm {
+trait Orm
+{
 
     /**
      * IP serveru.
@@ -90,7 +91,7 @@ trait Orm {
      * @var int
      */
     protected $errorNumber = null;
-    
+
     /**
      * Only one rows returned ?
      * @var boolean
@@ -103,7 +104,8 @@ trait Orm {
      * @param array $options Object Options (dbType,server,username,password,database,
      *                                       port,connectionSettings,myTable,debug)
      */
-    public function setUpDb($options = []) {
+    public function setUpDb($options = [])
+    {
         $this->setupProperty($options, 'dbType', 'DB_CONNECTION'); //Laralvel 
         $this->setupProperty($options, 'dbType', 'DB_TYPE');       //Ease
         $this->setupProperty($options, 'server', 'DB_HOST');
@@ -121,7 +123,8 @@ trait Orm {
      * 
      * @param array $options - connection options
      */
-    public function setUp($options = []) {
+    public function setUp($options = [])
+    {
         $this->setUpDb($options);
     }
 
@@ -130,7 +133,8 @@ trait Orm {
      *
      * @return \PDO SQL connector
      */
-    public function pdoConnect($options = []) {
+    public function pdoConnect($options = [])
+    {
         $result = false;
         $this->setUp($options);
         switch ($this->dbType) {
@@ -166,7 +170,6 @@ trait Orm {
 
         if ($result instanceof \PDO) {
             $errorNumber = $result->errorCode();
-
             if (!is_null($errorNumber) && ($errorNumber != '00000') && ($errorNumber != '01000')) { // SQL_SUCCESS_WITH_INFO
                 $this->addStatusMessage('Connect: error #' . $errorNumber . ' ' . json_encode($result->errorInfo()),
                         'error');
@@ -186,11 +189,12 @@ trait Orm {
     /**
      * (init &) Get PDO instance
      * 
-     * @param array $properties $name Connection Properties
+     * @param array $propeties $name Connection Properties
      * 
      * @return \PDO
      */
-    public function getPdo($propeties = []) {
+    public function getPdo($propeties = [])
+    {
         if (!$this->pdo instanceof \PDO) {
             $this->pdo = $this->pdoConnect($propeties);
         }
@@ -205,7 +209,8 @@ trait Orm {
      * 
      * @return \Envms\FluentPDO\Query
      */
-    public function getFluentPDO(bool $read = false, bool $write = false) {
+    public function getFluentPDO(bool $read = false, bool $write = false)
+    {
         if (!$this->fluent instanceof \Envms\FluentPDO\Query) {
             $this->fluent = new \Envms\FluentPDO\Query($this->getPdo());
             $this->fluent->exceptionOnError = true;
@@ -214,15 +219,17 @@ trait Orm {
                     } : false;
         }
         $this->fluent->convertTypes($read, $write);
-            return $this->fluent;
+        return $this->fluent;
     }
 
     /**
      * Basic Query to return all
+     * 
      * @return \Envms\FluentPDO\Query
      */
-    public function listingQuery() {
-        return $this->getFluentPDO()->from($this->getMyTable());
+    public function listingQuery()
+    {
+        return $this->getFluentPDO(true)->from($this->getMyTable());
     }
 
     /**
@@ -239,9 +246,9 @@ trait Orm {
      */
     public function getColumnsFromSQL(array $columnsList, $conditions = null,
             $orderBy = null, $indexBy = null,
-            $limit = null) {
+            $limit = null)
+    {
         $result = [];
-
         if (empty($conditions)) {
             $fluent = $this->listingQuery()->select($columnsList, true);
         } else {
@@ -267,7 +274,8 @@ trait Orm {
      *
      * @return array Results
      */
-    public function getDataFromSQL($itemID = null) {
+    public function getDataFromSQL($itemID = null)
+    {
         
     }
 
@@ -278,11 +286,11 @@ trait Orm {
      *
      * @return array Results
      */
-    public function loadFromSQL($itemID) {
+    public function loadFromSQL($itemID)
+    {
         $rowsLoaded = null;
         $sqlResult = $this->listingQuery()->where(is_array($itemID) ? $itemID : [$this->getKeyColumn() => $itemID])->fetchAll();
         $this->multipleteResult = (count($sqlResult) > 1);
-
         if ($this->multipleteResult && is_array($sqlResult)) {
             $results = [];
             foreach ($sqlResult as $id => $data) {
@@ -307,7 +315,8 @@ trait Orm {
      * 
      * @return boolean 
      */
-    public function dbreload() {
+    public function dbreload()
+    {
         return $this->loadFromSQL([$this->getMyTable() . '.' . $this->getKeyColumn() => $this->getMyKey()]);
     }
 
@@ -318,7 +327,8 @@ trait Orm {
      * 
      * @return boolean Operation success
      */
-    public function dbsync($data = null) {
+    public function dbsync($data = null)
+    {
         return $this->saveToSQL(is_null($data) ? $this->getData() : $data) && $this->dbreload();
     }
 
@@ -331,7 +341,8 @@ trait Orm {
      * 
      * @return int Id záznamu nebo null v případě chyby
      */
-    public function updateToSQL($data = null, $conditons = []) {
+    public function updateToSQL($data = null, $conditons = [])
+    {
         if (is_null($data)) {
             $data = $this->getData();
         }
@@ -357,7 +368,8 @@ trait Orm {
      *
      * @return int ID záznamu nebo null v případě neůspěchu
      */
-    public function saveToSQL($data = null) {
+    public function saveToSQL($data = null)
+    {
         $result = null;
         if (is_null($data)) {
             $data = $this->getData();
@@ -381,7 +393,8 @@ trait Orm {
      * 
      * @return int|null id of new row in database
      */
-    public function insertToSQL($data = null) {
+    public function insertToSQL($data = null)
+    {
         if (is_null($data)) {
             $data = $this->getData();
         }
@@ -407,7 +420,8 @@ trait Orm {
      *
      * @return bool
      */
-    public function deleteFromSQL($data = null) {
+    public function deleteFromSQL($data = null)
+    {
         if (is_null($data)) {
             $data = $this->getData();
         }
@@ -437,7 +451,8 @@ trait Orm {
      * @return null|array array taken or not
      */
     public function takeToData($data, $column, $mayBeNull = false,
-            $renameAs = null) {
+            $renameAs = null)
+    {
         if (isset($data[$column])) {
             if (!is_null($renameAs)) {
                 $this->setDataValue($renameAs, $data[$column]);
@@ -449,7 +464,6 @@ trait Orm {
         } else {
             if (!is_null($mayBeNull)) {
                 $this->setDataValue($column, null);
-
                 return null;
             }
         }
@@ -460,7 +474,8 @@ trait Orm {
      * 
      * @return string
      */
-    public function getMyTable() {
+    public function getMyTable()
+    {
         return $this->myTable;
     }
 
@@ -469,8 +484,8 @@ trait Orm {
      * 
      * @param string $tablename
      */
-    public function setMyTable($tablename) {
+    public function setMyTable($tablename)
+    {
         $this->myTable = $tablename;
     }
-
 }

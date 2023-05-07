@@ -6,7 +6,7 @@
  * @deprecated since version 200
  *
  * @author     Vitex <vitex@hippy.cz>
- * @copyright  2009-2016 Vitex@vitexsoftware.cz (G)
+ * @copyright  2009-2023 Vitex@vitexsoftware.cz (G)
  */
 
 namespace Ease\SQL;
@@ -16,7 +16,8 @@ namespace Ease\SQL;
  *
  * @author Vitex <vitex@hippy.cz>
  */
-abstract class SQL extends \Ease\Molecule {
+abstract class SQL extends \Ease\Molecule
+{
 
     /**
      * SQL operation result handle.
@@ -144,7 +145,8 @@ abstract class SQL extends \Ease\Molecule {
     /**
      * Obecný objekt databáze.
      */
-    public function __construct($options = []) {
+    public function __construct($options = [])
+    {
         $this->setUp($options);
         $this->connect();
     }
@@ -155,7 +157,8 @@ abstract class SQL extends \Ease\Molecule {
      * @param array $options Object Options (company,url,user,password,evidence,
      *                                       prefix,defaultUrlParams,debug)
      */
-    public function setUp($options = []) {
+    public function setUp($options = [])
+    {
         $this->setupProperty($options, 'dbType', 'DB_CONNECTION'); //Laralvel 
         $this->setupProperty($options, 'dbType', 'DB_TYPE');       //Ease
         $this->setupProperty($options, 'server', 'DB_HOST');
@@ -170,7 +173,8 @@ abstract class SQL extends \Ease\Molecule {
     /**
      * Připojení k databázi.
      */
-    public function connect() {
+    public function connect()
+    {
         if (!$this->connectAllreadyUP) {
             if (isset($this->connectionSettings) && is_array($this->connectionSettings) && count($this->connectionSettings)) {
                 foreach ($this->connectionSettings as $setName => $SetValue) {
@@ -191,7 +195,8 @@ abstract class SQL extends \Ease\Molecule {
      *
      * @return bool
      */
-    public function selectDB($dbName = null) {
+    public function selectDB($dbName = null)
+    {
         if (!is_null($dbName)) {
             $this->database = $dbName;
         }
@@ -204,7 +209,8 @@ abstract class SQL extends \Ease\Molecule {
      *
      * @return int
      */
-    public function getInsertID() {
+    public function getInsertID()
+    {
         return $this->lastInsertID;
     }
 
@@ -215,7 +221,8 @@ abstract class SQL extends \Ease\Molecule {
      *
      * @return $Success
      */
-    public function ping($succes = null) {
+    public function ping($succes = null)
+    {
         return $succes;
     }
 
@@ -226,9 +233,9 @@ abstract class SQL extends \Ease\Molecule {
      *
      * @return string SQL Query
      */
-    public function sanitizeQuery($queryRaw) {
+    public function sanitizeQuery($queryRaw)
+    {
         $sanitizedQuery = trim($queryRaw);
-
         return $sanitizedQuery;
     }
 
@@ -236,7 +243,8 @@ abstract class SQL extends \Ease\Molecule {
      * 
      * @param string $tableName
      */
-    public function setTable($tableName) {
+    public function setTable($tableName)
+    {
         $this->tableName = $tableName;
     }
 
@@ -245,7 +253,8 @@ abstract class SQL extends \Ease\Molecule {
      *
      * @return int počet řádků
      */
-    public function getNumRows() {
+    public function getNumRows()
+    {
         return $this->numRows;
     }
 
@@ -254,7 +263,8 @@ abstract class SQL extends \Ease\Molecule {
      *
      * @return int počet řádků
      */
-    public function getLastQuery() {
+    public function getLastQuery()
+    {
         return $this->lastQuery;
     }
 
@@ -263,7 +273,8 @@ abstract class SQL extends \Ease\Molecule {
      *
      * @return int ID
      */
-    public function getlastInsertID() {
+    public function getlastInsertID()
+    {
         return $this->lastInsertID;
     }
 
@@ -272,7 +283,8 @@ abstract class SQL extends \Ease\Molecule {
      *
      * @return string
      */
-    public function getLastError() {
+    public function getLastError()
+    {
         if ($this->errorText) {
             if (isset($this->errorNumber)) {
                 return '#' . $this->errorNumber . ': ' . $this->errorText;
@@ -289,7 +301,8 @@ abstract class SQL extends \Ease\Molecule {
      *
      * @return bool
      */
-    public function __sleep() {
+    public function __sleep()
+    {
         $this->lastQuery = null;
         return [];
     }
@@ -297,7 +310,8 @@ abstract class SQL extends \Ease\Molecule {
     /**
      * Zavře databázové spojení.
      */
-    public function __destruct() {
+    public function __destruct()
+    {
         if (method_exists($this, 'close')) {
             $this->close();
         }
@@ -310,7 +324,8 @@ abstract class SQL extends \Ease\Molecule {
      * 
      * @return string
      */
-    public function getColumnComma() {
+    public function getColumnComma()
+    {
         return '';
     }
 
@@ -319,7 +334,8 @@ abstract class SQL extends \Ease\Molecule {
      *
      * @return bool
      */
-    public function isConnected() {
+    public function isConnected()
+    {
         return $this->status;
     }
 
@@ -334,7 +350,8 @@ abstract class SQL extends \Ease\Molecule {
      *
      * @return string
      */
-    public function arrayToSetQuery($data, $key = true) {
+    public function arrayToSetQuery($data, $key = true)
+    {
         $updates = '';
         foreach ($data as $column => $value) {
             if (!strlen($column)) {
@@ -385,7 +402,8 @@ abstract class SQL extends \Ease\Molecule {
      *
      * @param bool $ignoreErrors
      */
-    public function logSqlError($ignoreErrors = false) {
+    public function logSqlError($ignoreErrors = false)
+    {
         if (!$this->result && !$ignoreErrors) {
             $queryRaw = $this->lastQuery;
             $callerBackTrace = debug_backtrace();
@@ -401,7 +419,4 @@ abstract class SQL extends \Ease\Molecule {
                                     'error', $caller));
         }
     }
-
-
-
- }
+}
