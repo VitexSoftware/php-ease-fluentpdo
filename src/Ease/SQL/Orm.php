@@ -4,7 +4,7 @@
  * Object Relation Model Trait
  *
  * @author Vítězslav Dvořák <info@vitexsoftware.cz>
- * @copyright  2018-2022 Vitex@hippy.cz (G)
+ * @copyright  2018-2023 Vitex@hippy.cz (G)
  */
 
 namespace Ease\SQL;
@@ -195,7 +195,7 @@ trait Orm
      */
     public function getPdo($propeties = [])
     {
-        if (!$this->pdo instanceof \PDO) {
+        if (($this->pdo instanceof \PDO)===false) {
             $this->pdo = $this->pdoConnect($propeties);
         }
         return $this->pdo;

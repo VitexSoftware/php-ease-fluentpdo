@@ -19,6 +19,7 @@ class Debugger extends \Ease\Sand
      * Ease SQL Debugger
      * 
      * @param \Envms\FluentPDO\Query $fluent
+     * @param mixed $caller Description
      */
     function __construct($fluent, $caller)
     {
