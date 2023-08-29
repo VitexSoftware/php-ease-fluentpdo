@@ -10,8 +10,8 @@
     "license": "MIT",
     "minimum-stability": "dev",
     "require": {
-        "vitexsoftware/ease-core": ">=1.1",
-        "fpdo/fluentpdo": "^2.1"
+        "vitexsoftware/ease-core": ">=1.40",
+        "fpdo/fluentpdo": ">=2.1"
     },
     "require-dev": {
         "cakephp/migrations": "3.x-dev",
