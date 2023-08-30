@@ -27,7 +27,7 @@ Description: Ease FluentPDO Documentation
  Ease FluentPDO apigen documentation.
 
 Package: php-vitexsoftware-ease-fluentpdo-dev
-Depends: ${misc:Depends}, php-vitexsoftware-ease-fluentpdo, phpunit
+Depends: ${misc:Depends}, php-vitexsoftware-ease-fluentpdo, phpunit, php-pdo-sqlite
 Architecture: all
 Section: doc
 Priority: optional
