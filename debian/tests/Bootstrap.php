@@ -23,15 +23,6 @@ use Symfony\Component\Console\Output\OutputInterface;
 
 require_once '/var/lib/composer/php-vitexsoftware-ease-fluentpdo-dev/autoload.php';
 
-define('APP_NAME', 'EaseFluentPDOTest');
-define('APP_DEBUG', 'true');
-define('DB_CONNECTION', 'sqlite');
-define('DB_HOST', '127.0.0.1');
-define('DB_PORT', '0');
-define('DB_DATABASE', __DIR__ . '/test.sqlite');
-define('DB_USERNAME', 'phpunit');
-define('DB_PASSWORD', 'phpunit');
-
 if (file_exists(\Ease\Functions::cfg('DB_DATABASE'))) {
     unlink(\Ease\Functions::cfg('DB_DATABASE'));
     touch(\Ease\Functions::cfg('DB_DATABASE'));
