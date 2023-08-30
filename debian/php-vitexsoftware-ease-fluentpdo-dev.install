@@ -5,7 +5,7 @@ tests/seeds/*.php           usr/share/php/EaseFluentPDO/Test/seeds/
 debian/tests/.env           usr/lib/php-vitexsoftware-ease-fluentpdo-dev/
 Examples/phinx-adapter.php  usr/lib/php-vitexsoftware-ease-fluentpdo-dev/
 
-debian/tests/testdb.sqlite	usr/lib/php-vitexsoftware-ease-fluentpdo-dev/
+debian/tests/testdb.sqlite	usr/lib/php-vitexsoftware-ease-fluentpdo-dev/db/
 
 debian/tests/phpunit.xml	usr/share/php/EaseFluentPDO/Test
 debian/tests/composer.json	usr/lib/php-vitexsoftware-ease-fluentpdo-dev
