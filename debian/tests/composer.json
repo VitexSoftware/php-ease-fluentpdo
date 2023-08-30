@@ -11,15 +11,15 @@
     "minimum-stability": "dev",
     "require": {
         "deb/ease-core": "*",
-        "fpdo/fluentpdo": ">=2.1"
+        "fpdo/fluentpdo": ">=2.1",
         "cakephp/migrations": "3.x-dev"
     },
     "autoload": {
         "psr-4": {
             "Ease\\SQL\\": "./",
-            "Ease\\Logger\\": "./Logger"
+            "Ease\\Logger\\": "./Logger",
             "Test\\Ease\\Local\\": "Test",
-            "Test\\Ease\\SQL\\": "./Test/"
+            "Test\\Ease\\SQL\\": "./Test/",
             "Test\\Ease\\SQL\\Logger\\": "./Test/Logger"
         }
     },
