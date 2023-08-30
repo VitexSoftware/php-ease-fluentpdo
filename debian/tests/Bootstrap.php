@@ -23,6 +23,8 @@ use Symfony\Component\Console\Output\OutputInterface;
 
 require_once '/var/lib/composer/php-vitexsoftware-ease-fluentpdo-dev/autoload.php';
 
+\Ease\Shared::singleton()->loadConfig('/usr/lib/php-vitexsoftware-ease-fluentpdo-dev/.env', true);
+
 if (file_exists(\Ease\Functions::cfg('DB_DATABASE'))) {
     unlink(\Ease\Functions::cfg('DB_DATABASE'));
     touch(\Ease\Functions::cfg('DB_DATABASE'));
