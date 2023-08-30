@@ -26,6 +26,7 @@ set -e
 case "$1" in
     configure)
         composer-debian php-vitexsoftware-ease-fluentpdo-dev
+      	chmod 666 /usr/lib/php-vitexsoftware-ease-fluentpdo-dev/testdb.sqlite
         phinx migrate -c  /usr/lib/php-vitexsoftware-ease-fluentpdo-dev/phinx-adapter.php
      	phinx seed:run -c /usr/lib/php-vitexsoftware-ease-fluentpdo-dev/phinx-adapter.php
         su - `composer-webuser` -s /bin/bash -c 'phpunit --bootstrap /usr/share/php/EaseFluentPDO/Test/Bootstrap.php --configuration /usr/share/php/EaseFluentPDO/Test/phpunit.xml'
