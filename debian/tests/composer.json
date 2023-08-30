@@ -16,11 +16,10 @@
     },
     "autoload": {
         "psr-4": {
-            "Ease\\SQL\\": "./",
-            "Ease\\Logger\\": "./Logger",
-            "Test\\Ease\\Local\\": "Test",
-            "Test\\Ease\\SQL\\": "./Test/",
-            "Test\\Ease\\SQL\\Logger\\": "./Test/Logger"
+            "Ease\\SQL\\": "/usr/share/php/EaseFluentPDO/",
+            "Ease\\Logger\\": "/usr/share/php/EaseFluentPDO/Logger",
+            "Test\\Ease\\SQL\\": "/usr/share/php/EaseFluentPDO/Test/",
+            "Test\\Ease\\SQL\\Logger\\": "/usr/share/php/EaseFluentPDO/Test/Logger"
         }
     },
     "repositories": [
