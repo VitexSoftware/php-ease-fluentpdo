@@ -1,0 +1,53 @@
+{
+    "name": "vitexsoftware/ease-fluentpdo-dev",
+    "description": "SQL/PDO support for Ease Framework based on FluentPDO",
+    "authors": [
+        {
+            "name": "Vitex",
+            "email": "info@vitexsoftware.cz"
+        }
+    ],
+    "license": "MIT",
+    "minimum-stability": "dev",
+    "require": {
+        "vitexsoftware/ease-core": ">=1.40",
+        "fpdo/fluentpdo": ">=2.1"
+    },
+    "require-dev": {
+        "cakephp/migrations": "3.x-dev",
+        "phpunit/phpunit": "*",
+        "phpstan/phpstan": "*"
+    },
+    "autoload": {
+        "psr-4": {
+            "Ease\\SQL\\": "src/Ease/SQL",
+            "Ease\\Logger\\": "src/Ease/Logger"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Test\\Ease\\Local\\": "tests",
+            "Test\\Ease\\SQL\\": "tests/src/Ease/SQL"
+        }
+    },
+    "repositories": [
+        {
+            "type": "path",
+            "url": "/usr/share/php/EaseCore",
+            "options": {
+                "symlink": true
+            }
+        },
+        {
+            "type": "path",
+            "url": "/usr/share/php/EaseFluentPDO/",
+            "options": {
+                "symlink": true
+            }
+        }
+    ],
+
+    "conflict": {
+        "vitexsoftware/ease-framework": "*"
+    }
+}
