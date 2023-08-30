@@ -39,6 +39,12 @@ class LogToDb extends AbstractMigration {
                 ->addColumn('application', 'text', ['comment' => 'App name', 'null' => 'true', 'default' => null])
                 ->addColumn('user', 'integer', ['comment' => 'User ID', 'default' => 0])
                 ->create();
+        if ($this->adapter->getAdapterType() != 'sqlite') {
+            $table
+                ->changeColumn('id', 'biginteger', ['identity' => true, 'signed' => false])
+                ->save();
+        }
+
     }
 
 }

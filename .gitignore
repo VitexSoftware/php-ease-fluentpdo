@@ -17,6 +17,7 @@ docs
 .phpdoc
 
 /debian/php-vitexsoftware-ease-fluentpdo-doc/
+/debian/php-vitexsoftware-ease-fluentpdo-dev/
 /.phpunit.result.cache
 
 tests/test.sqlite-shm 
