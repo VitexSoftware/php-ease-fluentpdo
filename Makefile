@@ -23,3 +23,6 @@ phpunit: composer migration seed
 
 autoload:
 	composer update
+
+packages:
+	debuild -us -uc

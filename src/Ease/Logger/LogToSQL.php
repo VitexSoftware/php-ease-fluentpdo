@@ -12,6 +12,20 @@ namespace Ease\Logger;
 /**
  * Description of LogToSQL
  *
+ * Use the phinx migration db/migrations/20200704143315_logger.php to create
+ * 
+ * table structure:
+ * 
+ * CREATE TABLE `log` (
+ * `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+ * `severity` varchar(255) COLLATE utf8_czech_ci NOT NULL COMMENT 'message type',
+ * `venue` varchar(255) COLLATE utf8_czech_ci NOT NULL COMMENT 'message producer',
+ * `message` text COLLATE utf8_czech_ci NOT NULL COMMENT 'main text',
+ * `created` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+ * PRIMARY KEY (`id`)
+ * ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_czech_ci;
+ * 
+ * 
  * @author vitex
  */
 class LogToSQL extends \Ease\SQL\Engine implements \Ease\Logger\Loggingable
