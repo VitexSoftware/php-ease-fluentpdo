@@ -10,24 +10,17 @@
     "license": "MIT",
     "minimum-stability": "dev",
     "require": {
-        "vitexsoftware/ease-core": ">=1.40",
+        "deb/ease-core": "*",
         "fpdo/fluentpdo": ">=2.1"
-    },
-    "require-dev": {
-        "cakephp/migrations": "3.x-dev",
-        "phpunit/phpunit": "*",
-        "phpstan/phpstan": "*"
+        "cakephp/migrations": "3.x-dev"
     },
     "autoload": {
         "psr-4": {
-            "Ease\\SQL\\": "src/Ease/SQL",
-            "Ease\\Logger\\": "src/Ease/Logger"
-        }
-    },
-    "autoload-dev": {
-        "psr-4": {
-            "Test\\Ease\\Local\\": "tests",
-            "Test\\Ease\\SQL\\": "tests/src/Ease/SQL"
+            "Ease\\SQL\\": "./",
+            "Ease\\Logger\\": "./Logger"
+            "Test\\Ease\\Local\\": "Test",
+            "Test\\Ease\\SQL\\": "./Test/"
+            "Test\\Ease\\SQL\\Logger\\": "./Test/Logger"
         }
     },
     "repositories": [
