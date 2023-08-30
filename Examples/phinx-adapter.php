@@ -4,7 +4,7 @@
  * EaseFluentPDO - Phinx database adapter.
  *
  * @author Vítězslav Dvořák <info@vitexsoftware.cz>
- * @copyright  2020 Vitex Software
+ * @copyright  2020-2023 Vitex Software
  */
 if (file_exists('./vendor/autoload.php')) {
     include_once './vendor/autoload.php';
@@ -30,13 +30,12 @@ $cfg = [
     ],
     'environments' =>
     [
-        'default_database' => 'development',
+        'default_environment' => 'development',
         'development' => [
             'adapter' => \Ease\Functions::cfg('DB_CONNECTION'),
             'name' => $engine->database,
             'connection' => $engine->getPdo($sqlOptions)
         ],
-        'default_database' => 'production',
         'production' => [
             'adapter' => \Ease\Functions::cfg('DB_CONNECTION'),
             'name' => $engine->database,
