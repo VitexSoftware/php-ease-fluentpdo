@@ -7,8 +7,9 @@ php-vitexsoftware-ease-fluentpdo (1.1) UNRELEASED; urgency=medium
   [ vitex ]
   * mysql persistence
   * Code cleanup
+  * evolution
 
- -- vitex <info@vitexsoftware.cz>  Tue, 18 Oct 2022 16:06:24 +0200
+ -- vitex <info@vitexsoftware.cz>  Wed, 30 Aug 2023 12:03:21 +0200
 
 php-vitexsoftware-ease-fluentpdo (1.0) main; urgency=medium
 
