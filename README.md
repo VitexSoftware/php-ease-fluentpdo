@@ -12,20 +12,23 @@ SQL Support for EasePHP Framework using FluentPDO
 
 
 Installation
-============
+------------
 
 Download https://github.com/VitexSoftware/php-ease-fluentpdo/archive/master.zip or use
 
-Composer:
----------
+Composer
+--------
+
+```shell
     composer require vitexsoftware/ease-fluentpdo
+```
 
 Linux
 -----
 
 For Debian, Ubuntu & friends please use repo:
 
-```
+```shell
 echo "deb http://repo.vitexsoftware.com $(lsb_release -sc) main" | sudo tee /etc/apt/sources.list.d/vitexsoftware.list
 sudo wget -O /etc/apt/trusted.gpg.d/vitexsoftware.gpg http://repo.vitexsoftware.com/keyring.gpg
 sudo apt update
@@ -49,18 +52,17 @@ In this case please add this to your app composer.json:
     ]
 ```
 
-
 Framework Constants
 ===================
 
-  * DB_TYPE      - pgsql|mysql|sqlsrv|sqlite
-  * DB_HOST      - localhost is default 
-  * DB_PORT      - database port 
-  * DB_DATABASE  - database schema name
-  * DB_USERNAME  - database user login name
-  * DB_PASSWORD  - database user password
-  * DB_SETUP     - database setup command (executed directly after connect)
-  * DB_DEBUG     - log sql queries
+* DB_TYPE      - pgsql|mysql|sqlsrv|sqlite
+* DB_HOST      - localhost is default
+* DB_PORT      - database port
+* DB_DATABASE  - database schema name
+* DB_USERNAME  - database user login name
+* DB_PASSWORD  - database user password
+* DB_SETUP     - database setup command (executed directly after connect)
+* DB_DEBUG     - log sql queries
 
 Testing
 -------
@@ -75,7 +77,7 @@ make phpunit
 
 Or initalize another database and update .env file
 
-```
+```shell
 composer update
 cd tests
 mysqladmin -u root -p create easetest
@@ -91,7 +93,7 @@ Building
 Simply run **make deb**
 
 Links
-=====
+-----
 
 Homepage: https://www.vitexsoftware.cz/ease.php
 
