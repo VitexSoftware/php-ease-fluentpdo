@@ -18,7 +18,6 @@ namespace Ease\SQL;
  */
 abstract class SQL extends \Ease\Molecule
 {
-
     /**
      * SQL operation result handle.
      *
@@ -69,7 +68,7 @@ abstract class SQL extends \Ease\Molecule
     public $report = ['LastMessage' => 'Please extend'];
 
     /**
-     * Current database name 
+     * Current database name
      * @var string
      */
     public $database = null;
@@ -159,7 +158,7 @@ abstract class SQL extends \Ease\Molecule
      */
     public function setUp($options = [])
     {
-        $this->setupProperty($options, 'dbType', 'DB_CONNECTION'); //Laralvel 
+        $this->setupProperty($options, 'dbType', 'DB_CONNECTION'); //Laralvel
         $this->setupProperty($options, 'dbType', 'DB_TYPE');       //Ease
         $this->setupProperty($options, 'server', 'DB_HOST');
         $this->setupProperty($options, 'username', 'DB_USERNAME');
@@ -240,7 +239,7 @@ abstract class SQL extends \Ease\Molecule
     }
 
     /**
-     * 
+     *
      * @param string $tableName
      */
     public function setTable($tableName)
@@ -321,7 +320,7 @@ abstract class SQL extends \Ease\Molecule
      * Vrací uvozovky pro označení sloupečků.
      *
      * @deprecated since version 1.2
-     * 
+     *
      * @return string
      */
     public function getColumnComma()
@@ -344,7 +343,7 @@ abstract class SQL extends \Ease\Molecule
      * $this->keyColumn je preskocen pokud neni $key false).
      *
      * @deprecated since version 1.0
-     *  
+     *
      * @param array $data
      * @param bool  $key
      *
@@ -415,8 +414,11 @@ abstract class SQL extends \Ease\Molecule
             if (isset($callerBackTrace['object'])) {
                 $caller .= ' (' . get_class($callerBackTrace['object']) . ')';
             }
-            return \Ease\Shared::logger()->addStatusObject(new \Ease\Logger\Message('ExeQuery: #' . $this->errorNumber . ': ' . $this->errorText . "\n" . $queryRaw,
-                                    'error', $caller));
+            return \Ease\Shared::logger()->addStatusObject(new \Ease\Logger\Message(
+                'ExeQuery: #' . $this->errorNumber . ': ' . $this->errorText . "\n" . $queryRaw,
+                'error',
+                $caller
+            ));
         }
     }
 }

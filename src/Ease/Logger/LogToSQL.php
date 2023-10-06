@@ -13,9 +13,9 @@ namespace Ease\Logger;
  * Description of LogToSQL
  *
  * Use the phinx migration db/migrations/20200704143315_logger.php to create
- * 
+ *
  * table structure:
- * 
+ *
  * CREATE TABLE `log` (
  * `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
  * `severity` varchar(255) COLLATE utf8_czech_ci NOT NULL COMMENT 'message type',
@@ -24,13 +24,12 @@ namespace Ease\Logger;
  * `created` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
  * PRIMARY KEY (`id`)
  * ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_czech_ci;
- * 
- * 
+ *
+ *
  * @author vitex
  */
 class LogToSQL extends \Ease\SQL\Engine implements \Ease\Logger\Loggingable
 {
-
     /**
      * Saves obejct instace (singleton...).
      */
@@ -40,7 +39,7 @@ class LogToSQL extends \Ease\SQL\Engine implements \Ease\Logger\Loggingable
     public $userId = null;
 
     /**
-     * 
+     *
      */
     public function __construct()
     {
@@ -68,11 +67,12 @@ class LogToSQL extends \Ease\SQL\Engine implements \Ease\Logger\Loggingable
 
     /**
      * ID of current user
-     * @param int $id
+     *
+     * @param int $uid
      */
-    public function setUser($id)
+    public function setUser($uid)
     {
-        $this->userId = $id;
+        $this->userId = $uid;
     }
 
     /**
@@ -96,7 +96,7 @@ class LogToSQL extends \Ease\SQL\Engine implements \Ease\Logger\Loggingable
 
     /**
      * Prepare venue able to be saved into sql column
-     * 
+     *
      * @param mixed $caller
      */
     public static function venuize($caller)

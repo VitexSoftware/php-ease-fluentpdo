@@ -15,7 +15,6 @@ namespace Ease\SQL;
  */
 trait Orm
 {
-
     /**
      * IP serveru.
      *
@@ -74,7 +73,7 @@ trait Orm
 
     /**
      * Fluent Query
-     * @var \Envms\FluentPDO\Query 
+     * @var \Envms\FluentPDO\Query
      */
     public $fluent = null;
 
@@ -106,7 +105,7 @@ trait Orm
      */
     public function setUpDb($options = [])
     {
-        $this->setupProperty($options, 'dbType', 'DB_CONNECTION'); //Laralvel 
+        $this->setupProperty($options, 'dbType', 'DB_CONNECTION'); //Laralvel
         $this->setupProperty($options, 'dbType', 'DB_TYPE');       //Ease
         $this->setupProperty($options, 'server', 'DB_HOST');
         $this->setupProperty($options, 'dbLogin', 'DB_USERNAME');
@@ -120,7 +119,7 @@ trait Orm
 
     /**
      * SetUp database connections
-     * 
+     *
      * @param array $options - connection options
      */
     public function setUp($options = [])
@@ -139,20 +138,29 @@ trait Orm
         $this->setUp($options);
         switch ($this->dbType) {
             case 'mysql':
-                $result = new \PDO($this->dbType . ':dbname=' . $this->database . ';host=' . $this->server . ';port=' . $this->port . ';charset=utf8',
-                        $this->dbLogin, $this->dbPass,
-                        [\PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES \'utf8\'', \PDO::ATTR_PERSISTENT => true]);
+                $result = new \PDO(
+                    $this->dbType . ':dbname=' . $this->database . ';host=' . $this->server . ';port=' . $this->port . ';charset=utf8',
+                    $this->dbLogin,
+                    $this->dbPass,
+                    [\PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES \'utf8\'', \PDO::ATTR_PERSISTENT => true]
+                );
                 break;
             case 'pgsql':
-                $result = new \PDO($this->dbType . ':dbname=' . $this->database . ';host=' . $this->server . ';port=' . $this->port,
-                        $this->dbLogin, $this->dbPass);
+                $result = new \PDO(
+                    $this->dbType . ':dbname=' . $this->database . ';host=' . $this->server . ';port=' . $this->port,
+                    $this->dbLogin,
+                    $this->dbPass
+                );
                 if (is_object($result)) {
                     $result->exec("SET NAMES 'UTF-8'");
                 }
                 break;
             case 'sqlsrv': // https://www.php.net/manual/en/ref.pdo-sqlsrv.connection.php
-                $result = new \PDO($this->dbType . ':Server=' . $this->server . (isset($this->port) ? ',' . $this->port : '') . ';Database=' . $this->database,
-                        $this->dbLogin, $this->dbPass);
+                $result = new \PDO(
+                    $this->dbType . ':Server=' . $this->server . (isset($this->port) ? ',' . $this->port : '') . ';Database=' . $this->database,
+                    $this->dbLogin,
+                    $this->dbPass
+                );
                 break;
             case 'sqlite3':
                 $this->dbType = 'sqlite';
@@ -171,15 +179,18 @@ trait Orm
         if ($result instanceof \PDO) {
             $errorNumber = $result->errorCode();
             if (!is_null($errorNumber) && ($errorNumber != '00000') && ($errorNumber != '01000')) { // SQL_SUCCESS_WITH_INFO
-                $this->addStatusMessage('Connect: error #' . $errorNumber . ' ' . json_encode($result->errorInfo()),
-                        'error');
+                $this->addStatusMessage(
+                    'Connect: error #' . $errorNumber . ' ' . json_encode($result->errorInfo()),
+                    'error'
+                );
             } else {
-                if (!empty($this->connectionSettings))
+                if (!empty($this->connectionSettings)) {
                     foreach ($this->connectionSettings as $setName => $SetValue) {
                         if (strlen($setName)) {
                             $this->getPdo()->exec("SET $setName $SetValue");
                         }
                     }
+                }
             }
         }
 
@@ -188,14 +199,14 @@ trait Orm
 
     /**
      * (init &) Get PDO instance
-     * 
+     *
      * @param array $propeties $name Connection Properties
-     * 
+     *
      * @return \PDO
      */
     public function getPdo($propeties = [])
     {
-        if (($this->pdo instanceof \PDO)===false) {
+        if (($this->pdo instanceof \PDO) === false) {
             $this->pdo = $this->pdoConnect($propeties);
         }
         return $this->pdo;
@@ -203,10 +214,10 @@ trait Orm
 
     /**
      * SQL Builder
-     * 
+     *
      * @param bool $read    convert mode for select
      * @param bool $write   convert mode for insert
-     * 
+     *
      * @return \Envms\FluentPDO\Query
      */
     public function getFluentPDO(bool $read = false, bool $write = false)
@@ -216,7 +227,7 @@ trait Orm
             $this->fluent->exceptionOnError = true;
             $this->fluent->debug = $this->debug ? function ($fluent) {
                         new Debugger($fluent, $this);
-                    } : false;
+            } : false;
         }
         $this->fluent->convertTypes($read, $write);
         return $this->fluent;
@@ -224,7 +235,7 @@ trait Orm
 
     /**
      * Basic Query to return all
-     * 
+     *
      * @return \Envms\FluentPDO\Query
      */
     public function listingQuery()
@@ -244,10 +255,13 @@ trait Orm
      *
      * @return array
      */
-    public function getColumnsFromSQL(array $columnsList, $conditions = null,
-            $orderBy = null, $indexBy = null,
-            $limit = null)
-    {
+    public function getColumnsFromSQL(
+        array $columnsList,
+        $conditions = null,
+        $orderBy = null,
+        $indexBy = null,
+        $limit = null
+    ) {
         $result = [];
         if (empty($conditions)) {
             $fluent = $this->listingQuery()->select($columnsList, true);
@@ -276,7 +290,6 @@ trait Orm
      */
     public function getDataFromSQL($itemID = null)
     {
-        
     }
 
     /**
@@ -312,8 +325,8 @@ trait Orm
 
     /**
      * Reload current record from Database
-     * 
-     * @return boolean 
+     *
+     * @return boolean
      */
     public function dbreload()
     {
@@ -324,7 +337,7 @@ trait Orm
      * Insert current data into Database and load actual record data back
      *
      * @param array $data Initial data to save
-     * 
+     *
      * @return boolean Operation success
      */
     public function dbsync($data = null)
@@ -338,7 +351,7 @@ trait Orm
      *
      * @param array $data      to save
      * @param array $conditons Update condition
-     * 
+     *
      * @return int Id záznamu nebo null v případě chyby
      */
     public function updateToSQL($data = null, $conditons = [])
@@ -390,7 +403,7 @@ trait Orm
      * Insert record to SQL database.
      *
      * @param array $data
-     * 
+     *
      * @return int|null id of new row in database
      */
     public function insertToSQL($data = null)
@@ -442,7 +455,7 @@ trait Orm
      * Assign data from field to data array.
      *
      * @deprecated since version 0.1
-     * 
+     *
      * @param array  $data      asociativní pole dat
      * @param string $column    název položky k převzetí
      * @param bool   $mayBeNull nahrazovat chybejici hodnotu nullem ?
@@ -450,9 +463,12 @@ trait Orm
      *
      * @return null|array array taken or not
      */
-    public function takeToData($data, $column, $mayBeNull = false,
-            $renameAs = null)
-    {
+    public function takeToData(
+        $data,
+        $column,
+        $mayBeNull = false,
+        $renameAs = null
+    ) {
         if (isset($data[$column])) {
             if (!is_null($renameAs)) {
                 $this->setDataValue($renameAs, $data[$column]);
@@ -471,7 +487,7 @@ trait Orm
 
     /**
      * We work with table
-     * 
+     *
      * @return string
      */
     public function getMyTable()
@@ -481,7 +497,7 @@ trait Orm
 
     /**
      * Specify used table by name
-     * 
+     *
      * @param string $tablename
      */
     public function setMyTable($tablename)

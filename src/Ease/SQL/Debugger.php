@@ -14,17 +14,20 @@ namespace Ease\SQL;
  */
 class Debugger extends \Ease\Sand
 {
-
     /**
      * Ease SQL Debugger
-     * 
+     *
      * @param \Envms\FluentPDO\Query $fluent
      * @param mixed $caller Description
      */
-    function __construct($fluent, $caller)
+    public function __construct($fluent, $caller)
     {
         $query = $fluent->getQuery();
         $parameters = $fluent->getParameters();
-        $this->addStatusMessage($parameters ? vsprintf(str_replace('?', "'%s'", $query), $parameters) : $query, 'debug', $caller);
+        $this->addStatusMessage(
+            $parameters ? vsprintf(str_replace('?', "'%s'", $query), $parameters) : $query,
+            'debug',
+            $caller
+        );
     }
 }

@@ -16,7 +16,6 @@ namespace Ease\SQL;
  */
 class Engine extends \Ease\Brick
 {
-
     use Orm;
 
     /**
@@ -27,8 +26,8 @@ class Engine extends \Ease\Brick
     public $myTable = '';
 
     /**
-     * Record create time column 
-     * @var string 
+     * Record create time column
+     * @var string
      */
     public $createColumn = null;
 
@@ -40,7 +39,7 @@ class Engine extends \Ease\Brick
 
     /**
      * Database object
-     * 
+     *
      * @param mixed $identifier
      * @param array $options  'autoload'=>false prevent inial autoloading, keyColumn,myTable,createColumn,lastModifiedColumn,nameColumn
      */
@@ -61,7 +60,7 @@ class Engine extends \Ease\Brick
 
     /**
      * Use Given value as identifier
-     * 
+     *
      * @param mixed $identifier
      */
     public function useIdentifier($identifier)
@@ -86,7 +85,7 @@ class Engine extends \Ease\Brick
 
     /**
      * Load record usinf identifier
-     * 
+     *
      * @param mixed $identifier
      */
     public function loadIdentifier($identifier)
@@ -110,9 +109,9 @@ class Engine extends \Ease\Brick
     }
 
     /**
-     * 
+     *
      * @param \Ease\SQL\Engine $identifer
-     * 
+     *
      * @return string id|name|values|reuse|unknown
      */
     public function howToProcess($identifer)
@@ -138,7 +137,7 @@ class Engine extends \Ease\Brick
                     $recognizedAs = 'reuse';
                 }
                 break;
-            default :
+            default:
             case "boolean":
             case "NULL":
                 $recognizedAs = 'unknown';
@@ -149,9 +148,9 @@ class Engine extends \Ease\Brick
 
     /**
      * Prove that record is present in DB
-     * 
+     *
      * @param string|int|array $identifier
-     * 
+     *
      * @return boolean Record was found ?
      */
     public function recordExist($identifier = null)
@@ -161,7 +160,7 @@ class Engine extends \Ease\Brick
 
     /**
      * Obtain record name id $this->nameColumn is set
-     * 
+     *
      * @return string
      */
     public function getRecordName()
@@ -207,9 +206,9 @@ class Engine extends \Ease\Brick
 
     /**
      * Always return array
-     * 
+     *
      * @param \Envms\FluentPDO\Queries\Select $query
-     * 
+     *
      * @return array
      */
     public static function fixIterator($query)
@@ -220,7 +219,7 @@ class Engine extends \Ease\Brick
 
     /**
      * Get All records
-     * 
+     *
      * @return array
      */
     public function getAll()

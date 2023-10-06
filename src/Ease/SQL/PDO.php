@@ -16,7 +16,6 @@ namespace Ease\SQL;
  */
 class PDO extends SQL
 {
-
     /**
      * DBO class instance.
      *
@@ -92,7 +91,7 @@ class PDO extends SQL
     public $dbType = null;
 
     /**
-     * 
+     *
      * @var string
      */
     private $errorText;
@@ -117,7 +116,7 @@ class PDO extends SQL
      * Set KeyColumn used for PGSQL indertid.
      *
      * @param string $column
-     * 
+     *
      * @return boolean Operation success
      */
     public function setKeyColumn($column = null)
@@ -144,7 +143,7 @@ class PDO extends SQL
      * Escapes special characters in a string for use in an SQL statement.
      *
      * @param string $text
-     * 
+     *
      * @deprecated since version 0.1
      *
      * @return string
@@ -235,7 +234,7 @@ class PDO extends SQL
     }
 
     /**
-     * 
+     *
      */
     public function __wakeup()
     {
