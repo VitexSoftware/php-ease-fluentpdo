@@ -229,7 +229,9 @@ trait Orm
                         new Debugger($fluent, $this);
             } : false;
         }
-        $this->fluent->convertTypes($read, $write);
+        if($this->dbType != 'sqlite'){ // HotFix for https://github.com/envms/fluentpdo/issues/289
+            $this->fluent->convertTypes($read, $write);
+        }
         return $this->fluent;
     }
 
