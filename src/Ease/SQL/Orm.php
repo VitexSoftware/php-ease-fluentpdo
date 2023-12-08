@@ -62,7 +62,7 @@ trait Orm
      *
      * @var array
      */
-    public $connectionSettings = [];
+    public $dbSettings = [];
 
     /**
      * Default connection setup.
@@ -120,7 +120,7 @@ trait Orm
         $this->setupProperty($options, 'database', 'DB_DATABASE');
         $this->setupProperty($options, 'port', 'DB_PORT');
         $this->setupProperty($options, 'connectionSetup', 'DB_SETUP');
-        $this->setupProperty($options, 'connectionSettings', 'DB_SETTINGS');
+        $this->setupProperty($options, 'dbSettings', 'DB_SETTINGS');
         $this->setupProperty($options, 'myTable');
         $this->setupProperty($options, 'debug', 'DB_DEBUG');
     }
