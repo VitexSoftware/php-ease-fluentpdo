@@ -65,6 +65,13 @@ trait Orm
     public $connectionSettings = [];
 
     /**
+     * Default connection setup.
+     *
+     * @var array
+     */
+    public $connectionSetup= [];
+    
+    /**
      * PDO Driver object
      *
      * @var PDO
@@ -112,7 +119,8 @@ trait Orm
         $this->setupProperty($options, 'dbPass', 'DB_PASSWORD');
         $this->setupProperty($options, 'database', 'DB_DATABASE');
         $this->setupProperty($options, 'port', 'DB_PORT');
-        $this->setupProperty($options, 'connectionSettings', 'DB_SETUP');
+        $this->setupProperty($options, 'connectionSetup', 'DB_SETUP');
+        $this->setupProperty($options, 'connectionSettings', 'DB_SETTINGS');
         $this->setupProperty($options, 'myTable');
         $this->setupProperty($options, 'debug', 'DB_DEBUG');
     }
@@ -139,7 +147,7 @@ trait Orm
         switch ($this->dbType) {
             case 'mysql':
                 $result = new \PDO(
-                    $this->dbType . ':dbname=' . $this->database . ';host=' . $this->server . ';port=' . $this->port . ';charset=utf8',
+                    $this->dbType . ':dbname=' . $this->database . ';host=' . $this->server . ';port=' . $this->port . ';charset=utf8;'.$this->dbSettings,
                     $this->dbLogin,
                     $this->dbPass,
                     [\PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES \'utf8\'', \PDO::ATTR_PERSISTENT => true]
@@ -147,7 +155,7 @@ trait Orm
                 break;
             case 'pgsql':
                 $result = new \PDO(
-                    $this->dbType . ':dbname=' . $this->database . ';host=' . $this->server . ';port=' . $this->port,
+                    $this->dbType . ':dbname=' . $this->database . ';host=' . $this->server . ';port=' . $this->port.';'.$this->dbSettings,
                     $this->dbLogin,
                     $this->dbPass
                 );
@@ -157,7 +165,7 @@ trait Orm
                 break;
             case 'sqlsrv': // https://www.php.net/manual/en/ref.pdo-sqlsrv.connection.php
                 $result = new \PDO(
-                    $this->dbType . ':Server=' . $this->server . (isset($this->port) ? ',' . $this->port : '') . ';Database=' . $this->database,
+                    $this->dbType . ':Server=' . $this->server . (isset($this->port) ? ',' . $this->port : '') . ';Database=' . $this->database.';'.$this->dbSettings,
                     $this->dbLogin,
                     $this->dbPass
                 );
@@ -184,8 +192,8 @@ trait Orm
                     'error'
                 );
             } else {
-                if (!empty($this->connectionSettings)) {
-                    foreach ($this->connectionSettings as $setName => $SetValue) {
+                if (!empty($this->connectionSetup)) {
+                    foreach ($this->connectionSetup as $setName => $SetValue) {
                         if (strlen($setName)) {
                             $this->getPdo()->exec("SET $setName $SetValue");
                         }
