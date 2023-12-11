@@ -144,10 +144,11 @@ trait Orm
     {
         $result = false;
         $this->setUp($options);
+        $dbSettings = is_array($this->dbSettings) ? implode(';', $this->dbSettings) : ';'.$this->dbSettings;
         switch ($this->dbType) {
             case 'mysql':
                 $result = new \PDO(
-                    $this->dbType . ':dbname=' . $this->database . ';host=' . $this->server . ';port=' . $this->port . ';charset=utf8;'.$this->dbSettings,
+                    $this->dbType . ':dbname=' . $this->database . ';host=' . $this->server . ';port=' . $this->port . ';charset=utf8'.$dbSettings,
                     $this->dbLogin,
                     $this->dbPass,
                     [\PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES \'utf8\'', \PDO::ATTR_PERSISTENT => true]
@@ -155,7 +156,7 @@ trait Orm
                 break;
             case 'pgsql':
                 $result = new \PDO(
-                    $this->dbType . ':dbname=' . $this->database . ';host=' . $this->server . ';port=' . $this->port.';'.$this->dbSettings,
+                    $this->dbType . ':dbname=' . $this->database . ';host=' . $this->server . ';port=' . $this->port.$dbSettings,
                     $this->dbLogin,
                     $this->dbPass
                 );
@@ -165,7 +166,7 @@ trait Orm
                 break;
             case 'sqlsrv': // https://www.php.net/manual/en/ref.pdo-sqlsrv.connection.php
                 $result = new \PDO(
-                    $this->dbType . ':Server=' . $this->server . (isset($this->port) ? ',' . $this->port : '') . ';Database=' . $this->database.';'.$this->dbSettings,
+                    $this->dbType . ':Server=' . $this->server . (isset($this->port) ? ',' . $this->port : '') . ';Database=' . $this->database.$dbSettings,
                     $this->dbLogin,
                     $this->dbPass
                 );
