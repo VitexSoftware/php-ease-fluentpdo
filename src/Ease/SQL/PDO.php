@@ -14,8 +14,8 @@ namespace Ease\SQL;
  *
  * @author Vitex <vitex@hippy.cz>
  */
-class PDO extends SQL
-{
+class PDO extends SQL {
+
     /**
      * DBO class instance.
      *
@@ -102,8 +102,7 @@ class PDO extends SQL
      *
      * @link http://docs.php.net/en/language.oop5.patterns.html Dokumentace a priklad
      */
-    public static function singleton($options = [])
-    {
+    public static function singleton($options = []) {
         if (!isset(self::$_instance)) {
             $class = __CLASS__;
             self::$_instance = new $class($options);
@@ -119,8 +118,7 @@ class PDO extends SQL
      *
      * @return boolean Operation success
      */
-    public function setKeyColumn($column = null)
-    {
+    public function setKeyColumn($column = null) {
         if (!is_null($column)) {
             $this->keyColumn = $column;
         }
@@ -132,8 +130,7 @@ class PDO extends SQL
      *
      * @param string $tablename
      */
-    public function setTableName($tablename = null)
-    {
+    public function setTableName($tablename = null) {
         if (!empty($tablename)) {
             $this->myTable = $tablename;
         }
@@ -148,8 +145,7 @@ class PDO extends SQL
      *
      * @return string
      */
-    public function addSlashes($text)
-    {
+    public function addSlashes($text) {
         if (isset($this->pdo) && method_exists($this->pdo, 'real_escape_string')) {
             $slashed = $this->pdo->real_escape_string($text);
         } else {
@@ -166,8 +162,7 @@ class PDO extends SQL
      *
      * @return bool
      */
-    public function selectDB($dbName = null)
-    {
+    public function selectDB($dbName = null) {
         $change = false;
         parent::selectDB($dbName);
         if (method_exists($this->pdo, 'select_db')) {
@@ -175,8 +170,12 @@ class PDO extends SQL
             if ($change) {
                 $this->database = $dbName;
             } else {
-                $this->errorText = $this->pdo->error;
-                $this->errorNumber = $this->pdo->errno;
+                if (property_exists($this->pdo, 'error')) {
+                    $this->errorText = $this->pdo->error;
+                }
+                if (property_exists($this->pdo, 'errno')) {
+                    $this->errorNumber = $this->pdo->errno;
+                }
             }
         }
         return $change;
@@ -187,8 +186,7 @@ class PDO extends SQL
      *
      * @return int ID
      */
-    public function getlastInsertID($column = null)
-    {
+    public function getlastInsertID($column = null) {
         switch ($this->dbType) {
             case 'pgsql':
                 if (is_null($column)) {
@@ -209,16 +207,14 @@ class PDO extends SQL
      *
      * @return null
      */
-    public function close()
-    {
+    public function close() {
         return $this->pdo = null;
     }
 
     /**
      * Virtuální funkce.
      */
-    public function __destruct()
-    {
+    public function __destruct() {
         unset($this->pdo);
         unset($this->result);
     }
@@ -228,16 +224,14 @@ class PDO extends SQL
      *
      * @return array fields to serialize
      */
-    public function __sleep()
-    {
+    public function __sleep() {
         return parent::__sleep();
     }
 
     /**
      *
      */
-    public function __wakeup()
-    {
+    public function __wakeup() {
         $this->setUp();
     }
 }

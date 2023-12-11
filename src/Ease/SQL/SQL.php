@@ -56,7 +56,7 @@ abstract class SQL extends \Ease\Molecule
     /**
      * Počet ovlivněných nebo vrácených řádek při $this->LastQuery.
      *
-     * @var string
+     * @var int
      */
     public $numRows = 0;
 
