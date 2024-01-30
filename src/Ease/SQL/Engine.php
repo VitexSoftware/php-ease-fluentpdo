@@ -4,7 +4,7 @@
  * Database Engine class
  *
  * @author Vítězslav Dvořák <info@vitexsoftware.cz>
- * @copyright  2018-2020 Vitex@hippy.cz (G)
+ * @copyright  2018-2024 Vitex@hippy.cz (G)
  */
 
 namespace Ease\SQL;
@@ -224,11 +224,11 @@ class Engine extends \Ease\Brick
     }
 
     /**
-     * Set/override object properties stub
+     * Set/override object properties
      *
      * @param array $properties
      */
-    public function setProperties($properties)
+    public function setProperties(array $properties = [])
     {
         $this->setupProperty($properties, 'myTable');
         $this->setupProperty($properties, 'keyColumn');
