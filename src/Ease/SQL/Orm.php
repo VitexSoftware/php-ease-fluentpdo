@@ -4,7 +4,7 @@
  * Object Relation Model Trait
  *
  * @author Vítězslav Dvořák <info@vitexsoftware.cz>
- * @copyright  2018-2023 Vitex@hippy.cz (G)
+ * @copyright  2018-2024 Vitex@hippy.cz (G)
  */
 
 namespace Ease\SQL;
@@ -112,8 +112,8 @@ trait Orm
      */
     public function setUpDb($options = [])
     {
-        $this->setupProperty($options, 'dbType', 'DB_CONNECTION'); //Laralvel
         $this->setupProperty($options, 'dbType', 'DB_TYPE');       //Ease
+        $this->setupProperty($options, 'dbType', 'DB_CONNECTION'); //Laralvel
         $this->setupProperty($options, 'server', 'DB_HOST');
         $this->setupProperty($options, 'dbLogin', 'DB_USERNAME');
         $this->setupProperty($options, 'dbPass', 'DB_PASSWORD');
@@ -301,6 +301,7 @@ trait Orm
      */
     public function getDataFromSQL($itemID = null)
     {
+        return $this->listingQuery()->select($columnsList, true)->where([$this->getKeyColumn() => $itemID])->fetchAll();
     }
 
     /**

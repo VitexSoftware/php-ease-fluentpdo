@@ -4,7 +4,7 @@
  * Obsluha SQL PDO.
  *
  * @author    Vitex <vitex@hippy.cz>
- * @copyright 2015-2023 Vitex@hippy.cz (G)
+ * @copyright 2015-2024 Vitex@hippy.cz (G)
  */
 
 namespace Ease\SQL;
