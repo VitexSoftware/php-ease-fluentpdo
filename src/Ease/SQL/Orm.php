@@ -387,7 +387,7 @@ trait Orm
     }
 
     /**
-     * Uloží pole dat do SQL.
+     * Save data array to SQL.
      *
      * @param array $data        asociativní pole dat
      *
@@ -516,4 +516,27 @@ trait Orm
     {
         $this->myTable = $tablename;
     }
+
+    /**
+     * Check for argument presence
+     * 
+     * @param int|string|array $id int for ID column, use string to search in nameColumn
+     * 
+     * @return int number of occurrences
+     */
+    public function recordExists($id) {
+        switch (gettype($id)) {
+            case 'string':
+                $cond = [$this->nameColumn => $id];
+                break;
+            case 'integer':
+                $cond = [$this->keyColumn => $id];
+                break;
+            default:
+                $cond = $id;
+                break;
+        }
+        return $this->listingQuery()->where($cond)->count();
+    }
+    
 }
