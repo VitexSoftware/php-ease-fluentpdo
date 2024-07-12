@@ -519,24 +519,24 @@ trait Orm
 
     /**
      * Check for argument presence
-     * 
-     * @param int|string|array $id int for ID column, use string to search in nameColumn
-     * 
+     *
+     * @param int|string|array $data int for ID column, use string to search in nameColumn
+     *
      * @return int number of occurrences
      */
-    public function recordExists($id) {
-        switch (gettype($id)) {
+    public function recordExists($data = [])
+    {
+        switch (gettype($data)) {
             case 'string':
-                $cond = [$this->nameColumn => $id];
+                $cond = [$this->nameColumn => $data];
                 break;
             case 'integer':
-                $cond = [$this->keyColumn => $id];
+                $cond = [$this->keyColumn => $data];
                 break;
             default:
-                $cond = $id;
+                $cond = $data;
                 break;
         }
         return $this->listingQuery()->where($cond)->count();
     }
-    
 }
