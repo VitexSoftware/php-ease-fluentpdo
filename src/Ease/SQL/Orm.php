@@ -127,12 +127,11 @@ trait Orm
 
     /**
      * SetUp database connections
-     *
-     * @param array $options - connection options
      */
-    public function setUp($options = [])
+    public function setUp($options = []): bool
     {
         $this->setUpDb($options);
+        return true;
     }
 
     /**
