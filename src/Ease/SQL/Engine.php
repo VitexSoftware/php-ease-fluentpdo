@@ -32,12 +32,6 @@ class Engine extends \Ease\Brick
     public $createColumn = null;
 
     /**
-     * Rown name column
-     * @var string
-     */
-    public $nameColumn = null;
-
-    /**
      * Database object
      *
      * @param mixed $identifier
