@@ -23,13 +23,13 @@ class Engine extends \Ease\Brick
      *
      * @var string
      */
-    public $myTable = '';
+    public string $myTable = '';
 
     /**
      * Record create time column
      * @var string
      */
-    public $createColumn = null;
+    public ?string $createColumn = null;
 
     /**
      * Database object
