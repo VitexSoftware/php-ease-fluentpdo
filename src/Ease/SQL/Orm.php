@@ -16,7 +16,7 @@ namespace Ease\SQL;
 trait Orm
 {
     /**
-     * IP serveru.
+     * Server Host or IP.
      *
      * @var string
      */
@@ -30,7 +30,7 @@ trait Orm
     public $dbLogin = null;
 
     /**
-     * DB heslo.
+     * DB password.
      *
      * @var string
      */
@@ -292,13 +292,13 @@ trait Orm
     }
 
     /**
-     * Načte z SQL data k aktuálnímu $ItemID.
+     * Load actual's $ItemID SQL data.
      *
-     * @param int $itemID klíč záznamu
+     * @param int $itemID record key
      *
      * @return array Results
      */
-    public function getDataFromSQL($itemID = null)
+    public function getDataFromSQL($itemID = null, array $columnsList = ['*'])
     {
         return $this->listingQuery()->select($columnsList, true)->where([$this->getKeyColumn() => $itemID])->fetchAll();
     }

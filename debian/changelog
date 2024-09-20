@@ -1,4 +1,10 @@
-php-vitexsoftware-ease-fluentpdo (1.2.0) UNRELEASED; urgency=medium
+php-vitexsoftware-ease-fluentpdo (1.2.1) UNRELEASED; urgency=medium
+
+  * Czech comments transated to English
+
+ -- vitex <info@vitexsoftware.cz>  Fri, 20 Sep 2024 15:03:34 +0200
+
+php-vitexsoftware-ease-fluentpdo (1.2.0) main; urgency=medium
 
   [ CyberVitexus ]
   * stable version released
@@ -10,7 +16,7 @@ php-vitexsoftware-ease-fluentpdo (1.2.0) UNRELEASED; urgency=medium
   * evolution
   * Connection Settings/Setup added
 
- -- vitex <info@vitexsoftware.cz>  Fri, 08 Dec 2023 13:41:48 +0100
+ -- vitex <info@vitexsoftware.cz>  Fri, 20 Sep 2024 15:03:10 +0200
 
 php-vitexsoftware-ease-fluentpdo (1.0) main; urgency=medium
 

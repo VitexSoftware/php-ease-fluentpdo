@@ -1,18 +1,18 @@
 <?php
 
 /**
- * Abstraktní databázová třída.
+ * Abstract database class.
  *
  * @deprecated since version 200
  *
  * @author     Vitex <vitex@hippy.cz>
- * @copyright  2009-2023 Vitex@vitexsoftware.cz (G)
+ * @copyright  2009-2024 Vitex@vitexsoftware.cz (G)
  */
 
 namespace Ease\SQL;
 
 /**
- * Virtuálni třída pro práci s databází.
+ * Virtual class for working with the database.
  *
  * @author Vitex <vitex@hippy.cz>
  */
@@ -33,35 +33,35 @@ abstract class SQL extends \Ease\Molecule
     public $sqlLink = null;
 
     /**
-     * Status připojení.
+     * Connection status.
      *
      * @var bool
      */
     public $status = null;
 
     /**
-     * Hodnota posledního voloženeho AutoIncrement sloupečku.
+     * Value of the last inserted AutoIncrement column.
      *
      * @var int unsigned
      */
     public $lastInsertID = null;
 
     /**
-     * Poslední vykonaná SQL Query.
+     * Last executed SQL Query.
      *
      * @var string
      */
     public $lastQuery = '';
 
     /**
-     * Počet ovlivněných nebo vrácených řádek při $this->LastQuery.
+     * Number of affected or returned rows by $this->LastQuery.
      *
      * @var int
      */
     public $numRows = 0;
 
     /**
-     * Pole obsahující informace o základních paramatrech SQL přiopojení.
+     * Array containing information about basic SQL connection parameters.
      *
      * @var array
      */
@@ -74,56 +74,56 @@ abstract class SQL extends \Ease\Molecule
     public $database = null;
 
     /**
-     * Klíčový sloupeček pro SQL operace.
+     * Key column for SQL operations.
      *
      * @var string
      */
     public $keyColumn = '';
 
     /**
-     * Název práve zpracovávané tabulky.
+     * Name of the currently processed table.
      *
      * @var string
      */
     public $tableName = '';
 
     /**
-     * Pole obsahující strukturu SQL tabulky.
+     * Array containing the structure of the SQL table.
      *
      * @var array
      */
     public $tableStructure = [];
 
     /**
-     * Pole obsahující výsledky posledního SQL příkazu.
+     * Array containing the results of the last SQL command.
      *
      * @var array
      */
     public $resultArray = [];
 
     /**
-     * Pomocná proměnná pro datové operace.
+     * Auxiliary variable for data operations.
      *
      * @var array
      */
     public $data = null;
 
     /**
-     * Poslední zpráva obdžená od SQL serveru.
+     * Last message received from the SQL server.
      *
      * @var string
      */
     public $lastMessage = null;
 
     /**
-     * Nastavení vlastností přípojení.
+     * Connection settings properties.
      *
      * @var array
      */
     public $connectionSettings = [];
 
     /**
-     * Indikátor nastavení připojení - byly vykonány SET příkazy.
+     * Indicator of connection settings - SET commands have been executed.
      *
      * @var bool
      */
@@ -136,13 +136,13 @@ abstract class SQL extends \Ease\Molecule
     private $errorText;
 
     /**
-     * Laste error number
+     * Last error number
      * @var int
      */
     protected $errorNumber;
 
     /**
-     * Obecný objekt databáze.
+     * General database object.
      */
     public function __construct($options = [])
     {
@@ -158,7 +158,7 @@ abstract class SQL extends \Ease\Molecule
      */
     public function setUp($options = [])
     {
-        $this->setupProperty($options, 'dbType', 'DB_CONNECTION'); //Laralvel
+        $this->setupProperty($options, 'dbType', 'DB_CONNECTION'); //Laravel
         $this->setupProperty($options, 'dbType', 'DB_TYPE');       //Ease
         $this->setupProperty($options, 'server', 'DB_HOST');
         $this->setupProperty($options, 'username', 'DB_USERNAME');
@@ -170,7 +170,7 @@ abstract class SQL extends \Ease\Molecule
     }
 
     /**
-     * Připojení k databázi.
+     * Connect to the database.
      */
     public function connect()
     {
@@ -204,7 +204,7 @@ abstract class SQL extends \Ease\Molecule
     }
 
     /**
-     * Id vrácené po INSERTu.
+     * ID returned after INSERT.
      *
      * @return int
      */
@@ -214,11 +214,11 @@ abstract class SQL extends \Ease\Molecule
     }
 
     /**
-     * Otestuje moznost pripojeni k sql serveru.
+     * Test the possibility of connecting to the SQL server.
      *
-     * @param bool $succes vynucený výsledek
+     * @param bool $succes forced result
      *
-     * @return $Success
+     * @return $success
      */
     public function ping($succes = null)
     {
@@ -226,7 +226,7 @@ abstract class SQL extends \Ease\Molecule
     }
 
     /**
-     * Odstraní z SQL dotazu "nebezpečné" znaky.
+     * Removes "dangerous" characters from the SQL query.
      *
      * @param string $queryRaw SQL Query
      *
@@ -248,9 +248,9 @@ abstract class SQL extends \Ease\Molecule
     }
 
     /**
-     * Vrací počet řádků vrácených nebo ovlivněným posledním sql dotazem.
+     * Returns the number of rows returned or affected by the last SQL query.
      *
-     * @return int počet řádků
+     * @return int number of rows
      */
     public function getNumRows()
     {
@@ -258,9 +258,9 @@ abstract class SQL extends \Ease\Molecule
     }
 
     /**
-     * Poslední vykonaný dotaz.
+     * Last executed query.
      *
-     * @return int počet řádků
+     * @return int number of rows
      */
     public function getLastQuery()
     {
@@ -268,7 +268,7 @@ abstract class SQL extends \Ease\Molecule
     }
 
     /**
-     * Poslední genrované ID.
+     * Last generated ID.
      *
      * @return int ID
      */
@@ -278,7 +278,7 @@ abstract class SQL extends \Ease\Molecule
     }
 
     /**
-     * Vrací chybovou zprávu SQL.
+     * Returns the SQL error message.
      *
      * @return string
      */
@@ -296,7 +296,7 @@ abstract class SQL extends \Ease\Molecule
     }
 
     /**
-     * Při serializaci vynuluje poslední Query.
+     * Resets the last query when serializing.
      *
      * @return bool
      */
@@ -307,7 +307,7 @@ abstract class SQL extends \Ease\Molecule
     }
 
     /**
-     * Zavře databázové spojení.
+     * Closes the database connection.
      */
     public function __destruct()
     {
@@ -317,7 +317,7 @@ abstract class SQL extends \Ease\Molecule
     }
 
     /**
-     * Vrací uvozovky pro označení sloupečků.
+     * Returns quotes for column names.
      *
      * @deprecated since version 1.2
      *
@@ -329,7 +329,7 @@ abstract class SQL extends \Ease\Molecule
     }
 
     /**
-     * Return conect status.
+     * Return connect status.
      *
      * @return bool
      */
@@ -339,8 +339,8 @@ abstract class SQL extends \Ease\Molecule
     }
 
     /**
-     * z pole $data vytvori fragment SQL dotazu za WHERE (klicovy sloupec
-     * $this->keyColumn je preskocen pokud neni $key false).
+     * From the $data array, creates a fragment of the SQL query for WHERE (the key column
+     * $this->keyColumn is skipped if $key is false).
      *
      * @deprecated since version 1.0
      *

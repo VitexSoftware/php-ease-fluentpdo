@@ -2,7 +2,7 @@
 
 /**
  * Database Engine class
- *
+ * 
  * @author Vítězslav Dvořák <info@vitexsoftware.cz>
  * @copyright  2018-2022 Vitex@hippy.cz (G)
  */
@@ -31,10 +31,10 @@ namespace Ease\Logger;
 class LogToSQL extends \Ease\SQL\Engine implements \Ease\Logger\Loggingable
 {
     /**
-     * Saves obejct instace (singleton...).
+     * Saves object instance (singleton...).
      */
     private static $instance = null;
-    public $myTable = 'log';
+    public string $myTable = 'log';
     public $applicationId = null;
     public $userId = null;
 
@@ -48,12 +48,11 @@ class LogToSQL extends \Ease\SQL\Engine implements \Ease\Logger\Loggingable
     }
 
     /**
-     * Pri vytvareni objektu pomoci funkce singleton (ma stejne parametry, jako
-     * konstruktor) se bude v ramci behu programu pouzivat pouze jedna jeho
-     * instance (ta prvni).
+     * When creating an object using the singleton function (it has the same parameters as
+     * the constructor), only one instance of it will be used during the program run (the first one).
      *
-     * @link http://docs.php.net/en/language.oop5.patterns.html Dokumentace a
-     * priklad
+     * @link http://docs.php.net/en/language.oop5.patterns.html Documentation and
+     * example
      */
     public static function singleton()
     {
@@ -76,13 +75,13 @@ class LogToSQL extends \Ease\SQL\Engine implements \Ease\Logger\Loggingable
     }
 
     /**
-     * Zapise zapravu do logu.
+     * Writes a message to the log.
      *
-     * @param string $caller  název volajícího objektu
-     * @param string $message zpráva
-     * @param string $type    typ zprávy (success|info|error|warning|*)
+     * @param string $caller  name of the calling object
+     * @param string $message message
+     * @param string $type    type of message (success|info|error|warning|*)
      *
-     * @return int|null byl report zapsán ?
+     * @return int|null was the report written?
      */
     public function addToLog($caller, $message, $type = 'message')
     {
@@ -117,3 +116,4 @@ class LogToSQL extends \Ease\SQL\Engine implements \Ease\Logger\Loggingable
         return substr($venue, 254);
     }
 }
+

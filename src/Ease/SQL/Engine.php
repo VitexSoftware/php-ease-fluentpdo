@@ -2,24 +2,24 @@
 
 /**
  * Database Engine class
- *
- * @author Vítězslav Dvořák <info@vitexsoftware.cz>
- * @copyright  2018-2024 Vitex@hippy.cz (G)
+ * 
+ * Author: Vítězslav Dvořák <info@vitexsoftware.cz>
+ * Copyright 2018-2024 Vitex@hippy.cz (G)
  */
 
 namespace Ease\SQL;
 
 /**
  * Description of Engine
- *
- * @author Vítězslav Dvořák <info@vitexsoftware.cz>
+ * 
+ * Author: Vítězslav Dvořák <info@vitexsoftware.cz>
  */
 class Engine extends \Ease\Brick
 {
     use Orm;
 
     /**
-     * Předvolená tabulka v SQL (součást identity).
+     * Default table in SQL (part of identity).
      *
      * @var string
      */
@@ -35,7 +35,7 @@ class Engine extends \Ease\Brick
      * Database object
      *
      * @param mixed $identifier
-     * @param array $options  'autoload'=>false prevent inial autoloading, keyColumn,myTable,createColumn,lastModifiedColumn,nameColumn
+     * @param array $options  'autoload'=>false prevent initial autoloading, keyColumn,myTable,createColumn,lastModifiedColumn,nameColumn
      */
     public function __construct($identifier = null, $options = [])
     {
@@ -74,7 +74,7 @@ class Engine extends \Ease\Brick
     }
 
     /**
-     * Load record usinf identifier
+     * Load record using identifier
      *
      * @param mixed $identifier
      */
@@ -100,14 +100,14 @@ class Engine extends \Ease\Brick
 
     /**
      *
-     * @param \Ease\SQL\Engine $identifer
+     * @param \Ease\SQL\Engine $identifier
      *
      * @return string id|name|values|reuse|unknown
      */
-    public function howToProcess($identifer)
+    public function howToProcess($identifier)
     {
         $recognizedAs = 'unknown';
-        switch (gettype($identifer)) {
+        switch (gettype($identifier)) {
             case "integer":
             case "double":
                 if ($this->getKeyColumn()) {
@@ -123,7 +123,7 @@ class Engine extends \Ease\Brick
                 $recognizedAs = 'values';
                 break;
             case "object":
-                if ($identifer instanceof \Ease\SQL\Engine) {
+                if ($identifier instanceof \Ease\SQL\Engine) {
                     $recognizedAs = 'reuse';
                 }
                 break;
@@ -149,7 +149,7 @@ class Engine extends \Ease\Brick
     }
 
     /**
-     * Obtain record name id $this->nameColumn is set
+     * Obtain record name if $this->nameColumn is set
      *
      * @return string
      */
@@ -159,7 +159,7 @@ class Engine extends \Ease\Brick
     }
 
     /**
-     * Vrací název aktuálně použivané SQL tabulky.
+     * Returns the name of the currently used SQL table.
      *
      * @return string
      */
@@ -169,7 +169,7 @@ class Engine extends \Ease\Brick
     }
 
     /**
-     * Nastaví aktuální pracovní tabulku pro SQL.
+     * Sets the current working table for SQL.
      *
      * @param string $myTable
      */
@@ -186,12 +186,12 @@ class Engine extends \Ease\Brick
      */
     public function searchColumns($searchTerm, $columns)
     {
-        $conditons = [];
+        $conditions = [];
         foreach ($columns as $column) {
-            $conditons[] = '`' . $column . '` LIKE \'%' . addslashes($searchTerm) . '%\'';
+            $conditions[] = '`' . $column . '` LIKE \'%' . addslashes($searchTerm) . '%\'';
         }
 
-        return $this->listingQuery()->where($conditons);
+        return $this->listingQuery()->where($conditions);
     }
 
     /**
