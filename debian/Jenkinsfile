@@ -29,20 +29,14 @@ parallel distributions.collectEntries { distribution ->
 
                 stage('Checkout ' + distribution) {
                     buildImage = docker.image(vendor + '/' + distribution)
-                    sh 'ls -la'
-                    sh '''
-                        if [ -d .git ]; then
-                            git status
-                        else
-                            git clone https://github.com/your-repo/your-project.git .
-                        fi
-                    '''
-                    sh 'git checkout -f'
-                    def VERSION = sh(
-                        script: 'dpkg-parsechangelog --show-field Version',
-                        returnStdout: true
-                    ).trim()
-                    ver = VERSION + '~' + distroCodename + '~' + env.BUILD_NUMBER
+                    buildImage.inside {
+                        sh 'git clone ${scm.userRemoteConfigs[0].url} . || git checkout -f'
+                        def VERSION = sh(
+                            script: 'dpkg-parsechangelog --show-field Version',
+                            returnStdout: true
+                        ).trim()
+                        ver = VERSION + '~' + distroCodename + '~' + env.BUILD_NUMBER
+                    }
                 }
                 stage('Build ' + distribution) {
                     buildImage.inside {
@@ -73,4 +67,3 @@ parallel distributions.collectEntries { distribution ->
         }
     }]
 }
-
