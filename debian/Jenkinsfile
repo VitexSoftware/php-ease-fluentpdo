@@ -29,7 +29,7 @@ parallel distributions.collectEntries { distribution ->
 
                 stage('Checkout ' + distribution) {
                     buildImage = docker.image(vendor + '/' + distribution)
-                    sh 'git checkout debian/changelog'
+                    sh 'git checkout -f ' + env.BRANCH_NAME
                     def VERSION = sh(
                         script: 'dpkg-parsechangelog --show-field Version',
                         returnStdout: true
