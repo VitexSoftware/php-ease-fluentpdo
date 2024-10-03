@@ -3,9 +3,6 @@
 String[] distributions = ['debian:bullseye', 'debian:bookworm', 'debian:trixie', 'ubuntu:focal', 'ubuntu:jammy', 'ubuntu:noble']
 
 String vendor = 'vitexsoftware'
-String distribution = ''
-//String distroFamily = ''
-String distroCodename = ''
 String ver = ''
 
 properties([
