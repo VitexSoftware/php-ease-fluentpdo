@@ -29,10 +29,9 @@ parallel distributions.collectEntries { distribution ->
 
                 stage('Checkout ' + distribution) {
                     buildImage = docker.image(vendor + '/' + distribution)
-                    buildImage.inside {
-                        sh 'git clone ' + scm.getUserRemoteConfigs()[0].getUrl() + ' .'
-                        sh 'git checkout -f ' + env.BRANCH_NAME
-                    }
+                    sh 'ls -la'
+                    sh 'if [ -d .git ]; then git status; fi'
+                    sh 'git checkout -f'
                     def VERSION = sh(
                         script: 'dpkg-parsechangelog --show-field Version',
                         returnStdout: true
