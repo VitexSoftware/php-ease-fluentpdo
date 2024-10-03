@@ -29,4 +29,4 @@ php-vitexsoftware-ease-fluentpdo (1.0) main; urgency=medium
   * Update with null columns fixed
   * Engine Unit Tests
 
- -- CyberVitexus <vitex@exiv.jinonice.czf>  Tue, 11 Aug 2020 12:48:59 +0200
+ -- vitex <info@vitexsoftware.cz>  Tue, 11 Aug 2020 12:48:59 +0200

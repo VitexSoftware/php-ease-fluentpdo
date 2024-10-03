@@ -30,7 +30,13 @@ parallel distributions.collectEntries { distribution ->
                 stage('Checkout ' + distribution) {
                     buildImage = docker.image(vendor + '/' + distribution)
                     sh 'ls -la'
-                    sh 'if [ -d .git ]; then git status; fi'
+                    sh '''
+                        if [ -d .git ]; then
+                            git status
+                        else
+                            git clone https://github.com/your-repo/your-project.git .
+                        fi
+                    '''
                     sh 'git checkout -f'
                     def VERSION = sh(
                         script: 'dpkg-parsechangelog --show-field Version',
