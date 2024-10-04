@@ -53,7 +53,7 @@ class Engine extends \Ease\Brick
      *
      * @param mixed $identifier
      */
-    public function useIdentifier($identifier)
+    public function useIdentifier($identifier): void
     {
         switch ($this->howToProcess($identifier)) {
             case 'values':
