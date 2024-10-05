@@ -222,7 +222,7 @@ class Engine extends \Ease\Brick
      *
      * @param array $properties
      */
-    public function setProperties(array $properties = [])
+    public function setProperties(array $properties = []): void
     {
         $this->setupProperty($properties, 'myTable');
         $this->setupProperty($properties, 'keyColumn');

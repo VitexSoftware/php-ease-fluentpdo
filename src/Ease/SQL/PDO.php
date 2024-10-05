@@ -129,14 +129,13 @@ class PDO extends SQL
 
     /**
      * Set Table used for PGSQL indertid.
-     *
-     * @param string $tablename
      */
-    public function setTableName($tablename = null)
+    public function setTableName(string $tablename = ''): bool
     {
         if (!empty($tablename)) {
             $this->myTable = $tablename;
         }
+        return true;
     }
 
     /**
@@ -161,12 +160,8 @@ class PDO extends SQL
 
     /**
      * Změní aktuálně použitou databázi.
-     *
-     * @param string $dbName
-     *
-     * @return bool
      */
-    public function selectDB($dbName = null)
+    public function selectDB($dbName = null): bool
     {
         $change = false;
         parent::selectDB($dbName);
