@@ -215,12 +215,8 @@ abstract class SQL extends \Ease\Molecule
 
     /**
      * Test the possibility of connecting to the SQL server.
-     *
-     * @param bool $succes forced result
-     *
-     * @return $success
      */
-    public function ping($succes = null)
+    public function ping(bool $succes = false): bool
     {
         return $succes;
     }
