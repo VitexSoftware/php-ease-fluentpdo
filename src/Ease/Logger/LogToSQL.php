@@ -2,7 +2,7 @@
 
 /**
  * Database Engine class
- * 
+ *
  * @author Vítězslav Dvořák <info@vitexsoftware.cz>
  * @copyright  2018-2022 Vitex@hippy.cz (G)
  */
@@ -116,4 +116,3 @@ class LogToSQL extends \Ease\SQL\Engine implements \Ease\Logger\Loggingable
         return substr($venue, 254);
     }
 }
-

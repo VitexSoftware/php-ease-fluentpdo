@@ -20,54 +20,46 @@ trait Orm
      *
      * @var string
      */
-    public $server = null;
+    public string $server = '';
 
     /**
      * DB Login.
      *
      * @var string
      */
-    public $dbLogin = null;
+    public string $dbLogin = '';
 
     /**
      * DB password.
-     *
-     * @var string
      */
-    public $dbPass = null;
+    public string $dbPass = '';
 
     /**
      * Database to connect by default.
-     *
-     * @var string
      */
-    public $database = null;
+    public $database = '';
 
     /**
      * Database port.
-     *
-     * @var string
      */
-    public $port = null;
+    public int $port = 0;
 
     /**
      * Type of used database.
      *
      * @var string mysql|pgsql|..
      */
-    public $dbType;
+    public string $dbType = '';
 
     /**
      * Default connection settings.
      *
      * @var array|string
      */
-    public $dbSettings = [];
+    public array $dbSettings = [];
 
     /**
      * Default connection setup.
-     *
-     * @var array
      */
     public $connectionSetup = [];
 

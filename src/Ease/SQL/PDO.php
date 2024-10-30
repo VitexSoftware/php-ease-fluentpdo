@@ -66,17 +66,15 @@ class PDO extends SQL
      *
      * @var string
      */
-    public $myTable = null;
-    public $data = null;
-    public $charset = 'utf8';
-    public $collate = 'utf8_czech_ci';
+    public string $myTable = null;
+    public ?string $data = null;
+    public string $charset = 'utf8';
+    public string $collate = 'utf8_czech_ci';
 
     /**
      * Povolit Explain každého dotazu do logu ?
-     *
-     * @var bool
      */
-    public $explainMode = false;
+    public bool $explainMode = false;
 
     /**
      * Saves obejct instace (singleton...).
@@ -88,13 +86,13 @@ class PDO extends SQL
      *
      * @var string
      */
-    public $dbType = null;
+    public string $dbType = '';
 
     /**
      *
      * @var string
      */
-    private $errorText;
+    private string $errorText;
 
     /**
      * Pri vytvareni objektu pomoci funkce singleton (ma stejne parametry, jako konstruktor)
@@ -114,14 +112,11 @@ class PDO extends SQL
 
     /**
      * Set KeyColumn used for PGSQL indertid.
-     *
-     * @param string $column
-     *
      * @return boolean Operation success
      */
-    public function setKeyColumn($column = null)
+    public function setKeyColumn(string $column): bool
     {
-        if (!is_null($column)) {
+        if ($column) {
             $this->keyColumn = $column;
         }
         return $this->keyColumn == $column;
@@ -183,10 +178,8 @@ class PDO extends SQL
 
     /**
      * Poslední genrované ID.
-     *
-     * @return int ID
      */
-    public function getlastInsertID($column = null)
+    public function getlastInsertID($column = null): ?int
     {
         switch ($this->dbType) {
             case 'pgsql':
@@ -205,10 +198,8 @@ class PDO extends SQL
 
     /**
      * Ukončí připojení k databázi.
-     *
-     * @return null
      */
-    public function close()
+    public function close(): bool
     {
         return $this->pdo = null;
     }
@@ -216,7 +207,7 @@ class PDO extends SQL
     /**
      * Virtuální funkce.
      */
-    public function __destruct()
+    public function __destruct(): void
     {
         unset($this->pdo);
         unset($this->result);

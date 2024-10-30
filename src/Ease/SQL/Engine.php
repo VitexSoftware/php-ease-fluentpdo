@@ -2,7 +2,7 @@
 
 /**
  * Database Engine class
- * 
+ *
  * Author: Vítězslav Dvořák <info@vitexsoftware.cz>
  * Copyright 2018-2024 Vitex@hippy.cz (G)
  */
@@ -11,7 +11,7 @@ namespace Ease\SQL;
 
 /**
  * Description of Engine
- * 
+ *
  * Author: Vítězslav Dvořák <info@vitexsoftware.cz>
  */
 class Engine extends \Ease\Brick
