@@ -5,7 +5,7 @@
  * 	vendor/bin/phinx migrate -c Examples/phinx-adapter.php
  * 	vendor/bin/phinx seed:run -c Examples/phinx-adapter.php
  */
-use Ease\Functions;
+use Ease\Shared;
 use Ease\SQL\Engine;
 use Phinx\Config\Config;
 use Phinx\Db\Action\DropTable;
@@ -26,10 +26,10 @@ define('DB_USERNAME', 'phpunit');
 define('DB_PASSWORD', 'phpunit');
 
 if (\Ease\Shared::cfg('DB_CONNECTION') == 'sqlite') {
-    if (file_exists(\Ease\Functions::cfg('DB_DATABASE'))) {
-        unlink(\Ease\Functions::cfg('DB_DATABASE'));
+    if (file_exists(\Ease\Shared::cfg('DB_DATABASE'))) {
+        unlink(\Ease\Shared::cfg('DB_DATABASE'));
     }
-    touch(\Ease\Functions::cfg('DB_DATABASE'));
+    touch(\Ease\Shared::cfg('DB_DATABASE'));
 } else {
     new DropTable(new Table('test'));
     new DropTable(new Table('log'));
@@ -40,7 +40,7 @@ $pdo = new Engine();
 $configArray['paths']['migrations'] = __DIR__ . '/migrations';
 $configArray['paths']['seeds'] = __DIR__ . '/seeds';
 $configArray['environments']['test'] = [
-    'adapter' => Functions::cfg('DB_CONNECTION'),
+    'adapter' => Shared::cfg('DB_CONNECTION'),
     'connection' => $pdo->getPDO()
 ];
 $config = new Config($configArray);

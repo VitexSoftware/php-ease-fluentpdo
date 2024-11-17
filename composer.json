@@ -8,9 +8,9 @@
         }
     ],
     "license": "MIT",
-    "minimum-stability": "dev",
+    "minimum-stability": "stable",
     "require": {
-        "vitexsoftware/ease-core": ">=1.40",
+        "vitexsoftware/ease-core": ">=1.45",
         "fpdo/fluentpdo": ">=2.1"
     },
     "require-dev": {
