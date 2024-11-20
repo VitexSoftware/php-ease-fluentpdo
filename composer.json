@@ -14,9 +14,12 @@
         "fpdo/fluentpdo": ">=2.1"
     },
     "require-dev": {
-        "cakephp/migrations": "3.x-dev",
         "phpunit/phpunit": "*",
-        "phpstan/phpstan": "*"
+        "phpstan/phpstan": "*",
+        "friendsofphp/php-cs-fixer": "^3.61",
+        "ergebnis/composer-normalize": "^2.43",
+        "ergebnis/php-cs-fixer-config": "^6.34",
+        "cakephp/migrations": "3.x-dev"
     },
     "autoload": {
         "psr-4": {
@@ -32,5 +35,10 @@
     },
     "conflict": {
         "vitexsoftware/ease-framework": "*"
+    },
+    "config": {
+        "allow-plugins": {
+            "ergebnis/composer-normalize": true
+        }
     }
 }

@@ -1,12 +1,16 @@
 <?php
 
+declare(strict_types=1);
+
 /**
- * Abstract database class.
+ * This file is part of the EaseFluentPDO package
  *
- * @deprecated since version 200
+ * https://github.com/VitexSoftware/php-ease-fluentpdo
  *
- * @author     Vitex <vitex@hippy.cz>
- * @copyright  2009-2024 Vitex@vitexsoftware.cz (G)
+ * (c) Vítězslav Dvořák <http://vitexsoftware.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
  */
 
 namespace Ease\SQL;
@@ -23,126 +27,101 @@ abstract class SQL extends \Ease\Molecule
      *
      * @var resource
      */
-    public $result = null;
+    public $result;
 
     /**
      * SQL Handle.
      *
      * @var resource
      */
-    public $sqlLink = null;
+    public $sqlLink;
 
     /**
      * Connection status.
-     *
-     * @var bool
      */
-    public $status = null;
+    public bool $status = null;
 
     /**
      * Value of the last inserted AutoIncrement column.
      *
      * @var int unsigned
      */
-    public $lastInsertID = null;
+    public int $lastInsertID = null;
 
     /**
      * Last executed SQL Query.
-     *
-     * @var string
      */
-    public $lastQuery = '';
+    public string $lastQuery = '';
 
     /**
      * Number of affected or returned rows by $this->LastQuery.
-     *
-     * @var int
      */
-    public $numRows = 0;
+    public int $numRows = 0;
 
     /**
      * Array containing information about basic SQL connection parameters.
-     *
-     * @var array
      */
-    public $report = ['LastMessage' => 'Please extend'];
+    public array $report = ['LastMessage' => 'Please extend'];
 
     /**
-     * Current database name
-     * @var string
+     * Current database name.
      */
-    public $database = null;
+    public string $database = null;
 
     /**
      * Key column for SQL operations.
-     *
-     * @var string
      */
-    public $keyColumn = '';
+    public string $keyColumn = '';
 
     /**
      * Name of the currently processed table.
-     *
-     * @var string
      */
-    public $tableName = '';
+    public string $tableName = '';
 
     /**
      * Array containing the structure of the SQL table.
-     *
-     * @var array
      */
-    public $tableStructure = [];
+    public array $tableStructure = [];
 
     /**
      * Array containing the results of the last SQL command.
-     *
-     * @var array
      */
-    public $resultArray = [];
+    public array $resultArray = [];
 
     /**
      * Auxiliary variable for data operations.
-     *
-     * @var array
      */
-    public $data = null;
+    public array $data = null;
 
     /**
      * Last message received from the SQL server.
-     *
-     * @var string
      */
-    public $lastMessage = null;
+    public string $lastMessage = null;
 
     /**
      * Connection settings properties.
-     *
-     * @var array
      */
-    public $connectionSettings = [];
+    public array $connectionSettings = [];
 
     /**
      * Indicator of connection settings - SET commands have been executed.
-     *
-     * @var bool
      */
-    protected $connectAllreadyUP = false;
+    protected bool $connectAllreadyUP = false;
 
     /**
-     * Last error message
-     * @var string
+     * Last error number.
      */
-    private $errorText;
+    protected int $errorNumber;
 
     /**
-     * Last error number
-     * @var int
+     * Last error message.
      */
-    protected $errorNumber;
+    private string $errorText;
 
     /**
      * General database object.
+     *
+     * @param mixed $options
      */
     public function __construct($options = [])
     {
@@ -151,15 +130,37 @@ abstract class SQL extends \Ease\Molecule
     }
 
     /**
-     * SetUp Object to be ready for connect
+     * Closes the database connection.
+     */
+    public function __destruct()
+    {
+        if (method_exists($this, 'close')) {
+            $this->close();
+        }
+    }
+
+    /**
+     * Resets the last query when serializing.
+     *
+     * @return bool
+     */
+    public function __sleep()
+    {
+        $this->lastQuery = null;
+
+        return [];
+    }
+
+    /**
+     * SetUp Object to be ready for connect.
      *
      * @param array $options Object Options (company,url,user,password,evidence,
-     *                                       prefix,defaultUrlParams,debug)
+     *                       prefix,defaultUrlParams,debug)
      */
-    public function setUp($options = [])
+    public function setUp($options = []): void
     {
-        $this->setupProperty($options, 'dbType', 'DB_CONNECTION'); //Laravel
-        $this->setupProperty($options, 'dbType', 'DB_TYPE');       //Ease
+        $this->setupProperty($options, 'dbType', 'DB_CONNECTION'); // Laravel
+        $this->setupProperty($options, 'dbType', 'DB_TYPE');       // Ease
         $this->setupProperty($options, 'server', 'DB_HOST');
         $this->setupProperty($options, 'username', 'DB_USERNAME');
         $this->setupProperty($options, 'password', 'DB_PASSWORD');
@@ -172,23 +173,25 @@ abstract class SQL extends \Ease\Molecule
     /**
      * Connect to the database.
      */
-    public function connect()
+    public function connect(): void
     {
         if (!$this->connectAllreadyUP) {
-            if (isset($this->connectionSettings) && is_array($this->connectionSettings) && count($this->connectionSettings)) {
+            if (isset($this->connectionSettings) && \is_array($this->connectionSettings) && \count($this->connectionSettings)) {
                 foreach ($this->connectionSettings as $setName => $SetValue) {
-                    if (strlen($setName)) {
-                        $this->exeQuery("SET $setName $SetValue");
+                    if (\strlen($setName)) {
+                        $this->exeQuery("SET {$setName} {$SetValue}");
                     }
                 }
+
                 $this->connectAllreadyUP = true;
             }
         }
+
         $this->status = true;
     }
 
     /**
-     * Default database selector
+     * Default database selector.
      *
      * @param string $dbName
      *
@@ -196,11 +199,11 @@ abstract class SQL extends \Ease\Molecule
      */
     public function selectDB($dbName = null)
     {
-        if (!is_null($dbName)) {
+        if (null !== $dbName) {
             $this->database = $dbName;
         }
 
-        return $this->database == $dbName;
+        return $this->database === $dbName;
     }
 
     /**
@@ -230,15 +233,13 @@ abstract class SQL extends \Ease\Molecule
      */
     public function sanitizeQuery($queryRaw)
     {
-        $sanitizedQuery = trim($queryRaw);
-        return $sanitizedQuery;
+        return trim($queryRaw);
     }
 
     /**
-     *
      * @param string $tableName
      */
-    public function setTable($tableName)
+    public function setTable($tableName): void
     {
         $this->tableName = $tableName;
     }
@@ -282,33 +283,10 @@ abstract class SQL extends \Ease\Molecule
     {
         if ($this->errorText) {
             if (isset($this->errorNumber)) {
-                return '#' . $this->errorNumber . ': ' . $this->errorText;
-            } else {
-                return $this->errorText;
+                return '#'.$this->errorNumber.': '.$this->errorText;
             }
-        } else {
-            return;
-        }
-    }
 
-    /**
-     * Resets the last query when serializing.
-     *
-     * @return bool
-     */
-    public function __sleep()
-    {
-        $this->lastQuery = null;
-        return [];
-    }
-
-    /**
-     * Closes the database connection.
-     */
-    public function __destruct()
-    {
-        if (method_exists($this, 'close')) {
-            $this->close();
+            return $this->errorText;
         }
     }
 
@@ -348,20 +326,25 @@ abstract class SQL extends \Ease\Molecule
     public function arrayToSetQuery($data, $key = true)
     {
         $updates = '';
+
         foreach ($data as $column => $value) {
-            if (!strlen($column)) {
+            if (!\strlen($column)) {
                 continue;
             }
-            if (($column == $this->keyColumn) && $key) {
+
+            if (($column === $this->keyColumn) && $key) {
                 continue;
             }
-            switch (gettype($value)) {
+
+            switch (\gettype($value)) {
                 case 'integer':
-                    $value = " $value ";
+                    $value = " {$value} ";
+
                     break;
                 case 'float':
                 case 'double':
-                    $value = ' ' . str_replace(',', '.', $value) . ' ';
+                    $value = ' '.str_replace(',', '.', $value).' ';
+
                     break;
                 case 'boolean':
                     if ($value) {
@@ -369,24 +352,28 @@ abstract class SQL extends \Ease\Molecule
                     } else {
                         $value = ' FALSE ';
                     }
+
                     break;
                 case 'NULL':
                     $value = ' null ';
+
                     break;
                 case 'string':
-                    if ($value != 'NOW()') {
-                        if (!strstr($value, "\'")) {
-                            $value = " '" . str_replace("'", "\'", $value) . "' ";
+                    if ($value !== 'NOW()') {
+                        if (!strstr($value, "\\'")) {
+                            $value = " '".str_replace("'", "\\'", $value)."' ";
                         } else {
-                            $value = " '$value' ";
+                            $value = " '{$value}' ";
                         }
                     }
+
                     break;
+
                 default:
-                    $value = " '$value' ";
+                    $value = " '{$value}' ";
             }
 
-            $updates .= ' ' . $this->getColumnComma() . $column . $this->getColumnComma() . " = $value,";
+            $updates .= ' '.$this->getColumnComma().$column.$this->getColumnComma()." = {$value},";
         }
 
         return substr($updates, 0, -1);
@@ -403,17 +390,20 @@ abstract class SQL extends \Ease\Molecule
             $queryRaw = $this->lastQuery;
             $callerBackTrace = debug_backtrace();
             $callerBackTrace = $callerBackTrace[2];
-            $caller = $callerBackTrace['function'] . '()';
+            $caller = $callerBackTrace['function'].'()';
+
             if (isset($callerBackTrace['class'])) {
-                $caller .= ' in ' . $callerBackTrace['class'];
+                $caller .= ' in '.$callerBackTrace['class'];
             }
+
             if (isset($callerBackTrace['object'])) {
-                $caller .= ' (' . get_class($callerBackTrace['object']) . ')';
+                $caller .= ' ('.\get_class($callerBackTrace['object']).')';
             }
+
             return \Ease\Shared::logger()->addStatusObject(new \Ease\Logger\Message(
-                'ExeQuery: #' . $this->errorNumber . ': ' . $this->errorText . "\n" . $queryRaw,
+                'ExeQuery: #'.$this->errorNumber.': '.$this->errorText."\n".$queryRaw,
                 'error',
-                $caller
+                $caller,
             ));
         }
     }

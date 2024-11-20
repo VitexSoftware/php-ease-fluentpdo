@@ -1,5 +1,18 @@
 <?php
 
+declare(strict_types=1);
+
+/**
+ * This file is part of the EaseFluentPDO package
+ *
+ * https://github.com/VitexSoftware/php-ease-fluentpdo
+ *
+ * (c) Vítězslav Dvořák <http://vitexsoftware.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
 namespace Test\Ease\SQL;
 
 use Ease\SQL\Debugger;
@@ -9,17 +22,9 @@ use Ease\SQL\Debugger;
  */
 class DebuggerTest extends \PHPUnit\Framework\TestCase
 {
+    public \Envms\FluentPDO\Query $query;
 
-    /**
-     * @var Debugger
-     */
-    protected $object;
-
-    /**
-     * 
-     * @var \Envms\FluentPDO\Query
-     */
-    public $query;
+    protected Debugger $object;
 
     /**
      * Sets up the fixture, for example, opens a network connection.
@@ -38,21 +43,20 @@ class DebuggerTest extends \PHPUnit\Framework\TestCase
      */
     protected function tearDown(): void
     {
-        
     }
 
     /**
-     * Test Constructor
+     * Test Constructor.
      *
-     * @covers Ease\SQL\Debugger::__construct
+     * @covers \Ease\SQL\Debugger::__construct
      */
-    public function testConstructor()
+    public function testConstructor(): void
     {
-        $classname = get_class($this->object);
+        $classname = \get_class($this->object);
         // Get mock, without the constructor being called
         $mock = $this->getMockBuilder($classname)
-                ->disableOriginalConstructor()
-                ->getMockForAbstractClass();
+            ->disableOriginalConstructor()
+            ->getMockForAbstractClass();
         $pdo = new \Ease\SQL\PDO();
         $mock->__construct($this->query, 'pdo test');
     }

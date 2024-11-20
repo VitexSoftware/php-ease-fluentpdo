@@ -1,16 +1,22 @@
 <?php
 
+declare(strict_types=1);
+
 /**
- * Database Engine class
- * 
- * @author Vítězslav Dvořák <info@vitexsoftware.cz>
- * @copyright  2018-2022 Vitex@hippy.cz (G)
+ * This file is part of the EaseFluentPDO package
+ *
+ * https://github.com/VitexSoftware/php-ease-fluentpdo
+ *
+ * (c) Vítězslav Dvořák <http://vitexsoftware.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
  */
 
 namespace Ease\Logger;
 
 /**
- * Description of LogToSQL
+ * Description of LogToSQL.
  *
  * Use the phinx migration db/migrations/20200704143315_logger.php to create
  *
@@ -25,22 +31,19 @@ namespace Ease\Logger;
  * PRIMARY KEY (`id`)
  * ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_czech_ci;
  *
- *
  * @author vitex
  */
 class LogToSQL extends \Ease\SQL\Engine implements \Ease\Logger\Loggingable
 {
+    public string $myTable = 'log';
+    public $applicationId;
+    public $userId;
+
     /**
      * Saves object instance (singleton...).
      */
-    private static $instance = null;
-    public string $myTable = 'log';
-    public $applicationId = null;
-    public $userId = null;
+    private static $instance;
 
-    /**
-     *
-     */
     public function __construct()
     {
         parent::__construct();
@@ -51,7 +54,7 @@ class LogToSQL extends \Ease\SQL\Engine implements \Ease\Logger\Loggingable
      * When creating an object using the singleton function (it has the same parameters as
      * the constructor), only one instance of it will be used during the program run (the first one).
      *
-     * @link http://docs.php.net/en/language.oop5.patterns.html Documentation and
+     * @see http://docs.php.net/en/language.oop5.patterns.html Documentation and
      * example
      */
     public static function singleton()
@@ -65,11 +68,11 @@ class LogToSQL extends \Ease\SQL\Engine implements \Ease\Logger\Loggingable
     }
 
     /**
-     * ID of current user
+     * ID of current user.
      *
      * @param int $uid
      */
-    public function setUser($uid)
+    public function setUser($uid): void
     {
         $this->userId = $uid;
     }
@@ -81,39 +84,41 @@ class LogToSQL extends \Ease\SQL\Engine implements \Ease\Logger\Loggingable
      * @param string $message message
      * @param string $type    type of message (success|info|error|warning|*)
      *
-     * @return int|null was the report written?
+     * @return null|int was the report written?
      */
     public function addToLog($caller, $message, $type = 'message')
     {
         return $this->insertToSQL([
-                    'venue' => self::venuize($caller),
-                    'severity' => $type,
-                    'message' => $message,
-                    'user' => $this->userId
+            'venue' => self::venuize($caller),
+            'severity' => $type,
+            'message' => $message,
+            'user' => $this->userId,
         ]);
     }
 
     /**
-     * Prepare venue able to be saved into sql column
+     * Prepare venue able to be saved into sql column.
      *
      * @param mixed $caller
      */
     public static function venuize($caller)
     {
-        switch (gettype($caller)) {
+        switch (\gettype($caller)) {
             case 'object':
                 if (method_exists($caller, 'getObjectName')) {
                     $venue = $caller->getObjectName();
                 } else {
-                    $venue = get_class($caller);
+                    $venue = \get_class($caller);
                 }
+
                 break;
             case 'string':
             default:
                 $venue = $caller;
+
                 break;
         }
+
         return substr($venue, 254);
     }
 }
-
