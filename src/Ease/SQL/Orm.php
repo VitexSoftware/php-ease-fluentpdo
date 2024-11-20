@@ -23,27 +23,27 @@ trait Orm
     /**
      * Server Host or IP.
      */
-    public string $server = null;
+    public ?string $server = null;
 
     /**
      * DB Login.
      */
-    public string $dbLogin = null;
+    public ?string $dbLogin = null;
 
     /**
      * DB password.
      */
-    public string $dbPass = null;
+    public ?string $dbPass = null;
 
     /**
      * Database to connect by default.
      */
-    public string $database = null;
+    public ?string $database = null;
 
     /**
      * Database port.
      */
-    public string $port = null;
+    public ?string $port = null;
 
     /**
      * Type of used database.
@@ -55,19 +55,20 @@ trait Orm
     /**
      * Default connection settings.
      *
-     * @var array|string
+     * @var array<string,string>|string
      */
     public $dbSettings = [];
 
     /**
      * Default connection setup.
+     * @var array<string,string> $connectionSetup
      */
     public array $connectionSetup = [];
 
     /**
      * PDO Driver object.
      */
-    public PDO $pdo = null;
+    public ?PDO $pdo = null;
 
     /**
      * Fluent Query.
@@ -82,7 +83,7 @@ trait Orm
     /**
      * Kod SQL chyby.
      */
-    protected int $errorNumber = null;
+    protected int $errorNumber = 0;
 
     /**
      * Only one rows returned ?
@@ -92,9 +93,9 @@ trait Orm
     /**
      * SetUp database connections.
      *
-     * @param mixed $options
+     * @param array<string,string> $options
      */
-    public function setUp($options = []): bool
+    public function setUp(array $options = []): bool
     {
         $this->setUpDb($options);
 
@@ -104,8 +105,8 @@ trait Orm
     /**
      * SetUp Object to be ready for connect.
      *
-     * @param array $options Object Options (dbType,server,username,password,database,
-     *                       port,connectionSettings,myTable,debug)
+     * @param array<string,string> $options Object Options (dbType,server,username,password,database,
+     *                                      port,connectionSettings,myTable,debug)
      */
     public function setUpDb($options = []): void
     {
@@ -129,7 +130,7 @@ trait Orm
      *
      * @return \PDO SQL connector
      */
-    public function pdoConnect($options = [])
+    public function pdoConnect($options = []): PDO
     {
         $result = false;
         $this->setUp($options);
@@ -248,9 +249,9 @@ trait Orm
     /**
      * Basic Query to return all.
      *
-     * @return \Envms\FluentPDO\Query
+     * @return \Envms\FluentPDO\Queries\Select
      */
-    public function listingQuery()
+    public function listingQuery(): Select
     {
         return $this->getFluentPDO(true)->from($this->getMyTable());
     }

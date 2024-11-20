@@ -39,14 +39,14 @@ abstract class SQL extends \Ease\Molecule
     /**
      * Connection status.
      */
-    public bool $status = null;
+    public bool $status = false;
 
     /**
      * Value of the last inserted AutoIncrement column.
      *
      * @var int unsigned
      */
-    public int $lastInsertID = null;
+    public int $lastInsertID = 0;
 
     /**
      * Last executed SQL Query.
@@ -60,13 +60,14 @@ abstract class SQL extends \Ease\Molecule
 
     /**
      * Array containing information about basic SQL connection parameters.
+     * @var array<string,string>
      */
     public array $report = ['LastMessage' => 'Please extend'];
 
     /**
      * Current database name.
      */
-    public string $database = null;
+    public string $database = '';
 
     /**
      * Key column for SQL operations.
@@ -80,26 +81,30 @@ abstract class SQL extends \Ease\Molecule
 
     /**
      * Array containing the structure of the SQL table.
+     * @var array<string,string>
      */
     public array $tableStructure = [];
 
     /**
      * Array containing the results of the last SQL command.
+     * @var array<string,mixed>
      */
     public array $resultArray = [];
 
     /**
      * Auxiliary variable for data operations.
+     * @var array<string,mixed>
      */
     public array $data = null;
 
     /**
      * Last message received from the SQL server.
      */
-    public string $lastMessage = null;
+    public string $lastMessage = '';
 
     /**
      * Connection settings properties.
+     * @var array<string,string>
      */
     public array $connectionSettings = [];
 
@@ -144,7 +149,7 @@ abstract class SQL extends \Ease\Molecule
      *
      * @return bool
      */
-    public function __sleep()
+    public function __sleep(): array
     {
         $this->lastQuery = null;
 
@@ -157,7 +162,7 @@ abstract class SQL extends \Ease\Molecule
      * @param array $options Object Options (company,url,user,password,evidence,
      *                       prefix,defaultUrlParams,debug)
      */
-    public function setUp($options = []): void
+    public function setUp(array $options = []): void
     {
         $this->setupProperty($options, 'dbType', 'DB_CONNECTION'); // Laravel
         $this->setupProperty($options, 'dbType', 'DB_TYPE');       // Ease

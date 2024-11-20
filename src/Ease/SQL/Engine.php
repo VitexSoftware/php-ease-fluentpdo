@@ -242,6 +242,7 @@ class Engine extends \Ease\Brick
 
     /**
      * Set/override object properties.
+     * @param array<string,string> $properties
      */
     public function setProperties(array $properties = []): void
     {
