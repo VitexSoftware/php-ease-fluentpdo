@@ -135,6 +135,7 @@ class PDO extends SQL
     public function setTableName(string $tablename): bool
     {
         $this->myTable = $tablename;
+
         return true;
     }
 

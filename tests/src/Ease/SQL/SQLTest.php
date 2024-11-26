@@ -129,7 +129,7 @@ class SQLTest extends \PHPUnit\Framework\TestCase
     public function testGetLastError(): void
     {
         $this->object->errorText = 'test';
-        $this->assertEquals('test',$this->object->getLastError());
+        $this->assertEquals('test', $this->object->getLastError());
     }
 
     /**

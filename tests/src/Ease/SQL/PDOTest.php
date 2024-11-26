@@ -66,7 +66,7 @@ class PDOTest extends TestCase
     public function testSetTableName(): void
     {
         $this->object->setTableName('test');
-        $this->assertEquals('test', $this->object->myTable );
+        $this->assertEquals('test', $this->object->myTable);
     }
 
     /**
