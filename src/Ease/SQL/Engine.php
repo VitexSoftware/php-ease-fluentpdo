@@ -53,6 +53,23 @@ class Engine extends \Ease\Brick
     }
 
     /**
+     * Properties to keep.
+     *
+     * @return array<string>
+     */
+    public function __sleep(): array
+    {
+        return [
+            'myTable',
+            'keyColumn',
+            'nameColumn',
+            'createColumn',
+            'lastModifiedColumn',
+            'data',
+        ];
+    }
+
+    /**
      * Use Given value as identifier.
      *
      * @param mixed $identifier
@@ -242,7 +259,8 @@ class Engine extends \Ease\Brick
 
     /**
      * Set/override object properties.
-     * @param array<string,string> $properties
+     *
+     * @param array<string, string> $properties
      */
     public function setProperties(array $properties = []): void
     {

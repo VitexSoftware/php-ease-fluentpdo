@@ -65,9 +65,8 @@ class PDOTest extends TestCase
      */
     public function testSetTableName(): void
     {
-        $this->assertEquals('', $this->object->SetTableName());
-        // Remove the following lines when you implement this test.
-        $this->markTestIncomplete('This test has not been implemented yet.');
+        $this->object->setTableName('test');
+        $this->assertEquals('test', $this->object->myTable );
     }
 
     /**
@@ -91,7 +90,7 @@ class PDOTest extends TestCase
      */
     public function testGetlastInsertID(): void
     {
-        $this->assertEquals('0', $this->object->GetlastInsertID());
+        $this->assertEquals('0', $this->object->getlastInsertID());
     }
     /**
      * @covers \Ease\SQL\PDO::arrayToInsertQuery
@@ -106,7 +105,7 @@ class PDOTest extends TestCase
      */
     public function testGetColumnComma(): void
     {
-        $this->assertEquals('', $this->object->GetColumnComma());
+        $this->assertEquals('', $this->object->getColumnComma());
     }
 
     /**
@@ -130,7 +129,7 @@ class PDOTest extends TestCase
      */
     public function testSleep(): void
     {
-        $this->assertEquals([], $this->object->__sleep());
+        $this->assertEquals(['data'], $this->object->__sleep());
     }
 
     /**

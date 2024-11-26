@@ -23,13 +23,6 @@ namespace Ease\SQL;
 abstract class SQL extends \Ease\Molecule
 {
     /**
-     * SQL operation result handle.
-     *
-     * @var resource
-     */
-    public $result;
-
-    /**
      * SQL Handle.
      *
      * @var resource
@@ -60,7 +53,8 @@ abstract class SQL extends \Ease\Molecule
 
     /**
      * Array containing information about basic SQL connection parameters.
-     * @var array<string,string>
+     *
+     * @var array<string, string>
      */
     public array $report = ['LastMessage' => 'Please extend'];
 
@@ -81,21 +75,24 @@ abstract class SQL extends \Ease\Molecule
 
     /**
      * Array containing the structure of the SQL table.
-     * @var array<string,string>
+     *
+     * @var array<string, string>
      */
     public array $tableStructure = [];
 
     /**
      * Array containing the results of the last SQL command.
-     * @var array<string,mixed>
+     *
+     * @var array<string, mixed>
      */
     public array $resultArray = [];
 
     /**
      * Auxiliary variable for data operations.
-     * @var array<string,mixed>
+     *
+     * @var array<string, mixed>
      */
-    public array $data = null;
+    public array $data = [];
 
     /**
      * Last message received from the SQL server.
@@ -104,7 +101,8 @@ abstract class SQL extends \Ease\Molecule
 
     /**
      * Connection settings properties.
-     * @var array<string,string>
+     *
+     * @var array<string, string>
      */
     public array $connectionSettings = [];
 
@@ -117,11 +115,6 @@ abstract class SQL extends \Ease\Molecule
      * Last error number.
      */
     protected int $errorNumber;
-
-    /**
-     * Last error message.
-     */
-    private string $errorText;
 
     /**
      * General database object.
@@ -151,9 +144,7 @@ abstract class SQL extends \Ease\Molecule
      */
     public function __sleep(): array
     {
-        $this->lastQuery = null;
-
-        return [];
+        return ['data'];
     }
 
     /**
@@ -162,7 +153,7 @@ abstract class SQL extends \Ease\Molecule
      * @param array $options Object Options (company,url,user,password,evidence,
      *                       prefix,defaultUrlParams,debug)
      */
-    public function setUp(array $options = []): void
+    public function setUp(array $options = []): bool
     {
         $this->setupProperty($options, 'dbType', 'DB_CONNECTION'); // Laravel
         $this->setupProperty($options, 'dbType', 'DB_TYPE');       // Ease
@@ -173,6 +164,8 @@ abstract class SQL extends \Ease\Molecule
         $this->setupProperty($options, 'port', 'DB_PORT');
         $this->setupProperty($options, 'connectionSettings', 'DB_SETUP');
         $this->setupProperty($options, 'myTable');
+
+        return true;
     }
 
     /**

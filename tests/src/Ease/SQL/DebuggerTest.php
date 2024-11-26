@@ -22,8 +22,7 @@ use Ease\SQL\Debugger;
  */
 class DebuggerTest extends \PHPUnit\Framework\TestCase
 {
-    public \Envms\FluentPDO\Query $query;
-
+    public \Envms\FluentPDO\Queries\Select $query;
     protected Debugger $object;
 
     /**

@@ -46,7 +46,7 @@ class SQLTest extends \PHPUnit\Framework\TestCase
      */
     public function testSetUp(): void
     {
-        $this->assertEquals('', $this->object->SetUp());
+        $this->assertTrue($this->object->setUp());
     }
 
     /**
@@ -70,7 +70,8 @@ class SQLTest extends \PHPUnit\Framework\TestCase
      */
     public function testGetInsertID(): void
     {
-        $this->assertEquals('', $this->object->GetInsertID());
+        $this->object->lastInsertID = 10;
+        $this->assertEquals(10, $this->object->getInsertID());
     }
 
     /**
@@ -118,7 +119,8 @@ class SQLTest extends \PHPUnit\Framework\TestCase
      */
     public function testGetlastInsertID(): void
     {
-        $this->assertEquals('', $this->object->GetlastInsertID());
+        $this->object->lastInsertID = 11;
+        $this->assertEquals(11, $this->object->getlastInsertID());
     }
 
     /**
@@ -126,7 +128,8 @@ class SQLTest extends \PHPUnit\Framework\TestCase
      */
     public function testGetLastError(): void
     {
-        $this->assertNull($this->object->getLastError());
+        $this->object->errorText = 'test';
+        $this->assertEquals('test',$this->object->getLastError());
     }
 
     /**
@@ -134,7 +137,7 @@ class SQLTest extends \PHPUnit\Framework\TestCase
      */
     public function testSleep(): void
     {
-        $this->assertEquals([], $this->object->__sleep());
+        $this->assertEquals(['data'], $this->object->__sleep());
     }
 
     /**

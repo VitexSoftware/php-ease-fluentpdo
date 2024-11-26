@@ -38,7 +38,7 @@ trait Orm
     /**
      * Database to connect by default.
      */
-    public ?string $database = null;
+    public string $database = '';
 
     /**
      * Database port.
@@ -50,30 +50,31 @@ trait Orm
      *
      * @var string mysql|pgsql|..
      */
-    public string $dbType;
+    public string $dbType = '';
 
     /**
      * Default connection settings.
      *
-     * @var array<string,string>|string
+     * @var array<string, string>|string
      */
     public $dbSettings = [];
 
     /**
      * Default connection setup.
-     * @var array<string,string> $connectionSetup
+     *
+     * @var array<string, string>
      */
     public array $connectionSetup = [];
 
     /**
      * PDO Driver object.
      */
-    public ?PDO $pdo = null;
+    public ?\PDO $pdo = null;
 
     /**
      * Fluent Query.
      */
-    public \Envms\FluentPDO\Query $fluent = null;
+    public ?\Envms\FluentPDO\Query $fluent;
 
     /**
      * Poslední Chybová zpráva obdržená od SQL serveru.
@@ -83,7 +84,7 @@ trait Orm
     /**
      * Kod SQL chyby.
      */
-    protected int $errorNumber = 0;
+    protected int $errorNumber;
 
     /**
      * Only one rows returned ?
@@ -93,7 +94,7 @@ trait Orm
     /**
      * SetUp database connections.
      *
-     * @param array<string,string> $options
+     * @param array<string, string> $options
      */
     public function setUp(array $options = []): bool
     {
@@ -105,8 +106,8 @@ trait Orm
     /**
      * SetUp Object to be ready for connect.
      *
-     * @param array<string,string> $options Object Options (dbType,server,username,password,database,
-     *                                      port,connectionSettings,myTable,debug)
+     * @param array<string, string> $options Object Options (dbType,server,username,password,database,
+     *                                       port,connectionSettings,myTable,debug)
      */
     public function setUpDb($options = []): void
     {
@@ -130,7 +131,7 @@ trait Orm
      *
      * @return \PDO SQL connector
      */
-    public function pdoConnect($options = []): PDO
+    public function pdoConnect($options = []): \PDO
     {
         $result = false;
         $this->setUp($options);
@@ -231,7 +232,7 @@ trait Orm
      */
     public function getFluentPDO(bool $read = false, bool $write = false)
     {
-        if (!$this->fluent instanceof \Envms\FluentPDO\Query) {
+        if (!isset($this->fluent) || !($this->fluent instanceof \Envms\FluentPDO\Query)) {
             $this->fluent = new \Envms\FluentPDO\Query($this->getPdo());
             $this->fluent->exceptionOnError = true;
             $this->fluent->debug = $this->debug ? function ($fluent): void {
@@ -248,23 +249,20 @@ trait Orm
 
     /**
      * Basic Query to return all.
-     *
-     * @return \Envms\FluentPDO\Queries\Select
      */
-    public function listingQuery(): Select
+    public function listingQuery(): \Envms\FluentPDO\Queries\Select
     {
         return $this->getFluentPDO(true)->from($this->getMyTable());
     }
 
     /**
-     * Vrací z databáze sloupečky podle podmínek.
+     * Get database columns values by conditions.
      *
-     * @param array            $columnsList seznam položek
-     * @param array|int|string $conditions  pole podmínek nebo ID záznamu
-     * @param array|string     $orderBy     třídit dle
-     * @param string           $indexBy     klice vysledku naplnit hodnotou ze
-     *                                      sloupečku
-     * @param int              $limit       maximální počet vrácených záznamů
+     * @param array<string>    $columnsList column names listing
+     * @param array|int|string $conditions  conditions or ID
+     * @param array|string     $orderBy     sort by
+     * @param string           $indexBy     result keys by row keys
+     * @param int              $limit       maximum number of results
      *
      * @return array
      */
@@ -297,7 +295,7 @@ trait Orm
     }
 
     /**
-     * Load actual's $ItemID SQL data.
+     * Load actual $ItemID SQL data.
      *
      * @param int $itemID record key
      *
@@ -309,9 +307,9 @@ trait Orm
     }
 
     /**
-     * Načte z SQL data k aktuálnímu $ItemID a použije je v objektu.
+     * Retrieves data from SQL for the current $ItemID and uses it in the object.
      *
-     * @param array|int $itemID klíč záznamu
+     * @param array|int $itemID Record key
      *
      * @return array Results
      */

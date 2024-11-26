@@ -30,7 +30,7 @@ class PDO extends SQL
     /**
      * SQLLink result.
      */
-    public \PDOStatement $result = null;
+    public \PDOStatement $result;
 
     /**
      * Connected state ?
@@ -53,52 +53,41 @@ class PDO extends SQL
     public bool $debug = false;
 
     /**
-     * KeyColumn used for postgresql insert id.
+     * KeyColumn used row key.
      */
-    public string $keyColumn = null;
+    public string $keyColumn = '';
 
     /**
-     * Table used for postgresql insert id.
+     * Table name we used.
      */
-    public string $myTable = null;
-    public $data;
+    public string $myTable = '';
     public $charset = 'utf8';
     public $collate = 'utf8_czech_ci';
 
     /**
-     * Povolit Explain každého dotazu do logu ?
+     * Allow Explain of each command to log logu ?
+     *
+     * @deprecated since version 1.4
      */
     public bool $explainMode = false;
 
     /**
-     * Database Type: mysql|sqlite|etc ...
+     * Database Type: mysql|sqlite|sqlsrv etc ...
      */
-    public string $dbType = null;
+    public string $dbType = '';
 
     /**
-     * Saves obejct instace (singleton...).
+     * Saves object instance (singleton...).
      */
     private static $_instance;
-
     private string $errorText;
 
     /**
-     * Virtuální funkce.
+     * cleanup.
      */
     public function __destruct()
     {
         $this->pdo = null;
-        $this->result = null;
-    }
-
-    /**
-     * You cannot serialize or unserialize PDO instance.
-     *
-     * @return array fields to serialize
-     */
-    public function __sleep()
-    {
-        return parent::__sleep();
     }
 
     public function __wakeup(): void
@@ -141,14 +130,11 @@ class PDO extends SQL
     }
 
     /**
-     * Set Table used for PGSQL indertid.
+     * Set Table we work with.
      */
-    public function setTableName(string $tablename = ''): bool
+    public function setTableName(string $tablename): bool
     {
-        if (!empty($tablename)) {
-            $this->myTable = $tablename;
-        }
-
+        $this->myTable = $tablename;
         return true;
     }
 

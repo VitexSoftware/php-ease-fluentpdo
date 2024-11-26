@@ -10,6 +10,7 @@
     "license": "MIT",
     "minimum-stability": "stable",
     "require": {
+        "php": ">=7.4",
         "vitexsoftware/ease-core": ">=1.45",
         "fpdo/fluentpdo": ">=2.1"
     },

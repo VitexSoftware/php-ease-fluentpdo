@@ -60,7 +60,7 @@ $manager->seed('test');
 class PDOTester extends \Ease\SQL\PDO
 {
     use \Ease\SQL\Orm;
-    public $myTable = 'test';
+    public string $myTable = 'test';
 
     public function connect(): void
     {
@@ -71,7 +71,7 @@ class PDOTester extends \Ease\SQL\PDO
 
 class SQLTester extends \Ease\SQL\SQL
 {
-    public $myTable = 'test';
+    public string $myTable = 'test';
 
     public function exeQuery($query): void
     {

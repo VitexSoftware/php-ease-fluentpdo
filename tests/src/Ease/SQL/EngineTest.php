@@ -129,11 +129,12 @@ class EngineTest extends TestCase
     public function testPdoConnect(): void
     {
         $this->expectException('\Ease\Exception');
-        $this->assertInstanceOf('\PDO', $this->object->pdoConnect(['DB_TYPE' => 'sqlite', 'DB_NAME' => 'nonexist']));
-        $this->assertInstanceOf('\PDO', $this->object->pdoConnect(['DB_TYPE' => 'sqlite']));
+        $this->assertInstanceOf('\PDO', $this->object->pdoConnect(['DB_CONNECTION' => 'sqlite', 'DB_NAME' => 'nonexist']));
+        $this->assertInstanceOf('\PDO', $this->object->pdoConnect(['DB_CONNECTION' => 'sqlite']));
         $this->expectException('\PDOException');
-        $this->assertInstanceOf('\PDO', $this->object->pdoConnect(['DB_TYPE' => 'mysql', 'DB_NAME' => 'localhost']));
-        $this->assertInstanceOf('\PDO', $this->object->pdoConnect(['DB_TYPE' => 'postgresql']));
+        $this->assertInstanceOf('\PDO', $this->object->pdoConnect(['DB_CONNECTION' => 'mysql', 'DB_NAME' => 'localhost']));
+        $this->assertInstanceOf('\PDO', $this->object->pdoConnect(['DB_CONNECTION' => 'postgresql']));
+        $this->assertInstanceOf('\PDO', $this->object->pdoConnect(['DB_CONNECTION' => 'nonexistent']));
     }
 
     /**
@@ -173,7 +174,7 @@ class EngineTest extends TestCase
      */
     public function testGetDataFromSQL(): void
     {
-        $this->assertEquals('', $this->object->getDataFromSQL(1));
+        $this->assertIsArray($this->object->getDataFromSQL(1));
     }
 
     /**
@@ -209,7 +210,7 @@ class EngineTest extends TestCase
         $this->assertEquals(1, $this->object->updateToSQL(['id' => 1, 'name' => 'foo', 'value' => 'updated']));
         $this->object->setData(['id' => 1, 'name' => 'foo', 'value' => 'a']);
         $this->assertEquals(1, $this->object->updateToSQL()); // Reset to Inital value for further testing
-        $this->expectException('\Envms\FluentPDO\Exception');
+        $this->expectException('\PDOException');
         $this->object->updateToSQL(['id' => 5, 'foo' => 'bar']);
     }
 
@@ -233,7 +234,7 @@ class EngineTest extends TestCase
         $this->assertIsInt($this->object->insertToSQL());
         $this->assertIsInt($this->object->insertToSQL(['name' => 'cfg', 'value' => 'c']));
 
-        $this->expectException('Envms\FluentPDO\Exception');
+        $this->expectException('\PDOException');
         $this->object->insertToSQL(['z' => 'e']);
     }
 
