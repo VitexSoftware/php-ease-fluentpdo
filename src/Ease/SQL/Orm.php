@@ -264,7 +264,7 @@ trait Orm
      * @param string           $indexBy     result keys by row keys
      * @param int              $limit       maximum number of results
      *
-     * @return array
+     * @return array<string, string>
      */
     public function getColumnsFromSQL(
         array $columnsList,
@@ -365,12 +365,11 @@ trait Orm
 
     /**
      * Perform SQL record update.
-     * Provede update záznamu do SQL.
      *
-     * @param array $data      to save
-     * @param array $conditons Update condition
+     * @param array<string, string> $data      to save
+     * @param array<string, string> $conditons Update condition
      *
-     * @return int Id záznamu nebo null v případě chyby
+     * @return int Numeber of rows updated
      */
     public function updateToSQL($data = null, $conditons = [])
     {
@@ -391,13 +390,13 @@ trait Orm
             $data[$this->lastModifiedColumn] = date('Y-m-d H:i:s');
         }
 
-        return $this->getFluentPDO(false, true)->update($this->getMyTable())->set($data)->where(empty($conditons) && $key ? [$this->getKeyColumn() => $key] : $conditons)->execute() ? $key : null;
+        return $this->getFluentPDO(false, true)->update($this->getMyTable())->set($data)->where(empty($conditons) && $key ? [$this->getKeyColumn() => $key] : $conditons)->execute();
     }
 
     /**
      * Save data array to SQL.
      *
-     * @param array $data asociativní pole dat
+     * @param array<string, string> $data asociativní pole dat
      *
      * @return int ID záznamu nebo null v případě neůspěchu
      */

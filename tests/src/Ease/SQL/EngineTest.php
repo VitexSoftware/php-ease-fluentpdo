@@ -222,7 +222,7 @@ class EngineTest extends TestCase
         $this->object->setData(['name' => 'saved', 'value' => 'sure']);
         $this->assertEquals($this->lastId + 1, $this->object->saveToSQL());
         $this->object->setData(['id' => 3, 'name' => 'saved', 'value' => 'sure']);
-        $this->assertEquals(3, $this->object->saveToSQL());
+        $this->assertEquals(1, $this->object->saveToSQL());
     }
 
     /**

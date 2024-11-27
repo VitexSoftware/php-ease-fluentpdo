@@ -58,5 +58,6 @@ class DebuggerTest extends \PHPUnit\Framework\TestCase
             ->getMockForAbstractClass();
         $pdo = new \Ease\SQL\PDO();
         $mock->__construct($this->query, 'pdo test');
+        $this->assertIsObject($pdo);
     }
 }
