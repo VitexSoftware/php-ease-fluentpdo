@@ -1,47 +1,53 @@
 <?php
 
+declare(strict_types=1);
+
 /**
- * EaseFluentPDO - Phinx database adapter.
+ * This file is part of the EaseFluentPDO package
  *
- * @author Vítězslav Dvořák <info@vitexsoftware.cz>
- * @copyright  2020-2023 Vitex Software
+ * https://github.com/VitexSoftware/php-ease-fluentpdo
+ *
+ * (c) Vítězslav Dvořák <http://vitexsoftware.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
  */
+
 if (file_exists('./vendor/autoload.php')) {
     include_once './vendor/autoload.php';
 } else {
     include_once '../vendor/autoload.php';
 }
 
-
-\Ease\Shared::singleton()->loadConfig(__DIR__ . '/.env', true);
+\Ease\Shared::init(['DB_CONNECTION','DB_DATABASE'],__DIR__.'/.env', true);
 
 $prefix = file_exists('./tests/') ? './tests/' : '../tests/';
 
 $sqlOptions = [];
 
-if (strstr(getenv('DB_CONNECTION'), 'sqlite')) {
-    $sqlOptions['database'] = $prefix . basename(getenv('DB_DATABASE'));
+if (strstr(\Ease\Shared::cfg('DB_CONNECTION'), 'sqlite')) {
+    $sqlOptions['database'] = $prefix.basename(\Ease\Shared::cfg('DB_DATABASE'));
 }
+
 $engine = new \Ease\SQL\Engine(null, $sqlOptions);
 $cfg = [
     'paths' => [
-        'migrations' => [$prefix . 'migrations'],
-        'seeds' => [$prefix . 'seeds']
+        'migrations' => [$prefix.'migrations'],
+        'seeds' => [$prefix.'seeds'],
     ],
-    'environments' =>
-    [
+    'environments' => [
         'default_environment' => 'development',
         'development' => [
-            'adapter' => \Ease\Functions::cfg('DB_CONNECTION'),
+            'adapter' => \Ease\Shared::cfg('DB_CONNECTION'),
             'name' => $engine->database,
-            'connection' => $engine->getPdo($sqlOptions)
+            'connection' => $engine->getPdo($sqlOptions),
         ],
         'production' => [
-            'adapter' => \Ease\Functions::cfg('DB_CONNECTION'),
+            'adapter' => \Ease\Shared::cfg('DB_CONNECTION'),
             'name' => $engine->database,
-            'connection' => $engine->getPdo($sqlOptions)
+            'connection' => $engine->getPdo($sqlOptions),
         ],
-    ]
+    ],
 ];
 
 return $cfg;

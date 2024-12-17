@@ -1,9 +1,22 @@
 <?php
 
+declare(strict_types=1);
+
+/**
+ * This file is part of the EaseFluentPDO package
+ *
+ * https://github.com/VitexSoftware/php-ease-fluentpdo
+ *
+ * (c) Vítězslav Dvořák <http://vitexsoftware.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
 use Phinx\Migration\AbstractMigration;
 
-class LogToDb extends AbstractMigration {
-
+class LogToDb extends AbstractMigration
+{
     /**
      * Change Method.
      *
@@ -29,22 +42,21 @@ class LogToDb extends AbstractMigration {
      * Remember to call "create()" or "update()" and NOT "save()" when working
      * with the Table class.
      */
-    public function change() {
-
+    public function change(): void
+    {
         $table = $this->table('log');
         $table->addColumn('severity', 'string', ['length' => 20, 'comment' => 'info|warning|error|..', 'default' => 'info'])
-                ->addColumn('when', 'timestamp', ['comment' => 'log time', 'default' => 'CURRENT_TIMESTAMP'])
-                ->addColumn('venue', 'string', ['length' => 255, 'comment' => 'Message is Produced by', 'null' => true, 'default' => null])
-                ->addColumn('message', 'text', ['comment' => 'Logged message itself', 'default' => ''])
-                ->addColumn('application', 'text', ['comment' => 'App name', 'null' => 'true', 'default' => null])
-                ->addColumn('user', 'integer', ['comment' => 'User ID', 'default' => 0])
-                ->create();
-        if ($this->adapter->getAdapterType() != 'sqlite') {
+            ->addColumn('when', 'timestamp', ['comment' => 'log time', 'default' => 'CURRENT_TIMESTAMP'])
+            ->addColumn('venue', 'string', ['length' => 255, 'comment' => 'Message is Produced by', 'null' => true, 'default' => null])
+            ->addColumn('message', 'text', ['comment' => 'Logged message itself', 'default' => ''])
+            ->addColumn('application', 'text', ['comment' => 'App name', 'null' => 'true', 'default' => null])
+            ->addColumn('user', 'integer', ['comment' => 'User ID', 'default' => 0])
+            ->create();
+
+        if ($this->adapter->getAdapterType() !== 'sqlite') {
             $table
                 ->changeColumn('id', 'biginteger', ['identity' => true, 'signed' => false])
                 ->save();
         }
-
     }
-
 }

@@ -1,0 +1,3706 @@
+parameters:
+	ignoreErrors:
+		-
+			message: "#^Access to an undefined property Ease\\\\Embedable\\:\\:\\$pageParts\\.$#"
+			count: 2
+			path: src/Ease/Container.php
+
+		-
+			message: "#^Access to an undefined property Ease\\\\Embedable\\:\\:\\$parentObject\\.$#"
+			count: 1
+			path: src/Ease/Container.php
+
+		-
+			message: "#^Call to an undefined method Ease\\\\Embedable\\:\\:addItems\\(\\)\\.$#"
+			count: 1
+			path: src/Ease/Container.php
+
+		-
+			message: "#^Call to function is_array\\(\\) with string will always evaluate to false\\.$#"
+			count: 1
+			path: src/Ease/Container.php
+
+		-
+			message: "#^Call to function is_null\\(\\) with Ease\\\\Embedable\\|string will always evaluate to false\\.$#"
+			count: 1
+			path: src/Ease/Container.php
+
+		-
+			message: "#^Call to function is_null\\(\\) with string will always evaluate to false\\.$#"
+			count: 1
+			path: src/Ease/Container.php
+
+		-
+			message: "#^Method Ease\\\\Container\\:\\:addItems\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/Ease/Container.php
+
+		-
+			message: "#^Method Ease\\\\Container\\:\\:addItems\\(\\) has parameter \\$itemsArray with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Ease/Container.php
+
+		-
+			message: "#^Method Ease\\\\Container\\:\\:afterAdd\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/Ease/Container.php
+
+		-
+			message: "#^Method Ease\\\\Container\\:\\:drawAllContents\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/Ease/Container.php
+
+		-
+			message: "#^Method Ease\\\\Container\\:\\:drawIfNotDrawn\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/Ease/Container.php
+
+		-
+			message: "#^Method Ease\\\\Container\\:\\:emptyContents\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/Ease/Container.php
+
+		-
+			message: "#^Method Ease\\\\Container\\:\\:finalize\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/Ease/Container.php
+
+		-
+			message: "#^Method Ease\\\\Container\\:\\:getFirstPart\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/Ease/Container.php
+
+		-
+			message: "#^Method Ease\\\\Container\\:\\:setFinalized\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/Ease/Container.php
+
+		-
+			message: "#^Method Ease\\\\Container\\:\\:suicide\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/Ease/Container.php
+
+		-
+			message: "#^Parameter \\#1 \\$embedName of method Ease\\\\Embedable\\:\\:setEmbedName\\(\\) expects string, int given\\.$#"
+			count: 1
+			path: src/Ease/Container.php
+
+		-
+			message: "#^Property Ease\\\\Container\\:\\:\\$pageParts type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Ease/Container.php
+
+		-
+			message: "#^Method Ease\\\\Document\\:\\:arrayToUrlParams\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/Ease/Document.php
+
+		-
+			message: "#^Method Ease\\\\Document\\:\\:arrayToUrlParams\\(\\) has parameter \\$params with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Ease/Document.php
+
+		-
+			message: "#^Method Ease\\\\Document\\:\\:getRequestValues\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Ease/Document.php
+
+		-
+			message: "#^Method Ease\\\\Document\\:\\:makePagePublic\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/Ease/Document.php
+
+		-
+			message: "#^Method Ease\\\\Document\\:\\:onlyForLogged\\(\\) has parameter \\$message with no type specified\\.$#"
+			count: 1
+			path: src/Ease/Document.php
+
+		-
+			message: "#^Method Ease\\\\Document\\:\\:redirect\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/Ease/Document.php
+
+		-
+			message: "#^Method Ease\\\\Document\\:\\:registerItem\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/Ease/Document.php
+
+		-
+			message: "#^Parameter \\#2 \\$position of method Ease\\\\Document\\:\\:addJavaScript\\(\\) expects string\\|null, int given\\.$#"
+			count: 1
+			path: src/Ease/Document.php
+
+		-
+			message: "#^Property Ease\\\\Document\\:\\:\\$allItems type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Ease/Document.php
+
+		-
+			message: "#^Property Ease\\\\Document\\:\\:\\$instance has no type specified\\.$#"
+			count: 1
+			path: src/Ease/Document.php
+
+		-
+			message: "#^Property Ease\\\\Document\\:\\:\\$raiseItems type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Ease/Document.php
+
+		-
+			message: "#^Method Ease\\\\Embedable\\:\\:afterAdd\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/Ease/Embedable.php
+
+		-
+			message: "#^Method Ease\\\\Embedable\\:\\:draw\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/Ease/Embedable.php
+
+		-
+			message: "#^Method Ease\\\\Embedable\\:\\:finalize\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/Ease/Embedable.php
+
+		-
+			message: "#^Method Ease\\\\Html\\\\ATag\\:\\:__construct\\(\\) has parameter \\$properties with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Ease/Html/ATag.php
+
+		-
+			message: "#^Method Ease\\\\Html\\\\AddressTag\\:\\:__construct\\(\\) has parameter \\$properties with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Ease/Html/AddressTag.php
+
+		-
+			message: "#^Method Ease\\\\Html\\\\ArticleTag\\:\\:__construct\\(\\) has parameter \\$properties with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Ease/Html/ArticleTag.php
+
+		-
+			message: "#^Method Ease\\\\Html\\\\AsideTag\\:\\:__construct\\(\\) has parameter \\$properties with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Ease/Html/AsideTag.php
+
+		-
+			message: "#^Method Ease\\\\Html\\\\AudioTag\\:\\:__construct\\(\\) has parameter \\$properties with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Ease/Html/AudioTag.php
+
+		-
+			message: "#^Method Ease\\\\Html\\\\BdiTag\\:\\:__construct\\(\\) has parameter \\$properties with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Ease/Html/BdiTag.php
+
+		-
+			message: "#^Method Ease\\\\Html\\\\BodyTag\\:\\:__construct\\(\\) has parameter \\$properties with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Ease/Html/BodyTag.php
+
+		-
+			message: "#^Method Ease\\\\Html\\\\ButtonTag\\:\\:__construct\\(\\) has parameter \\$properties with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Ease/Html/ButtonTag.php
+
+		-
+			message: "#^Method Ease\\\\Html\\\\CanvasTag\\:\\:__construct\\(\\) has parameter \\$properties with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Ease/Html/CanvasTag.php
+
+		-
+			message: "#^Method Ease\\\\Html\\\\CheckboxTag\\:\\:__construct\\(\\) has parameter \\$properties with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Ease/Html/CheckboxTag.php
+
+		-
+			message: "#^Method Ease\\\\Html\\\\CheckboxTag\\:\\:setValue\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/Ease/Html/CheckboxTag.php
+
+		-
+			message: "#^Parameter \\#1 \\$value \\(bool\\) of method Ease\\\\Html\\\\CheckboxTag\\:\\:setValue\\(\\) should be compatible with parameter \\$value \\(string\\) of method Ease\\\\Html\\\\Input\\:\\:setValue\\(\\)$#"
+			count: 1
+			path: src/Ease/Html/CheckboxTag.php
+
+		-
+			message: "#^Parameter \\#1 \\$value \\(bool\\) of method Ease\\\\Html\\\\CheckboxTag\\:\\:setValue\\(\\) should be compatible with parameter \\$value \\(string\\) of method Ease\\\\Html\\\\InputTag\\:\\:setValue\\(\\)$#"
+			count: 1
+			path: src/Ease/Html/CheckboxTag.php
+
+		-
+			message: "#^Return type \\(bool\\) of method Ease\\\\Html\\\\CheckboxTag\\:\\:getValue\\(\\) should be compatible with return type \\(string\\) of method Ease\\\\Html\\\\Input\\:\\:getValue\\(\\)$#"
+			count: 1
+			path: src/Ease/Html/CheckboxTag.php
+
+		-
+			message: "#^Return type \\(bool\\) of method Ease\\\\Html\\\\CheckboxTag\\:\\:getValue\\(\\) should be compatible with return type \\(string\\) of method Ease\\\\Html\\\\InputTag\\:\\:getValue\\(\\)$#"
+			count: 1
+			path: src/Ease/Html/CheckboxTag.php
+
+		-
+			message: "#^Method Ease\\\\Html\\\\DatalistTag\\:\\:__construct\\(\\) has parameter \\$properties with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Ease/Html/DatalistTag.php
+
+		-
+			message: "#^Method Ease\\\\Html\\\\DdTag\\:\\:__construct\\(\\) has parameter \\$properties with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Ease/Html/DdTag.php
+
+		-
+			message: "#^Method Ease\\\\Html\\\\DetailsTag\\:\\:__construct\\(\\) has parameter \\$properties with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Ease/Html/DetailsTag.php
+
+		-
+			message: "#^Method Ease\\\\Html\\\\DialogTag\\:\\:__construct\\(\\) has parameter \\$properties with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Ease/Html/DialogTag.php
+
+		-
+			message: "#^Method Ease\\\\Html\\\\DivTag\\:\\:__construct\\(\\) has parameter \\$properties with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Ease/Html/DivTag.php
+
+		-
+			message: "#^Method Ease\\\\Html\\\\DlTag\\:\\:__construct\\(\\) has parameter \\$properties with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Ease/Html/DlTag.php
+
+		-
+			message: "#^Method Ease\\\\Html\\\\DlTag\\:\\:addDef\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/Ease/Html/DlTag.php
+
+		-
+			message: "#^Method Ease\\\\Html\\\\DtTag\\:\\:__construct\\(\\) has parameter \\$properties with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Ease/Html/DtTag.php
+
+		-
+			message: "#^Method Ease\\\\Html\\\\EmTag\\:\\:__construct\\(\\) has parameter \\$properties with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Ease/Html/EmTag.php
+
+		-
+			message: "#^Method Ease\\\\Html\\\\EmbedTag\\:\\:__construct\\(\\) has parameter \\$properties with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Ease/Html/EmbedTag.php
+
+		-
+			message: "#^Method Ease\\\\Html\\\\FieldSet\\:\\:finalize\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/Ease/Html/FieldSet.php
+
+		-
+			message: "#^Method Ease\\\\Html\\\\FieldSet\\:\\:setLegend\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/Ease/Html/FieldSet.php
+
+		-
+			message: "#^Property Ease\\\\Html\\\\FieldSet\\:\\:\\$legendTag \\(Ease\\\\Html\\\\PairTag\\) does not accept Ease\\\\Embedable\\|null\\.$#"
+			count: 1
+			path: src/Ease/Html/FieldSet.php
+
+		-
+			message: "#^Method Ease\\\\Html\\\\FigCaptionTag\\:\\:__construct\\(\\) has parameter \\$properties with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Ease/Html/FigCaptionTag.php
+
+		-
+			message: "#^Method Ease\\\\Html\\\\FigureTag\\:\\:__construct\\(\\) has parameter \\$properties with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Ease/Html/FigureTag.php
+
+		-
+			message: "#^Method Ease\\\\Html\\\\FooterTag\\:\\:__construct\\(\\) has parameter \\$properties with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Ease/Html/FooterTag.php
+
+		-
+			message: "#^Method Ease\\\\Html\\\\Form\\:\\:__construct\\(\\) has parameter \\$properties with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Ease/Html/Form.php
+
+		-
+			message: "#^Method Ease\\\\Html\\\\Form\\:\\:fillMeUp\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/Ease/Html/Form.php
+
+		-
+			message: "#^Method Ease\\\\Html\\\\Form\\:\\:fillMeUp\\(\\) has parameter \\$data with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Ease/Html/Form.php
+
+		-
+			message: "#^Method Ease\\\\Html\\\\Form\\:\\:fillUp\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/Ease/Html/Form.php
+
+		-
+			message: "#^Property Ease\\\\Container\\:\\:\\$pageParts \\(array\\) in isset\\(\\) is not nullable\\.$#"
+			count: 1
+			path: src/Ease/Html/Form.php
+
+		-
+			message: "#^Right side of && is always true\\.$#"
+			count: 1
+			path: src/Ease/Html/Form.php
+
+		-
+			message: "#^Method Ease\\\\Html\\\\H1Tag\\:\\:__construct\\(\\) has parameter \\$properties with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Ease/Html/H1Tag.php
+
+		-
+			message: "#^Method Ease\\\\Html\\\\H2Tag\\:\\:__construct\\(\\) has parameter \\$properties with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Ease/Html/H2Tag.php
+
+		-
+			message: "#^Method Ease\\\\Html\\\\H3Tag\\:\\:__construct\\(\\) has parameter \\$properties with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Ease/Html/H3Tag.php
+
+		-
+			message: "#^Method Ease\\\\Html\\\\H4Tag\\:\\:__construct\\(\\) has parameter \\$properties with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Ease/Html/H4Tag.php
+
+		-
+			message: "#^Method Ease\\\\Html\\\\H5Tag\\:\\:__construct\\(\\) has parameter \\$properties with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Ease/Html/H5Tag.php
+
+		-
+			message: "#^Method Ease\\\\Html\\\\HeadTag\\:\\:finalize\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/Ease/Html/HeadTag.php
+
+		-
+			message: "#^Method Ease\\\\Html\\\\HeadTag\\:\\:getScriptsRendered\\(\\) has parameter \\$scriptsArray with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Ease/Html/HeadTag.php
+
+		-
+			message: "#^Method Ease\\\\Html\\\\HeadTag\\:\\:getStylesRendered\\(\\) has parameter \\$stylesArray with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Ease/Html/HeadTag.php
+
+		-
+			message: "#^Property Ease\\\\Html\\\\HeadTag\\:\\:\\$cascadeStyles type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Ease/Html/HeadTag.php
+
+		-
+			message: "#^Property Ease\\\\Html\\\\HeadTag\\:\\:\\$javaScripts type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Ease/Html/HeadTag.php
+
+		-
+			message: "#^Method Ease\\\\Html\\\\HeaderTag\\:\\:__construct\\(\\) has parameter \\$properties with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Ease/Html/HeaderTag.php
+
+		-
+			message: "#^Method Ease\\\\Html\\\\HrTag\\:\\:__construct\\(\\) has parameter \\$properties with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Ease/Html/HrTag.php
+
+		-
+			message: "#^Method Ease\\\\Html\\\\HtmlTag\\:\\:__construct\\(\\) has parameter \\$properties with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Ease/Html/HtmlTag.php
+
+		-
+			message: "#^Method Ease\\\\Html\\\\IframeTag\\:\\:__construct\\(\\) has parameter \\$properties with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Ease/Html/IframeTag.php
+
+		-
+			message: "#^Method Ease\\\\Html\\\\ImgTag\\:\\:__construct\\(\\) has parameter \\$properties with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Ease/Html/ImgTag.php
+
+		-
+			message: "#^Method Ease\\\\Html\\\\Input\\:\\:setValue\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/Ease/Html/Input.php
+
+		-
+			message: "#^Method Ease\\\\Html\\\\InputColorTag\\:\\:__construct\\(\\) has parameter \\$properties with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Ease/Html/InputColorTag.php
+
+		-
+			message: "#^Call to method format\\(\\) on an unknown class Date\\.$#"
+			count: 1
+			path: src/Ease/Html/InputDateTag.php
+
+		-
+			message: "#^Method Ease\\\\Html\\\\InputDateTag\\:\\:__construct\\(\\) has parameter \\$properties with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Ease/Html/InputDateTag.php
+
+		-
+			message: "#^Parameter \\$value of method Ease\\\\Html\\\\InputDateTag\\:\\:__construct\\(\\) has invalid type Date\\.$#"
+			count: 1
+			path: src/Ease/Html/InputDateTag.php
+
+		-
+			message: "#^Method Ease\\\\Html\\\\InputDateTimeLocalTag\\:\\:__construct\\(\\) has parameter \\$properties with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Ease/Html/InputDateTimeLocalTag.php
+
+		-
+			message: "#^Method Ease\\\\Html\\\\InputDateTimeTag\\:\\:__construct\\(\\) has parameter \\$properties with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Ease/Html/InputDateTimeTag.php
+
+		-
+			message: "#^Method Ease\\\\Html\\\\InputEmailTag\\:\\:__construct\\(\\) has parameter \\$properties with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Ease/Html/InputEmailTag.php
+
+		-
+			message: "#^Method Ease\\\\Html\\\\InputFileTag\\:\\:__construct\\(\\) has parameter \\$properties with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Ease/Html/InputFileTag.php
+
+		-
+			message: "#^Method Ease\\\\Html\\\\InputHiddenTag\\:\\:__construct\\(\\) has parameter \\$properties with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Ease/Html/InputHiddenTag.php
+
+		-
+			message: "#^Method Ease\\\\Html\\\\InputMonthTag\\:\\:__construct\\(\\) has parameter \\$properties with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Ease/Html/InputMonthTag.php
+
+		-
+			message: "#^Method Ease\\\\Html\\\\InputNumberTag\\:\\:__construct\\(\\) has parameter \\$properties with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Ease/Html/InputNumberTag.php
+
+		-
+			message: "#^Method Ease\\\\Html\\\\InputPasswordTag\\:\\:__construct\\(\\) has parameter \\$properties with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Ease/Html/InputPasswordTag.php
+
+		-
+			message: "#^Method Ease\\\\Html\\\\InputRadioTag\\:\\:__construct\\(\\) has parameter \\$properties with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Ease/Html/InputRadioTag.php
+
+		-
+			message: "#^Method Ease\\\\Html\\\\InputRadioTag\\:\\:setValue\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/Ease/Html/InputRadioTag.php
+
+		-
+			message: "#^Method Ease\\\\Html\\\\InputRangeTag\\:\\:__construct\\(\\) has parameter \\$properties with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Ease/Html/InputRangeTag.php
+
+		-
+			message: "#^Method Ease\\\\Html\\\\InputSearchTag\\:\\:__construct\\(\\) has parameter \\$properties with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Ease/Html/InputSearchTag.php
+
+		-
+			message: "#^Method Ease\\\\Html\\\\InputSubmitTag\\:\\:__construct\\(\\) has parameter \\$properties with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Ease/Html/InputSubmitTag.php
+
+		-
+			message: "#^Method Ease\\\\Html\\\\InputSubmitTag\\:\\:setValue\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/Ease/Html/InputSubmitTag.php
+
+		-
+			message: "#^Parameter \\#1 \\$value \\(bool\\) of method Ease\\\\Html\\\\InputSubmitTag\\:\\:setValue\\(\\) should be compatible with parameter \\$value \\(string\\) of method Ease\\\\Html\\\\Input\\:\\:setValue\\(\\)$#"
+			count: 1
+			path: src/Ease/Html/InputSubmitTag.php
+
+		-
+			message: "#^Parameter \\#1 \\$value \\(bool\\) of method Ease\\\\Html\\\\InputSubmitTag\\:\\:setValue\\(\\) should be compatible with parameter \\$value \\(string\\) of method Ease\\\\Html\\\\InputTag\\:\\:setValue\\(\\)$#"
+			count: 1
+			path: src/Ease/Html/InputSubmitTag.php
+
+		-
+			message: "#^Method Ease\\\\Html\\\\InputTag\\:\\:__construct\\(\\) has parameter \\$properties with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Ease/Html/InputTag.php
+
+		-
+			message: "#^Method Ease\\\\Html\\\\InputTag\\:\\:setValue\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/Ease/Html/InputTag.php
+
+		-
+			message: "#^Property Ease\\\\Html\\\\InputTag\\:\\:\\$setName has no type specified\\.$#"
+			count: 1
+			path: src/Ease/Html/InputTag.php
+
+		-
+			message: "#^Method Ease\\\\Html\\\\InputTelTag\\:\\:__construct\\(\\) has parameter \\$properties with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Ease/Html/InputTelTag.php
+
+		-
+			message: "#^Method Ease\\\\Html\\\\InputTextTag\\:\\:__construct\\(\\) has parameter \\$properties with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Ease/Html/InputTextTag.php
+
+		-
+			message: "#^Method Ease\\\\Html\\\\InputTimeTag\\:\\:__construct\\(\\) has parameter \\$properties with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Ease/Html/InputTimeTag.php
+
+		-
+			message: "#^Method Ease\\\\Html\\\\InputUrlTag\\:\\:__construct\\(\\) has parameter \\$properties with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Ease/Html/InputUrlTag.php
+
+		-
+			message: "#^Method Ease\\\\Html\\\\InputWeekTag\\:\\:__construct\\(\\) has parameter \\$properties with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Ease/Html/InputWeekTag.php
+
+		-
+			message: "#^Method Ease\\\\Html\\\\JavaScript\\:\\:__construct\\(\\) has parameter \\$properties with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Ease/Html/JavaScript.php
+
+		-
+			message: "#^Method Ease\\\\Html\\\\KeygenTag\\:\\:__construct\\(\\) has parameter \\$properties with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Ease/Html/KeygenTag.php
+
+		-
+			message: "#^Method Ease\\\\Html\\\\LabelTag\\:\\:__construct\\(\\) has parameter \\$properties with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Ease/Html/LabelTag.php
+
+		-
+			message: "#^Method Ease\\\\Html\\\\LiTag\\:\\:__construct\\(\\) has parameter \\$properties with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Ease/Html/LiTag.php
+
+		-
+			message: "#^Method Ease\\\\Html\\\\MainTag\\:\\:__construct\\(\\) has parameter \\$properties with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Ease/Html/MainTag.php
+
+		-
+			message: "#^Method Ease\\\\Html\\\\MarkTag\\:\\:__construct\\(\\) has parameter \\$properties with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Ease/Html/MarkTag.php
+
+		-
+			message: "#^Method Ease\\\\Html\\\\MenuItemTag\\:\\:__construct\\(\\) has parameter \\$properties with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Ease/Html/MenuItemTag.php
+
+		-
+			message: "#^Method Ease\\\\Html\\\\MetaTag\\:\\:__construct\\(\\) has parameter \\$properties with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Ease/Html/MetaTag.php
+
+		-
+			message: "#^Method Ease\\\\Html\\\\MeterTag\\:\\:__construct\\(\\) has parameter \\$properties with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Ease/Html/MeterTag.php
+
+		-
+			message: "#^Method Ease\\\\Html\\\\NavTag\\:\\:__construct\\(\\) has parameter \\$properties with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Ease/Html/NavTag.php
+
+		-
+			message: "#^Method Ease\\\\Html\\\\OlTag\\:\\:__construct\\(\\) has parameter \\$properties with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Ease/Html/OlTag.php
+
+		-
+			message: "#^Method Ease\\\\Html\\\\OptionTag\\:\\:setValue\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/Ease/Html/OptionTag.php
+
+		-
+			message: "#^Method Ease\\\\Html\\\\OutputTag\\:\\:__construct\\(\\) has parameter \\$properties with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Ease/Html/OutputTag.php
+
+		-
+			message: "#^Method Ease\\\\Html\\\\PTag\\:\\:__construct\\(\\) has parameter \\$properties with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Ease/Html/PTag.php
+
+		-
+			message: "#^Method Ease\\\\Html\\\\PairTag\\:\\:__construct\\(\\) has parameter \\$properties with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Ease/Html/PairTag.php
+
+		-
+			message: "#^Method Ease\\\\Html\\\\PairTag\\:\\:tagBegin\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/Ease/Html/PairTag.php
+
+		-
+			message: "#^Method Ease\\\\Html\\\\PairTag\\:\\:tagEnclousure\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/Ease/Html/PairTag.php
+
+		-
+			message: "#^Method Ease\\\\Html\\\\PreTag\\:\\:__construct\\(\\) has parameter \\$properties with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Ease/Html/PreTag.php
+
+		-
+			message: "#^Method Ease\\\\Html\\\\ProgressTag\\:\\:__construct\\(\\) has parameter \\$properties with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Ease/Html/ProgressTag.php
+
+		-
+			message: "#^Method Ease\\\\Html\\\\RpTag\\:\\:__construct\\(\\) has parameter \\$properties with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Ease/Html/RpTag.php
+
+		-
+			message: "#^Method Ease\\\\Html\\\\RtTag\\:\\:__construct\\(\\) has parameter \\$properties with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Ease/Html/RtTag.php
+
+		-
+			message: "#^Method Ease\\\\Html\\\\RubyTag\\:\\:__construct\\(\\) has parameter \\$properties with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Ease/Html/RubyTag.php
+
+		-
+			message: "#^Method Ease\\\\Html\\\\ScriptTag\\:\\:__construct\\(\\) has parameter \\$properties with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Ease/Html/ScriptTag.php
+
+		-
+			message: "#^Method Ease\\\\Html\\\\SectionTag\\:\\:__construct\\(\\) has parameter \\$properties with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Ease/Html/SectionTag.php
+
+		-
+			message: "#^Method Ease\\\\Html\\\\SelectTag\\:\\:__construct\\(\\) has parameter \\$items with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Ease/Html/SelectTag.php
+
+		-
+			message: "#^Method Ease\\\\Html\\\\SelectTag\\:\\:__construct\\(\\) has parameter \\$properties with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Ease/Html/SelectTag.php
+
+		-
+			message: "#^Method Ease\\\\Html\\\\SelectTag\\:\\:addItems\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/Ease/Html/SelectTag.php
+
+		-
+			message: "#^Method Ease\\\\Html\\\\SelectTag\\:\\:addItems\\(\\) has parameter \\$items with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Ease/Html/SelectTag.php
+
+		-
+			message: "#^Method Ease\\\\Html\\\\SelectTag\\:\\:delItem\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/Ease/Html/SelectTag.php
+
+		-
+			message: "#^Method Ease\\\\Html\\\\SelectTag\\:\\:disableItem\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/Ease/Html/SelectTag.php
+
+		-
+			message: "#^Method Ease\\\\Html\\\\SelectTag\\:\\:finalize\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/Ease/Html/SelectTag.php
+
+		-
+			message: "#^Method Ease\\\\Html\\\\SelectTag\\:\\:loadItems\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Ease/Html/SelectTag.php
+
+		-
+			message: "#^Method Ease\\\\Html\\\\SelectTag\\:\\:setValue\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/Ease/Html/SelectTag.php
+
+		-
+			message: "#^Property Ease\\\\Html\\\\SelectTag\\:\\:\\$items type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Ease/Html/SelectTag.php
+
+		-
+			message: "#^Method Ease\\\\Html\\\\SimpleHeadTag\\:\\:__construct\\(\\) has parameter \\$properties with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Ease/Html/SimpleHeadTag.php
+
+		-
+			message: "#^Method Ease\\\\Html\\\\SmallTag\\:\\:__construct\\(\\) has parameter \\$properties with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Ease/Html/SmallTag.php
+
+		-
+			message: "#^Method Ease\\\\Html\\\\SourceTag\\:\\:__construct\\(\\) has parameter \\$properties with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Ease/Html/SourceTag.php
+
+		-
+			message: "#^Method Ease\\\\Html\\\\Span\\:\\:__construct\\(\\) has parameter \\$properties with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Ease/Html/Span.php
+
+		-
+			message: "#^Method Ease\\\\Html\\\\SpanTag\\:\\:__construct\\(\\) has parameter \\$properties with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Ease/Html/SpanTag.php
+
+		-
+			message: "#^Method Ease\\\\Html\\\\StrongTag\\:\\:__construct\\(\\) has parameter \\$properties with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Ease/Html/StrongTag.php
+
+		-
+			message: "#^Method Ease\\\\Html\\\\SubmitButton\\:\\:setValue\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/Ease/Html/SubmitButton.php
+
+		-
+			message: "#^Method Ease\\\\Html\\\\SummaryTag\\:\\:__construct\\(\\) has parameter \\$properties with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Ease/Html/SummaryTag.php
+
+		-
+			message: "#^Method Ease\\\\Html\\\\SvgTag\\:\\:__construct\\(\\) has parameter \\$properties with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Ease/Html/SvgTag.php
+
+		-
+			message: "#^Method Ease\\\\Html\\\\TableTag\\:\\:__construct\\(\\) has parameter \\$properties with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Ease/Html/TableTag.php
+
+		-
+			message: "#^Method Ease\\\\Html\\\\TableTag\\:\\:addRowColumns\\(\\) has parameter \\$columns with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Ease/Html/TableTag.php
+
+		-
+			message: "#^Method Ease\\\\Html\\\\TableTag\\:\\:addRowColumns\\(\\) has parameter \\$properties with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Ease/Html/TableTag.php
+
+		-
+			message: "#^Method Ease\\\\Html\\\\TableTag\\:\\:addRowColumns\\(\\) should return Ease\\\\Html\\\\TrTag but returns Ease\\\\Embedable\\|null\\.$#"
+			count: 1
+			path: src/Ease/Html/TableTag.php
+
+		-
+			message: "#^Method Ease\\\\Html\\\\TableTag\\:\\:addRowFooterColumns\\(\\) has parameter \\$columns with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Ease/Html/TableTag.php
+
+		-
+			message: "#^Method Ease\\\\Html\\\\TableTag\\:\\:addRowFooterColumns\\(\\) has parameter \\$properties with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Ease/Html/TableTag.php
+
+		-
+			message: "#^Method Ease\\\\Html\\\\TableTag\\:\\:addRowFooterColumns\\(\\) should return Ease\\\\Html\\\\TrTag but returns Ease\\\\Embedable\\|null\\.$#"
+			count: 1
+			path: src/Ease/Html/TableTag.php
+
+		-
+			message: "#^Method Ease\\\\Html\\\\TableTag\\:\\:addRowHeaderColumns\\(\\) has parameter \\$columns with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Ease/Html/TableTag.php
+
+		-
+			message: "#^Method Ease\\\\Html\\\\TableTag\\:\\:addRowHeaderColumns\\(\\) has parameter \\$properties with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Ease/Html/TableTag.php
+
+		-
+			message: "#^Method Ease\\\\Html\\\\TableTag\\:\\:addRowHeaderColumns\\(\\) should return Ease\\\\Html\\\\TrTag but returns Ease\\\\Embedable\\|null\\.$#"
+			count: 1
+			path: src/Ease/Html/TableTag.php
+
+		-
+			message: "#^Method Ease\\\\Html\\\\TableTag\\:\\:emptyContents\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/Ease/Html/TableTag.php
+
+		-
+			message: "#^Method Ease\\\\Html\\\\TableTag\\:\\:finalize\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/Ease/Html/TableTag.php
+
+		-
+			message: "#^Method Ease\\\\Html\\\\TableTag\\:\\:populate\\(\\) has parameter \\$contents with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Ease/Html/TableTag.php
+
+		-
+			message: "#^Method Ease\\\\Html\\\\TableTag\\:\\:setHeader\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/Ease/Html/TableTag.php
+
+		-
+			message: "#^Method Ease\\\\Html\\\\TableTag\\:\\:setHeader\\(\\) has parameter \\$headerColumns with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Ease/Html/TableTag.php
+
+		-
+			message: "#^Property Ease\\\\Html\\\\TableTag\\:\\:\\$tBody \\(Ease\\\\Html\\\\Tbody\\) does not accept Ease\\\\Embedable\\|null\\.$#"
+			count: 1
+			path: src/Ease/Html/TableTag.php
+
+		-
+			message: "#^Property Ease\\\\Html\\\\TableTag\\:\\:\\$tFoot \\(Ease\\\\Html\\\\Tfoot\\) does not accept Ease\\\\Embedable\\|null\\.$#"
+			count: 1
+			path: src/Ease/Html/TableTag.php
+
+		-
+			message: "#^Property Ease\\\\Html\\\\TableTag\\:\\:\\$tHead \\(Ease\\\\Html\\\\Thead\\) does not accept Ease\\\\Embedable\\|null\\.$#"
+			count: 1
+			path: src/Ease/Html/TableTag.php
+
+		-
+			message: "#^Method Ease\\\\Html\\\\Tag\\:\\:__construct\\(\\) has parameter \\$properties with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Ease/Html/Tag.php
+
+		-
+			message: "#^Method Ease\\\\Html\\\\Tag\\:\\:addTagClass\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/Ease/Html/Tag.php
+
+		-
+			message: "#^Method Ease\\\\Html\\\\Tag\\:\\:cssPropertiesToString\\(\\) has parameter \\$cssProperties with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Ease/Html/Tag.php
+
+		-
+			message: "#^Method Ease\\\\Html\\\\Tag\\:\\:finalize\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/Ease/Html/Tag.php
+
+		-
+			message: "#^Method Ease\\\\Html\\\\Tag\\:\\:getTagClass\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/Ease/Html/Tag.php
+
+		-
+			message: "#^Method Ease\\\\Html\\\\Tag\\:\\:setTagClass\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/Ease/Html/Tag.php
+
+		-
+			message: "#^Method Ease\\\\Html\\\\Tag\\:\\:setTagCss\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/Ease/Html/Tag.php
+
+		-
+			message: "#^Method Ease\\\\Html\\\\Tag\\:\\:setTagCss\\(\\) has parameter \\$cssProperties with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Ease/Html/Tag.php
+
+		-
+			message: "#^Method Ease\\\\Html\\\\Tag\\:\\:setTagName\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/Ease/Html/Tag.php
+
+		-
+			message: "#^Method Ease\\\\Html\\\\Tag\\:\\:setTagProperties\\(\\) has parameter \\$properties with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Ease/Html/Tag.php
+
+		-
+			message: "#^Method Ease\\\\Html\\\\Tag\\:\\:setTagType\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/Ease/Html/Tag.php
+
+		-
+			message: "#^Property Ease\\\\Html\\\\Tag\\:\\:\\$cssProperties type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Ease/Html/Tag.php
+
+		-
+			message: "#^Property Ease\\\\Html\\\\Tag\\:\\:\\$setName has no type specified\\.$#"
+			count: 1
+			path: src/Ease/Html/Tag.php
+
+		-
+			message: "#^Property Ease\\\\Html\\\\Tag\\:\\:\\$tagProperties type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Ease/Html/Tag.php
+
+		-
+			message: "#^Method Ease\\\\Html\\\\Tbody\\:\\:__construct\\(\\) has parameter \\$properties with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Ease/Html/Tbody.php
+
+		-
+			message: "#^Method Ease\\\\Html\\\\TdTag\\:\\:__construct\\(\\) has parameter \\$properties with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Ease/Html/TdTag.php
+
+		-
+			message: "#^Method Ease\\\\Html\\\\TextareaTag\\:\\:__construct\\(\\) has parameter \\$properties with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Ease/Html/TextareaTag.php
+
+		-
+			message: "#^Method Ease\\\\Html\\\\TextareaTag\\:\\:setValue\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/Ease/Html/TextareaTag.php
+
+		-
+			message: "#^Property Ease\\\\Html\\\\TextareaTag\\:\\:\\$content has no type specified\\.$#"
+			count: 1
+			path: src/Ease/Html/TextareaTag.php
+
+		-
+			message: "#^Property Ease\\\\Html\\\\TextareaTag\\:\\:\\$setName has no type specified\\.$#"
+			count: 1
+			path: src/Ease/Html/TextareaTag.php
+
+		-
+			message: "#^Method Ease\\\\Html\\\\Tfoot\\:\\:__construct\\(\\) has parameter \\$properties with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Ease/Html/Tfoot.php
+
+		-
+			message: "#^Method Ease\\\\Html\\\\ThTag\\:\\:__construct\\(\\) has parameter \\$properties with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Ease/Html/ThTag.php
+
+		-
+			message: "#^Method Ease\\\\Html\\\\Thead\\:\\:__construct\\(\\) has parameter \\$properties with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Ease/Html/Thead.php
+
+		-
+			message: "#^Method Ease\\\\Html\\\\TimeTag\\:\\:__construct\\(\\) has parameter \\$properties with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Ease/Html/TimeTag.php
+
+		-
+			message: "#^Method Ease\\\\Html\\\\TitleTag\\:\\:__construct\\(\\) has parameter \\$properties with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Ease/Html/TitleTag.php
+
+		-
+			message: "#^Method Ease\\\\Html\\\\TrTag\\:\\:__construct\\(\\) has parameter \\$properties with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Ease/Html/TrTag.php
+
+		-
+			message: "#^Method Ease\\\\Html\\\\TrackTag\\:\\:__construct\\(\\) has parameter \\$properties with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Ease/Html/TrackTag.php
+
+		-
+			message: "#^Method Ease\\\\Html\\\\UlTag\\:\\:__construct\\(\\) has parameter \\$properties with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Ease/Html/UlTag.php
+
+		-
+			message: "#^Method Ease\\\\Html\\\\UlTag\\:\\:addItemSmart\\(\\) has parameter \\$properties with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Ease/Html/UlTag.php
+
+		-
+			message: "#^Method Ease\\\\Html\\\\UlTag\\:\\:addItems\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/Ease/Html/UlTag.php
+
+		-
+			message: "#^Method Ease\\\\Html\\\\UlTag\\:\\:addItems\\(\\) has parameter \\$itemsArray with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Ease/Html/UlTag.php
+
+		-
+			message: "#^Method Ease\\\\Html\\\\VideoTag\\:\\:__construct\\(\\) has parameter \\$properties with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Ease/Html/VideoTag.php
+
+		-
+			message: "#^Method Ease\\\\Html\\\\WbrTag\\:\\:__construct\\(\\) has parameter \\$properties with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Ease/Html/WbrTag.php
+
+		-
+			message: "#^Access to an undefined property Ease\\\\Embedable\\:\\:\\$parentObject\\.$#"
+			count: 1
+			path: src/Ease/HtmlMailer.php
+
+		-
+			message: "#^Call to an undefined method Ease\\\\Embedable\\:\\:emptyContents\\(\\)\\.$#"
+			count: 1
+			path: src/Ease/HtmlMailer.php
+
+		-
+			message: "#^Call to an undefined method Ease\\\\Embedable\\:\\:getItemsCount\\(\\)\\.$#"
+			count: 1
+			path: src/Ease/HtmlMailer.php
+
+		-
+			message: "#^Call to an undefined method Ease\\\\Embedable\\:\\:isEmpty\\(\\)\\.$#"
+			count: 1
+			path: src/Ease/HtmlMailer.php
+
+		-
+			message: "#^Call to function array_key_exists\\(\\) with mixed and string will always evaluate to false\\.$#"
+			count: 1
+			path: src/Ease/HtmlMailer.php
+
+		-
+			message: "#^Call to function is_array\\(\\) with string will always evaluate to false\\.$#"
+			count: 1
+			path: src/Ease/HtmlMailer.php
+
+		-
+			message: "#^Method Ease\\\\HtmlMailer\\:\\:__construct\\(\\) has parameter \\$headers with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Ease/HtmlMailer.php
+
+		-
+			message: "#^Method Ease\\\\HtmlMailer\\:\\:emptyContents\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/Ease/HtmlMailer.php
+
+		-
+			message: "#^Method Ease\\\\HtmlMailer\\:\\:finalize\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/Ease/HtmlMailer.php
+
+		-
+			message: "#^Method Ease\\\\HtmlMailer\\:\\:getContents\\(\\) should return Ease\\\\Html\\\\BodyTag but returns Ease\\\\Embedable\\|null\\.$#"
+			count: 1
+			path: src/Ease/HtmlMailer.php
+
+		-
+			message: "#^Method Ease\\\\HtmlMailer\\:\\:send\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/Ease/HtmlMailer.php
+
+		-
+			message: "#^Method Ease\\\\HtmlMailer\\:\\:setMailHeaders\\(\\) has parameter \\$mailHeaders with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Ease/HtmlMailer.php
+
+		-
+			message: "#^Method Ease\\\\HtmlMailer\\:\\:setUserNotification\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/Ease/HtmlMailer.php
+
+		-
+			message: "#^PHPDoc tag @param for parameter \\$mailHeaders with type mixed is not subtype of native type array\\.$#"
+			count: 1
+			path: src/Ease/HtmlMailer.php
+
+		-
+			message: "#^PHPDoc tag @var has invalid value \\(\\$mailer\\)\\: Unexpected token \"\\$mailer\", expected type at offset 55$#"
+			count: 1
+			path: src/Ease/HtmlMailer.php
+
+		-
+			message: "#^Parameter \\#2 \\$array of function array_key_exists expects array, string given\\.$#"
+			count: 1
+			path: src/Ease/HtmlMailer.php
+
+		-
+			message: "#^Property Ease\\\\HtmlMailer\\:\\:\\$crLf has no type specified\\.$#"
+			count: 1
+			path: src/Ease/HtmlMailer.php
+
+		-
+			message: "#^Property Ease\\\\HtmlMailer\\:\\:\\$fromEmailAddress \\(string\\) in isset\\(\\) is not nullable\\.$#"
+			count: 1
+			path: src/Ease/HtmlMailer.php
+
+		-
+			message: "#^Property Ease\\\\HtmlMailer\\:\\:\\$htmlBodyRendered \\(string\\) does not accept Ease\\\\Html\\\\HtmlTag\\.$#"
+			count: 1
+			path: src/Ease/HtmlMailer.php
+
+		-
+			message: "#^Property Ease\\\\HtmlMailer\\:\\:\\$htmlHead \\(Ease\\\\Html\\\\SimpleHeadTag\\|null\\) does not accept Ease\\\\Embedable\\|null\\.$#"
+			count: 1
+			path: src/Ease/HtmlMailer.php
+
+		-
+			message: "#^Property Ease\\\\HtmlMailer\\:\\:\\$mailBody has no type specified\\.$#"
+			count: 1
+			path: src/Ease/HtmlMailer.php
+
+		-
+			message: "#^Property Ease\\\\HtmlMailer\\:\\:\\$mailHeaders has no type specified\\.$#"
+			count: 1
+			path: src/Ease/HtmlMailer.php
+
+		-
+			message: "#^Property Ease\\\\HtmlMailer\\:\\:\\$mailHeadersDone has no type specified\\.$#"
+			count: 1
+			path: src/Ease/HtmlMailer.php
+
+		-
+			message: "#^Property Ease\\\\HtmlMailer\\:\\:\\$mailer has no type specified\\.$#"
+			count: 1
+			path: src/Ease/HtmlMailer.php
+
+		-
+			message: "#^Property Ease\\\\HtmlMailer\\:\\:\\$mimer has no type specified\\.$#"
+			count: 1
+			path: src/Ease/HtmlMailer.php
+
+		-
+			message: "#^Property Ease\\\\HtmlMailer\\:\\:\\$parameters type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Ease/HtmlMailer.php
+
+		-
+			message: "#^Property Ease\\\\HtmlMailer\\:\\:\\$textBody has no type specified\\.$#"
+			count: 1
+			path: src/Ease/HtmlMailer.php
+
+		-
+			message: "#^Call to function is_null\\(\\) with \\(int\\|string\\) will always evaluate to false\\.$#"
+			count: 1
+			path: src/Ease/Part.php
+
+		-
+			message: "#^Else branch is unreachable because previous condition is always true\\.$#"
+			count: 2
+			path: src/Ease/Part.php
+
+		-
+			message: "#^Method Ease\\\\Part\\:\\:finalize\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/Ease/Part.php
+
+		-
+			message: "#^Method Ease\\\\Part\\:\\:getPartPropertiesToString\\(\\) has parameter \\$partProperties with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Ease/Part.php
+
+		-
+			message: "#^Method Ease\\\\Part\\:\\:jQueryze\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/Ease/Part.php
+
+		-
+			message: "#^Method Ease\\\\Part\\:\\:partPropertiesToString\\(\\) has parameter \\$partProperties with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Ease/Part.php
+
+		-
+			message: "#^Method Ease\\\\Part\\:\\:setPartName\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/Ease/Part.php
+
+		-
+			message: "#^Method Ease\\\\Part\\:\\:setPartProperties\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/Ease/Part.php
+
+		-
+			message: "#^Method Ease\\\\WebPage\\:\\:includeJavaScript\\(\\) invoked with 3 parameters, 1\\-2 required\\.$#"
+			count: 1
+			path: src/Ease/Part.php
+
+		-
+			message: "#^Parameter \\#2 \\$position of method Ease\\\\WebPage\\:\\:includeJavaScript\\(\\) expects string\\|null, int given\\.$#"
+			count: 1
+			path: src/Ease/Part.php
+
+		-
+			message: "#^Property Ease\\\\Part\\:\\:\\$partProperties \\(array\\) does not accept string\\.$#"
+			count: 1
+			path: src/Ease/Part.php
+
+		-
+			message: "#^Property Ease\\\\Part\\:\\:\\$partProperties type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Ease/Part.php
+
+		-
+			message: "#^Strict comparison using \\=\\=\\= between mixed and false will always evaluate to false\\.$#"
+			count: 2
+			path: src/Ease/Part.php
+
+		-
+			message: "#^Strict comparison using \\=\\=\\= between mixed and true will always evaluate to false\\.$#"
+			count: 2
+			path: src/Ease/Part.php
+
+		-
+			message: "#^Binary operation \"\\+\" between string and 1 results in an error\\.$#"
+			count: 1
+			path: src/Ease/WebPage.php
+
+		-
+			message: "#^Call to function is_array\\(\\) with string will always evaluate to false\\.$#"
+			count: 1
+			path: src/Ease/WebPage.php
+
+		-
+			message: "#^Default value of the parameter \\#2 \\$position \\(int\\) of method Ease\\\\WebPage\\:\\:addToScriptsStack\\(\\) is incompatible with type string\\.$#"
+			count: 1
+			path: src/Ease/WebPage.php
+
+		-
+			message: "#^Else branch is unreachable because ternary operator condition is always true\\.$#"
+			count: 1
+			path: src/Ease/WebPage.php
+
+		-
+			message: "#^Method Ease\\\\Document\\:\\:addItem\\(\\) invoked with 2 parameters, 1 required\\.$#"
+			count: 1
+			path: src/Ease/WebPage.php
+
+		-
+			message: "#^Method Ease\\\\WebPage\\:\\:__construct\\(\\) has parameter \\$pageTitle with no type specified\\.$#"
+			count: 1
+			path: src/Ease/WebPage.php
+
+		-
+			message: "#^Method Ease\\\\WebPage\\:\\:__construct\\(\\) has parameter \\$toBody with no type specified\\.$#"
+			count: 1
+			path: src/Ease/WebPage.php
+
+		-
+			message: "#^Method Ease\\\\WebPage\\:\\:addItem\\(\\) should return Ease\\\\Document but returns Ease\\\\Embedable\\|null\\.$#"
+			count: 1
+			path: src/Ease/WebPage.php
+
+		-
+			message: "#^Method Ease\\\\WebPage\\:\\:addToScriptsStack\\(\\) should return int but returns string\\.$#"
+			count: 2
+			path: src/Ease/WebPage.php
+
+		-
+			message: "#^Method Ease\\\\WebPage\\:\\:emptyContents\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/Ease/WebPage.php
+
+		-
+			message: "#^Method Ease\\\\WebPage\\:\\:finalizeRegistred\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/Ease/WebPage.php
+
+		-
+			message: "#^Method Ease\\\\WebPage\\:\\:getFirstPart\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/Ease/WebPage.php
+
+		-
+			message: "#^Method Ease\\\\WebPage\\:\\:getStatusMessagesBlock\\(\\) has parameter \\$properties with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Ease/WebPage.php
+
+		-
+			message: "#^Method Ease\\\\WebPage\\:\\:includeJavaScript\\(\\) should return string but returns int\\.$#"
+			count: 1
+			path: src/Ease/WebPage.php
+
+		-
+			message: "#^Method Ease\\\\WebPage\\:\\:setPageTitle\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/Ease/WebPage.php
+
+		-
+			message: "#^Method Ease\\\\WebPage\\:\\:setTagID\\(\\) has parameter \\$tagID with no type specified\\.$#"
+			count: 1
+			path: src/Ease/WebPage.php
+
+		-
+			message: "#^Method Ease\\\\WebPage\\:\\:singleton\\(\\) has parameter \\$webPage with no type specified\\.$#"
+			count: 1
+			path: src/Ease/WebPage.php
+
+		-
+			message: "#^Parameter \\#2 \\$offset of function array_slice expects int, string given\\.$#"
+			count: 1
+			path: src/Ease/WebPage.php
+
+		-
+			message: "#^Property Ease\\\\WebPage\\:\\:\\$cascadeStyles type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Ease/WebPage.php
+
+		-
+			message: "#^Property Ease\\\\WebPage\\:\\:\\$instance has no type specified\\.$#"
+			count: 1
+			path: src/Ease/WebPage.php
+
+		-
+			message: "#^Property Ease\\\\WebPage\\:\\:\\$javaScripts type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Ease/WebPage.php
+
+		-
+			message: "#^Static method Ease\\\\User\\:\\:singleton\\(\\) invoked with 2 parameters, 0\\-1 required\\.$#"
+			count: 1
+			path: tests/Bootstrap.php
+
+		-
+			message: "#^Call to static method main\\(\\) on an unknown class PHPUnit\\\\TextUI\\\\Command\\.$#"
+			count: 1
+			path: tests/phpunit.php
+
+		-
+			message: "#^Call to an undefined method Ease\\\\Embedable\\:\\:suicide\\(\\)\\.$#"
+			count: 2
+			path: tests/src/Ease/ContainerTest.php
+
+		-
+			message: "#^Method Ease\\\\Container\\:\\:isEmpty\\(\\) invoked with 1 parameter, 0 required\\.$#"
+			count: 1
+			path: tests/src/Ease/ContainerTest.php
+
+		-
+			message: "#^Method Test\\\\Ease\\\\ContainerTest\\:\\:testAddAsFirst\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: tests/src/Ease/ContainerTest.php
+
+		-
+			message: "#^Method Test\\\\Ease\\\\ContainerTest\\:\\:testAddItem\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: tests/src/Ease/ContainerTest.php
+
+		-
+			message: "#^Method Test\\\\Ease\\\\ContainerTest\\:\\:testAddItemCustom\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: tests/src/Ease/ContainerTest.php
+
+		-
+			message: "#^Method Test\\\\Ease\\\\ContainerTest\\:\\:testAddItems\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: tests/src/Ease/ContainerTest.php
+
+		-
+			message: "#^Method Test\\\\Ease\\\\ContainerTest\\:\\:testAddNextTo\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: tests/src/Ease/ContainerTest.php
+
+		-
+			message: "#^Method Test\\\\Ease\\\\ContainerTest\\:\\:testAddToLastItem\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: tests/src/Ease/ContainerTest.php
+
+		-
+			message: "#^Method Test\\\\Ease\\\\ContainerTest\\:\\:testConstructor\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: tests/src/Ease/ContainerTest.php
+
+		-
+			message: "#^Method Test\\\\Ease\\\\ContainerTest\\:\\:testDraw\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: tests/src/Ease/ContainerTest.php
+
+		-
+			message: "#^Method Test\\\\Ease\\\\ContainerTest\\:\\:testDraw\\(\\) has parameter \\$whatWant with no type specified\\.$#"
+			count: 1
+			path: tests/src/Ease/ContainerTest.php
+
+		-
+			message: "#^Method Test\\\\Ease\\\\ContainerTest\\:\\:testDrawAllContents\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: tests/src/Ease/ContainerTest.php
+
+		-
+			message: "#^Method Test\\\\Ease\\\\ContainerTest\\:\\:testDrawIfNotDrawn\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: tests/src/Ease/ContainerTest.php
+
+		-
+			message: "#^Method Test\\\\Ease\\\\ContainerTest\\:\\:testDrawIfNotDrawn\\(\\) has parameter \\$canBeEmpty with no type specified\\.$#"
+			count: 1
+			path: tests/src/Ease/ContainerTest.php
+
+		-
+			message: "#^Method Test\\\\Ease\\\\ContainerTest\\:\\:testEmptyContents\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: tests/src/Ease/ContainerTest.php
+
+		-
+			message: "#^Method Test\\\\Ease\\\\ContainerTest\\:\\:testGetContents\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: tests/src/Ease/ContainerTest.php
+
+		-
+			message: "#^Method Test\\\\Ease\\\\ContainerTest\\:\\:testGetFirstPart\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: tests/src/Ease/ContainerTest.php
+
+		-
+			message: "#^Method Test\\\\Ease\\\\ContainerTest\\:\\:testGetItemsCount\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: tests/src/Ease/ContainerTest.php
+
+		-
+			message: "#^Method Test\\\\Ease\\\\ContainerTest\\:\\:testGetRendered\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: tests/src/Ease/ContainerTest.php
+
+		-
+			message: "#^Method Test\\\\Ease\\\\ContainerTest\\:\\:testIsEmpty\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: tests/src/Ease/ContainerTest.php
+
+		-
+			message: "#^Method Test\\\\Ease\\\\ContainerTest\\:\\:testIsFinalized\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: tests/src/Ease/ContainerTest.php
+
+		-
+			message: "#^Method Test\\\\Ease\\\\ContainerTest\\:\\:testLastItem\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: tests/src/Ease/ContainerTest.php
+
+		-
+			message: "#^Method Test\\\\Ease\\\\ContainerTest\\:\\:testSetFinalized\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: tests/src/Ease/ContainerTest.php
+
+		-
+			message: "#^Method Test\\\\Ease\\\\ContainerTest\\:\\:testSuicide\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: tests/src/Ease/ContainerTest.php
+
+		-
+			message: "#^Method Test\\\\Ease\\\\ContainerTest\\:\\:test__toString\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: tests/src/Ease/ContainerTest.php
+
+		-
+			message: "#^PHPDoc type Ease\\\\Container of property Test\\\\Ease\\\\ContainerTest\\:\\:\\$object is not covariant with PHPDoc type Test\\\\Ease\\\\Sand of overridden property Test\\\\Ease\\\\SandTest\\:\\:\\$object\\.$#"
+			count: 1
+			path: tests/src/Ease/ContainerTest.php
+
+		-
+			message: "#^Parameter \\#1 \\$object of function get_class expects object, null given\\.$#"
+			count: 1
+			path: tests/src/Ease/ContainerTest.php
+
+		-
+			message: "#^Parameter \\#1 \\$pageItem of method Ease\\\\Container\\:\\:addItem\\(\\) expects Ease\\\\Embedable\\|string, array\\<int, Ease\\\\Html\\\\ATag\\> given\\.$#"
+			count: 1
+			path: tests/src/Ease/ContainerTest.php
+
+		-
+			message: "#^Method Test\\\\Ease\\\\DocumentTest\\:\\:testAddCSS\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: tests/src/Ease/DocumentTest.php
+
+		-
+			message: "#^Method Test\\\\Ease\\\\DocumentTest\\:\\:testAddItem\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: tests/src/Ease/DocumentTest.php
+
+		-
+			message: "#^Method Test\\\\Ease\\\\DocumentTest\\:\\:testAddJavaScript\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: tests/src/Ease/DocumentTest.php
+
+		-
+			message: "#^Method Test\\\\Ease\\\\DocumentTest\\:\\:testArrayToUrlParams\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: tests/src/Ease/DocumentTest.php
+
+		-
+			message: "#^Method Test\\\\Ease\\\\DocumentTest\\:\\:testGetGetValue\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: tests/src/Ease/DocumentTest.php
+
+		-
+			message: "#^Method Test\\\\Ease\\\\DocumentTest\\:\\:testGetPostValue\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: tests/src/Ease/DocumentTest.php
+
+		-
+			message: "#^Method Test\\\\Ease\\\\DocumentTest\\:\\:testGetRequestValue\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: tests/src/Ease/DocumentTest.php
+
+		-
+			message: "#^Method Test\\\\Ease\\\\DocumentTest\\:\\:testGetRequestValues\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: tests/src/Ease/DocumentTest.php
+
+		-
+			message: "#^Method Test\\\\Ease\\\\DocumentTest\\:\\:testGetUri\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: tests/src/Ease/DocumentTest.php
+
+		-
+			message: "#^Method Test\\\\Ease\\\\DocumentTest\\:\\:testIncludeCss\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: tests/src/Ease/DocumentTest.php
+
+		-
+			message: "#^Method Test\\\\Ease\\\\DocumentTest\\:\\:testIncludeJavaScript\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: tests/src/Ease/DocumentTest.php
+
+		-
+			message: "#^Method Test\\\\Ease\\\\DocumentTest\\:\\:testIsFormPosted\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: tests/src/Ease/DocumentTest.php
+
+		-
+			message: "#^Method Test\\\\Ease\\\\DocumentTest\\:\\:testIsPosted\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: tests/src/Ease/DocumentTest.php
+
+		-
+			message: "#^Method Test\\\\Ease\\\\DocumentTest\\:\\:testOnlyForLogged\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: tests/src/Ease/DocumentTest.php
+
+		-
+			message: "#^Method Test\\\\Ease\\\\DocumentTest\\:\\:testPhpSelf\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: tests/src/Ease/DocumentTest.php
+
+		-
+			message: "#^Method Test\\\\Ease\\\\DocumentTest\\:\\:testRedirect\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: tests/src/Ease/DocumentTest.php
+
+		-
+			message: "#^Method Test\\\\Ease\\\\DocumentTest\\:\\:testRegisterItem\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: tests/src/Ease/DocumentTest.php
+
+		-
+			message: "#^Method Test\\\\Ease\\\\DocumentTest\\:\\:testSanitizeAsType\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: tests/src/Ease/DocumentTest.php
+
+		-
+			message: "#^Method Test\\\\Ease\\\\DocumentTest\\:\\:testSingleton\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: tests/src/Ease/DocumentTest.php
+
+		-
+			message: "#^Parameter \\#2 \\$position of method Ease\\\\Document\\:\\:addJavaScript\\(\\) expects string\\|null, false given\\.$#"
+			count: 1
+			path: tests/src/Ease/DocumentTest.php
+
+		-
+			message: "#^Method Test\\\\Ease\\\\Html\\\\ATagTest\\:\\:testConstructor\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: tests/src/Ease/Html/ATagTest.php
+
+		-
+			message: "#^PHPDoc type Test\\\\Ease\\\\Html\\\\ArticleTag of property Test\\\\Ease\\\\Html\\\\BdiTagTest\\:\\:\\$object is not covariant with PHPDoc type Ease\\\\Html\\\\PairTag of overridden property Test\\\\Ease\\\\Html\\\\PairTagTest\\:\\:\\$object\\.$#"
+			count: 1
+			path: tests/src/Ease/Html/BdiTagTest.php
+
+		-
+			message: "#^Property Test\\\\Ease\\\\Html\\\\BdiTagTest\\:\\:\\$object \\(Test\\\\Ease\\\\Html\\\\ArticleTag\\) does not accept Ease\\\\Html\\\\BdiTag\\.$#"
+			count: 1
+			path: tests/src/Ease/Html/BdiTagTest.php
+
+		-
+			message: "#^Property Test\\\\Ease\\\\Html\\\\BdiTagTest\\:\\:\\$object has unknown class Test\\\\Ease\\\\Html\\\\ArticleTag as its type\\.$#"
+			count: 1
+			path: tests/src/Ease/Html/BdiTagTest.php
+
+		-
+			message: "#^Method Test\\\\Ease\\\\Html\\\\BodyTagTest\\:\\:testConstructor\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: tests/src/Ease/Html/BodyTagTest.php
+
+		-
+			message: "#^Method Test\\\\Ease\\\\Html\\\\BodyTagTest\\:\\:testDraw\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: tests/src/Ease/Html/BodyTagTest.php
+
+		-
+			message: "#^Method Test\\\\Ease\\\\Html\\\\BodyTagTest\\:\\:testDraw\\(\\) has parameter \\$whatWant with no type specified\\.$#"
+			count: 1
+			path: tests/src/Ease/Html/BodyTagTest.php
+
+		-
+			message: "#^Method Test\\\\Ease\\\\Html\\\\BodyTagTest\\:\\:testDrawIfNotDrawn\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: tests/src/Ease/Html/BodyTagTest.php
+
+		-
+			message: "#^Method Test\\\\Ease\\\\Html\\\\BodyTagTest\\:\\:testDrawIfNotDrawn\\(\\) has parameter \\$canBeEmpty with no type specified\\.$#"
+			count: 1
+			path: tests/src/Ease/Html/BodyTagTest.php
+
+		-
+			message: "#^Method Test\\\\Ease\\\\Html\\\\BodyTagTest\\:\\:testSetObjectName\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: tests/src/Ease/Html/BodyTagTest.php
+
+		-
+			message: "#^PHPDoc type Test\\\\Ease\\\\Html\\\\CanvasTag of property Test\\\\Ease\\\\Html\\\\CanvasTagTest\\:\\:\\$object is not covariant with PHPDoc type Ease\\\\Html\\\\PairTag of overridden property Test\\\\Ease\\\\Html\\\\PairTagTest\\:\\:\\$object\\.$#"
+			count: 1
+			path: tests/src/Ease/Html/CanvasTagTest.php
+
+		-
+			message: "#^Property Test\\\\Ease\\\\Html\\\\CanvasTagTest\\:\\:\\$object \\(Test\\\\Ease\\\\Html\\\\CanvasTag\\) does not accept Ease\\\\Html\\\\CanvasTag\\.$#"
+			count: 1
+			path: tests/src/Ease/Html/CanvasTagTest.php
+
+		-
+			message: "#^Property Test\\\\Ease\\\\Html\\\\CanvasTagTest\\:\\:\\$object has unknown class Test\\\\Ease\\\\Html\\\\CanvasTag as its type\\.$#"
+			count: 1
+			path: tests/src/Ease/Html/CanvasTagTest.php
+
+		-
+			message: "#^Method Test\\\\Ease\\\\Html\\\\CheckboxTagTest\\:\\:testConstructor\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: tests/src/Ease/Html/CheckboxTagTest.php
+
+		-
+			message: "#^Method Test\\\\Ease\\\\Html\\\\CheckboxTagTest\\:\\:testDraw\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: tests/src/Ease/Html/CheckboxTagTest.php
+
+		-
+			message: "#^Method Test\\\\Ease\\\\Html\\\\CheckboxTagTest\\:\\:testDraw\\(\\) has parameter \\$whatWant with no type specified\\.$#"
+			count: 1
+			path: tests/src/Ease/Html/CheckboxTagTest.php
+
+		-
+			message: "#^Method Test\\\\Ease\\\\Html\\\\CheckboxTagTest\\:\\:testGetValue\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: tests/src/Ease/Html/CheckboxTagTest.php
+
+		-
+			message: "#^Method Test\\\\Ease\\\\Html\\\\CheckboxTagTest\\:\\:testSetValue\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: tests/src/Ease/Html/CheckboxTagTest.php
+
+		-
+			message: "#^PHPDoc type Ease\\\\Html\\\\CheckboxTag of property Test\\\\Ease\\\\Html\\\\CheckboxTagTest\\:\\:\\$object is not covariant with PHPDoc type Test\\\\Ease\\\\Html\\\\InputTag of overridden property Test\\\\Ease\\\\Html\\\\InputTagTest\\:\\:\\$object\\.$#"
+			count: 1
+			path: tests/src/Ease/Html/CheckboxTagTest.php
+
+		-
+			message: "#^Method Test\\\\Ease\\\\Html\\\\CommentTest\\:\\:testConstructor\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: tests/src/Ease/Html/CommentTest.php
+
+		-
+			message: "#^Method Test\\\\Ease\\\\Html\\\\CommentTest\\:\\:testDraw\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: tests/src/Ease/Html/CommentTest.php
+
+		-
+			message: "#^Method Test\\\\Ease\\\\Html\\\\CommentTest\\:\\:testDraw\\(\\) has parameter \\$whatWant with no type specified\\.$#"
+			count: 1
+			path: tests/src/Ease/Html/CommentTest.php
+
+		-
+			message: "#^PHPDoc type Ease\\\\Html\\\\Comment of property Test\\\\Ease\\\\Html\\\\CommentTest\\:\\:\\$object is not covariant with PHPDoc type Test\\\\Ease\\\\Html\\\\Tag of overridden property Test\\\\Ease\\\\Html\\\\TagTest\\:\\:\\$object\\.$#"
+			count: 1
+			path: tests/src/Ease/Html/CommentTest.php
+
+		-
+			message: "#^PHPDoc type Test\\\\Ease\\\\Html\\\\ArticleTag of property Test\\\\Ease\\\\Html\\\\DatalistTagTest\\:\\:\\$object is not covariant with PHPDoc type Ease\\\\Html\\\\PairTag of overridden property Test\\\\Ease\\\\Html\\\\PairTagTest\\:\\:\\$object\\.$#"
+			count: 1
+			path: tests/src/Ease/Html/DatalistTagTest.php
+
+		-
+			message: "#^Property Test\\\\Ease\\\\Html\\\\DatalistTagTest\\:\\:\\$object \\(Test\\\\Ease\\\\Html\\\\ArticleTag\\) does not accept Ease\\\\Html\\\\DatalistTag\\.$#"
+			count: 1
+			path: tests/src/Ease/Html/DatalistTagTest.php
+
+		-
+			message: "#^Property Test\\\\Ease\\\\Html\\\\DatalistTagTest\\:\\:\\$object has unknown class Test\\\\Ease\\\\Html\\\\ArticleTag as its type\\.$#"
+			count: 1
+			path: tests/src/Ease/Html/DatalistTagTest.php
+
+		-
+			message: "#^PHPDoc type Test\\\\Ease\\\\Html\\\\DdTag of property Test\\\\Ease\\\\Html\\\\DdTagTest\\:\\:\\$object is not covariant with PHPDoc type Ease\\\\Html\\\\PairTag of overridden property Test\\\\Ease\\\\Html\\\\PairTagTest\\:\\:\\$object\\.$#"
+			count: 1
+			path: tests/src/Ease/Html/DdTagTest.php
+
+		-
+			message: "#^Property Test\\\\Ease\\\\Html\\\\DdTagTest\\:\\:\\$object \\(Test\\\\Ease\\\\Html\\\\DdTag\\) does not accept Ease\\\\Html\\\\DdTag\\.$#"
+			count: 1
+			path: tests/src/Ease/Html/DdTagTest.php
+
+		-
+			message: "#^Property Test\\\\Ease\\\\Html\\\\DdTagTest\\:\\:\\$object has unknown class Test\\\\Ease\\\\Html\\\\DdTag as its type\\.$#"
+			count: 1
+			path: tests/src/Ease/Html/DdTagTest.php
+
+		-
+			message: "#^PHPDoc type Test\\\\Ease\\\\Html\\\\ArticleTag of property Test\\\\Ease\\\\Html\\\\DetailsTagTest\\:\\:\\$object is not covariant with PHPDoc type Ease\\\\Html\\\\PairTag of overridden property Test\\\\Ease\\\\Html\\\\PairTagTest\\:\\:\\$object\\.$#"
+			count: 1
+			path: tests/src/Ease/Html/DetailsTagTest.php
+
+		-
+			message: "#^Property Test\\\\Ease\\\\Html\\\\DetailsTagTest\\:\\:\\$object \\(Test\\\\Ease\\\\Html\\\\ArticleTag\\) does not accept Ease\\\\Html\\\\DetailsTag\\.$#"
+			count: 1
+			path: tests/src/Ease/Html/DetailsTagTest.php
+
+		-
+			message: "#^Property Test\\\\Ease\\\\Html\\\\DetailsTagTest\\:\\:\\$object has unknown class Test\\\\Ease\\\\Html\\\\ArticleTag as its type\\.$#"
+			count: 1
+			path: tests/src/Ease/Html/DetailsTagTest.php
+
+		-
+			message: "#^Method Test\\\\Ease\\\\Html\\\\DlTagTest\\:\\:testAddDef\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: tests/src/Ease/Html/DlTagTest.php
+
+		-
+			message: "#^PHPDoc type Test\\\\Ease\\\\Html\\\\DtTag of property Test\\\\Ease\\\\Html\\\\DtTagTest\\:\\:\\$object is not covariant with PHPDoc type Ease\\\\Html\\\\PairTag of overridden property Test\\\\Ease\\\\Html\\\\PairTagTest\\:\\:\\$object\\.$#"
+			count: 1
+			path: tests/src/Ease/Html/DtTagTest.php
+
+		-
+			message: "#^Property Test\\\\Ease\\\\Html\\\\DtTagTest\\:\\:\\$object \\(Test\\\\Ease\\\\Html\\\\DtTag\\) does not accept Ease\\\\Html\\\\DtTag\\.$#"
+			count: 1
+			path: tests/src/Ease/Html/DtTagTest.php
+
+		-
+			message: "#^Property Test\\\\Ease\\\\Html\\\\DtTagTest\\:\\:\\$object has unknown class Test\\\\Ease\\\\Html\\\\DtTag as its type\\.$#"
+			count: 1
+			path: tests/src/Ease/Html/DtTagTest.php
+
+		-
+			message: "#^PHPDoc type Test\\\\Ease\\\\Html\\\\EmTag of property Test\\\\Ease\\\\Html\\\\EmTagTest\\:\\:\\$object is not covariant with PHPDoc type Ease\\\\Html\\\\PairTag of overridden property Test\\\\Ease\\\\Html\\\\PairTagTest\\:\\:\\$object\\.$#"
+			count: 1
+			path: tests/src/Ease/Html/EmTagTest.php
+
+		-
+			message: "#^Property Test\\\\Ease\\\\Html\\\\EmTagTest\\:\\:\\$object \\(Test\\\\Ease\\\\Html\\\\EmTag\\) does not accept Ease\\\\Html\\\\EmTag\\.$#"
+			count: 1
+			path: tests/src/Ease/Html/EmTagTest.php
+
+		-
+			message: "#^Property Test\\\\Ease\\\\Html\\\\EmTagTest\\:\\:\\$object has unknown class Test\\\\Ease\\\\Html\\\\EmTag as its type\\.$#"
+			count: 1
+			path: tests/src/Ease/Html/EmTagTest.php
+
+		-
+			message: "#^PHPDoc type Test\\\\Ease\\\\Html\\\\NavTag of property Test\\\\Ease\\\\Html\\\\EmbedableTest\\:\\:\\$object is not covariant with PHPDoc type Ease\\\\Html\\\\PairTag of overridden property Test\\\\Ease\\\\Html\\\\PairTagTest\\:\\:\\$object\\.$#"
+			count: 1
+			path: tests/src/Ease/Html/EmbedableTest.php
+
+		-
+			message: "#^Property Test\\\\Ease\\\\Html\\\\EmbedableTest\\:\\:\\$object \\(Test\\\\Ease\\\\Html\\\\NavTag\\) does not accept Ease\\\\Html\\\\NavTag\\.$#"
+			count: 1
+			path: tests/src/Ease/Html/EmbedableTest.php
+
+		-
+			message: "#^Property Test\\\\Ease\\\\Html\\\\EmbedableTest\\:\\:\\$object has unknown class Test\\\\Ease\\\\Html\\\\NavTag as its type\\.$#"
+			count: 1
+			path: tests/src/Ease/Html/EmbedableTest.php
+
+		-
+			message: "#^Method Test\\\\Ease\\\\Html\\\\FieldSetTest\\:\\:testFinalize\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: tests/src/Ease/Html/FieldSetTest.php
+
+		-
+			message: "#^Method Test\\\\Ease\\\\Html\\\\FieldSetTest\\:\\:testGetTagName\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: tests/src/Ease/Html/FieldSetTest.php
+
+		-
+			message: "#^Method Test\\\\Ease\\\\Html\\\\FieldSetTest\\:\\:testSetLegend\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: tests/src/Ease/Html/FieldSetTest.php
+
+		-
+			message: "#^Method Test\\\\Ease\\\\Html\\\\FieldSetTest\\:\\:testSetObjectName\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: tests/src/Ease/Html/FieldSetTest.php
+
+		-
+			message: "#^Method Test\\\\Ease\\\\Html\\\\FormTest\\:\\:testChangeActionParameter\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: tests/src/Ease/Html/FormTest.php
+
+		-
+			message: "#^Method Test\\\\Ease\\\\Html\\\\FormTest\\:\\:testConstructor\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: tests/src/Ease/Html/FormTest.php
+
+		-
+			message: "#^Method Test\\\\Ease\\\\Html\\\\FormTest\\:\\:testFillMeUp\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: tests/src/Ease/Html/FormTest.php
+
+		-
+			message: "#^Method Test\\\\Ease\\\\Html\\\\FormTest\\:\\:testFillUp\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: tests/src/Ease/Html/FormTest.php
+
+		-
+			message: "#^Method Test\\\\Ease\\\\Html\\\\FormTest\\:\\:testFinalize\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: tests/src/Ease/Html/FormTest.php
+
+		-
+			message: "#^Method Test\\\\Ease\\\\Html\\\\FormTest\\:\\:testGetTagName\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: tests/src/Ease/Html/FormTest.php
+
+		-
+			message: "#^Method Test\\\\Ease\\\\Html\\\\FormTest\\:\\:testObjectContentSearch\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: tests/src/Ease/Html/FormTest.php
+
+		-
+			message: "#^Method Test\\\\Ease\\\\Html\\\\FormTest\\:\\:testSetFormTarget\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: tests/src/Ease/Html/FormTest.php
+
+		-
+			message: "#^Parameter \\#1 \\$data of method Ease\\\\Html\\\\Form\\:\\:fillUp\\(\\) expects string\\|null, array\\<string, int\\> given\\.$#"
+			count: 2
+			path: tests/src/Ease/Html/FormTest.php
+
+		-
+			message: "#^PHPDoc type Test\\\\Ease\\\\Html\\\\H1Tag of property Test\\\\Ease\\\\Html\\\\H1TagTest\\:\\:\\$object is not covariant with PHPDoc type Ease\\\\Html\\\\PairTag of overridden property Test\\\\Ease\\\\Html\\\\PairTagTest\\:\\:\\$object\\.$#"
+			count: 1
+			path: tests/src/Ease/Html/H1TagTest.php
+
+		-
+			message: "#^Property Test\\\\Ease\\\\Html\\\\H1TagTest\\:\\:\\$object \\(Test\\\\Ease\\\\Html\\\\H1Tag\\) does not accept Ease\\\\Html\\\\H1Tag\\.$#"
+			count: 1
+			path: tests/src/Ease/Html/H1TagTest.php
+
+		-
+			message: "#^Property Test\\\\Ease\\\\Html\\\\H1TagTest\\:\\:\\$object has unknown class Test\\\\Ease\\\\Html\\\\H1Tag as its type\\.$#"
+			count: 1
+			path: tests/src/Ease/Html/H1TagTest.php
+
+		-
+			message: "#^PHPDoc type Test\\\\Ease\\\\Html\\\\H2Tag of property Test\\\\Ease\\\\Html\\\\H2TagTest\\:\\:\\$object is not covariant with PHPDoc type Ease\\\\Html\\\\PairTag of overridden property Test\\\\Ease\\\\Html\\\\PairTagTest\\:\\:\\$object\\.$#"
+			count: 1
+			path: tests/src/Ease/Html/H2TagTest.php
+
+		-
+			message: "#^Property Test\\\\Ease\\\\Html\\\\H2TagTest\\:\\:\\$object \\(Test\\\\Ease\\\\Html\\\\H2Tag\\) does not accept Ease\\\\Html\\\\H2Tag\\.$#"
+			count: 1
+			path: tests/src/Ease/Html/H2TagTest.php
+
+		-
+			message: "#^Property Test\\\\Ease\\\\Html\\\\H2TagTest\\:\\:\\$object has unknown class Test\\\\Ease\\\\Html\\\\H2Tag as its type\\.$#"
+			count: 1
+			path: tests/src/Ease/Html/H2TagTest.php
+
+		-
+			message: "#^PHPDoc type Test\\\\Ease\\\\Html\\\\H3Tag of property Test\\\\Ease\\\\Html\\\\H3TagTest\\:\\:\\$object is not covariant with PHPDoc type Ease\\\\Html\\\\PairTag of overridden property Test\\\\Ease\\\\Html\\\\PairTagTest\\:\\:\\$object\\.$#"
+			count: 1
+			path: tests/src/Ease/Html/H3TagTest.php
+
+		-
+			message: "#^Property Test\\\\Ease\\\\Html\\\\H3TagTest\\:\\:\\$object \\(Test\\\\Ease\\\\Html\\\\H3Tag\\) does not accept Ease\\\\Html\\\\H3Tag\\.$#"
+			count: 1
+			path: tests/src/Ease/Html/H3TagTest.php
+
+		-
+			message: "#^Property Test\\\\Ease\\\\Html\\\\H3TagTest\\:\\:\\$object has unknown class Test\\\\Ease\\\\Html\\\\H3Tag as its type\\.$#"
+			count: 1
+			path: tests/src/Ease/Html/H3TagTest.php
+
+		-
+			message: "#^PHPDoc type Test\\\\Ease\\\\Html\\\\H4Tag of property Test\\\\Ease\\\\Html\\\\H4TagTest\\:\\:\\$object is not covariant with PHPDoc type Ease\\\\Html\\\\PairTag of overridden property Test\\\\Ease\\\\Html\\\\PairTagTest\\:\\:\\$object\\.$#"
+			count: 1
+			path: tests/src/Ease/Html/H4TagTest.php
+
+		-
+			message: "#^Property Test\\\\Ease\\\\Html\\\\H4TagTest\\:\\:\\$object \\(Test\\\\Ease\\\\Html\\\\H4Tag\\) does not accept Ease\\\\Html\\\\H4Tag\\.$#"
+			count: 1
+			path: tests/src/Ease/Html/H4TagTest.php
+
+		-
+			message: "#^Property Test\\\\Ease\\\\Html\\\\H4TagTest\\:\\:\\$object has unknown class Test\\\\Ease\\\\Html\\\\H4Tag as its type\\.$#"
+			count: 1
+			path: tests/src/Ease/Html/H4TagTest.php
+
+		-
+			message: "#^PHPDoc type Test\\\\Ease\\\\Html\\\\H5Tag of property Test\\\\Ease\\\\Html\\\\H5TagTest\\:\\:\\$object is not covariant with PHPDoc type Ease\\\\Html\\\\PairTag of overridden property Test\\\\Ease\\\\Html\\\\PairTagTest\\:\\:\\$object\\.$#"
+			count: 1
+			path: tests/src/Ease/Html/H5TagTest.php
+
+		-
+			message: "#^Property Test\\\\Ease\\\\Html\\\\H5TagTest\\:\\:\\$object \\(Test\\\\Ease\\\\Html\\\\H5Tag\\) does not accept Ease\\\\Html\\\\H5Tag\\.$#"
+			count: 1
+			path: tests/src/Ease/Html/H5TagTest.php
+
+		-
+			message: "#^Property Test\\\\Ease\\\\Html\\\\H5TagTest\\:\\:\\$object has unknown class Test\\\\Ease\\\\Html\\\\H5Tag as its type\\.$#"
+			count: 1
+			path: tests/src/Ease/Html/H5TagTest.php
+
+		-
+			message: "#^Method Test\\\\Ease\\\\Html\\\\HeadTagTest\\:\\:testDraw\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: tests/src/Ease/Html/HeadTagTest.php
+
+		-
+			message: "#^Method Test\\\\Ease\\\\Html\\\\HeadTagTest\\:\\:testDraw\\(\\) has parameter \\$whatWant with no type specified\\.$#"
+			count: 1
+			path: tests/src/Ease/Html/HeadTagTest.php
+
+		-
+			message: "#^Method Test\\\\Ease\\\\Html\\\\HeadTagTest\\:\\:testDrawIfNotDrawn\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: tests/src/Ease/Html/HeadTagTest.php
+
+		-
+			message: "#^Method Test\\\\Ease\\\\Html\\\\HeadTagTest\\:\\:testDrawIfNotDrawn\\(\\) has parameter \\$canBeEmpty with no type specified\\.$#"
+			count: 1
+			path: tests/src/Ease/Html/HeadTagTest.php
+
+		-
+			message: "#^Method Test\\\\Ease\\\\Html\\\\HeadTagTest\\:\\:testFinalize\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: tests/src/Ease/Html/HeadTagTest.php
+
+		-
+			message: "#^Method Test\\\\Ease\\\\Html\\\\HeadTagTest\\:\\:testJsEnclosure\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: tests/src/Ease/Html/HeadTagTest.php
+
+		-
+			message: "#^Method Test\\\\Ease\\\\Html\\\\HeadTagTest\\:\\:testSetObjectName\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: tests/src/Ease/Html/HeadTagTest.php
+
+		-
+			message: "#^Call to method __construct\\(\\) on an unknown class Test\\\\Ease\\\\Html\\\\HrTag\\.$#"
+			count: 1
+			path: tests/src/Ease/Html/HrTagTest.php
+
+		-
+			message: "#^Call to method getRendered\\(\\) on an unknown class Test\\\\Ease\\\\Html\\\\HrTag\\.$#"
+			count: 1
+			path: tests/src/Ease/Html/HrTagTest.php
+
+		-
+			message: "#^Method Test\\\\Ease\\\\Html\\\\HrTagTest\\:\\:testConstructor\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: tests/src/Ease/Html/HrTagTest.php
+
+		-
+			message: "#^PHPDoc type Test\\\\Ease\\\\Html\\\\HrTag of property Test\\\\Ease\\\\Html\\\\HrTagTest\\:\\:\\$object is not covariant with PHPDoc type Test\\\\Ease\\\\Html\\\\Tag of overridden property Test\\\\Ease\\\\Html\\\\TagTest\\:\\:\\$object\\.$#"
+			count: 1
+			path: tests/src/Ease/Html/HrTagTest.php
+
+		-
+			message: "#^Property Test\\\\Ease\\\\Html\\\\HrTagTest\\:\\:\\$object \\(Test\\\\Ease\\\\Html\\\\HrTag\\) does not accept Ease\\\\Html\\\\HrTag\\.$#"
+			count: 1
+			path: tests/src/Ease/Html/HrTagTest.php
+
+		-
+			message: "#^Property Test\\\\Ease\\\\Html\\\\HrTagTest\\:\\:\\$object has unknown class Test\\\\Ease\\\\Html\\\\HrTag as its type\\.$#"
+			count: 1
+			path: tests/src/Ease/Html/HrTagTest.php
+
+		-
+			message: "#^Method Test\\\\Ease\\\\Html\\\\HtmlTagTest\\:\\:testSetObjectName\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: tests/src/Ease/Html/HtmlTagTest.php
+
+		-
+			message: "#^PHPDoc type Test\\\\Ease\\\\Html\\\\IframeTag of property Test\\\\Ease\\\\Html\\\\IframeTagTest\\:\\:\\$object is not covariant with PHPDoc type Ease\\\\Html\\\\PairTag of overridden property Test\\\\Ease\\\\Html\\\\PairTagTest\\:\\:\\$object\\.$#"
+			count: 1
+			path: tests/src/Ease/Html/IframeTagTest.php
+
+		-
+			message: "#^Property Test\\\\Ease\\\\Html\\\\IframeTagTest\\:\\:\\$object \\(Test\\\\Ease\\\\Html\\\\IframeTag\\) does not accept Ease\\\\Html\\\\IframeTag\\.$#"
+			count: 1
+			path: tests/src/Ease/Html/IframeTagTest.php
+
+		-
+			message: "#^Property Test\\\\Ease\\\\Html\\\\IframeTagTest\\:\\:\\$object has unknown class Test\\\\Ease\\\\Html\\\\IframeTag as its type\\.$#"
+			count: 1
+			path: tests/src/Ease/Html/IframeTagTest.php
+
+		-
+			message: "#^Method Test\\\\Ease\\\\Html\\\\ImgTagTest\\:\\:testConstructor\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: tests/src/Ease/Html/ImgTagTest.php
+
+		-
+			message: "#^Method Test\\\\Ease\\\\Html\\\\ImgTagTest\\:\\:testDraw\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: tests/src/Ease/Html/ImgTagTest.php
+
+		-
+			message: "#^Method Test\\\\Ease\\\\Html\\\\ImgTagTest\\:\\:testDraw\\(\\) has parameter \\$whatWant with no type specified\\.$#"
+			count: 1
+			path: tests/src/Ease/Html/ImgTagTest.php
+
+		-
+			message: "#^PHPDoc type Ease\\\\Html\\\\ImgTag of property Test\\\\Ease\\\\Html\\\\ImgTagTest\\:\\:\\$object is not covariant with PHPDoc type Test\\\\Ease\\\\Html\\\\Tag of overridden property Test\\\\Ease\\\\Html\\\\TagTest\\:\\:\\$object\\.$#"
+			count: 1
+			path: tests/src/Ease/Html/ImgTagTest.php
+
+		-
+			message: "#^Call to method __construct\\(\\) on an unknown class Test\\\\Ease\\\\Html\\\\InputColorTag\\.$#"
+			count: 2
+			path: tests/src/Ease/Html/InputColorTagTest.php
+
+		-
+			message: "#^Call to method getRendered\\(\\) on an unknown class Test\\\\Ease\\\\Html\\\\InputColorTag\\.$#"
+			count: 1
+			path: tests/src/Ease/Html/InputColorTagTest.php
+
+		-
+			message: "#^Method Test\\\\Ease\\\\Html\\\\InputColorTagTest\\:\\:testConstructor\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: tests/src/Ease/Html/InputColorTagTest.php
+
+		-
+			message: "#^Method Test\\\\Ease\\\\Html\\\\InputColorTagTest\\:\\:testDraw\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: tests/src/Ease/Html/InputColorTagTest.php
+
+		-
+			message: "#^Method Test\\\\Ease\\\\Html\\\\InputColorTagTest\\:\\:testDraw\\(\\) has parameter \\$whatWant with no type specified\\.$#"
+			count: 1
+			path: tests/src/Ease/Html/InputColorTagTest.php
+
+		-
+			message: "#^PHPDoc type Test\\\\Ease\\\\Html\\\\InputColorTag of property Test\\\\Ease\\\\Html\\\\InputColorTagTest\\:\\:\\$object is not covariant with PHPDoc type Test\\\\Ease\\\\Html\\\\InputTag of overridden property Test\\\\Ease\\\\Html\\\\InputTagTest\\:\\:\\$object\\.$#"
+			count: 1
+			path: tests/src/Ease/Html/InputColorTagTest.php
+
+		-
+			message: "#^Property Test\\\\Ease\\\\Html\\\\InputColorTagTest\\:\\:\\$object \\(Test\\\\Ease\\\\Html\\\\InputColorTag\\) does not accept Ease\\\\Html\\\\InputColorTag\\.$#"
+			count: 1
+			path: tests/src/Ease/Html/InputColorTagTest.php
+
+		-
+			message: "#^Property Test\\\\Ease\\\\Html\\\\InputColorTagTest\\:\\:\\$object has unknown class Test\\\\Ease\\\\Html\\\\InputColorTag as its type\\.$#"
+			count: 1
+			path: tests/src/Ease/Html/InputColorTagTest.php
+
+		-
+			message: "#^Method Test\\\\Ease\\\\Html\\\\InputDateTagTest\\:\\:testConstructor\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: tests/src/Ease/Html/InputDateTagTest.php
+
+		-
+			message: "#^PHPDoc type Ease\\\\Html\\\\InputDateTag of property Test\\\\Ease\\\\Html\\\\InputDateTagTest\\:\\:\\$object is not covariant with PHPDoc type Test\\\\Ease\\\\Html\\\\InputTag of overridden property Test\\\\Ease\\\\Html\\\\InputTagTest\\:\\:\\$object\\.$#"
+			count: 1
+			path: tests/src/Ease/Html/InputDateTagTest.php
+
+		-
+			message: "#^PHPDoc type Ease\\\\Html\\\\InputDateTimeTag of property Test\\\\Ease\\\\Html\\\\InputDateTimeTagTest\\:\\:\\$object is not covariant with PHPDoc type Test\\\\Ease\\\\Html\\\\InputTag of overridden property Test\\\\Ease\\\\Html\\\\InputTagTest\\:\\:\\$object\\.$#"
+			count: 1
+			path: tests/src/Ease/Html/InputDateTimeTagTest.php
+
+		-
+			message: "#^Call to method __construct\\(\\) on an unknown class Test\\\\Ease\\\\Html\\\\InputEmailTag\\.$#"
+			count: 2
+			path: tests/src/Ease/Html/InputEmailTagTest.php
+
+		-
+			message: "#^Call to method getRendered\\(\\) on an unknown class Test\\\\Ease\\\\Html\\\\InputEmailTag\\.$#"
+			count: 1
+			path: tests/src/Ease/Html/InputEmailTagTest.php
+
+		-
+			message: "#^Method Test\\\\Ease\\\\Html\\\\InputEmailTagTest\\:\\:testConstructor\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: tests/src/Ease/Html/InputEmailTagTest.php
+
+		-
+			message: "#^PHPDoc type Test\\\\Ease\\\\Html\\\\InputEmailTag of property Test\\\\Ease\\\\Html\\\\InputEmailTagTest\\:\\:\\$object is not covariant with PHPDoc type Test\\\\Ease\\\\Html\\\\InputTag of overridden property Test\\\\Ease\\\\Html\\\\InputTagTest\\:\\:\\$object\\.$#"
+			count: 1
+			path: tests/src/Ease/Html/InputEmailTagTest.php
+
+		-
+			message: "#^Property Test\\\\Ease\\\\Html\\\\InputEmailTagTest\\:\\:\\$object \\(Test\\\\Ease\\\\Html\\\\InputEmailTag\\) does not accept Ease\\\\Html\\\\InputEmailTag\\.$#"
+			count: 1
+			path: tests/src/Ease/Html/InputEmailTagTest.php
+
+		-
+			message: "#^Property Test\\\\Ease\\\\Html\\\\InputEmailTagTest\\:\\:\\$object has unknown class Test\\\\Ease\\\\Html\\\\InputEmailTag as its type\\.$#"
+			count: 1
+			path: tests/src/Ease/Html/InputEmailTagTest.php
+
+		-
+			message: "#^Call to method __construct\\(\\) on an unknown class Test\\\\Ease\\\\Html\\\\InputFileTag\\.$#"
+			count: 2
+			path: tests/src/Ease/Html/InputFileTagTest.php
+
+		-
+			message: "#^Call to method getRendered\\(\\) on an unknown class Test\\\\Ease\\\\Html\\\\InputFileTag\\.$#"
+			count: 1
+			path: tests/src/Ease/Html/InputFileTagTest.php
+
+		-
+			message: "#^Method Test\\\\Ease\\\\Html\\\\InputFileTagTest\\:\\:testConstructor\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: tests/src/Ease/Html/InputFileTagTest.php
+
+		-
+			message: "#^Method Test\\\\Ease\\\\Html\\\\InputFileTagTest\\:\\:testDraw\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: tests/src/Ease/Html/InputFileTagTest.php
+
+		-
+			message: "#^Method Test\\\\Ease\\\\Html\\\\InputFileTagTest\\:\\:testDraw\\(\\) has parameter \\$whatWant with no type specified\\.$#"
+			count: 1
+			path: tests/src/Ease/Html/InputFileTagTest.php
+
+		-
+			message: "#^PHPDoc type Test\\\\Ease\\\\Html\\\\InputFileTag of property Test\\\\Ease\\\\Html\\\\InputFileTagTest\\:\\:\\$object is not covariant with PHPDoc type Test\\\\Ease\\\\Html\\\\InputTag of overridden property Test\\\\Ease\\\\Html\\\\InputTagTest\\:\\:\\$object\\.$#"
+			count: 1
+			path: tests/src/Ease/Html/InputFileTagTest.php
+
+		-
+			message: "#^Property Test\\\\Ease\\\\Html\\\\InputFileTagTest\\:\\:\\$object \\(Test\\\\Ease\\\\Html\\\\InputFileTag\\) does not accept Ease\\\\Html\\\\InputFileTag\\.$#"
+			count: 1
+			path: tests/src/Ease/Html/InputFileTagTest.php
+
+		-
+			message: "#^Property Test\\\\Ease\\\\Html\\\\InputFileTagTest\\:\\:\\$object has unknown class Test\\\\Ease\\\\Html\\\\InputFileTag as its type\\.$#"
+			count: 1
+			path: tests/src/Ease/Html/InputFileTagTest.php
+
+		-
+			message: "#^Call to method __construct\\(\\) on an unknown class Test\\\\Ease\\\\Html\\\\InputHiddenTag\\.$#"
+			count: 1
+			path: tests/src/Ease/Html/InputHiddenTagTest.php
+
+		-
+			message: "#^Call to method getRendered\\(\\) on an unknown class Test\\\\Ease\\\\Html\\\\InputHiddenTag\\.$#"
+			count: 1
+			path: tests/src/Ease/Html/InputHiddenTagTest.php
+
+		-
+			message: "#^Method Test\\\\Ease\\\\Html\\\\InputHiddenTagTest\\:\\:testConstructor\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: tests/src/Ease/Html/InputHiddenTagTest.php
+
+		-
+			message: "#^PHPDoc type Test\\\\Ease\\\\Html\\\\InputHiddenTag of property Test\\\\Ease\\\\Html\\\\InputHiddenTagTest\\:\\:\\$object is not covariant with PHPDoc type Test\\\\Ease\\\\Html\\\\InputTag of overridden property Test\\\\Ease\\\\Html\\\\InputTagTest\\:\\:\\$object\\.$#"
+			count: 1
+			path: tests/src/Ease/Html/InputHiddenTagTest.php
+
+		-
+			message: "#^Property Test\\\\Ease\\\\Html\\\\InputHiddenTagTest\\:\\:\\$object \\(Test\\\\Ease\\\\Html\\\\InputHiddenTag\\) does not accept Ease\\\\Html\\\\InputHiddenTag\\.$#"
+			count: 1
+			path: tests/src/Ease/Html/InputHiddenTagTest.php
+
+		-
+			message: "#^Property Test\\\\Ease\\\\Html\\\\InputHiddenTagTest\\:\\:\\$object has unknown class Test\\\\Ease\\\\Html\\\\InputHiddenTag as its type\\.$#"
+			count: 1
+			path: tests/src/Ease/Html/InputHiddenTagTest.php
+
+		-
+			message: "#^Call to method __construct\\(\\) on an unknown class Test\\\\Ease\\\\Html\\\\InputMonthTag\\.$#"
+			count: 1
+			path: tests/src/Ease/Html/InputMonthTagTest.php
+
+		-
+			message: "#^Call to method getRendered\\(\\) on an unknown class Test\\\\Ease\\\\Html\\\\InputMonthTag\\.$#"
+			count: 1
+			path: tests/src/Ease/Html/InputMonthTagTest.php
+
+		-
+			message: "#^Method Test\\\\Ease\\\\Html\\\\InputMonthTagTest\\:\\:testConstructor\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: tests/src/Ease/Html/InputMonthTagTest.php
+
+		-
+			message: "#^Method Test\\\\Ease\\\\Html\\\\InputMonthTagTest\\:\\:testDraw\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: tests/src/Ease/Html/InputMonthTagTest.php
+
+		-
+			message: "#^Method Test\\\\Ease\\\\Html\\\\InputMonthTagTest\\:\\:testDraw\\(\\) has parameter \\$whatWant with no type specified\\.$#"
+			count: 1
+			path: tests/src/Ease/Html/InputMonthTagTest.php
+
+		-
+			message: "#^PHPDoc type Test\\\\Ease\\\\Html\\\\InputMonthTag of property Test\\\\Ease\\\\Html\\\\InputMonthTagTest\\:\\:\\$object is not covariant with PHPDoc type Test\\\\Ease\\\\Html\\\\InputTag of overridden property Test\\\\Ease\\\\Html\\\\InputTagTest\\:\\:\\$object\\.$#"
+			count: 1
+			path: tests/src/Ease/Html/InputMonthTagTest.php
+
+		-
+			message: "#^Property Test\\\\Ease\\\\Html\\\\InputMonthTagTest\\:\\:\\$object \\(Test\\\\Ease\\\\Html\\\\InputMonthTag\\) does not accept Ease\\\\Html\\\\InputMonthTag\\.$#"
+			count: 1
+			path: tests/src/Ease/Html/InputMonthTagTest.php
+
+		-
+			message: "#^Property Test\\\\Ease\\\\Html\\\\InputMonthTagTest\\:\\:\\$object has unknown class Test\\\\Ease\\\\Html\\\\InputMonthTag as its type\\.$#"
+			count: 1
+			path: tests/src/Ease/Html/InputMonthTagTest.php
+
+		-
+			message: "#^Call to method __construct\\(\\) on an unknown class Test\\\\Ease\\\\Html\\\\InputNumberTag\\.$#"
+			count: 1
+			path: tests/src/Ease/Html/InputNumberTagTest.php
+
+		-
+			message: "#^Call to method getRendered\\(\\) on an unknown class Test\\\\Ease\\\\Html\\\\InputNumberTag\\.$#"
+			count: 1
+			path: tests/src/Ease/Html/InputNumberTagTest.php
+
+		-
+			message: "#^Method Test\\\\Ease\\\\Html\\\\InputNumberTagTest\\:\\:testConstructor\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: tests/src/Ease/Html/InputNumberTagTest.php
+
+		-
+			message: "#^Method Test\\\\Ease\\\\Html\\\\InputNumberTagTest\\:\\:testDraw\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: tests/src/Ease/Html/InputNumberTagTest.php
+
+		-
+			message: "#^Method Test\\\\Ease\\\\Html\\\\InputNumberTagTest\\:\\:testDraw\\(\\) has parameter \\$whatWant with no type specified\\.$#"
+			count: 1
+			path: tests/src/Ease/Html/InputNumberTagTest.php
+
+		-
+			message: "#^PHPDoc type Test\\\\Ease\\\\Html\\\\InputNumberTag of property Test\\\\Ease\\\\Html\\\\InputNumberTagTest\\:\\:\\$object is not covariant with PHPDoc type Test\\\\Ease\\\\Html\\\\InputTag of overridden property Test\\\\Ease\\\\Html\\\\InputTagTest\\:\\:\\$object\\.$#"
+			count: 1
+			path: tests/src/Ease/Html/InputNumberTagTest.php
+
+		-
+			message: "#^Parameter \\#2 \\$value of class Ease\\\\Html\\\\InputNumberTag constructor expects string\\|null, int given\\.$#"
+			count: 1
+			path: tests/src/Ease/Html/InputNumberTagTest.php
+
+		-
+			message: "#^Property Test\\\\Ease\\\\Html\\\\InputNumberTagTest\\:\\:\\$object \\(Test\\\\Ease\\\\Html\\\\InputNumberTag\\) does not accept Ease\\\\Html\\\\InputNumberTag\\.$#"
+			count: 1
+			path: tests/src/Ease/Html/InputNumberTagTest.php
+
+		-
+			message: "#^Property Test\\\\Ease\\\\Html\\\\InputNumberTagTest\\:\\:\\$object has unknown class Test\\\\Ease\\\\Html\\\\InputNumberTag as its type\\.$#"
+			count: 1
+			path: tests/src/Ease/Html/InputNumberTagTest.php
+
+		-
+			message: "#^Call to method __construct\\(\\) on an unknown class Test\\\\Ease\\\\Html\\\\InputPasswordTag\\.$#"
+			count: 1
+			path: tests/src/Ease/Html/InputPasswordTagTest.php
+
+		-
+			message: "#^Call to method getRendered\\(\\) on an unknown class Test\\\\Ease\\\\Html\\\\InputPasswordTag\\.$#"
+			count: 1
+			path: tests/src/Ease/Html/InputPasswordTagTest.php
+
+		-
+			message: "#^Method Test\\\\Ease\\\\Html\\\\InputPasswordTagTest\\:\\:testConstructor\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: tests/src/Ease/Html/InputPasswordTagTest.php
+
+		-
+			message: "#^Method Test\\\\Ease\\\\Html\\\\InputPasswordTagTest\\:\\:testDraw\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: tests/src/Ease/Html/InputPasswordTagTest.php
+
+		-
+			message: "#^Method Test\\\\Ease\\\\Html\\\\InputPasswordTagTest\\:\\:testDraw\\(\\) has parameter \\$whatWant with no type specified\\.$#"
+			count: 1
+			path: tests/src/Ease/Html/InputPasswordTagTest.php
+
+		-
+			message: "#^PHPDoc type Test\\\\Ease\\\\Html\\\\InputPasswordTag of property Test\\\\Ease\\\\Html\\\\InputPasswordTagTest\\:\\:\\$object is not covariant with PHPDoc type Test\\\\Ease\\\\Html\\\\InputTag of overridden property Test\\\\Ease\\\\Html\\\\InputTagTest\\:\\:\\$object\\.$#"
+			count: 1
+			path: tests/src/Ease/Html/InputPasswordTagTest.php
+
+		-
+			message: "#^Property Test\\\\Ease\\\\Html\\\\InputPasswordTagTest\\:\\:\\$object \\(Test\\\\Ease\\\\Html\\\\InputPasswordTag\\) does not accept Ease\\\\Html\\\\InputPasswordTag\\.$#"
+			count: 1
+			path: tests/src/Ease/Html/InputPasswordTagTest.php
+
+		-
+			message: "#^Property Test\\\\Ease\\\\Html\\\\InputPasswordTagTest\\:\\:\\$object has unknown class Test\\\\Ease\\\\Html\\\\InputPasswordTag as its type\\.$#"
+			count: 1
+			path: tests/src/Ease/Html/InputPasswordTagTest.php
+
+		-
+			message: "#^Method Test\\\\Ease\\\\Html\\\\InputRadioTagTest\\:\\:testConstructor\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: tests/src/Ease/Html/InputRadioTagTest.php
+
+		-
+			message: "#^Method Test\\\\Ease\\\\Html\\\\InputRadioTagTest\\:\\:testDraw\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: tests/src/Ease/Html/InputRadioTagTest.php
+
+		-
+			message: "#^Method Test\\\\Ease\\\\Html\\\\InputRadioTagTest\\:\\:testDraw\\(\\) has parameter \\$whatWant with no type specified\\.$#"
+			count: 1
+			path: tests/src/Ease/Html/InputRadioTagTest.php
+
+		-
+			message: "#^Method Test\\\\Ease\\\\Html\\\\InputRadioTagTest\\:\\:testSetValue\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: tests/src/Ease/Html/InputRadioTagTest.php
+
+		-
+			message: "#^PHPDoc type Ease\\\\Html\\\\InputRadioTag of property Test\\\\Ease\\\\Html\\\\InputRadioTagTest\\:\\:\\$object is not covariant with PHPDoc type Test\\\\Ease\\\\Html\\\\InputTag of overridden property Test\\\\Ease\\\\Html\\\\InputTagTest\\:\\:\\$object\\.$#"
+			count: 1
+			path: tests/src/Ease/Html/InputRadioTagTest.php
+
+		-
+			message: "#^Method Test\\\\Ease\\\\Html\\\\InputSearchTagTest\\:\\:testConstructor\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: tests/src/Ease/Html/InputSearchTagTest.php
+
+		-
+			message: "#^Method Test\\\\Ease\\\\Html\\\\InputSearchTagTest\\:\\:testDraw\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: tests/src/Ease/Html/InputSearchTagTest.php
+
+		-
+			message: "#^Method Test\\\\Ease\\\\Html\\\\InputSearchTagTest\\:\\:testDraw\\(\\) has parameter \\$whatWant with no type specified\\.$#"
+			count: 1
+			path: tests/src/Ease/Html/InputSearchTagTest.php
+
+		-
+			message: "#^PHPDoc type Ease\\\\Html\\\\InputSearchTag of property Test\\\\Ease\\\\Html\\\\InputSearchTagTest\\:\\:\\$object is not covariant with PHPDoc type Test\\\\Ease\\\\Html\\\\InputTag of overridden property Test\\\\Ease\\\\Html\\\\InputTagTest\\:\\:\\$object\\.$#"
+			count: 1
+			path: tests/src/Ease/Html/InputSearchTagTest.php
+
+		-
+			message: "#^Method Test\\\\Ease\\\\Html\\\\InputSubmitTagTest\\:\\:testConstructor\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: tests/src/Ease/Html/InputSubmitTagTest.php
+
+		-
+			message: "#^Method Test\\\\Ease\\\\Html\\\\InputSubmitTagTest\\:\\:testDraw\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: tests/src/Ease/Html/InputSubmitTagTest.php
+
+		-
+			message: "#^Method Test\\\\Ease\\\\Html\\\\InputSubmitTagTest\\:\\:testDraw\\(\\) has parameter \\$whatWant with no type specified\\.$#"
+			count: 1
+			path: tests/src/Ease/Html/InputSubmitTagTest.php
+
+		-
+			message: "#^Method Test\\\\Ease\\\\Html\\\\InputSubmitTagTest\\:\\:testSetValue\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: tests/src/Ease/Html/InputSubmitTagTest.php
+
+		-
+			message: "#^PHPDoc type Ease\\\\Html\\\\InputSubmitTag of property Test\\\\Ease\\\\Html\\\\InputSubmitTagTest\\:\\:\\$object is not covariant with PHPDoc type Test\\\\Ease\\\\Html\\\\InputTag of overridden property Test\\\\Ease\\\\Html\\\\InputTagTest\\:\\:\\$object\\.$#"
+			count: 1
+			path: tests/src/Ease/Html/InputSubmitTagTest.php
+
+		-
+			message: "#^Access to property \\$setName on an unknown class Test\\\\Ease\\\\Html\\\\InputTag\\.$#"
+			count: 2
+			path: tests/src/Ease/Html/InputTagTest.php
+
+		-
+			message: "#^Call to method __construct\\(\\) on an unknown class Test\\\\Ease\\\\Html\\\\InputTag\\.$#"
+			count: 1
+			path: tests/src/Ease/Html/InputTagTest.php
+
+		-
+			message: "#^Call to method getRendered\\(\\) on an unknown class Test\\\\Ease\\\\Html\\\\InputTag\\.$#"
+			count: 1
+			path: tests/src/Ease/Html/InputTagTest.php
+
+		-
+			message: "#^Call to method getTagName\\(\\) on an unknown class Test\\\\Ease\\\\Html\\\\InputTag\\.$#"
+			count: 2
+			path: tests/src/Ease/Html/InputTagTest.php
+
+		-
+			message: "#^Call to method getTagProperty\\(\\) on an unknown class Test\\\\Ease\\\\Html\\\\InputTag\\.$#"
+			count: 1
+			path: tests/src/Ease/Html/InputTagTest.php
+
+		-
+			message: "#^Call to method getValue\\(\\) on an unknown class Test\\\\Ease\\\\Html\\\\InputTag\\.$#"
+			count: 1
+			path: tests/src/Ease/Html/InputTagTest.php
+
+		-
+			message: "#^Call to method setTagName\\(\\) on an unknown class Test\\\\Ease\\\\Html\\\\InputTag\\.$#"
+			count: 2
+			path: tests/src/Ease/Html/InputTagTest.php
+
+		-
+			message: "#^Call to method setValue\\(\\) on an unknown class Test\\\\Ease\\\\Html\\\\InputTag\\.$#"
+			count: 2
+			path: tests/src/Ease/Html/InputTagTest.php
+
+		-
+			message: "#^Method Test\\\\Ease\\\\Html\\\\InputTagTest\\:\\:testConstructor\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: tests/src/Ease/Html/InputTagTest.php
+
+		-
+			message: "#^Method Test\\\\Ease\\\\Html\\\\InputTagTest\\:\\:testDraw\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: tests/src/Ease/Html/InputTagTest.php
+
+		-
+			message: "#^Method Test\\\\Ease\\\\Html\\\\InputTagTest\\:\\:testDraw\\(\\) has parameter \\$whatWant with no type specified\\.$#"
+			count: 1
+			path: tests/src/Ease/Html/InputTagTest.php
+
+		-
+			message: "#^Method Test\\\\Ease\\\\Html\\\\InputTagTest\\:\\:testGetTagName\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: tests/src/Ease/Html/InputTagTest.php
+
+		-
+			message: "#^Method Test\\\\Ease\\\\Html\\\\InputTagTest\\:\\:testGetValue\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: tests/src/Ease/Html/InputTagTest.php
+
+		-
+			message: "#^Method Test\\\\Ease\\\\Html\\\\InputTagTest\\:\\:testSetValue\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: tests/src/Ease/Html/InputTagTest.php
+
+		-
+			message: "#^PHPDoc type Test\\\\Ease\\\\Html\\\\InputTag of property Test\\\\Ease\\\\Html\\\\InputTagTest\\:\\:\\$object is not covariant with PHPDoc type Test\\\\Ease\\\\Html\\\\Tag of overridden property Test\\\\Ease\\\\Html\\\\TagTest\\:\\:\\$object\\.$#"
+			count: 1
+			path: tests/src/Ease/Html/InputTagTest.php
+
+		-
+			message: "#^Property Test\\\\Ease\\\\Html\\\\InputTagTest\\:\\:\\$object \\(Test\\\\Ease\\\\Html\\\\InputTag\\) does not accept Ease\\\\Html\\\\InputTag\\.$#"
+			count: 1
+			path: tests/src/Ease/Html/InputTagTest.php
+
+		-
+			message: "#^Property Test\\\\Ease\\\\Html\\\\InputTagTest\\:\\:\\$object has unknown class Test\\\\Ease\\\\Html\\\\InputTag as its type\\.$#"
+			count: 1
+			path: tests/src/Ease/Html/InputTagTest.php
+
+		-
+			message: "#^PHPDoc type Test\\\\Ease\\\\Html\\\\NavTag of property Test\\\\Ease\\\\Html\\\\InputTelTagTest\\:\\:\\$object is not covariant with PHPDoc type Ease\\\\Html\\\\PairTag of overridden property Test\\\\Ease\\\\Html\\\\PairTagTest\\:\\:\\$object\\.$#"
+			count: 1
+			path: tests/src/Ease/Html/InputTelTagTest.php
+
+		-
+			message: "#^Property Test\\\\Ease\\\\Html\\\\InputTelTagTest\\:\\:\\$object \\(Test\\\\Ease\\\\Html\\\\NavTag\\) does not accept Ease\\\\Html\\\\NavTag\\.$#"
+			count: 1
+			path: tests/src/Ease/Html/InputTelTagTest.php
+
+		-
+			message: "#^Property Test\\\\Ease\\\\Html\\\\InputTelTagTest\\:\\:\\$object has unknown class Test\\\\Ease\\\\Html\\\\NavTag as its type\\.$#"
+			count: 1
+			path: tests/src/Ease/Html/InputTelTagTest.php
+
+		-
+			message: "#^Call to method __construct\\(\\) on an unknown class Test\\\\Ease\\\\Html\\\\InputTextTag\\.$#"
+			count: 1
+			path: tests/src/Ease/Html/InputTextTagTest.php
+
+		-
+			message: "#^Call to method getRendered\\(\\) on an unknown class Test\\\\Ease\\\\Html\\\\InputTextTag\\.$#"
+			count: 1
+			path: tests/src/Ease/Html/InputTextTagTest.php
+
+		-
+			message: "#^Method Test\\\\Ease\\\\Html\\\\InputTextTagTest\\:\\:testConstructor\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: tests/src/Ease/Html/InputTextTagTest.php
+
+		-
+			message: "#^PHPDoc type Test\\\\Ease\\\\Html\\\\InputTextTag of property Test\\\\Ease\\\\Html\\\\InputTextTagTest\\:\\:\\$object is not covariant with PHPDoc type Test\\\\Ease\\\\Html\\\\InputTag of overridden property Test\\\\Ease\\\\Html\\\\InputTagTest\\:\\:\\$object\\.$#"
+			count: 1
+			path: tests/src/Ease/Html/InputTextTagTest.php
+
+		-
+			message: "#^Property Test\\\\Ease\\\\Html\\\\InputTextTagTest\\:\\:\\$object \\(Test\\\\Ease\\\\Html\\\\InputTextTag\\) does not accept Ease\\\\Html\\\\InputTextTag\\.$#"
+			count: 1
+			path: tests/src/Ease/Html/InputTextTagTest.php
+
+		-
+			message: "#^Property Test\\\\Ease\\\\Html\\\\InputTextTagTest\\:\\:\\$object has unknown class Test\\\\Ease\\\\Html\\\\InputTextTag as its type\\.$#"
+			count: 1
+			path: tests/src/Ease/Html/InputTextTagTest.php
+
+		-
+			message: "#^PHPDoc type Test\\\\Ease\\\\Html\\\\JavaScript of property Test\\\\Ease\\\\Html\\\\JavaScriptTest\\:\\:\\$object is not covariant with PHPDoc type Test\\\\Ease\\\\Html\\\\ScriptTag of overridden property Test\\\\Ease\\\\Html\\\\ScriptTagTest\\:\\:\\$object\\.$#"
+			count: 1
+			path: tests/src/Ease/Html/JavaScriptTest.php
+
+		-
+			message: "#^Property Test\\\\Ease\\\\Html\\\\JavaScriptTest\\:\\:\\$object \\(Test\\\\Ease\\\\Html\\\\JavaScript\\) does not accept Ease\\\\Html\\\\JavaScript\\.$#"
+			count: 1
+			path: tests/src/Ease/Html/JavaScriptTest.php
+
+		-
+			message: "#^Property Test\\\\Ease\\\\Html\\\\JavaScriptTest\\:\\:\\$object has unknown class Test\\\\Ease\\\\Html\\\\JavaScript as its type\\.$#"
+			count: 1
+			path: tests/src/Ease/Html/JavaScriptTest.php
+
+		-
+			message: "#^Call to method __construct\\(\\) on an unknown class Test\\\\Ease\\\\Html\\\\LabelTag\\.$#"
+			count: 2
+			path: tests/src/Ease/Html/LabelTagTest.php
+
+		-
+			message: "#^Call to method getRendered\\(\\) on an unknown class Test\\\\Ease\\\\Html\\\\LabelTag\\.$#"
+			count: 1
+			path: tests/src/Ease/Html/LabelTagTest.php
+
+		-
+			message: "#^Method Test\\\\Ease\\\\Html\\\\LabelTagTest\\:\\:testConstructor\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: tests/src/Ease/Html/LabelTagTest.php
+
+		-
+			message: "#^Method Test\\\\Ease\\\\Html\\\\LabelTagTest\\:\\:testSetObjectName\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: tests/src/Ease/Html/LabelTagTest.php
+
+		-
+			message: "#^PHPDoc type Test\\\\Ease\\\\Html\\\\LabelTag of property Test\\\\Ease\\\\Html\\\\LabelTagTest\\:\\:\\$object is not covariant with PHPDoc type Ease\\\\Html\\\\PairTag of overridden property Test\\\\Ease\\\\Html\\\\PairTagTest\\:\\:\\$object\\.$#"
+			count: 1
+			path: tests/src/Ease/Html/LabelTagTest.php
+
+		-
+			message: "#^Property Test\\\\Ease\\\\Html\\\\LabelTagTest\\:\\:\\$object \\(Test\\\\Ease\\\\Html\\\\LabelTag\\) does not accept Ease\\\\Html\\\\LabelTag\\.$#"
+			count: 1
+			path: tests/src/Ease/Html/LabelTagTest.php
+
+		-
+			message: "#^Property Test\\\\Ease\\\\Html\\\\LabelTagTest\\:\\:\\$object has unknown class Test\\\\Ease\\\\Html\\\\LabelTag as its type\\.$#"
+			count: 1
+			path: tests/src/Ease/Html/LabelTagTest.php
+
+		-
+			message: "#^PHPDoc type Test\\\\Ease\\\\Html\\\\LiTag of property Test\\\\Ease\\\\Html\\\\LiTagTest\\:\\:\\$object is not covariant with PHPDoc type Ease\\\\Html\\\\PairTag of overridden property Test\\\\Ease\\\\Html\\\\PairTagTest\\:\\:\\$object\\.$#"
+			count: 1
+			path: tests/src/Ease/Html/LiTagTest.php
+
+		-
+			message: "#^Property Test\\\\Ease\\\\Html\\\\LiTagTest\\:\\:\\$object \\(Test\\\\Ease\\\\Html\\\\LiTag\\) does not accept Ease\\\\Html\\\\LiTag\\.$#"
+			count: 1
+			path: tests/src/Ease/Html/LiTagTest.php
+
+		-
+			message: "#^Property Test\\\\Ease\\\\Html\\\\LiTagTest\\:\\:\\$object has unknown class Test\\\\Ease\\\\Html\\\\LiTag as its type\\.$#"
+			count: 1
+			path: tests/src/Ease/Html/LiTagTest.php
+
+		-
+			message: "#^PHPDoc type Test\\\\Ease\\\\Html\\\\NavTag of property Test\\\\Ease\\\\Html\\\\NavTagTest\\:\\:\\$object is not covariant with PHPDoc type Ease\\\\Html\\\\PairTag of overridden property Test\\\\Ease\\\\Html\\\\PairTagTest\\:\\:\\$object\\.$#"
+			count: 1
+			path: tests/src/Ease/Html/NavTagTest.php
+
+		-
+			message: "#^Property Test\\\\Ease\\\\Html\\\\NavTagTest\\:\\:\\$object \\(Test\\\\Ease\\\\Html\\\\NavTag\\) does not accept Ease\\\\Html\\\\NavTag\\.$#"
+			count: 1
+			path: tests/src/Ease/Html/NavTagTest.php
+
+		-
+			message: "#^Property Test\\\\Ease\\\\Html\\\\NavTagTest\\:\\:\\$object has unknown class Test\\\\Ease\\\\Html\\\\NavTag as its type\\.$#"
+			count: 1
+			path: tests/src/Ease/Html/NavTagTest.php
+
+		-
+			message: "#^PHPDoc type Test\\\\Ease\\\\Html\\\\OlTag of property Test\\\\Ease\\\\Html\\\\OlTagTest\\:\\:\\$object is not covariant with PHPDoc type Ease\\\\Html\\\\PairTag of overridden property Test\\\\Ease\\\\Html\\\\PairTagTest\\:\\:\\$object\\.$#"
+			count: 1
+			path: tests/src/Ease/Html/OlTagTest.php
+
+		-
+			message: "#^Property Test\\\\Ease\\\\Html\\\\OlTagTest\\:\\:\\$object \\(Test\\\\Ease\\\\Html\\\\OlTag\\) does not accept Ease\\\\Html\\\\OlTag\\.$#"
+			count: 1
+			path: tests/src/Ease/Html/OlTagTest.php
+
+		-
+			message: "#^Property Test\\\\Ease\\\\Html\\\\OlTagTest\\:\\:\\$object has unknown class Test\\\\Ease\\\\Html\\\\OlTag as its type\\.$#"
+			count: 1
+			path: tests/src/Ease/Html/OlTagTest.php
+
+		-
+			message: "#^Call to method __construct\\(\\) on an unknown class Test\\\\Ease\\\\Html\\\\OptionTag\\.$#"
+			count: 2
+			path: tests/src/Ease/Html/OptionTagTest.php
+
+		-
+			message: "#^Call to method getRendered\\(\\) on an unknown class Test\\\\Ease\\\\Html\\\\OptionTag\\.$#"
+			count: 1
+			path: tests/src/Ease/Html/OptionTagTest.php
+
+		-
+			message: "#^Method Test\\\\Ease\\\\Html\\\\OptionTagTest\\:\\:testConstructor\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: tests/src/Ease/Html/OptionTagTest.php
+
+		-
+			message: "#^Method Test\\\\Ease\\\\Html\\\\OptionTagTest\\:\\:testGetValue\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: tests/src/Ease/Html/OptionTagTest.php
+
+		-
+			message: "#^Method Test\\\\Ease\\\\Html\\\\OptionTagTest\\:\\:testSetDefault\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: tests/src/Ease/Html/OptionTagTest.php
+
+		-
+			message: "#^Method Test\\\\Ease\\\\Html\\\\OptionTagTest\\:\\:testSetValue\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: tests/src/Ease/Html/OptionTagTest.php
+
+		-
+			message: "#^PHPDoc type Test\\\\Ease\\\\Html\\\\OptionTag of property Test\\\\Ease\\\\Html\\\\OptionTagTest\\:\\:\\$object is not covariant with PHPDoc type Ease\\\\Html\\\\PairTag of overridden property Test\\\\Ease\\\\Html\\\\PairTagTest\\:\\:\\$object\\.$#"
+			count: 1
+			path: tests/src/Ease/Html/OptionTagTest.php
+
+		-
+			message: "#^Property Test\\\\Ease\\\\Html\\\\OptionTagTest\\:\\:\\$object \\(Test\\\\Ease\\\\Html\\\\OptionTag\\) does not accept Ease\\\\Html\\\\OptionTag\\.$#"
+			count: 1
+			path: tests/src/Ease/Html/OptionTagTest.php
+
+		-
+			message: "#^Property Test\\\\Ease\\\\Html\\\\OptionTagTest\\:\\:\\$object has unknown class Test\\\\Ease\\\\Html\\\\OptionTag as its type\\.$#"
+			count: 1
+			path: tests/src/Ease/Html/OptionTagTest.php
+
+		-
+			message: "#^PHPDoc type Test\\\\Ease\\\\Html\\\\H1Tag of property Test\\\\Ease\\\\Html\\\\OutputTagTest\\:\\:\\$object is not covariant with PHPDoc type Ease\\\\Html\\\\PairTag of overridden property Test\\\\Ease\\\\Html\\\\PairTagTest\\:\\:\\$object\\.$#"
+			count: 1
+			path: tests/src/Ease/Html/OutputTagTest.php
+
+		-
+			message: "#^Property Test\\\\Ease\\\\Html\\\\OutputTagTest\\:\\:\\$object \\(Test\\\\Ease\\\\Html\\\\H1Tag\\) does not accept Ease\\\\Html\\\\OutputTag\\.$#"
+			count: 1
+			path: tests/src/Ease/Html/OutputTagTest.php
+
+		-
+			message: "#^Property Test\\\\Ease\\\\Html\\\\OutputTagTest\\:\\:\\$object has unknown class Test\\\\Ease\\\\Html\\\\H1Tag as its type\\.$#"
+			count: 1
+			path: tests/src/Ease/Html/OutputTagTest.php
+
+		-
+			message: "#^PHPDoc type Test\\\\Ease\\\\Html\\\\PTag of property Test\\\\Ease\\\\Html\\\\PTagTest\\:\\:\\$object is not covariant with PHPDoc type Ease\\\\Html\\\\PairTag of overridden property Test\\\\Ease\\\\Html\\\\PairTagTest\\:\\:\\$object\\.$#"
+			count: 1
+			path: tests/src/Ease/Html/PTagTest.php
+
+		-
+			message: "#^Property Test\\\\Ease\\\\Html\\\\PTagTest\\:\\:\\$object \\(Test\\\\Ease\\\\Html\\\\PTag\\) does not accept Ease\\\\Html\\\\PTag\\.$#"
+			count: 1
+			path: tests/src/Ease/Html/PTagTest.php
+
+		-
+			message: "#^Property Test\\\\Ease\\\\Html\\\\PTagTest\\:\\:\\$object has unknown class Test\\\\Ease\\\\Html\\\\PTag as its type\\.$#"
+			count: 1
+			path: tests/src/Ease/Html/PTagTest.php
+
+		-
+			message: "#^Call to function is_null\\(\\) with string will always evaluate to false\\.$#"
+			count: 1
+			path: tests/src/Ease/Html/PairTagTest.php
+
+		-
+			message: "#^Method Test\\\\Ease\\\\Html\\\\PairTagTest\\:\\:testConstructor\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: tests/src/Ease/Html/PairTagTest.php
+
+		-
+			message: "#^Method Test\\\\Ease\\\\Html\\\\PairTagTest\\:\\:testDraw\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: tests/src/Ease/Html/PairTagTest.php
+
+		-
+			message: "#^Method Test\\\\Ease\\\\Html\\\\PairTagTest\\:\\:testDraw\\(\\) has parameter \\$whatWant with no type specified\\.$#"
+			count: 1
+			path: tests/src/Ease/Html/PairTagTest.php
+
+		-
+			message: "#^Method Test\\\\Ease\\\\Html\\\\PairTagTest\\:\\:testTagBegin\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: tests/src/Ease/Html/PairTagTest.php
+
+		-
+			message: "#^Method Test\\\\Ease\\\\Html\\\\PairTagTest\\:\\:testTagBegin\\(\\) has parameter \\$tagBegin with no type specified\\.$#"
+			count: 1
+			path: tests/src/Ease/Html/PairTagTest.php
+
+		-
+			message: "#^Method Test\\\\Ease\\\\Html\\\\PairTagTest\\:\\:testTagEnclousure\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: tests/src/Ease/Html/PairTagTest.php
+
+		-
+			message: "#^PHPDoc type Ease\\\\Html\\\\PairTag of property Test\\\\Ease\\\\Html\\\\PairTagTest\\:\\:\\$object is not covariant with PHPDoc type Test\\\\Ease\\\\Html\\\\Tag of overridden property Test\\\\Ease\\\\Html\\\\TagTest\\:\\:\\$object\\.$#"
+			count: 1
+			path: tests/src/Ease/Html/PairTagTest.php
+
+		-
+			message: "#^Access to property \\$setName on an unknown class Test\\\\Ease\\\\Html\\\\ParamTag\\.$#"
+			count: 2
+			path: tests/src/Ease/Html/ParamTagTest.php
+
+		-
+			message: "#^Call to method __construct\\(\\) on an unknown class Test\\\\Ease\\\\Html\\\\ParamTag\\.$#"
+			count: 1
+			path: tests/src/Ease/Html/ParamTagTest.php
+
+		-
+			message: "#^Call to method getRendered\\(\\) on an unknown class Test\\\\Ease\\\\Html\\\\ParamTag\\.$#"
+			count: 1
+			path: tests/src/Ease/Html/ParamTagTest.php
+
+		-
+			message: "#^Call to method getTagName\\(\\) on an unknown class Test\\\\Ease\\\\Html\\\\ParamTag\\.$#"
+			count: 2
+			path: tests/src/Ease/Html/ParamTagTest.php
+
+		-
+			message: "#^Call to method setTagName\\(\\) on an unknown class Test\\\\Ease\\\\Html\\\\ParamTag\\.$#"
+			count: 1
+			path: tests/src/Ease/Html/ParamTagTest.php
+
+		-
+			message: "#^Method Test\\\\Ease\\\\Html\\\\ParamTagTest\\:\\:testConstructor\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: tests/src/Ease/Html/ParamTagTest.php
+
+		-
+			message: "#^Method Test\\\\Ease\\\\Html\\\\ParamTagTest\\:\\:testDraw\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: tests/src/Ease/Html/ParamTagTest.php
+
+		-
+			message: "#^Method Test\\\\Ease\\\\Html\\\\ParamTagTest\\:\\:testDraw\\(\\) has parameter \\$whatWant with no type specified\\.$#"
+			count: 1
+			path: tests/src/Ease/Html/ParamTagTest.php
+
+		-
+			message: "#^Method Test\\\\Ease\\\\Html\\\\ParamTagTest\\:\\:testGetTagName\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: tests/src/Ease/Html/ParamTagTest.php
+
+		-
+			message: "#^PHPDoc type Test\\\\Ease\\\\Html\\\\ParamTag of property Test\\\\Ease\\\\Html\\\\ParamTagTest\\:\\:\\$object is not covariant with PHPDoc type Test\\\\Ease\\\\Html\\\\Tag of overridden property Test\\\\Ease\\\\Html\\\\TagTest\\:\\:\\$object\\.$#"
+			count: 1
+			path: tests/src/Ease/Html/ParamTagTest.php
+
+		-
+			message: "#^Property Test\\\\Ease\\\\Html\\\\ParamTagTest\\:\\:\\$object \\(Test\\\\Ease\\\\Html\\\\ParamTag\\) does not accept Ease\\\\Html\\\\ParamTag\\.$#"
+			count: 1
+			path: tests/src/Ease/Html/ParamTagTest.php
+
+		-
+			message: "#^Property Test\\\\Ease\\\\Html\\\\ParamTagTest\\:\\:\\$object has unknown class Test\\\\Ease\\\\Html\\\\ParamTag as its type\\.$#"
+			count: 1
+			path: tests/src/Ease/Html/ParamTagTest.php
+
+		-
+			message: "#^PHPDoc type Test\\\\Ease\\\\Html\\\\PreTag of property Test\\\\Ease\\\\Html\\\\PreTagTest\\:\\:\\$object is not covariant with PHPDoc type Ease\\\\Html\\\\PairTag of overridden property Test\\\\Ease\\\\Html\\\\PairTagTest\\:\\:\\$object\\.$#"
+			count: 1
+			path: tests/src/Ease/Html/PreTagTest.php
+
+		-
+			message: "#^Property Test\\\\Ease\\\\Html\\\\PreTagTest\\:\\:\\$object \\(Test\\\\Ease\\\\Html\\\\PreTag\\) does not accept Ease\\\\Html\\\\PreTag\\.$#"
+			count: 1
+			path: tests/src/Ease/Html/PreTagTest.php
+
+		-
+			message: "#^Property Test\\\\Ease\\\\Html\\\\PreTagTest\\:\\:\\$object has unknown class Test\\\\Ease\\\\Html\\\\PreTag as its type\\.$#"
+			count: 1
+			path: tests/src/Ease/Html/PreTagTest.php
+
+		-
+			message: "#^PHPDoc type Test\\\\Ease\\\\Html\\\\DtTag of property Test\\\\Ease\\\\Html\\\\RpTagTest\\:\\:\\$object is not covariant with PHPDoc type Ease\\\\Html\\\\PairTag of overridden property Test\\\\Ease\\\\Html\\\\PairTagTest\\:\\:\\$object\\.$#"
+			count: 1
+			path: tests/src/Ease/Html/RpTagTest.php
+
+		-
+			message: "#^Property Test\\\\Ease\\\\Html\\\\RpTagTest\\:\\:\\$object \\(Test\\\\Ease\\\\Html\\\\DtTag\\) does not accept Ease\\\\Html\\\\RpTag\\.$#"
+			count: 1
+			path: tests/src/Ease/Html/RpTagTest.php
+
+		-
+			message: "#^Property Test\\\\Ease\\\\Html\\\\RpTagTest\\:\\:\\$object has unknown class Test\\\\Ease\\\\Html\\\\DtTag as its type\\.$#"
+			count: 1
+			path: tests/src/Ease/Html/RpTagTest.php
+
+		-
+			message: "#^PHPDoc type Test\\\\Ease\\\\Html\\\\RtTag of property Test\\\\Ease\\\\Html\\\\RtTagTest\\:\\:\\$object is not covariant with PHPDoc type Ease\\\\Html\\\\PairTag of overridden property Test\\\\Ease\\\\Html\\\\PairTagTest\\:\\:\\$object\\.$#"
+			count: 1
+			path: tests/src/Ease/Html/RtTagTest.php
+
+		-
+			message: "#^Property Test\\\\Ease\\\\Html\\\\RtTagTest\\:\\:\\$object \\(Test\\\\Ease\\\\Html\\\\RtTag\\) does not accept Ease\\\\Html\\\\RtTag\\.$#"
+			count: 1
+			path: tests/src/Ease/Html/RtTagTest.php
+
+		-
+			message: "#^Property Test\\\\Ease\\\\Html\\\\RtTagTest\\:\\:\\$object has unknown class Test\\\\Ease\\\\Html\\\\RtTag as its type\\.$#"
+			count: 1
+			path: tests/src/Ease/Html/RtTagTest.php
+
+		-
+			message: "#^PHPDoc type Test\\\\Ease\\\\Html\\\\ScriptTag of property Test\\\\Ease\\\\Html\\\\ScriptTagTest\\:\\:\\$object is not covariant with PHPDoc type Ease\\\\Html\\\\PairTag of overridden property Test\\\\Ease\\\\Html\\\\PairTagTest\\:\\:\\$object\\.$#"
+			count: 1
+			path: tests/src/Ease/Html/ScriptTagTest.php
+
+		-
+			message: "#^Property Test\\\\Ease\\\\Html\\\\ScriptTagTest\\:\\:\\$object \\(Test\\\\Ease\\\\Html\\\\ScriptTag\\) does not accept Ease\\\\Html\\\\ScriptTag\\.$#"
+			count: 1
+			path: tests/src/Ease/Html/ScriptTagTest.php
+
+		-
+			message: "#^Property Test\\\\Ease\\\\Html\\\\ScriptTagTest\\:\\:\\$object has unknown class Test\\\\Ease\\\\Html\\\\ScriptTag as its type\\.$#"
+			count: 1
+			path: tests/src/Ease/Html/ScriptTagTest.php
+
+		-
+			message: "#^Call to method addAsFirst\\(\\) on an unknown class Test\\\\Ease\\\\Html\\\\SelectTag\\.$#"
+			count: 1
+			path: tests/src/Ease/Html/SelectTagTest.php
+
+		-
+			message: "#^Call to method addItems\\(\\) on an unknown class Test\\\\Ease\\\\Html\\\\SelectTag\\.$#"
+			count: 1
+			path: tests/src/Ease/Html/SelectTagTest.php
+
+		-
+			message: "#^Call to method delItem\\(\\) on an unknown class Test\\\\Ease\\\\Html\\\\SelectTag\\.$#"
+			count: 1
+			path: tests/src/Ease/Html/SelectTagTest.php
+
+		-
+			message: "#^Call to method emptyContents\\(\\) on an unknown class Test\\\\Ease\\\\Html\\\\SelectTag\\.$#"
+			count: 2
+			path: tests/src/Ease/Html/SelectTagTest.php
+
+		-
+			message: "#^Call to method finalize\\(\\) on an unknown class Test\\\\Ease\\\\Html\\\\SelectTag\\.$#"
+			count: 1
+			path: tests/src/Ease/Html/SelectTagTest.php
+
+		-
+			message: "#^Call to method getContents\\(\\) on an unknown class Test\\\\Ease\\\\Html\\\\SelectTag\\.$#"
+			count: 1
+			path: tests/src/Ease/Html/SelectTagTest.php
+
+		-
+			message: "#^Call to method getRendered\\(\\) on an unknown class Test\\\\Ease\\\\Html\\\\SelectTag\\.$#"
+			count: 4
+			path: tests/src/Ease/Html/SelectTagTest.php
+
+		-
+			message: "#^Call to method getTagName\\(\\) on an unknown class Test\\\\Ease\\\\Html\\\\SelectTag\\.$#"
+			count: 1
+			path: tests/src/Ease/Html/SelectTagTest.php
+
+		-
+			message: "#^Call to method loadItems\\(\\) on an unknown class Test\\\\Ease\\\\Html\\\\SelectTag\\.$#"
+			count: 1
+			path: tests/src/Ease/Html/SelectTagTest.php
+
+		-
+			message: "#^Call to method setValue\\(\\) on an unknown class Test\\\\Ease\\\\Html\\\\SelectTag\\.$#"
+			count: 1
+			path: tests/src/Ease/Html/SelectTagTest.php
+
+		-
+			message: "#^Method Test\\\\Ease\\\\Html\\\\SelectTagTest\\:\\:testAddAsFirst\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: tests/src/Ease/Html/SelectTagTest.php
+
+		-
+			message: "#^Method Test\\\\Ease\\\\Html\\\\SelectTagTest\\:\\:testAddItems\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: tests/src/Ease/Html/SelectTagTest.php
+
+		-
+			message: "#^Method Test\\\\Ease\\\\Html\\\\SelectTagTest\\:\\:testDelItem\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: tests/src/Ease/Html/SelectTagTest.php
+
+		-
+			message: "#^Method Test\\\\Ease\\\\Html\\\\SelectTagTest\\:\\:testFinalize\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: tests/src/Ease/Html/SelectTagTest.php
+
+		-
+			message: "#^Method Test\\\\Ease\\\\Html\\\\SelectTagTest\\:\\:testGetTagName\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: tests/src/Ease/Html/SelectTagTest.php
+
+		-
+			message: "#^Method Test\\\\Ease\\\\Html\\\\SelectTagTest\\:\\:testLoadItems\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: tests/src/Ease/Html/SelectTagTest.php
+
+		-
+			message: "#^Method Test\\\\Ease\\\\Html\\\\SelectTagTest\\:\\:testSetValue\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: tests/src/Ease/Html/SelectTagTest.php
+
+		-
+			message: "#^PHPDoc type Test\\\\Ease\\\\Html\\\\SelectTag of property Test\\\\Ease\\\\Html\\\\SelectTagTest\\:\\:\\$object is not covariant with PHPDoc type Ease\\\\Html\\\\PairTag of overridden property Test\\\\Ease\\\\Html\\\\PairTagTest\\:\\:\\$object\\.$#"
+			count: 1
+			path: tests/src/Ease/Html/SelectTagTest.php
+
+		-
+			message: "#^Property Test\\\\Ease\\\\Html\\\\SelectTagTest\\:\\:\\$object \\(Test\\\\Ease\\\\Html\\\\SelectTag\\) does not accept Ease\\\\Html\\\\SelectTag\\.$#"
+			count: 1
+			path: tests/src/Ease/Html/SelectTagTest.php
+
+		-
+			message: "#^Property Test\\\\Ease\\\\Html\\\\SelectTagTest\\:\\:\\$object has unknown class Test\\\\Ease\\\\Html\\\\SelectTag as its type\\.$#"
+			count: 1
+			path: tests/src/Ease/Html/SelectTagTest.php
+
+		-
+			message: "#^PHPDoc type Test\\\\Ease\\\\Html\\\\SimpleHeadTag of property Test\\\\Ease\\\\Html\\\\SimpleHeadTagTest\\:\\:\\$object is not covariant with PHPDoc type Ease\\\\Html\\\\PairTag of overridden property Test\\\\Ease\\\\Html\\\\PairTagTest\\:\\:\\$object\\.$#"
+			count: 1
+			path: tests/src/Ease/Html/SimpleHeadTagTest.php
+
+		-
+			message: "#^Property Test\\\\Ease\\\\Html\\\\SimpleHeadTagTest\\:\\:\\$object \\(Test\\\\Ease\\\\Html\\\\SimpleHeadTag\\) does not accept Ease\\\\Html\\\\SimpleHeadTag\\.$#"
+			count: 1
+			path: tests/src/Ease/Html/SimpleHeadTagTest.php
+
+		-
+			message: "#^Property Test\\\\Ease\\\\Html\\\\SimpleHeadTagTest\\:\\:\\$object has unknown class Test\\\\Ease\\\\Html\\\\SimpleHeadTag as its type\\.$#"
+			count: 1
+			path: tests/src/Ease/Html/SimpleHeadTagTest.php
+
+		-
+			message: "#^PHPDoc type Test\\\\Ease\\\\Html\\\\SmallTag of property Test\\\\Ease\\\\Html\\\\SmallTagTest\\:\\:\\$object is not covariant with PHPDoc type Ease\\\\Html\\\\PairTag of overridden property Test\\\\Ease\\\\Html\\\\PairTagTest\\:\\:\\$object\\.$#"
+			count: 1
+			path: tests/src/Ease/Html/SmallTagTest.php
+
+		-
+			message: "#^Property Test\\\\Ease\\\\Html\\\\SmallTagTest\\:\\:\\$object \\(Test\\\\Ease\\\\Html\\\\SmallTag\\) does not accept Ease\\\\Html\\\\SmallTag\\.$#"
+			count: 1
+			path: tests/src/Ease/Html/SmallTagTest.php
+
+		-
+			message: "#^Property Test\\\\Ease\\\\Html\\\\SmallTagTest\\:\\:\\$object has unknown class Test\\\\Ease\\\\Html\\\\SmallTag as its type\\.$#"
+			count: 1
+			path: tests/src/Ease/Html/SmallTagTest.php
+
+		-
+			message: "#^PHPDoc type Test\\\\Ease\\\\Html\\\\Span of property Test\\\\Ease\\\\Html\\\\SpanTagTest\\:\\:\\$object is not covariant with PHPDoc type Ease\\\\Html\\\\PairTag of overridden property Test\\\\Ease\\\\Html\\\\PairTagTest\\:\\:\\$object\\.$#"
+			count: 1
+			path: tests/src/Ease/Html/SpanTagTest.php
+
+		-
+			message: "#^Property Test\\\\Ease\\\\Html\\\\SpanTagTest\\:\\:\\$object \\(Test\\\\Ease\\\\Html\\\\Span\\) does not accept Ease\\\\Html\\\\SpanTag\\.$#"
+			count: 1
+			path: tests/src/Ease/Html/SpanTagTest.php
+
+		-
+			message: "#^Property Test\\\\Ease\\\\Html\\\\SpanTagTest\\:\\:\\$object has unknown class Test\\\\Ease\\\\Html\\\\Span as its type\\.$#"
+			count: 1
+			path: tests/src/Ease/Html/SpanTagTest.php
+
+		-
+			message: "#^PHPDoc type Test\\\\Ease\\\\Html\\\\Span of property Test\\\\Ease\\\\Html\\\\SpanTest\\:\\:\\$object is not covariant with PHPDoc type Ease\\\\Html\\\\PairTag of overridden property Test\\\\Ease\\\\Html\\\\PairTagTest\\:\\:\\$object\\.$#"
+			count: 1
+			path: tests/src/Ease/Html/SpanTest.php
+
+		-
+			message: "#^Property Test\\\\Ease\\\\Html\\\\SpanTest\\:\\:\\$object \\(Test\\\\Ease\\\\Html\\\\Span\\) does not accept Ease\\\\Html\\\\Span\\.$#"
+			count: 1
+			path: tests/src/Ease/Html/SpanTest.php
+
+		-
+			message: "#^Property Test\\\\Ease\\\\Html\\\\SpanTest\\:\\:\\$object has unknown class Test\\\\Ease\\\\Html\\\\Span as its type\\.$#"
+			count: 1
+			path: tests/src/Ease/Html/SpanTest.php
+
+		-
+			message: "#^PHPDoc type Test\\\\Ease\\\\Html\\\\StrongTag of property Test\\\\Ease\\\\Html\\\\StrongTagTest\\:\\:\\$object is not covariant with PHPDoc type Ease\\\\Html\\\\PairTag of overridden property Test\\\\Ease\\\\Html\\\\PairTagTest\\:\\:\\$object\\.$#"
+			count: 1
+			path: tests/src/Ease/Html/StrongTagTest.php
+
+		-
+			message: "#^Property Test\\\\Ease\\\\Html\\\\StrongTagTest\\:\\:\\$object \\(Test\\\\Ease\\\\Html\\\\StrongTag\\) does not accept Ease\\\\Html\\\\StrongTag\\.$#"
+			count: 1
+			path: tests/src/Ease/Html/StrongTagTest.php
+
+		-
+			message: "#^Property Test\\\\Ease\\\\Html\\\\StrongTagTest\\:\\:\\$object has unknown class Test\\\\Ease\\\\Html\\\\StrongTag as its type\\.$#"
+			count: 1
+			path: tests/src/Ease/Html/StrongTagTest.php
+
+		-
+			message: "#^Call to method __construct\\(\\) on an unknown class Test\\\\Ease\\\\Html\\\\SubmitButton\\.$#"
+			count: 2
+			path: tests/src/Ease/Html/SubmitButtonTest.php
+
+		-
+			message: "#^Call to method draw\\(\\) on an unknown class Test\\\\Ease\\\\Html\\\\SubmitButton\\.$#"
+			count: 1
+			path: tests/src/Ease/Html/SubmitButtonTest.php
+
+		-
+			message: "#^Call to method getRendered\\(\\) on an unknown class Test\\\\Ease\\\\Html\\\\SubmitButton\\.$#"
+			count: 1
+			path: tests/src/Ease/Html/SubmitButtonTest.php
+
+		-
+			message: "#^Call to method setValue\\(\\) on an unknown class Test\\\\Ease\\\\Html\\\\SubmitButton\\.$#"
+			count: 1
+			path: tests/src/Ease/Html/SubmitButtonTest.php
+
+		-
+			message: "#^Method Test\\\\Ease\\\\Html\\\\SubmitButtonTest\\:\\:testConstructor\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: tests/src/Ease/Html/SubmitButtonTest.php
+
+		-
+			message: "#^Method Test\\\\Ease\\\\Html\\\\SubmitButtonTest\\:\\:testDraw\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: tests/src/Ease/Html/SubmitButtonTest.php
+
+		-
+			message: "#^Method Test\\\\Ease\\\\Html\\\\SubmitButtonTest\\:\\:testDraw\\(\\) has parameter \\$whatWant with no type specified\\.$#"
+			count: 1
+			path: tests/src/Ease/Html/SubmitButtonTest.php
+
+		-
+			message: "#^Method Test\\\\Ease\\\\Html\\\\SubmitButtonTest\\:\\:testSetValue\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: tests/src/Ease/Html/SubmitButtonTest.php
+
+		-
+			message: "#^PHPDoc type Test\\\\Ease\\\\Html\\\\SubmitButton of property Test\\\\Ease\\\\Html\\\\SubmitButtonTest\\:\\:\\$object is not covariant with PHPDoc type Test\\\\Ease\\\\Html\\\\InputTag of overridden property Test\\\\Ease\\\\Html\\\\InputTagTest\\:\\:\\$object\\.$#"
+			count: 1
+			path: tests/src/Ease/Html/SubmitButtonTest.php
+
+		-
+			message: "#^Property Test\\\\Ease\\\\Html\\\\SubmitButtonTest\\:\\:\\$object \\(Test\\\\Ease\\\\Html\\\\SubmitButton\\) does not accept Ease\\\\Html\\\\SubmitButton\\.$#"
+			count: 1
+			path: tests/src/Ease/Html/SubmitButtonTest.php
+
+		-
+			message: "#^Property Test\\\\Ease\\\\Html\\\\SubmitButtonTest\\:\\:\\$object has unknown class Test\\\\Ease\\\\Html\\\\SubmitButton as its type\\.$#"
+			count: 1
+			path: tests/src/Ease/Html/SubmitButtonTest.php
+
+		-
+			message: "#^Call to method addAsFirst\\(\\) on an unknown class Test\\\\Ease\\\\Html\\\\TableTag\\.$#"
+			count: 1
+			path: tests/src/Ease/Html/TableTagTest.php
+
+		-
+			message: "#^Call to method addItem\\(\\) on an unknown class Test\\\\Ease\\\\Html\\\\TableTag\\.$#"
+			count: 2
+			path: tests/src/Ease/Html/TableTagTest.php
+
+		-
+			message: "#^Call to method addItems\\(\\) on an unknown class Test\\\\Ease\\\\Html\\\\TableTag\\.$#"
+			count: 1
+			path: tests/src/Ease/Html/TableTagTest.php
+
+		-
+			message: "#^Call to method addRowColumns\\(\\) on an unknown class Test\\\\Ease\\\\Html\\\\TableTag\\.$#"
+			count: 4
+			path: tests/src/Ease/Html/TableTagTest.php
+
+		-
+			message: "#^Call to method addRowHeaderColumns\\(\\) on an unknown class Test\\\\Ease\\\\Html\\\\TableTag\\.$#"
+			count: 1
+			path: tests/src/Ease/Html/TableTagTest.php
+
+		-
+			message: "#^Call to method addToLastItem\\(\\) on an unknown class Test\\\\Ease\\\\Html\\\\TableTag\\.$#"
+			count: 1
+			path: tests/src/Ease/Html/TableTagTest.php
+
+		-
+			message: "#^Call to method emptyContents\\(\\) on an unknown class Test\\\\Ease\\\\Html\\\\TableTag\\.$#"
+			count: 6
+			path: tests/src/Ease/Html/TableTagTest.php
+
+		-
+			message: "#^Call to method getFirstPart\\(\\) on an unknown class Test\\\\Ease\\\\Html\\\\TableTag\\.$#"
+			count: 2
+			path: tests/src/Ease/Html/TableTagTest.php
+
+		-
+			message: "#^Call to method getItemsCount\\(\\) on an unknown class Test\\\\Ease\\\\Html\\\\TableTag\\.$#"
+			count: 2
+			path: tests/src/Ease/Html/TableTagTest.php
+
+		-
+			message: "#^Call to method getRendered\\(\\) on an unknown class Test\\\\Ease\\\\Html\\\\TableTag\\.$#"
+			count: 7
+			path: tests/src/Ease/Html/TableTagTest.php
+
+		-
+			message: "#^Call to method isEmpty\\(\\) on an unknown class Test\\\\Ease\\\\Html\\\\TableTag\\.$#"
+			count: 2
+			path: tests/src/Ease/Html/TableTagTest.php
+
+		-
+			message: "#^Call to method populate\\(\\) on an unknown class Test\\\\Ease\\\\Html\\\\TableTag\\.$#"
+			count: 1
+			path: tests/src/Ease/Html/TableTagTest.php
+
+		-
+			message: "#^Call to method setHeader\\(\\) on an unknown class Test\\\\Ease\\\\Html\\\\TableTag\\.$#"
+			count: 1
+			path: tests/src/Ease/Html/TableTagTest.php
+
+		-
+			message: "#^Method Test\\\\Ease\\\\Html\\\\TableTagTest\\:\\:testAddAsFirst\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: tests/src/Ease/Html/TableTagTest.php
+
+		-
+			message: "#^Method Test\\\\Ease\\\\Html\\\\TableTagTest\\:\\:testAddItems\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: tests/src/Ease/Html/TableTagTest.php
+
+		-
+			message: "#^Method Test\\\\Ease\\\\Html\\\\TableTagTest\\:\\:testAddRowColumns\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: tests/src/Ease/Html/TableTagTest.php
+
+		-
+			message: "#^Method Test\\\\Ease\\\\Html\\\\TableTagTest\\:\\:testAddRowHeaderColumns\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: tests/src/Ease/Html/TableTagTest.php
+
+		-
+			message: "#^Method Test\\\\Ease\\\\Html\\\\TableTagTest\\:\\:testAddToLastItem\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: tests/src/Ease/Html/TableTagTest.php
+
+		-
+			message: "#^Method Test\\\\Ease\\\\Html\\\\TableTagTest\\:\\:testGetFirstPart\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: tests/src/Ease/Html/TableTagTest.php
+
+		-
+			message: "#^Method Test\\\\Ease\\\\Html\\\\TableTagTest\\:\\:testGetItemsCount\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: tests/src/Ease/Html/TableTagTest.php
+
+		-
+			message: "#^Method Test\\\\Ease\\\\Html\\\\TableTagTest\\:\\:testIsEmpty\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: tests/src/Ease/Html/TableTagTest.php
+
+		-
+			message: "#^Method Test\\\\Ease\\\\Html\\\\TableTagTest\\:\\:testPopulate\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: tests/src/Ease/Html/TableTagTest.php
+
+		-
+			message: "#^Method Test\\\\Ease\\\\Html\\\\TableTagTest\\:\\:testSetHeader\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: tests/src/Ease/Html/TableTagTest.php
+
+		-
+			message: "#^PHPDoc type Test\\\\Ease\\\\Html\\\\TableTag of property Test\\\\Ease\\\\Html\\\\TableTagTest\\:\\:\\$object is not covariant with PHPDoc type Ease\\\\Html\\\\PairTag of overridden property Test\\\\Ease\\\\Html\\\\PairTagTest\\:\\:\\$object\\.$#"
+			count: 1
+			path: tests/src/Ease/Html/TableTagTest.php
+
+		-
+			message: "#^Property Test\\\\Ease\\\\Html\\\\TableTagTest\\:\\:\\$object \\(Test\\\\Ease\\\\Html\\\\TableTag\\) does not accept Ease\\\\Html\\\\TableTag\\.$#"
+			count: 1
+			path: tests/src/Ease/Html/TableTagTest.php
+
+		-
+			message: "#^Property Test\\\\Ease\\\\Html\\\\TableTagTest\\:\\:\\$object has unknown class Test\\\\Ease\\\\Html\\\\TableTag as its type\\.$#"
+			count: 1
+			path: tests/src/Ease/Html/TableTagTest.php
+
+		-
+			message: "#^Access to property \\$setName on an unknown class Test\\\\Ease\\\\Html\\\\Tag\\.$#"
+			count: 4
+			path: tests/src/Ease/Html/TagTest.php
+
+		-
+			message: "#^Access to property \\$tagProperties on an unknown class Test\\\\Ease\\\\Html\\\\Tag\\.$#"
+			count: 4
+			path: tests/src/Ease/Html/TagTest.php
+
+		-
+			message: "#^Call to method __construct\\(\\) on an unknown class Test\\\\Ease\\\\Html\\\\Tag\\.$#"
+			count: 2
+			path: tests/src/Ease/Html/TagTest.php
+
+		-
+			message: "#^Call to method addTagClass\\(\\) on an unknown class Test\\\\Ease\\\\Html\\\\Tag\\.$#"
+			count: 1
+			path: tests/src/Ease/Html/TagTest.php
+
+		-
+			message: "#^Call to method cssPropertiesToString\\(\\) on an unknown class Test\\\\Ease\\\\Html\\\\Tag\\.$#"
+			count: 2
+			path: tests/src/Ease/Html/TagTest.php
+
+		-
+			message: "#^Call to method draw\\(\\) on an unknown class Test\\\\Ease\\\\Html\\\\Tag\\.$#"
+			count: 1
+			path: tests/src/Ease/Html/TagTest.php
+
+		-
+			message: "#^Call to method finalize\\(\\) on an unknown class Test\\\\Ease\\\\Html\\\\Tag\\.$#"
+			count: 1
+			path: tests/src/Ease/Html/TagTest.php
+
+		-
+			message: "#^Call to method getRendered\\(\\) on an unknown class Test\\\\Ease\\\\Html\\\\Tag\\.$#"
+			count: 1
+			path: tests/src/Ease/Html/TagTest.php
+
+		-
+			message: "#^Call to method getTagClass\\(\\) on an unknown class Test\\\\Ease\\\\Html\\\\Tag\\.$#"
+			count: 1
+			path: tests/src/Ease/Html/TagTest.php
+
+		-
+			message: "#^Call to method getTagID\\(\\) on an unknown class Test\\\\Ease\\\\Html\\\\Tag\\.$#"
+			count: 2
+			path: tests/src/Ease/Html/TagTest.php
+
+		-
+			message: "#^Call to method getTagName\\(\\) on an unknown class Test\\\\Ease\\\\Html\\\\Tag\\.$#"
+			count: 3
+			path: tests/src/Ease/Html/TagTest.php
+
+		-
+			message: "#^Call to method getTagProperty\\(\\) on an unknown class Test\\\\Ease\\\\Html\\\\Tag\\.$#"
+			count: 7
+			path: tests/src/Ease/Html/TagTest.php
+
+		-
+			message: "#^Call to method getTagType\\(\\) on an unknown class Test\\\\Ease\\\\Html\\\\Tag\\.$#"
+			count: 4
+			path: tests/src/Ease/Html/TagTest.php
+
+		-
+			message: "#^Call to method setObjectName\\(\\) on an unknown class Test\\\\Ease\\\\Html\\\\Tag\\.$#"
+			count: 3
+			path: tests/src/Ease/Html/TagTest.php
+
+		-
+			message: "#^Call to method setTagClass\\(\\) on an unknown class Test\\\\Ease\\\\Html\\\\Tag\\.$#"
+			count: 3
+			path: tests/src/Ease/Html/TagTest.php
+
+		-
+			message: "#^Call to method setTagCss\\(\\) on an unknown class Test\\\\Ease\\\\Html\\\\Tag\\.$#"
+			count: 3
+			path: tests/src/Ease/Html/TagTest.php
+
+		-
+			message: "#^Call to method setTagID\\(\\) on an unknown class Test\\\\Ease\\\\Html\\\\Tag\\.$#"
+			count: 2
+			path: tests/src/Ease/Html/TagTest.php
+
+		-
+			message: "#^Call to method setTagName\\(\\) on an unknown class Test\\\\Ease\\\\Html\\\\Tag\\.$#"
+			count: 4
+			path: tests/src/Ease/Html/TagTest.php
+
+		-
+			message: "#^Call to method setTagProperties\\(\\) on an unknown class Test\\\\Ease\\\\Html\\\\Tag\\.$#"
+			count: 4
+			path: tests/src/Ease/Html/TagTest.php
+
+		-
+			message: "#^Call to method setTagType\\(\\) on an unknown class Test\\\\Ease\\\\Html\\\\Tag\\.$#"
+			count: 4
+			path: tests/src/Ease/Html/TagTest.php
+
+		-
+			message: "#^Call to method tagPropertiesToString\\(\\) on an unknown class Test\\\\Ease\\\\Html\\\\Tag\\.$#"
+			count: 1
+			path: tests/src/Ease/Html/TagTest.php
+
+		-
+			message: "#^Method Test\\\\Ease\\\\Html\\\\TagTest\\:\\:testAddTagClass\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: tests/src/Ease/Html/TagTest.php
+
+		-
+			message: "#^Method Test\\\\Ease\\\\Html\\\\TagTest\\:\\:testConstructor\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: tests/src/Ease/Html/TagTest.php
+
+		-
+			message: "#^Method Test\\\\Ease\\\\Html\\\\TagTest\\:\\:testCssPropertiesToString\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: tests/src/Ease/Html/TagTest.php
+
+		-
+			message: "#^Method Test\\\\Ease\\\\Html\\\\TagTest\\:\\:testDraw\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: tests/src/Ease/Html/TagTest.php
+
+		-
+			message: "#^Method Test\\\\Ease\\\\Html\\\\TagTest\\:\\:testDraw\\(\\) has parameter \\$whatWant with no type specified\\.$#"
+			count: 1
+			path: tests/src/Ease/Html/TagTest.php
+
+		-
+			message: "#^Method Test\\\\Ease\\\\Html\\\\TagTest\\:\\:testFinalize\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: tests/src/Ease/Html/TagTest.php
+
+		-
+			message: "#^Method Test\\\\Ease\\\\Html\\\\TagTest\\:\\:testGetTagClass\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: tests/src/Ease/Html/TagTest.php
+
+		-
+			message: "#^Method Test\\\\Ease\\\\Html\\\\TagTest\\:\\:testGetTagID\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: tests/src/Ease/Html/TagTest.php
+
+		-
+			message: "#^Method Test\\\\Ease\\\\Html\\\\TagTest\\:\\:testGetTagName\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: tests/src/Ease/Html/TagTest.php
+
+		-
+			message: "#^Method Test\\\\Ease\\\\Html\\\\TagTest\\:\\:testGetTagProperty\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: tests/src/Ease/Html/TagTest.php
+
+		-
+			message: "#^Method Test\\\\Ease\\\\Html\\\\TagTest\\:\\:testGetTagType\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: tests/src/Ease/Html/TagTest.php
+
+		-
+			message: "#^Method Test\\\\Ease\\\\Html\\\\TagTest\\:\\:testSetObjectName\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: tests/src/Ease/Html/TagTest.php
+
+		-
+			message: "#^Method Test\\\\Ease\\\\Html\\\\TagTest\\:\\:testSetTagClass\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: tests/src/Ease/Html/TagTest.php
+
+		-
+			message: "#^Method Test\\\\Ease\\\\Html\\\\TagTest\\:\\:testSetTagCss\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: tests/src/Ease/Html/TagTest.php
+
+		-
+			message: "#^Method Test\\\\Ease\\\\Html\\\\TagTest\\:\\:testSetTagID\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: tests/src/Ease/Html/TagTest.php
+
+		-
+			message: "#^Method Test\\\\Ease\\\\Html\\\\TagTest\\:\\:testSetTagName\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: tests/src/Ease/Html/TagTest.php
+
+		-
+			message: "#^Method Test\\\\Ease\\\\Html\\\\TagTest\\:\\:testSetTagProperties\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: tests/src/Ease/Html/TagTest.php
+
+		-
+			message: "#^Method Test\\\\Ease\\\\Html\\\\TagTest\\:\\:testSetTagType\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: tests/src/Ease/Html/TagTest.php
+
+		-
+			message: "#^Method Test\\\\Ease\\\\Html\\\\TagTest\\:\\:testTagPropertiesToString\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: tests/src/Ease/Html/TagTest.php
+
+		-
+			message: "#^PHPDoc type Test\\\\Ease\\\\Html\\\\Tag of property Test\\\\Ease\\\\Html\\\\TagTest\\:\\:\\$object is not covariant with PHPDoc type Ease\\\\Document of overridden property Test\\\\Ease\\\\DocumentTest\\:\\:\\$object\\.$#"
+			count: 1
+			path: tests/src/Ease/Html/TagTest.php
+
+		-
+			message: "#^Property Test\\\\Ease\\\\Html\\\\TagTest\\:\\:\\$object \\(Test\\\\Ease\\\\Html\\\\Tag\\) does not accept Ease\\\\Html\\\\Tag\\.$#"
+			count: 1
+			path: tests/src/Ease/Html/TagTest.php
+
+		-
+			message: "#^Property Test\\\\Ease\\\\Html\\\\TagTest\\:\\:\\$object has unknown class Test\\\\Ease\\\\Html\\\\Tag as its type\\.$#"
+			count: 1
+			path: tests/src/Ease/Html/TagTest.php
+
+		-
+			message: "#^PHPDoc type Test\\\\Ease\\\\Html\\\\Tbody of property Test\\\\Ease\\\\Html\\\\TbodyTest\\:\\:\\$object is not covariant with PHPDoc type Ease\\\\Html\\\\PairTag of overridden property Test\\\\Ease\\\\Html\\\\PairTagTest\\:\\:\\$object\\.$#"
+			count: 1
+			path: tests/src/Ease/Html/TbodyTest.php
+
+		-
+			message: "#^Property Test\\\\Ease\\\\Html\\\\TbodyTest\\:\\:\\$object \\(Test\\\\Ease\\\\Html\\\\Tbody\\) does not accept Ease\\\\Html\\\\Tbody\\.$#"
+			count: 1
+			path: tests/src/Ease/Html/TbodyTest.php
+
+		-
+			message: "#^Property Test\\\\Ease\\\\Html\\\\TbodyTest\\:\\:\\$object has unknown class Test\\\\Ease\\\\Html\\\\Tbody as its type\\.$#"
+			count: 1
+			path: tests/src/Ease/Html/TbodyTest.php
+
+		-
+			message: "#^PHPDoc type Test\\\\Ease\\\\Html\\\\TdTag of property Test\\\\Ease\\\\Html\\\\TdTagTest\\:\\:\\$object is not covariant with PHPDoc type Ease\\\\Html\\\\PairTag of overridden property Test\\\\Ease\\\\Html\\\\PairTagTest\\:\\:\\$object\\.$#"
+			count: 1
+			path: tests/src/Ease/Html/TdTagTest.php
+
+		-
+			message: "#^Property Test\\\\Ease\\\\Html\\\\TdTagTest\\:\\:\\$object \\(Test\\\\Ease\\\\Html\\\\TdTag\\) does not accept Ease\\\\Html\\\\TdTag\\.$#"
+			count: 1
+			path: tests/src/Ease/Html/TdTagTest.php
+
+		-
+			message: "#^Property Test\\\\Ease\\\\Html\\\\TdTagTest\\:\\:\\$object has unknown class Test\\\\Ease\\\\Html\\\\TdTag as its type\\.$#"
+			count: 1
+			path: tests/src/Ease/Html/TdTagTest.php
+
+		-
+			message: "#^Access to property \\$setName on an unknown class Test\\\\Ease\\\\Html\\\\TextareaTag\\.$#"
+			count: 2
+			path: tests/src/Ease/Html/TextareaTagTest.php
+
+		-
+			message: "#^Call to method __construct\\(\\) on an unknown class Test\\\\Ease\\\\Html\\\\TextareaTag\\.$#"
+			count: 2
+			path: tests/src/Ease/Html/TextareaTagTest.php
+
+		-
+			message: "#^Call to method getRendered\\(\\) on an unknown class Test\\\\Ease\\\\Html\\\\TextareaTag\\.$#"
+			count: 2
+			path: tests/src/Ease/Html/TextareaTagTest.php
+
+		-
+			message: "#^Call to method getTagName\\(\\) on an unknown class Test\\\\Ease\\\\Html\\\\TextareaTag\\.$#"
+			count: 2
+			path: tests/src/Ease/Html/TextareaTagTest.php
+
+		-
+			message: "#^Call to method setTagName\\(\\) on an unknown class Test\\\\Ease\\\\Html\\\\TextareaTag\\.$#"
+			count: 1
+			path: tests/src/Ease/Html/TextareaTagTest.php
+
+		-
+			message: "#^Call to method setValue\\(\\) on an unknown class Test\\\\Ease\\\\Html\\\\TextareaTag\\.$#"
+			count: 1
+			path: tests/src/Ease/Html/TextareaTagTest.php
+
+		-
+			message: "#^Method Test\\\\Ease\\\\Html\\\\TextareaTagTest\\:\\:testConstructor\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: tests/src/Ease/Html/TextareaTagTest.php
+
+		-
+			message: "#^Method Test\\\\Ease\\\\Html\\\\TextareaTagTest\\:\\:testGetTagName\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: tests/src/Ease/Html/TextareaTagTest.php
+
+		-
+			message: "#^Method Test\\\\Ease\\\\Html\\\\TextareaTagTest\\:\\:testSetValue\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: tests/src/Ease/Html/TextareaTagTest.php
+
+		-
+			message: "#^PHPDoc type Test\\\\Ease\\\\Html\\\\TextareaTag of property Test\\\\Ease\\\\Html\\\\TextareaTagTest\\:\\:\\$object is not covariant with PHPDoc type Ease\\\\Html\\\\PairTag of overridden property Test\\\\Ease\\\\Html\\\\PairTagTest\\:\\:\\$object\\.$#"
+			count: 1
+			path: tests/src/Ease/Html/TextareaTagTest.php
+
+		-
+			message: "#^Property Test\\\\Ease\\\\Html\\\\TextareaTagTest\\:\\:\\$object \\(Test\\\\Ease\\\\Html\\\\TextareaTag\\) does not accept Ease\\\\Html\\\\TextareaTag\\.$#"
+			count: 1
+			path: tests/src/Ease/Html/TextareaTagTest.php
+
+		-
+			message: "#^Property Test\\\\Ease\\\\Html\\\\TextareaTagTest\\:\\:\\$object has unknown class Test\\\\Ease\\\\Html\\\\TextareaTag as its type\\.$#"
+			count: 1
+			path: tests/src/Ease/Html/TextareaTagTest.php
+
+		-
+			message: "#^PHPDoc type Test\\\\Ease\\\\Html\\\\ThTag of property Test\\\\Ease\\\\Html\\\\ThTagTest\\:\\:\\$object is not covariant with PHPDoc type Ease\\\\Html\\\\PairTag of overridden property Test\\\\Ease\\\\Html\\\\PairTagTest\\:\\:\\$object\\.$#"
+			count: 1
+			path: tests/src/Ease/Html/ThTagTest.php
+
+		-
+			message: "#^Property Test\\\\Ease\\\\Html\\\\ThTagTest\\:\\:\\$object \\(Test\\\\Ease\\\\Html\\\\ThTag\\) does not accept Ease\\\\Html\\\\ThTag\\.$#"
+			count: 1
+			path: tests/src/Ease/Html/ThTagTest.php
+
+		-
+			message: "#^Property Test\\\\Ease\\\\Html\\\\ThTagTest\\:\\:\\$object has unknown class Test\\\\Ease\\\\Html\\\\ThTag as its type\\.$#"
+			count: 1
+			path: tests/src/Ease/Html/ThTagTest.php
+
+		-
+			message: "#^PHPDoc type Test\\\\Ease\\\\Html\\\\Thead of property Test\\\\Ease\\\\Html\\\\TheadTest\\:\\:\\$object is not covariant with PHPDoc type Ease\\\\Html\\\\PairTag of overridden property Test\\\\Ease\\\\Html\\\\PairTagTest\\:\\:\\$object\\.$#"
+			count: 1
+			path: tests/src/Ease/Html/TheadTest.php
+
+		-
+			message: "#^Property Test\\\\Ease\\\\Html\\\\TheadTest\\:\\:\\$object \\(Test\\\\Ease\\\\Html\\\\Thead\\) does not accept Ease\\\\Html\\\\Thead\\.$#"
+			count: 1
+			path: tests/src/Ease/Html/TheadTest.php
+
+		-
+			message: "#^Property Test\\\\Ease\\\\Html\\\\TheadTest\\:\\:\\$object has unknown class Test\\\\Ease\\\\Html\\\\Thead as its type\\.$#"
+			count: 1
+			path: tests/src/Ease/Html/TheadTest.php
+
+		-
+			message: "#^PHPDoc type Test\\\\Ease\\\\Html\\\\TitleTag of property Test\\\\Ease\\\\Html\\\\TitleTagTest\\:\\:\\$object is not covariant with PHPDoc type Ease\\\\Html\\\\PairTag of overridden property Test\\\\Ease\\\\Html\\\\PairTagTest\\:\\:\\$object\\.$#"
+			count: 1
+			path: tests/src/Ease/Html/TitleTagTest.php
+
+		-
+			message: "#^Property Test\\\\Ease\\\\Html\\\\TitleTagTest\\:\\:\\$object \\(Test\\\\Ease\\\\Html\\\\TitleTag\\) does not accept Ease\\\\Html\\\\TitleTag\\.$#"
+			count: 1
+			path: tests/src/Ease/Html/TitleTagTest.php
+
+		-
+			message: "#^Property Test\\\\Ease\\\\Html\\\\TitleTagTest\\:\\:\\$object has unknown class Test\\\\Ease\\\\Html\\\\TitleTag as its type\\.$#"
+			count: 1
+			path: tests/src/Ease/Html/TitleTagTest.php
+
+		-
+			message: "#^PHPDoc type Test\\\\Ease\\\\Html\\\\TrTag of property Test\\\\Ease\\\\Html\\\\TrTagTest\\:\\:\\$object is not covariant with PHPDoc type Ease\\\\Html\\\\PairTag of overridden property Test\\\\Ease\\\\Html\\\\PairTagTest\\:\\:\\$object\\.$#"
+			count: 1
+			path: tests/src/Ease/Html/TrTagTest.php
+
+		-
+			message: "#^Property Test\\\\Ease\\\\Html\\\\TrTagTest\\:\\:\\$object \\(Test\\\\Ease\\\\Html\\\\TrTag\\) does not accept Ease\\\\Html\\\\TrTag\\.$#"
+			count: 1
+			path: tests/src/Ease/Html/TrTagTest.php
+
+		-
+			message: "#^Property Test\\\\Ease\\\\Html\\\\TrTagTest\\:\\:\\$object has unknown class Test\\\\Ease\\\\Html\\\\TrTag as its type\\.$#"
+			count: 1
+			path: tests/src/Ease/Html/TrTagTest.php
+
+		-
+			message: "#^Method Test\\\\Ease\\\\Html\\\\UlTagTest\\:\\:testAddItemSmart\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: tests/src/Ease/Html/UlTagTest.php
+
+		-
+			message: "#^Method Test\\\\Ease\\\\Html\\\\UlTagTest\\:\\:testAddItems\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: tests/src/Ease/Html/UlTagTest.php
+
+		-
+			message: "#^PHPDoc type Test\\\\Ease\\\\Html\\\\UlTag of property Test\\\\Ease\\\\Html\\\\UlTagTest\\:\\:\\$object is not covariant with PHPDoc type Ease\\\\Html\\\\PairTag of overridden property Test\\\\Ease\\\\Html\\\\PairTagTest\\:\\:\\$object\\.$#"
+			count: 1
+			path: tests/src/Ease/Html/UlTagTest.php
+
+		-
+			message: "#^Property Test\\\\Ease\\\\Html\\\\UlTagTest\\:\\:\\$object \\(Test\\\\Ease\\\\Html\\\\UlTag\\) does not accept Ease\\\\Html\\\\UlTag\\.$#"
+			count: 1
+			path: tests/src/Ease/Html/UlTagTest.php
+
+		-
+			message: "#^Property Test\\\\Ease\\\\Html\\\\UlTagTest\\:\\:\\$object has unknown class Test\\\\Ease\\\\Html\\\\UlTag as its type\\.$#"
+			count: 1
+			path: tests/src/Ease/Html/UlTagTest.php
+
+		-
+			message: "#^PHPDoc type Test\\\\Ease\\\\Html\\\\WbrTag of property Test\\\\Ease\\\\Html\\\\WbrTagTest\\:\\:\\$object is not covariant with PHPDoc type Ease\\\\Html\\\\PairTag of overridden property Test\\\\Ease\\\\Html\\\\PairTagTest\\:\\:\\$object\\.$#"
+			count: 1
+			path: tests/src/Ease/Html/WbrTagTest.php
+
+		-
+			message: "#^Property Test\\\\Ease\\\\Html\\\\WbrTagTest\\:\\:\\$object \\(Test\\\\Ease\\\\Html\\\\WbrTag\\) does not accept Ease\\\\Html\\\\WbrTag\\.$#"
+			count: 1
+			path: tests/src/Ease/Html/WbrTagTest.php
+
+		-
+			message: "#^Property Test\\\\Ease\\\\Html\\\\WbrTagTest\\:\\:\\$object has unknown class Test\\\\Ease\\\\Html\\\\WbrTag as its type\\.$#"
+			count: 1
+			path: tests/src/Ease/Html/WbrTagTest.php
+
+		-
+			message: "#^Method Test\\\\Ease\\\\WebPageTest\\:\\:testAddCSS\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: tests/src/Ease/WebPageTest.php
+
+		-
+			message: "#^Method Test\\\\Ease\\\\WebPageTest\\:\\:testAddItem\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: tests/src/Ease/WebPageTest.php
+
+		-
+			message: "#^Method Test\\\\Ease\\\\WebPageTest\\:\\:testAddJavaScript\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: tests/src/Ease/WebPageTest.php
+
+		-
+			message: "#^Method Test\\\\Ease\\\\WebPageTest\\:\\:testAddToScriptsStack\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: tests/src/Ease/WebPageTest.php
+
+		-
+			message: "#^Method Test\\\\Ease\\\\WebPageTest\\:\\:testDraw\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: tests/src/Ease/WebPageTest.php
+
+		-
+			message: "#^Method Test\\\\Ease\\\\WebPageTest\\:\\:testDraw\\(\\) has parameter \\$whatWant with no type specified\\.$#"
+			count: 1
+			path: tests/src/Ease/WebPageTest.php
+
+		-
+			message: "#^Method Test\\\\Ease\\\\WebPageTest\\:\\:testDrawIfNotDrawn\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: tests/src/Ease/WebPageTest.php
+
+		-
+			message: "#^Method Test\\\\Ease\\\\WebPageTest\\:\\:testDrawIfNotDrawn\\(\\) has parameter \\$canBeEmpty with no type specified\\.$#"
+			count: 1
+			path: tests/src/Ease/WebPageTest.php
+
+		-
+			message: "#^Method Test\\\\Ease\\\\WebPageTest\\:\\:testFinalizeRegistred\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: tests/src/Ease/WebPageTest.php
+
+		-
+			message: "#^Method Test\\\\Ease\\\\WebPageTest\\:\\:testGetItemsCount\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: tests/src/Ease/WebPageTest.php
+
+		-
+			message: "#^Method Test\\\\Ease\\\\WebPageTest\\:\\:testGetStatusMessagesBlock\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: tests/src/Ease/WebPageTest.php
+
+		-
+			message: "#^Method Test\\\\Ease\\\\WebPageTest\\:\\:testIncludeCss\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: tests/src/Ease/WebPageTest.php
+
+		-
+			message: "#^Method Test\\\\Ease\\\\WebPageTest\\:\\:testIncludeJavaScript\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: tests/src/Ease/WebPageTest.php
+
+		-
+			message: "#^Method Test\\\\Ease\\\\WebPageTest\\:\\:testSetPageTitle\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: tests/src/Ease/WebPageTest.php
+
+		-
+			message: "#^Method Test\\\\Ease\\\\WebPageTest\\:\\:testSetTagID\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: tests/src/Ease/WebPageTest.php
+
+		-
+			message: "#^Parameter \\#2 \\$fwPrefix of method Ease\\\\WebPage\\:\\:includeCss\\(\\) expects bool, string given\\.$#"
+			count: 1
+			path: tests/src/Ease/WebPageTest.php

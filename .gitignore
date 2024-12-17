@@ -25,3 +25,4 @@ tests/test.sqlite-wal
 debian/php-vitexsoftware-ease-fluentpdo-dev.debhelper.log
 debian/php-vitexsoftware-ease-fluentpdo-dev.substvars
 /tests/test.sqlite
+/.build/

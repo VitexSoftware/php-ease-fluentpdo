@@ -1,16 +1,22 @@
 <?php
 
+declare(strict_types=1);
+
 /**
- * Obsluha SQL PDO.
+ * This file is part of the EaseFluentPDO package
  *
- * @author    Vitex <vitex@hippy.cz>
- * @copyright 2015-2024 Vitex@hippy.cz (G)
+ * https://github.com/VitexSoftware/php-ease-fluentpdo
+ *
+ * (c) Vítězslav Dvořák <http://vitexsoftware.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
  */
 
 namespace Ease\SQL;
 
 /**
- * PDO Helper Class
+ * PDO Helper Class.
  *
  * @author Vitex <vitex@hippy.cz>
  */
@@ -18,53 +24,41 @@ class PDO extends SQL
 {
     /**
      * DBO class instance.
-     *
-     * @var \PDO|null
      */
-    public $pdo = null;
+    public ?\PDO $pdo = null;
 
     /**
      * SQLLink result.
-     *
-     * @var \PDOStatement
      */
-    public $result = null;
+    public \PDOStatement $result = null;
 
     /**
      * Connected state ?
-     * @var bool
      */
-    public $status = false;
+    public bool $status = false;
 
     /**
-     * Last SQL query executed
-     * @var string
+     * Last SQL query executed.
      */
-    public $lastQuery = '';
+    public string $lastQuery = '';
 
     /**
-     * Last Query result length
-     * @var int
+     * Last Query result length.
      */
-    public $numRows = 0;
+    public int $numRows = 0;
 
     /**
-     * Debug mode
-     * @var boolean
+     * Debug mode.
      */
-    public $debug = false;
+    public bool $debug = false;
 
     /**
      * KeyColumn used for postgresql insert id.
-     *
-     * @var string
      */
-    public $keyColumn = null;
+    public string $keyColumn = null;
 
     /**
      * Table used for postgresql insert id.
-     *
-     * @var string
      */
     public string $myTable = null;
     public ?string $data = null;
@@ -77,28 +71,47 @@ class PDO extends SQL
     public bool $explainMode = false;
 
     /**
-     * Saves obejct instace (singleton...).
-     */
-    private static $_instance = null;
-
-    /**
      * Database Type: mysql|sqlite|etc ...
-     *
-     * @var string
      */
     public string $dbType = '';
 
     /**
-     *
-     * @var string
+     * Saves obejct instace (singleton...).
      */
+    private static $_instance;
     private string $errorText;
+
+    /**
+     * Virtuální funkce.
+     */
+    public function __destruct(): void
+    {
+        $this->pdo = null;
+        $this->result = null;
+    }
+
+    /**
+     * You cannot serialize or unserialize PDO instance.
+     *
+     * @return array fields to serialize
+     */
+    public function __sleep()
+    {
+        return parent::__sleep();
+    }
+
+    public function __wakeup(): void
+    {
+        $this->setUp();
+    }
 
     /**
      * Pri vytvareni objektu pomoci funkce singleton (ma stejne parametry, jako konstruktor)
      * se bude v ramci behu programu pouzivat pouze jedna jeho instance (ta prvni).
      *
-     * @link http://docs.php.net/en/language.oop5.patterns.html Dokumentace a priklad
+     * @see http://docs.php.net/en/language.oop5.patterns.html Dokumentace a priklad
+     *
+     * @param mixed $options
      */
     public static function singleton($options = [])
     {
@@ -112,14 +125,16 @@ class PDO extends SQL
 
     /**
      * Set KeyColumn used for PGSQL indertid.
-     * @return boolean Operation success
+     *
+     * @return bool Operation success
      */
     public function setKeyColumn(string $column): bool
     {
         if ($column) {
             $this->keyColumn = $column;
         }
-        return $this->keyColumn == $column;
+
+        return $this->keyColumn === $column;
     }
 
     /**
@@ -130,15 +145,16 @@ class PDO extends SQL
         if (!empty($tablename)) {
             $this->myTable = $tablename;
         }
+
         return true;
     }
 
     /**
      * Escapes special characters in a string for use in an SQL statement.
      *
-     * @param string $text
-     *
      * @deprecated since version 0.1
+     *
+     * @param string $text
      *
      * @return string
      */
@@ -155,40 +171,50 @@ class PDO extends SQL
 
     /**
      * Změní aktuálně použitou databázi.
+     *
+     * @param null|mixed $dbName
      */
     public function selectDB($dbName = null): bool
     {
         $change = false;
         parent::selectDB($dbName);
+
         if (method_exists($this->pdo, 'select_db')) {
             $change = $this->pdo->select_db($dbName);
+
             if ($change) {
                 $this->database = $dbName;
             } else {
                 if (property_exists($this->pdo, 'error')) {
                     $this->errorText = $this->pdo->error;
                 }
+
                 if (property_exists($this->pdo, 'errno')) {
                     $this->errorNumber = $this->pdo->errno;
                 }
             }
         }
+
         return $change;
     }
 
     /**
      * Poslední genrované ID.
+     *
+     * @param null|mixed $column
      */
     public function getlastInsertID($column = null): ?int
     {
         switch ($this->dbType) {
             case 'pgsql':
-                if (is_null($column)) {
-                    $column = $this->myTable . '_' . $this->keyColumn . '_seq';
+                if (null === $column) {
+                    $column = $this->myTable.'_'.$this->keyColumn.'_seq';
                 } else {
-                    $column = $this->myTable . '_' . $column . '_seq';
+                    $column = $this->myTable.'_'.$column.'_seq';
                 }
+
                 break;
+
             default:
                 break;
         }
@@ -202,32 +228,5 @@ class PDO extends SQL
     public function close(): bool
     {
         return $this->pdo = null;
-    }
-
-    /**
-     * Virtuální funkce.
-     */
-    public function __destruct(): void
-    {
-        unset($this->pdo);
-        unset($this->result);
-    }
-
-    /**
-     * You cannot serialize or unserialize PDO instance.
-     *
-     * @return array fields to serialize
-     */
-    public function __sleep()
-    {
-        return parent::__sleep();
-    }
-
-    /**
-     *
-     */
-    public function __wakeup()
-    {
-        $this->setUp();
     }
 }
