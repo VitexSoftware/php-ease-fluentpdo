@@ -19,7 +19,7 @@ if (file_exists('./vendor/autoload.php')) {
     include_once '../vendor/autoload.php';
 }
 
-\Ease\Shared::init(['DB_CONNECTION','DB_DATABASE'],__DIR__.'/.env', true);
+\Ease\Shared::init(['DB_CONNECTION', 'DB_DATABASE'], __DIR__.'/.env', true);
 
 $prefix = file_exists('./tests/') ? './tests/' : '../tests/';
 
