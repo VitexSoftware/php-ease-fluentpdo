@@ -143,7 +143,7 @@ trait Orm
                     $this->dbType.':dbname='.$this->database.';host='.$this->server.';port='.$this->port.';charset=utf8'.$dbSettings,
                     $this->dbLogin,
                     $this->dbPass,
-                    [\PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES \'utf8\'', \PDO::ATTR_PERSISTENT => true],
+                    [\PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES \'utf8mb4\'', \PDO::ATTR_PERSISTENT => true],
                 );
 
                 break;
