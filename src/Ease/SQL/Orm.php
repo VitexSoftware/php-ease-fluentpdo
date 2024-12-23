@@ -544,7 +544,7 @@ trait Orm
      *
      * @return int number of occurrences
      */
-    public function recordExists($data = [])
+    public function recordExists($data): bool
     {
         switch (\gettype($data)) {
             case 'string':
