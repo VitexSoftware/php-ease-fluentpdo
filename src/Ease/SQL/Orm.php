@@ -209,14 +209,14 @@ trait Orm
     /**
      * (init &) Get PDO instance.
      *
-     * @param array $propeties $name Connection Properties
+     * @param array<string,string> $properties $name Connection Properties
      *
      * @return \PDO
      */
-    public function getPdo($propeties = [])
+    public function getPdo($properties = [])
     {
         if (($this->pdo instanceof \PDO) === false) {
-            $this->pdo = $this->pdoConnect($propeties);
+            $this->pdo = $this->pdoConnect($properties);
         }
 
         return $this->pdo;
@@ -259,7 +259,7 @@ trait Orm
      * Get database columns values by conditions.
      *
      * @param array<string>    $columnsList column names listing
-     * @param array|int|string $conditions  conditions or ID
+     * @param array<string,string|int>|int|string $conditions  conditions or ID
      * @param array|string     $orderBy     sort by
      * @param string           $indexBy     result keys by row keys
      * @param int              $limit       maximum number of results
@@ -354,13 +354,13 @@ trait Orm
     /**
      * Insert current data into Database and load actual record data back.
      *
-     * @param array $data Initial data to save
+     * @param array<string,string|int> $data Initial data to save
      *
      * @return bool Operation success
      */
-    public function dbsync($data = null)
+    public function dbsync(array $data = []): bool
     {
-        return $this->saveToSQL(null === $data ? $this->getData() : $data) && $this->dbreload();
+        return $this->saveToSQL($data ? $data : $this->getData()) && $this->dbreload();
     }
 
     /**

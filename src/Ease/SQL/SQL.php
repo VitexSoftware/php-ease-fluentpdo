@@ -257,7 +257,7 @@ abstract class SQL extends \Ease\Molecule
      *
      * @return int number of rows
      */
-    public function getLastQuery()
+    public function getLastQuery(): string
     {
         return $this->lastQuery;
     }
