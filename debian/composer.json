@@ -20,6 +20,5 @@
   },
   "conflict": {
     "deb/ease-framework": "*"
-  },
-  "address": "1.1"
+  }
 }
