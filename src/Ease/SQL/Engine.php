@@ -120,6 +120,7 @@ class Engine extends \Ease\Brick
 
                 break;
             case 'id':
+            case 'uuid':
                 $this->loadFromSQL($identifier);
 
                 break;
@@ -149,6 +150,8 @@ class Engine extends \Ease\Brick
             case 'string':
                 if (!empty($this->nameColumn)) {
                     $recognizedAs = 'name';
+                } elseif (\Ease\Functions::isUuid($identifier)) {
+                    $recognizedAs = 'uuid';
                 }
 
                 break;
