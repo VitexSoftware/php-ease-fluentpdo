@@ -1,5 +1,5 @@
 Source: php-vitexsoftware-ease-fluentpdo
-Build-Depends: debhelper (>= 7.0.50~), composer, phpdocumentor
+Build-Depends: debhelper (>= 7.0.50~), composer, #phpdocumentor
 Section: web
 Standards-Version: 3.9.8
 Maintainer: Vítězslav Dvořák <info@vitexsoftware.cz>
@@ -17,14 +17,14 @@ Priority: optional
 Description: Database support for EasePHP Framework
  FluentPDO adapter for ease framework with ORM and Enginge classes
 
-Package: php-vitexsoftware-ease-fluentpdo-doc
-Depends: ${misc:Depends}
-Architecture: all
-Suggests: www-browser
-Section: doc
-Priority: optional
-Description: Ease FluentPDO Documentation
- Ease FluentPDO apigen documentation.
+#Package: php-vitexsoftware-ease-fluentpdo-doc
+#Depends: ${misc:Depends}
+#Architecture: all
+#Suggests: www-browser
+#Section: doc
+#Priority: optional
+#Description: Ease FluentPDO Documentation
+# Ease FluentPDO apigen documentation.
 
 #Package: php-vitexsoftware-ease-fluentpdo-dev
 #Depends: ${misc:Depends}, php-vitexsoftware-ease-fluentpdo, phpunit, php-pdo-sqlite
