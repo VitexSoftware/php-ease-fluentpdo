@@ -22,6 +22,6 @@ override_dh_test:
 	dh_test
 
 override_dh_install:
-	jq '.version = "'`dpkg-parsechangelog | sed -n 's/^Version: //p'| sed 's/~.*//' `'"'  debian/composer.json |sponge debian/composer.json
 	dh_install
+	jq '.version = "'`dpkg-parsechangelog | sed -n 's/^Version: //p'| sed 's/~.*//' `'"'  debian/composer.json |sponge debian/php-vitexsoftware-ease-fluentpdo/usr/share/php/EaseFluentPDO/composer.json
 	#dev: sed -i 's/\.\.\/vendor\//\/var\/lib\/composer\/php-vitexsoftware-ease-fluentpdo-dev\//' debian/php-vitexsoftware-ease-fluentpdo-dev/usr/lib/php-vitexsoftware-ease-fluentpdo-dev/phinx-adapter.php

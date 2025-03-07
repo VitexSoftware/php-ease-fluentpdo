@@ -1,7 +1,6 @@
 {
   "name": "deb/ease-fluentpdo",
   "description": "SQL/PDO support for Ease Framework based on FluentPDO",
-  "version": "1.4.0",
   "authors": [
     {
       "name": "Vitex",
