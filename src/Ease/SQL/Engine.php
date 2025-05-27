@@ -50,6 +50,7 @@ class Engine extends \Ease\Brick
         } else {
             $this->useIdentifier($identifier);
         }
+        $this->setObjectName();
     }
 
     /**

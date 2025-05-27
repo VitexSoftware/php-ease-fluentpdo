@@ -209,7 +209,7 @@ trait Orm
     /**
      * (init &) Get PDO instance.
      *
-     * @param array<string,string> $properties $name Connection Properties
+     * @param array<string, string> $properties $name Connection Properties
      *
      * @return \PDO
      */
@@ -258,11 +258,11 @@ trait Orm
     /**
      * Get database columns values by conditions.
      *
-     * @param array<string>    $columnsList column names listing
-     * @param array<string,string|int>|int|string $conditions  conditions or ID
-     * @param array|string     $orderBy     sort by
-     * @param string           $indexBy     result keys by row keys
-     * @param int              $limit       maximum number of results
+     * @param array<string>                        $columnsList column names listing
+     * @param array<string, int|string>|int|string $conditions  conditions or ID
+     * @param array|string                         $orderBy     sort by
+     * @param string                               $indexBy     result keys by row keys
+     * @param int                                  $limit       maximum number of results
      *
      * @return array<string, string>
      */
@@ -354,13 +354,13 @@ trait Orm
     /**
      * Insert current data into Database and load actual record data back.
      *
-     * @param array<string,string|int> $data Initial data to save
+     * @param array<string, int|string> $data Initial data to save
      *
      * @return bool Operation success
      */
     public function dbsync(array $data = []): bool
     {
-        return $this->saveToSQL($data ? $data : $this->getData()) && $this->dbreload();
+        return $this->saveToSQL($data ?: $this->getData()) && $this->dbreload();
     }
 
     /**
@@ -562,6 +562,6 @@ trait Orm
                 break;
         }
 
-        return $this->listingQuery()->where($cond)->count();
+        return $this->listingQuery()->where($cond)->count() !== 0;
     }
 }
