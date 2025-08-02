@@ -140,7 +140,7 @@ trait Orm
         switch ($this->dbType) {
             case 'mysql':
                 $result = new \PDO(
-                    $this->dbType.':dbname='.$this->database.';host='.$this->server.';port='.$this->port.';charset=utf8'.$dbSettings,
+                    $this->dbType.':dbname='.$this->database.($this->server ? ';host='.$this->server : '').($this->port ? ';port='.$this->port : '').';charset=utf8'.$dbSettings,
                     $this->dbLogin,
                     $this->dbPass,
                     [\PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES \'utf8mb4\'', \PDO::ATTR_PERSISTENT => true],
@@ -149,7 +149,7 @@ trait Orm
                 break;
             case 'pgsql':
                 $result = new \PDO(
-                    $this->dbType.':dbname='.$this->database.';host='.$this->server.';port='.$this->port.$dbSettings,
+                    $this->dbType.':dbname='.$this->database.($this->server ? ';host='.$this->server : '').($this->port ? ';port='.$this->port : '').$dbSettings,
                     $this->dbLogin,
                     $this->dbPass,
                 );
