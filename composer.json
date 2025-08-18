@@ -11,7 +11,7 @@
     "minimum-stability": "stable",
     "require": {
         "php": ">=7.4",
-        "vitexsoftware/ease-core": ">=1.48",
+        "vitexsoftware/ease-core": ">=1.49.0",
         "fpdo/fluentpdo": ">=2.2.4"
     },
     "require-dev": {
