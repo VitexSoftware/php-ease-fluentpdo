@@ -1,6 +1,6 @@
 #!groovy
 
-// Current version of this Pipeline https://raw.githubusercontent.com/VitexSoftware/multiflexi-buildimages/refs/heads/main/Test/multiflexi-halloworld/Jenkinsfile
+// Current version of this Pipeline https://github.com/VitexSoftware/BuildImages/blob/main/Test/Jenkinsfile-parael
 
 String[] distributions = ['debian:bookworm', 'debian:trixie', 'debian:forky', 'ubuntu:jammy', 'ubuntu:noble']
 
@@ -103,16 +103,3 @@ distributions.each { distro ->
     }
 }
 parallel branches
-
-if (!currentBuild.result || currentBuild.result == 'SUCCESS') {
-    build job: 'MultiFlexi-publish',
-      wait: false,
-      parameters: [
-        string(name: 'UPSTREAM_JOB', value: env.JOB_NAME),
-        string(name: 'UPSTREAM_BUILD', value: env.BUILD_NUMBER),
-        string(name: 'REMOTE_SSH', value: 'multirepo@repo.multiflexi.eu'),
-        string(name: 'REMOTE_REPO_DIR', value: '/srv/repo'),
-        string(name: 'COMPONENT', value: 'main'),
-        string(name: 'DEB_DIST', value: '')
-      ]
-}
