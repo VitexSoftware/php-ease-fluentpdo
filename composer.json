@@ -10,9 +10,9 @@
     "license": "MIT",
     "minimum-stability": "stable",
     "require": {
-        "php": ">=7.4",
+        "php": ">=8.1",
         "vitexsoftware/ease-core": ">=1.49.0",
-        "fpdo/fluentpdo": ">=2.2.4"
+        "vitexsoftware/fluentpdo": "^3.0.0"
     },
     "require-dev": {
         "phpunit/phpunit": "*",

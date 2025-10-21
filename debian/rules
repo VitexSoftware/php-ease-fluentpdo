@@ -9,12 +9,11 @@ override_dh_clean:
 	rm -rf debian/test/vendor
 	dh_clean
 
-#override_dh_prep:
-#	mkdir -p docs
-#	rm -rf docs/*
-#	phpdoc -d src --defaultpackagename=MainPackage
-#	mv .phpdoc/build/* docs
-#	dh_prep
+override_dh_prep:
+	mkdir -p docs
+	rm -rf docs/*
+	phpdoc -d src --target=docs --defaultpackagename=EaseFluentPDO --title="Ease FluentPDO Documentation"
+	dh_prep
 
 override_dh_test:
 	composer --working-dir=debian/test update

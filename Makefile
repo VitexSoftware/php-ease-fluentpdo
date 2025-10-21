@@ -23,6 +23,12 @@ vendor: composer.json composer.lock ## Installs composer dependencies
 cs: ## Update Coding Standards
 	vendor/bin/php-cs-fixer fix --config=.php-cs-fixer.dist.php --diff --verbose
 
+.PHONY: docs
+docs: ## Generate documentation using phpDocumentor
+	mkdir -p docs
+	rm -rf docs/*
+	phpdoc -d src --target=docs --defaultpackagename=EaseFluentPDO --title="Ease FluentPDO Documentation"
+
 
 composer:
 	composer install
@@ -48,5 +54,5 @@ phpunit: composer migration seed
 autoload:
 	composer update
 
-packages:
+packages: docs
 	debuild -us -uc
