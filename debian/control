@@ -9,7 +9,7 @@ Priority: optional
 Homepage: https://github.com/VitexSoftware/php-ease-fluentpdo
 
 Package: php-vitexsoftware-ease-fluentpdo
-Depends: ${misc:Depends},php-vitexsoftware-ease-core (>= 1.40),php-pdo, php-pdo-mysql|php-pdo-pgsql|php-pdo-sqlite|php-pdo-sqlserver
+Depends: ${misc:Depends},php-vitexsoftware-ease-core (>= 1.40),php-vitexsoftware-fluentpdo
 Architecture: all
 Conflicts: ease-framework
 Replaces: php-ease-fluentpdo
@@ -18,14 +18,14 @@ Priority: optional
 Description: Database support for EasePHP Framework
  FluentPDO adapter for ease framework with ORM and Enginge classes
 
-#Package: php-vitexsoftware-ease-fluentpdo-doc
-#Depends: ${misc:Depends}
-#Architecture: all
-#Suggests: www-browser
-#Section: doc
-#Priority: optional
-#Description: Ease FluentPDO Documentation
-# Ease FluentPDO apigen documentation.
+Package: php-vitexsoftware-ease-fluentpdo-doc
+Depends: ${misc:Depends}
+Architecture: all
+Suggests: www-browser
+Section: doc
+Priority: optional
+Description: Ease FluentPDO Documentation
+ Ease FluentPDO apigen documentation.
 
 #Package: php-vitexsoftware-ease-fluentpdo-dev
 #Depends: ${misc:Depends}, php-vitexsoftware-ease-fluentpdo, phpunit, php-pdo-sqlite

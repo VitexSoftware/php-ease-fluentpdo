@@ -8,5 +8,5 @@ docs/js/*		usr/share/doc/php-vitexsoftware-ease-fluentpdo/html/js
 docs/namespaces/*	usr/share/doc/php-vitexsoftware-ease-fluentpdo/html/namespaces
 docs/packages/*		usr/share/doc/php-vitexsoftware-ease-fluentpdo/html/packages
 docs/reports/*		usr/share/doc/php-vitexsoftware-ease-fluentpdo/html/report
-debian/php-vitexsoftware-ease-fluentpdo-doc.conf	usr/share/doc/ease-fluentpdo/apache
+debian/php-vitexsoftware-ease-fluentpdo-doc.conf	/etc/apache2/conf-available/
 README.md		usr/share/doc/php-vitexsoftware-ease-fluentpdo

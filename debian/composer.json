@@ -9,7 +9,7 @@
   ],
   "require": {
     "deb/ease-core": "*",
-    "fpdo/fluentpdo": "*"
+    "deb/fluentpdo": "*"
   },
   "autoload": {
     "psr-4": {
@@ -17,7 +17,14 @@
       "Ease\\Logger\\": "./Logger"
     }
   },
-  "conflict": {
-    "deb/ease-framework": "*"
-  }
+  "repositories": [
+    {
+      "type": "path",
+      "url": "/usr/share/php/EaseCore"
+    },
+    {
+      "type": "path",
+      "url": "/usr/share/php/FluentPDO"
+    }
+  ]
 }
