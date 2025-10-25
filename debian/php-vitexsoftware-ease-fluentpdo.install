@@ -1,3 +1,4 @@
 src/Ease/SQL/*		usr/share/php/EaseFluentPDO/
 src/Ease/Logger/*	usr/share/php/EaseFluentPDO/Logger/
 debian/composer.json	usr/share/php/EaseFluentPDO/
+debian/autoload.php	usr/share/php/EaseFluentPDO/
