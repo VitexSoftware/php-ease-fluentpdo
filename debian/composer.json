@@ -16,7 +16,7 @@
       "Ease\\Logger\\": "./Logger"
     },
     "files": [
-      "/usr/share/php/Envms/FluentPDO/autoload.php"
+      "autoload.php"
     ]
   },
   "repositories": [

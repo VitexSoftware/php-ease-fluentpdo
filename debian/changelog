@@ -1,3 +1,9 @@
+php-vitexsoftware-ease-fluentpdo (1.4.5) UNRELEASED; urgency=medium
+
+  * Add FluentPDO autoloader to Composer files section
+
+ -- Vítězslav Vitex Dvořák <info@vitexsoftware.cz>  Sat, 25 Oct 2025 16:20:48 +0200
+
 php-vitexsoftware-ease-fluentpdo (1.4.4) noble; urgency=medium
 
   * Remove deb/fluentpdo dependency (now uses native Debian autoloading)
