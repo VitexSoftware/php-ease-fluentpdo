@@ -8,8 +8,7 @@
     }
   ],
   "require": {
-    "deb/ease-core": "*",
-    "deb/fluentpdo": "*"
+    "deb/ease-core": "*"
   },
   "autoload": {
     "psr-4": {
@@ -21,10 +20,6 @@
     {
       "type": "path",
       "url": "/usr/share/php/EaseCore"
-    },
-    {
-      "type": "path",
-      "url": "/usr/share/php/FluentPDO"
     }
   ]
 }

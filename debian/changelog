@@ -1,8 +1,9 @@
-php-vitexsoftware-ease-fluentpdo (1.4.3) UNRELEASED; urgency=medium
+php-vitexsoftware-ease-fluentpdo (1.4.4) noble; urgency=medium
 
+  * Remove deb/fluentpdo dependency (now uses native Debian autoloading)
   * vitexsoftware/fluentpdo used instead of evms/fluentpdo
 
- -- vitex <info@vitexsoftware.cz>  Wed, 22 Oct 2025 01:42:09 +0200
+ -- Vítězslav Vitex Dvořák <info@vitexsoftware.cz>  Sat, 25 Oct 2025 16:01:01 +0200
 
 php-vitexsoftware-ease-fluentpdo (1.4.2) noble; urgency=medium
 
