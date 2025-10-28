@@ -35,6 +35,11 @@ class Engine extends \Ease\Brick
     public ?string $createColumn = null;
 
     /**
+     * Record last modification time column.
+     */
+    public ?string $lastModifiedColumn = null;
+
+    /**
      * Database object.
      *
      * @param mixed $identifier
