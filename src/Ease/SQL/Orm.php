@@ -143,7 +143,7 @@ trait Orm
                     $this->dbType.':dbname='.$this->database.($this->server ? ';host='.$this->server : '').($this->port ? ';port='.$this->port : '').';charset=utf8'.$dbSettings,
                     $this->dbLogin,
                     $this->dbPass,
-                    [\PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES \'utf8mb4\'', \PDO::ATTR_PERSISTENT => (bool)\Ease\Shared::cfg('DB_PERSISTENT', true)],
+                    [\PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES \'utf8mb4\'', \PDO::ATTR_PERSISTENT => (bool) \Ease\Shared::cfg('DB_PERSISTENT', true)],
                 );
 
                 break;
@@ -215,14 +215,13 @@ trait Orm
      */
     public function getPdo($properties = [])
     {
-        if((bool)\Ease\Shared::cfg('DB_PERSISTENT', true)) {
+        if ((bool) \Ease\Shared::cfg('DB_PERSISTENT', true)) {
             if (($this->pdo instanceof \PDO) === false) {
                 $this->pdo = $this->pdoConnect($properties);
             }
         } else {
             $this->pdo = $this->pdoConnect($properties);
         }
-        
 
         return $this->pdo;
     }
@@ -269,7 +268,7 @@ trait Orm
      * @param string                               $indexBy     result keys by row keys
      * @param int                                  $limit       maximum number of results
      *
-     * @return array<string, string>
+     * @return array<string, <string,string>>
      */
     public function getColumnsFromSQL(
         array $columnsList,
