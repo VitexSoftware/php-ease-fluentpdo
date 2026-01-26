@@ -49,12 +49,12 @@ distributions.each { distro ->
                 }
 
                 stage("Build ${distro}") {
-                    buildImage.inside {
+                    buildImage.inside('--ipc=host') {
                         sh """
                             dch -b -v ${buildVer} "${env.BUILD_TAG}"
                             sudo apt-get update --allow-releaseinfo-change
-                            sudo chown jenkins:jenkins ..
-                            debuild-pbuilder -i -us -uc -b
+                            sudo chown -R jenkins:jenkins . ..
+                            debuild-pbuilder -r'sudo -E' -i -us -uc -b
                             mkdir -p \$WORKSPACE/dist/debian/
                             rm -rf \$WORKSPACE/dist/debian/*
                             for deb in \$(awk '{print \$1}' debian/files); do
@@ -69,7 +69,7 @@ distributions.each { distro ->
                 }
 
                 stage("Test ${distro}") {
-                    buildImage.inside {
+                    buildImage.inside('--ipc=host') {
                         def debconf_debug = 0
                         sh """
                             cd \$WORKSPACE/dist/debian/
@@ -98,7 +98,7 @@ distributions.each { distro ->
                 }
 
                 stage("Archive artifacts ${distro}") {
-                    buildImage.inside {
+                    buildImage.inside('--ipc=host') {
                         artifacts.each { deb_file ->
                             println "Archiving artifact: ${deb_file}"
                             archiveArtifacts artifacts: "dist/debian/${deb_file}"
