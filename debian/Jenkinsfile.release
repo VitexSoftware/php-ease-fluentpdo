@@ -12,6 +12,7 @@ properties([
 node() {
     ansiColor('xterm') {
         stage('SCM Checkout') {
+            sh 'sudo chown -R jenkins:jenkins . || true'
             checkout scm
         }
     }
