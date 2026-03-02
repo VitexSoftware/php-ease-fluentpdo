@@ -33,6 +33,7 @@ distributions.each { distro ->
         node {
             ansiColor('xterm') {
                 stage('Checkout ' + distroName) {
+                    sh 'sudo chown -R jenkins:jenkins . || true'
                     checkout scm
                     def imageName = vendor + '/' + imagePrefix + dist[0] + ':' + distroCode
                     buildImage = docker.image(imageName)
