@@ -1,11 +1,19 @@
 Source: php-vitexsoftware-ease-fluentpdo
-Build-Depends: debhelper (>= 7.0.50~), composer, moreutils, jq, phpdocumentor
-Section: web
-Standards-Version: 3.9.8
+Section: php
+Priority: optional
 Maintainer: Vítězslav Dvořák <info@vitexsoftware.cz>
 Uploaders: Vitex <vitex@hippy.cz>
-Priority: optional
+Build-Depends:
+ debhelper-compat (= 13),
+ pkg-php-tools (>= 1.7~),
+ phpab,
+ composer,
+ moreutils,
+ jq,
+ phpdocumentor,
+Standards-Version: 4.7.0
 Homepage: https://github.com/VitexSoftware/php-ease-fluentpdo
+Rules-Requires-Root: no
 
 Package: php-vitexsoftware-ease-fluentpdo
 Depends: ${misc:Depends},php-vitexsoftware-ease-core (>= 1.40),php-vitexsoftware-fluentpdo

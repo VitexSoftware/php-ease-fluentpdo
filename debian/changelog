@@ -1,4 +1,4 @@
-php-vitexsoftware-ease-fluentpdo (1.4.5) UNRELEASED; urgency=medium
+php-vitexsoftware-ease-fluentpdo (1.4.5) unstable; urgency=medium
 
   * Add FluentPDO autoloader to Composer files section
 
