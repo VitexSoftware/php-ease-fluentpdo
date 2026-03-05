@@ -23,9 +23,5 @@ override_dh_test:
 override_dh_install:
 	dh_install
 	jq '.version = "'`dpkg-parsechangelog | sed -n 's/^Version: //p'| sed 's/~.*//' `'"'  debian/composer.json |sponge debian/php-vitexsoftware-ease-fluentpdo/usr/share/php/EaseFluentPDO/composer.json
-	phpab --output debian/php-vitexsoftware-ease-fluentpdo/usr/share/php/EaseFluentPDO/autoload.php \
-		--basedir debian/php-vitexsoftware-ease-fluentpdo/usr/share/php/EaseFluentPDO \
-		--tolerant \
-		debian/php-vitexsoftware-ease-fluentpdo/usr/share/php/EaseFluentPDO
 	install -m0755 -d debian/php-vitexsoftware-ease-fluentpdo/usr/share/pkg-php-tools/autoloaders
 	echo 'vitexsoftware ease-fluentpdo EaseFluentPDO/autoload.php' > debian/php-vitexsoftware-ease-fluentpdo/usr/share/pkg-php-tools/autoloaders/php-vitexsoftware-ease-fluentpdo
