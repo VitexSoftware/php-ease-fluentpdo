@@ -6,15 +6,8 @@
  * This file ensures system FluentPDO is loaded before this package's classes
  */
 
-// Load system FluentPDO from Debian package
-if (file_exists('/usr/share/php/Envms/FluentPDO/autoload.php')) {
     require_once '/usr/share/php/Envms/FluentPDO/autoload.php';
-}
-
-// Load Ease Core from Debian package
-if (file_exists('/usr/share/php/EaseCore/autoload.php')) {
     require_once '/usr/share/php/EaseCore/autoload.php';
-}
 
 // Register this package's autoloader
 spl_autoload_register(function ($class) {
