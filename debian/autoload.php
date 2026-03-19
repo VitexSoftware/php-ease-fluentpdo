@@ -7,7 +7,7 @@
  */
 
 require_once '/usr/share/php/Envms/FluentPDO/autoload.php';
-require_once '/usr/share/php/EaseCore/autoload.php';
+require_once '/usr/share/php/Ease/autoload.php';
 
 // Register this package's autoloader
 spl_autoload_register(function ($class) {
