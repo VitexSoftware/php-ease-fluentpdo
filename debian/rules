@@ -2,6 +2,9 @@
 
 #dpkg-parsechangelog | sed -n 's/^Version: //p'
 
+PKG_VERSION := $(shell dpkg-parsechangelog -S Version | sed 's/~.*//')
+PKG_SOURCE  := $(shell dpkg-parsechangelog -S Source)
+
 %:
 	dh $@ --with phpcomposer
 
@@ -22,6 +25,10 @@ override_dh_test:
 
 override_dh_install:
 	dh_install
+	sed -i "1a defined('APP_NAME') || define('APP_NAME', '$(PKG_SOURCE)');" \
+		debian/php-vitexsoftware-ease-fluentpdo/usr/share/php/EaseFluentPDO/autoload.php
+	sed -i "2a defined('APP_VERSION') || define('APP_VERSION', '$(PKG_VERSION)');" \
+		debian/php-vitexsoftware-ease-fluentpdo/usr/share/php/EaseFluentPDO/autoload.php
 	jq '.version = "'`dpkg-parsechangelog | sed -n 's/^Version: //p'| sed 's/~.*//' `'"'  debian/composer.json |sponge debian/php-vitexsoftware-ease-fluentpdo/usr/share/php/EaseFluentPDO/composer.json
 	install -m0755 -d debian/php-vitexsoftware-ease-fluentpdo/usr/share/pkg-php-tools/autoloaders
 	echo 'vitexsoftware ease-fluentpdo EaseFluentPDO/autoload.php' > debian/php-vitexsoftware-ease-fluentpdo/usr/share/pkg-php-tools/autoloaders/php-vitexsoftware-ease-fluentpdo
