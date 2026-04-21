@@ -44,7 +44,7 @@ require_once '/usr/share/php/Composer/InstalledVersions.php';
     foreach (\Composer\InstalledVersions::getAllRawData() as $d) {
         $versions = array_merge($versions, $d['versions'] ?? []);
     }
-    $name    = defined('APP_NAME') ? APP_NAME    : 'unknown';
+    $name    = 'unknown';
     $version = defined('APP_VERSION') ? APP_VERSION : '0.0.0';
     $versions[$name] = ['pretty_version' => $version, 'version' => $version,
         'reference' => null, 'type' => 'library', 'install_path' => __DIR__,
