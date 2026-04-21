@@ -3,7 +3,7 @@
 #dpkg-parsechangelog | sed -n 's/^Version: //p'
 
 PKG_VERSION := $(shell dpkg-parsechangelog -S Version | sed 's/~.*//')
-PKG_SOURCE  := $(shell dpkg-parsechangelog -S Source)
+PKG_SOURCE  := $(shell jq -r '.name' composer.json)
 
 %:
 	dh $@ --with phpcomposer
