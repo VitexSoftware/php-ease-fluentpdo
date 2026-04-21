@@ -45,7 +45,7 @@ require_once '/usr/share/php/Composer/InstalledVersions.php';
         $versions = array_merge($versions, $d['versions'] ?? []);
     }
     $name    = 'unknown';
-    $version = defined('APP_VERSION') ? APP_VERSION : '0.0.0';
+    $version = '0.0.0';
     $versions[$name] = ['pretty_version' => $version, 'version' => $version,
         'reference' => null, 'type' => 'library', 'install_path' => __DIR__,
         'aliases' => [], 'dev_requirement' => false];
