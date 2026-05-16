@@ -7,7 +7,7 @@ String[] distributions = [
     'debian:trixie',
     'debian:forky',
     'ubuntu:jammy',
-    'ubuntu:noble', 
+    'ubuntu:noble',
     'ubuntu:resolute'
 ]
 
@@ -15,7 +15,13 @@ String vendor = 'vitexsoftware'
 String imagePrefix = 'multiflexi-'
 
 properties([
-    copyArtifactPermission('*')
+    copyArtifactPermission('*'),
+    buildBlocker(
+        useBuildBlocker: true,
+        blockLevel: 'GLOBAL',
+        scanQueueFor: 'ALL',
+        blockingJobs: 'RebulidDEBRepoByAnsible'
+    )
 ])
 
 node {
