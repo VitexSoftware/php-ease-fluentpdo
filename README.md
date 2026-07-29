@@ -1,4 +1,5 @@
 # EaseSQL - FluentPDO Integration
+![Packaging: deb](https://img.shields.io/badge/packaging-.deb-red?logo=debian&logoColor=white)
 
 SQL/PDO Support for EasePHP Framework using FluentPDO
 
