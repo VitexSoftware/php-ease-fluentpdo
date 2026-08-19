@@ -10,7 +10,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 - Comprehensive documentation updates
 - Enhanced README with usage examples and API reference
-- Detailed WARP.md for AI development assistance
+- Detailed AGENTS.md for AI development assistance
 - Configuration examples for multiple database types
 
 ### Changed

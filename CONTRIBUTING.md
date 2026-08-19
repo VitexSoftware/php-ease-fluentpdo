@@ -137,7 +137,7 @@ make newseed
 ### Project Documentation
 
 - Update `README.md` for user-facing changes
-- Update `WARP.md` for development-related changes
+- Update `AGENTS.md` for development-related changes
 - Add entries to `CHANGELOG.md` following Keep a Changelog format
 
 ## Pull Request Process

@@ -1,4 +1,4 @@
-# WARP.md - Working AI Reference for php-vitexsoftware-ease-fluentpdo
+# AGENTS.md - Working AI Reference for php-vitexsoftware-ease-fluentpdo
 
 ## Project Overview
 **Type**: PHP Project/Debian Package
